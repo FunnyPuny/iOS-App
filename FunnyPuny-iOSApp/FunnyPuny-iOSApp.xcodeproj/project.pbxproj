@@ -39,6 +39,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE6AFF2228F6123E0079FD83 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CEDAFF3628E7199C006136B3 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CE6AFF2328F6124A0079FD83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE6AFF2428F6125C0079FD83 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CEDAFF3B28E7199E006136B3 /* Assets.xcassets */,
+				CEDAFF3428E7199C006136B3 /* SceneDelegate.swift */,
+				CEDAFF3228E7199C006136B3 /* AppDelegate.swift */,
+				CEDAFF3828E7199C006136B3 /* Main.storyboard */,
+				CEDAFF3D28E7199E006136B3 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		CEDAFF2628E7199C006136B3 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +85,10 @@
 		CEDAFF3128E7199C006136B3 /* FunnyPuny-iOSApp */ = {
 			isa = PBXGroup;
 			children = (
-				CEDAFF3228E7199C006136B3 /* AppDelegate.swift */,
-				CEDAFF3428E7199C006136B3 /* SceneDelegate.swift */,
-				CEDAFF3628E7199C006136B3 /* ViewController.swift */,
-				CEDAFF3828E7199C006136B3 /* Main.storyboard */,
-				CEDAFF3B28E7199E006136B3 /* Assets.xcassets */,
-				CEDAFF3D28E7199E006136B3 /* LaunchScreen.storyboard */,
 				CEDAFF4028E7199E006136B3 /* Info.plist */,
+				CE6AFF2428F6125C0079FD83 /* Application */,
+				CE6AFF2328F6124A0079FD83 /* Model */,
+				CE6AFF2228F6123E0079FD83 /* Presentation */,
 			);
 			path = "FunnyPuny-iOSApp";
 			sourceTree = "<group>";
