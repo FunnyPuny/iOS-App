@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
+class MyViewController: UIViewController {
+
+    lazy var box = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        self.view.addSubview(box)
+        box.backgroundColor = .green
+        box.snp.makeConstraints { (make) -> Void in
+           make.width.height.equalTo(50)
+           make.center.equalTo(self.view)
+        }
     }
 
-
 }
-
