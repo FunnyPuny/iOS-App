@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED733E828F5A36300B2B0D6 /* SnapKit */; };
-		CED733EB28F5A36300B2B0D6 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CED733EA28F5A36300B2B0D6 /* SnapKit-Dynamic */; };
 		CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3228E7199C006136B3 /* AppDelegate.swift */; };
 		CEDAFF3528E7199C006136B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3428E7199C006136B3 /* SceneDelegate.swift */; };
 		CEDAFF3728E7199C006136B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* ViewController.swift */; };
@@ -34,7 +33,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */,
-				CED733EB28F5A36300B2B0D6 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +87,6 @@
 			name = "FunnyPuny-iOSApp";
 			packageProductDependencies = (
 				CED733E828F5A36300B2B0D6 /* SnapKit */,
-				CED733EA28F5A36300B2B0D6 /* SnapKit-Dynamic */,
 			);
 			productName = "FunnyPuny-iOSApp";
 			productReference = CEDAFF2F28E7199C006136B3 /* FunnyPuny-iOSApp.app */;
@@ -301,6 +298,8 @@
 				DEVELOPMENT_TEAM = 538JV93T9Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FunnyPuny-iOSApp/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FunnyPuny;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -311,11 +310,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zlataguseva.FunnyPuny-iOSApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zlataguseva.FunnyPuny;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -329,6 +331,8 @@
 				DEVELOPMENT_TEAM = 538JV93T9Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FunnyPuny-iOSApp/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FunnyPuny;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -339,11 +343,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zlataguseva.FunnyPuny-iOSApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zlataguseva.FunnyPuny;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -386,11 +393,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CED733E728F5A36300B2B0D6 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		CED733EA28F5A36300B2B0D6 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CED733E728F5A36300B2B0D6 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
