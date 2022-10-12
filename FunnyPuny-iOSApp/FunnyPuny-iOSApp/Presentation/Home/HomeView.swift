@@ -6,15 +6,29 @@
 //
 
 import UIKit
+import SwiftyGif
 
 class HomeView: UIView {
     
     // MARK: - UI elements
     
-    lazy var boxView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .purple
-        return view
+    lazy var mainLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Welcome to FunnyPuny!"
+        label.textColor = .primaryText
+        label.font = .boldSystemFont(ofSize: 24)
+        return label
+    }()
+    
+    lazy var gifImageView: UIImageView = {
+        do {
+            let gif = try UIImage(gifName: "test.gif")
+            let imageView = UIImageView(gifImage: gif)
+            return imageView
+        } catch {
+            print(error)
+        }
+        return UIImageView()
     }()
     
     // MARK: - Init
@@ -39,13 +53,19 @@ class HomeView: UIView {
     }
     
     private func addSubviews() {
-        addSubview(boxView)
+        addSubview(gifImageView)
+        addSubview(mainLabel)
     }
     
     private func makeConstraints() {
-        boxView.snp.makeConstraints { make in
-            make.width.height.equalTo(50)
+        gifImageView.snp.makeConstraints { make in
+            make.width.height.equalTo(300)
             make.center.equalTo(self)
+        }
+
+        mainLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(64)
         }
     }
     
