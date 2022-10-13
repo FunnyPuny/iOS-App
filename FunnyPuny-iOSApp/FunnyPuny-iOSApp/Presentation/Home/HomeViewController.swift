@@ -1,20 +1,15 @@
-//
-//  HomeViewController.swift
-//  FunnyPuny-iOSApp
-//
-//  Created by Zlata Guseva on 30/09/2022.
-//
+// HomeViewController.swift
+// Created by Zlata Guseva on 12.10.2022.
 
-import UIKit
 import SnapKit
+import UIKit
 
 class HomeViewController: UIViewController {
-    
     lazy var homeView = HomeView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view = homeView
+        view.backgroundColor = .mainBackGround
     }
-    
 }
