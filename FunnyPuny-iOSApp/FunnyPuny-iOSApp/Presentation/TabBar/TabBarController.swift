@@ -41,7 +41,7 @@ class TabBarController: UITabBarController {
             tag: 0
         )
 
-        let thirdViewController = UIViewController()
+        let thirdViewController = ProfileViewController()
         thirdViewController.tabBarItem = UITabBarItem(
             title: "Profile",
             image: .init(systemName: "book.closed"),
