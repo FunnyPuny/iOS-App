@@ -9,7 +9,7 @@ class TabBarController: UITabBarController {
         var configuration = UIButton.Configuration.filled()
         configuration.image = .init(systemName: "plus.app")
         configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
-        configuration.baseBackgroundColor = .mainBackGround
+        configuration.baseBackgroundColor = .mainBackground
         configuration.baseForegroundColor = .gray
         button.configuration = configuration
         button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)

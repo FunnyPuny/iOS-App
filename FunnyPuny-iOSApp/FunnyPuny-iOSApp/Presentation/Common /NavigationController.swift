@@ -14,6 +14,6 @@ class NavigationController: UINavigationController {
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.primaryText]
         navigationBar.standardAppearance = appearance
         navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .mainBackGround
+        view.backgroundColor = .mainBackground
     }
 }

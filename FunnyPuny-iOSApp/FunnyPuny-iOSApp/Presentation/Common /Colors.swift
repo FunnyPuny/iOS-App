@@ -5,5 +5,5 @@ import UIKit
 
 extension UIColor {
     static let primaryText = UIColor(named: "primaryText")
-    static let mainBackGround = UIColor(named: "mainBackGround")
+    static let mainBackground = UIColor(named: "mainBackground")
 }
