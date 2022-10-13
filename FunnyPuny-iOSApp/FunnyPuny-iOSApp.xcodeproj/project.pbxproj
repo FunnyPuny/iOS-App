@@ -12,6 +12,8 @@
 		CE10452628F6FD1B006B31D6 /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE10452528F6FD1B006B31D6 /* test.gif */; };
 		CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452728F703B6006B31D6 /* TabBarController.swift */; };
 		CE10452C28F70529006B31D6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452B28F70529006B31D6 /* Colors.swift */; };
+		CE10453028F759B8006B31D6 /* AddNewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddNewHabitViewController.swift */; };
+		CE10453228F7696E006B31D6 /* AddNewHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddNewHabitView.swift */; };
 		CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED733E828F5A36300B2B0D6 /* SnapKit */; };
 		CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3228E7199C006136B3 /* AppDelegate.swift */; };
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
@@ -24,6 +26,8 @@
 		CE10452528F6FD1B006B31D6 /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test.gif; sourceTree = "<group>"; };
 		CE10452728F703B6006B31D6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CE10452B28F70529006B31D6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		CE10452F28F759B8006B31D6 /* AddNewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitViewController.swift; sourceTree = "<group>"; };
+		CE10453128F7696E006B31D6 /* AddNewHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitView.swift; sourceTree = "<group>"; };
 		CEDAFF2F28E7199C006136B3 /* FunnyPuny-iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FunnyPuny-iOSApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDAFF3228E7199C006136B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDAFF3628E7199C006136B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -69,9 +73,27 @@
 			path = "Common ";
 			sourceTree = "<group>";
 		};
+		CE10452D28F756B5006B31D6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CE10452E28F756CD006B31D6 /* AddHabit */ = {
+			isa = PBXGroup;
+			children = (
+				CE10452F28F759B8006B31D6 /* AddNewHabitViewController.swift */,
+				CE10453128F7696E006B31D6 /* AddNewHabitView.swift */,
+			);
+			path = AddHabit;
+			sourceTree = "<group>";
+		};
 		CE6AFF2228F6123E0079FD83 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CE10452E28F756CD006B31D6 /* AddHabit */,
+				CE10452D28F756B5006B31D6 /* Profile */,
 				CE10452A28F70518006B31D6 /* Common  */,
 				CE6AFF2528F6192A0079FD83 /* Home */,
 				CE10452928F703BB006B31D6 /* TabBar */,
@@ -143,6 +165,7 @@
 				CEDAFF2B28E7199C006136B3 /* Sources */,
 				CEDAFF2C28E7199C006136B3 /* Frameworks */,
 				CEDAFF2D28E7199C006136B3 /* Resources */,
+				CEE6112F28F8434A003CF0AB /* SwiftFormat */,
 			);
 			buildRules = (
 			);
@@ -207,13 +230,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CEE6112F28F8434A003CF0AB /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEDAFF2B28E7199C006136B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CE10452028F6F23E006B31D6 /* HomeView.swift in Sources */,
+				CE10453028F759B8006B31D6 /* AddNewHabitViewController.swift in Sources */,
 				CE10452C28F70529006B31D6 /* Colors.swift in Sources */,
+				CE10453228F7696E006B31D6 /* AddNewHabitView.swift in Sources */,
 				CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */,
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
 				CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */,

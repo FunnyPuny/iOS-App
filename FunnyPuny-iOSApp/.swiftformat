@@ -1,0 +1,4 @@
+# Генерируем хедер
+--header "{file}\nCreated by Zlata Guseva on {created}."
+
+--swiftversion 5.3
