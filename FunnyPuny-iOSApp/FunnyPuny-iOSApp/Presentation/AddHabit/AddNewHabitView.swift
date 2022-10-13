@@ -4,12 +4,18 @@
 import UIKit
 
 class AddNewHabitView: UIView {
-    private var mainLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Add your first Habit!"
-        label.textColor = .primaryText
-        label.font = .boldSystemFont(ofSize: 24)
-        return label
+    lazy var nameInputView: InputView = {
+        let inputView = InputView()
+        inputView.label.text = "Name"
+        inputView.textField.placeholder = "Name habit"
+        return inputView
+    }()
+
+    lazy var reminderInputView: InputView = {
+        let inputView = InputView()
+        inputView.label.text = "Reminder Note"
+        inputView.textField.placeholder = "Note"
+        return inputView
     }()
 
     override init(frame: CGRect) {
@@ -28,13 +34,19 @@ class AddNewHabitView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(mainLabel)
+        addSubview(nameInputView)
+        addSubview(reminderInputView)
     }
 
     private func makeConstraints() {
-        mainLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(256)
+        nameInputView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalToSuperview().offset(128)
+        }
+
+        reminderInputView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(nameInputView.snp.bottom).offset(32)
         }
     }
 }

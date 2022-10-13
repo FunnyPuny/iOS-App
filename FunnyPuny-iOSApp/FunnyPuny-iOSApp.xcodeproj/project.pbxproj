@@ -16,6 +16,8 @@
 		CE10453228F7696E006B31D6 /* AddNewHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddNewHabitView.swift */; };
 		CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2328F8A18600D2CE36 /* NavigationController.swift */; };
 		CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2528F8A9D100D2CE36 /* ViewController.swift */; };
+		CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2728F8AFCA00D2CE36 /* Habit.swift */; };
+		CEA71A2A28F8B75400D2CE36 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2928F8B75400D2CE36 /* InputView.swift */; };
 		CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED733E828F5A36300B2B0D6 /* SnapKit */; };
 		CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3228E7199C006136B3 /* AppDelegate.swift */; };
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
@@ -35,6 +37,8 @@
 		CE10453128F7696E006B31D6 /* AddNewHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitView.swift; sourceTree = "<group>"; };
 		CEA71A2328F8A18600D2CE36 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		CEA71A2528F8A9D100D2CE36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEA71A2728F8AFCA00D2CE36 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		CEA71A2928F8B75400D2CE36 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		CEDAFF2F28E7199C006136B3 /* FunnyPuny-iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FunnyPuny-iOSApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDAFF3228E7199C006136B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDAFF3628E7199C006136B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 				CE10452728F703B6006B31D6 /* TabBarController.swift */,
 				CEA71A2328F8A18600D2CE36 /* NavigationController.swift */,
 				CEA71A2528F8A9D100D2CE36 /* ViewController.swift */,
+				CEA71A2928F8B75400D2CE36 /* InputView.swift */,
 			);
 			path = "Common ";
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 		CE6AFF2328F6124A0079FD83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEA71A2728F8AFCA00D2CE36 /* Habit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,7 +275,9 @@
 				CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */,
 				CE10453028F759B8006B31D6 /* AddNewHabitViewController.swift in Sources */,
 				CE10452C28F70529006B31D6 /* Colors.swift in Sources */,
+				CEA71A2A28F8B75400D2CE36 /* InputView.swift in Sources */,
 				CE10453228F7696E006B31D6 /* AddNewHabitView.swift in Sources */,
+				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,
 				CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */,
 				CEE6113428F8595A003CF0AB /* ProfileViewController.swift in Sources */,
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
