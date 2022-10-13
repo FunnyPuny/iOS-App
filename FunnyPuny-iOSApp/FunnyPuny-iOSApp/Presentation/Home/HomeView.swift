@@ -5,9 +5,7 @@ import SwiftyGif
 import UIKit
 
 class HomeView: UIView {
-    // MARK: - UI elements
-
-    lazy var mainLabel: UILabel = {
+    private var mainLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome to FunnyPuny!"
         label.textColor = .primaryText
@@ -15,7 +13,7 @@ class HomeView: UIView {
         return label
     }()
 
-    lazy var gifImageView: UIImageView = {
+    private var gifImageView: UIImageView = {
         do {
             let gif = try UIImage(gifName: "test.gif")
             let imageView = UIImageView(gifImage: gif)
@@ -25,8 +23,6 @@ class HomeView: UIView {
         }
         return UIImageView()
     }()
-
-    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,11 +37,6 @@ class HomeView: UIView {
     private func commonInit() {
         addSubviews()
         makeConstraints()
-        setupStyle()
-    }
-
-    private func setupStyle() {
-        backgroundColor = .white
     }
 
     private func addSubviews() {
@@ -61,7 +52,7 @@ class HomeView: UIView {
 
         mainLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(64)
+            make.top.equalToSuperview().offset(256)
         }
     }
 }

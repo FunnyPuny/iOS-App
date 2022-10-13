@@ -5,17 +5,7 @@ import SwiftyGif
 import UIKit
 
 class ProfileView: UIView {
-    // MARK: - UI elements
-
-    lazy var mainLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Profile"
-        label.textColor = .primaryText
-        label.font = .boldSystemFont(ofSize: 24)
-        return label
-    }()
-
-    lazy var gifImageView: UIImageView = {
+    private var gifImageView: UIImageView = {
         do {
             let gif = try UIImage(gifName: "profile.gif")
             let imageView = UIImageView(gifImage: gif)
@@ -25,8 +15,6 @@ class ProfileView: UIView {
         }
         return UIImageView()
     }()
-
-    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,27 +29,16 @@ class ProfileView: UIView {
     private func commonInit() {
         addSubviews()
         makeConstraints()
-        setupStyle()
-    }
-
-    private func setupStyle() {
-        backgroundColor = .white
     }
 
     private func addSubviews() {
         addSubview(gifImageView)
-        addSubview(mainLabel)
     }
 
     private func makeConstraints() {
         gifImageView.snp.makeConstraints { make in
             make.width.height.equalTo(300)
             make.center.equalTo(self)
-        }
-
-        mainLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(64)
         }
     }
 }

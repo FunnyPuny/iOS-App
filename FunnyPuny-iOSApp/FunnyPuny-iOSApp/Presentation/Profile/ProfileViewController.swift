@@ -3,12 +3,12 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-    var profileView = ProfileView()
+class ProfileViewController: ViewController {
+    private var profileView = ProfileView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Profile"
         view = profileView
-        view.backgroundColor = .mainBackGround
     }
 }

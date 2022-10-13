@@ -4,15 +4,13 @@
 import UIKit
 
 class AddNewHabitView: UIView {
-    lazy var mainLabel: UILabel = {
+    private var mainLabel: UILabel = {
         let label = UILabel()
         label.text = "Add your first Habit!"
         label.textColor = .primaryText
         label.font = .boldSystemFont(ofSize: 24)
         return label
     }()
-
-    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,11 +25,6 @@ class AddNewHabitView: UIView {
     private func commonInit() {
         addSubviews()
         makeConstraints()
-        setupStyle()
-    }
-
-    private func setupStyle() {
-        backgroundColor = .white
     }
 
     private func addSubviews() {
@@ -41,7 +34,7 @@ class AddNewHabitView: UIView {
     private func makeConstraints() {
         mainLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(64)
+            make.top.equalToSuperview().offset(256)
         }
     }
 }

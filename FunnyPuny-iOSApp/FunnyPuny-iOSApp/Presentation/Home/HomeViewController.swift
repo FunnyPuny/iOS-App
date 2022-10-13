@@ -4,12 +4,12 @@
 import SnapKit
 import UIKit
 
-class HomeViewController: UIViewController {
-    lazy var homeView = HomeView()
+class HomeViewController: ViewController {
+    private var homeView = HomeView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Home"
         view = homeView
-        view.backgroundColor = .mainBackGround
     }
 }

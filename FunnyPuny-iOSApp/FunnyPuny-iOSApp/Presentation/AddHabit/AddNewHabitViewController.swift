@@ -3,12 +3,12 @@
 
 import UIKit
 
-class AddNewHabitViewController: UIViewController {
-    lazy var addNewHabitView = AddNewHabitView()
+class AddNewHabitViewController: ViewController {
+    private var addNewHabitView = AddNewHabitView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Add habit"
         view = addNewHabitView
-        view.backgroundColor = .mainBackGround
     }
 }
