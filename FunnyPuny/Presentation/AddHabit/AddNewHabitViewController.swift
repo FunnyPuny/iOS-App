@@ -8,13 +8,13 @@ class AddNewHabitViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Add habit"
+        title = Texts.addHabit
         view = addNewHabitView
         setupNavigation()
     }
 
     private func setupNavigation() {
-        let addNavigationItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(saveHabit))
+        let addNavigationItem = UIBarButtonItem(title: Texts.add, style: .plain, target: self, action: #selector(saveHabit))
         navigationItem.rightBarButtonItem = addNavigationItem
         navigationController?.navigationBar.prefersLargeTitles = false
     }

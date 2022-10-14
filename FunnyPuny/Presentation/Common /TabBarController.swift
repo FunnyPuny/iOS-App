@@ -35,14 +35,14 @@ class TabBarController: UITabBarController {
     private func setupTabBarItems() {
         let firstViewController = NavigationController(rootViewController: HomeViewController())
         firstViewController.tabBarItem = UITabBarItem(
-            title: "Habits",
+            title: Texts.habits,
             image: .init(systemName: "heart.text.square"),
             tag: 0
         )
 
         let thirdViewController = NavigationController(rootViewController: ProfileViewController())
         thirdViewController.tabBarItem = UITabBarItem(
-            title: "Profile",
+            title: Texts.profile,
             image: .init(systemName: "book.closed"),
             tag: 1
         )

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE09C14628F9938700B7CB45 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09C14528F9938700B7CB45 /* Texts.swift */; };
 		CE10452028F6F23E006B31D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10451F28F6F23E006B31D6 /* HomeView.swift */; };
 		CE10452328F6F871006B31D6 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = CE10452228F6F871006B31D6 /* SwiftyGif */; };
 		CE10452628F6FD1B006B31D6 /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE10452528F6FD1B006B31D6 /* test.gif */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE09C14528F9938700B7CB45 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		CE10451F28F6F23E006B31D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CE10452528F6FD1B006B31D6 /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test.gif; sourceTree = "<group>"; };
 		CE10452728F703B6006B31D6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				CEA71A2328F8A18600D2CE36 /* NavigationController.swift */,
 				CEA71A2528F8A9D100D2CE36 /* ViewController.swift */,
 				CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */,
+				CE09C14528F9938700B7CB45 /* Texts.swift */,
 			);
 			path = "Common ";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */,
 				CEE6113428F8595A003CF0AB /* ProfileViewController.swift in Sources */,
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
+				CE09C14628F9938700B7CB45 /* Texts.swift in Sources */,
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
 				CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */,
 			);

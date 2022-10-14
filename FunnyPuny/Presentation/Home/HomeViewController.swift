@@ -9,7 +9,7 @@ class HomeViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
+        title = Texts.home
         view = homeView
     }
 }

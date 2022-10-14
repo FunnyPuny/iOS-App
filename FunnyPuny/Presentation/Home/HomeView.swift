@@ -7,7 +7,7 @@ import UIKit
 class HomeView: UIView {
     private var mainLabel: UILabel = {
         let label = UILabel()
-        label.text = "Welcome to FunnyPuny!"
+        label.text = Texts.welcome
         label.textColor = .primaryText
         label.font = .boldSystemFont(ofSize: 24)
         return label
