@@ -12,7 +12,9 @@ class NavigationController: UINavigationController {
     private func setupStyle() {
         let appearance = UINavigationBarAppearance()
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.primaryText]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.primaryText]
         navigationBar.standardAppearance = appearance
+        navigationBar.tintColor = .primaryText
         navigationBar.prefersLargeTitles = true
         view.backgroundColor = .mainBackground
     }

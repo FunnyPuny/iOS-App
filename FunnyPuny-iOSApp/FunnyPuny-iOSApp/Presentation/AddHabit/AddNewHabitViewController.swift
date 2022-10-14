@@ -10,5 +10,17 @@ class AddNewHabitViewController: ViewController {
         super.viewDidLoad()
         title = "Add habit"
         view = addNewHabitView
+        setupNavigation()
+    }
+
+    private func setupNavigation() {
+        let addNavigationItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(saveHabit))
+        navigationItem.rightBarButtonItem = addNavigationItem
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+
+    @objc
+    func saveHabit() {
+        dismiss(animated: true)
     }
 }
