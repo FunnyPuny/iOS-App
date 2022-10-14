@@ -53,10 +53,10 @@ class TabBarController: UITabBarController {
 
     @objc
     private func addButtonPressed() {
-        let addNewHabitViewController = NavigationController(rootViewController: AddNewHabitViewController())
-        if let sheet = addNewHabitViewController.sheetPresentationController {
+        let addHabitViewController = NavigationController(rootViewController: AddHabitViewController())
+        if let sheet = addHabitViewController.sheetPresentationController {
             sheet.detents = [.large()]
         }
-        present(addNewHabitViewController, animated: true)
+        present(addHabitViewController, animated: true)
     }
 }

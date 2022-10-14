@@ -11,13 +11,15 @@
 		CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09C14728F99BAF00B7CB45 /* Images.swift */; };
 		CE09C14A28F99F1700B7CB45 /* GIFs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09C14928F99F1700B7CB45 /* GIFs.swift */; };
 		CE09C14E28F9A12B00B7CB45 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE09C14D28F9A12B00B7CB45 /* Colors.xcassets */; };
+		CE09C15328F9EB1800B7CB45 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09C15228F9EB1800B7CB45 /* DayView.swift */; };
+		CE09C15528F9FD0000B7CB45 /* FrequencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */; };
 		CE10452028F6F23E006B31D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10451F28F6F23E006B31D6 /* HomeView.swift */; };
 		CE10452328F6F871006B31D6 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = CE10452228F6F871006B31D6 /* SwiftyGif */; };
 		CE10452628F6FD1B006B31D6 /* home.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE10452528F6FD1B006B31D6 /* home.gif */; };
 		CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452728F703B6006B31D6 /* TabBarController.swift */; };
 		CE10452C28F70529006B31D6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452B28F70529006B31D6 /* Colors.swift */; };
-		CE10453028F759B8006B31D6 /* AddNewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddNewHabitViewController.swift */; };
-		CE10453228F7696E006B31D6 /* AddNewHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddNewHabitView.swift */; };
+		CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */; };
+		CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddHabitView.swift */; };
 		CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2328F8A18600D2CE36 /* NavigationController.swift */; };
 		CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2528F8A9D100D2CE36 /* ViewController.swift */; };
 		CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2728F8AFCA00D2CE36 /* Habit.swift */; };
@@ -37,12 +39,14 @@
 		CE09C14728F99BAF00B7CB45 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CE09C14928F99F1700B7CB45 /* GIFs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFs.swift; sourceTree = "<group>"; };
 		CE09C14D28F9A12B00B7CB45 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		CE09C15228F9EB1800B7CB45 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyView.swift; sourceTree = "<group>"; };
 		CE10451F28F6F23E006B31D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CE10452528F6FD1B006B31D6 /* home.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = home.gif; sourceTree = "<group>"; };
 		CE10452728F703B6006B31D6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CE10452B28F70529006B31D6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		CE10452F28F759B8006B31D6 /* AddNewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitViewController.swift; sourceTree = "<group>"; };
-		CE10453128F7696E006B31D6 /* AddNewHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitView.swift; sourceTree = "<group>"; };
+		CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
+		CE10453128F7696E006B31D6 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		CEA71A2328F8A18600D2CE36 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		CEA71A2528F8A9D100D2CE36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEA71A2728F8AFCA00D2CE36 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		CE09C14B28F9A06800B7CB45 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				CE09C15228F9EB1800B7CB45 /* DayView.swift */,
+				CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */,
 				CEA71A2328F8A18600D2CE36 /* NavigationController.swift */,
 				CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */,
 				CE10452728F703B6006B31D6 /* TabBarController.swift */,
@@ -123,8 +129,8 @@
 		CE10452E28F756CD006B31D6 /* AddHabit */ = {
 			isa = PBXGroup;
 			children = (
-				CE10453128F7696E006B31D6 /* AddNewHabitView.swift */,
-				CE10452F28F759B8006B31D6 /* AddNewHabitViewController.swift */,
+				CE10453128F7696E006B31D6 /* AddHabitView.swift */,
+				CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */,
 			);
 			path = AddHabit;
 			sourceTree = "<group>";
@@ -321,17 +327,19 @@
 				CEE6113228F85950003CF0AB /* ProfileView.swift in Sources */,
 				CE10452028F6F23E006B31D6 /* HomeView.swift in Sources */,
 				CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */,
-				CE10453028F759B8006B31D6 /* AddNewHabitViewController.swift in Sources */,
+				CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */,
 				CE10452C28F70529006B31D6 /* Colors.swift in Sources */,
 				CEA71A2A28F8B75400D2CE36 /* TextFieldView.swift in Sources */,
-				CE10453228F7696E006B31D6 /* AddNewHabitView.swift in Sources */,
+				CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */,
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
 				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,
+				CE09C15528F9FD0000B7CB45 /* FrequencyView.swift in Sources */,
 				CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */,
 				CEE6113428F8595A003CF0AB /* ProfileViewController.swift in Sources */,
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
 				CE09C14628F9938700B7CB45 /* Texts.swift in Sources */,
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
+				CE09C15328F9EB1800B7CB45 /* DayView.swift in Sources */,
 				CE09C14A28F99F1700B7CB45 /* GIFs.swift in Sources */,
 				CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */,
 			);

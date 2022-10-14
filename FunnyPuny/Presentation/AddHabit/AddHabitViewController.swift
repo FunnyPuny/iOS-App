@@ -1,15 +1,15 @@
-// AddNewHabitViewController.swift
+// AddHabitViewController.swift
 // Created by Zlata Guseva on 13.10.2022.
 
 import UIKit
 
-class AddNewHabitViewController: ViewController {
-    private var addNewHabitView = AddNewHabitView()
+class AddHabitViewController: ViewController {
+    private var addHabitView = AddHabitView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Texts.addHabit
-        view = addNewHabitView
+        view = addHabitView
         setupNavigation()
     }
 
@@ -27,5 +27,14 @@ class AddNewHabitViewController: ViewController {
     @objc
     func saveHabit() {
         dismiss(animated: true)
+
+        var days: [Day] = []
+        // swiftlint:disable all
+        // TODO: избавиться от force cast
+        for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
+            if dayView.isSelected {
+                days.append(dayView.day)
+            }
+        }
     }
 }
