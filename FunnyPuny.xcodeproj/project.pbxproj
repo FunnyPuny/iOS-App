@@ -39,7 +39,7 @@
 		CEA71A2528F8A9D100D2CE36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEA71A2728F8AFCA00D2CE36 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		CEA71A2928F8B75400D2CE36 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		CEDAFF2F28E7199C006136B3 /* FunnyPuny-iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FunnyPuny-iOSApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyPuny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDAFF3228E7199C006136B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDAFF3628E7199C006136B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CEDAFF3B28E7199E006136B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		CEDAFF2628E7199C006136B3 = {
 			isa = PBXGroup;
 			children = (
-				CEDAFF3128E7199C006136B3 /* FunnyPuny-iOSApp */,
+				CEDAFF3128E7199C006136B3 /* FunnyPuny */,
 				CEDAFF3028E7199C006136B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,12 +152,12 @@
 		CEDAFF3028E7199C006136B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEDAFF2F28E7199C006136B3 /* FunnyPuny-iOSApp.app */,
+				CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CEDAFF3128E7199C006136B3 /* FunnyPuny-iOSApp */ = {
+		CEDAFF3128E7199C006136B3 /* FunnyPuny */ = {
 			isa = PBXGroup;
 			children = (
 				CEDAFF4028E7199E006136B3 /* Info.plist */,
@@ -165,15 +165,15 @@
 				CE6AFF2328F6124A0079FD83 /* Model */,
 				CE6AFF2228F6123E0079FD83 /* Presentation */,
 			);
-			path = "FunnyPuny-iOSApp";
+			path = FunnyPuny;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEDAFF2E28E7199C006136B3 /* FunnyPuny-iOSApp */ = {
+		CEDAFF2E28E7199C006136B3 /* FunnyPuny */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEDAFF4328E7199E006136B3 /* Build configuration list for PBXNativeTarget "FunnyPuny-iOSApp" */;
+			buildConfigurationList = CEDAFF4328E7199E006136B3 /* Build configuration list for PBXNativeTarget "FunnyPuny" */;
 			buildPhases = (
 				CEDAFF2B28E7199C006136B3 /* Sources */,
 				CEDAFF2C28E7199C006136B3 /* Frameworks */,
@@ -184,13 +184,13 @@
 			);
 			dependencies = (
 			);
-			name = "FunnyPuny-iOSApp";
+			name = FunnyPuny;
 			packageProductDependencies = (
 				CED733E828F5A36300B2B0D6 /* SnapKit */,
 				CE10452228F6F871006B31D6 /* SwiftyGif */,
 			);
 			productName = "FunnyPuny-iOSApp";
-			productReference = CEDAFF2F28E7199C006136B3 /* FunnyPuny-iOSApp.app */;
+			productReference = CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CEDAFF2A28E7199C006136B3 /* Build configuration list for PBXProject "FunnyPuny-iOSApp" */;
+			buildConfigurationList = CEDAFF2A28E7199C006136B3 /* Build configuration list for PBXProject "FunnyPuny" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,7 +225,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEDAFF2E28E7199C006136B3 /* FunnyPuny-iOSApp */,
+				CEDAFF2E28E7199C006136B3 /* FunnyPuny */,
 			);
 		};
 /* End PBXProject section */
@@ -423,7 +423,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 538JV93T9Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "FunnyPuny-iOSApp/Info.plist";
+				INFOPLIST_FILE = FunnyPuny/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FunnyPuny;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -455,7 +455,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 538JV93T9Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "FunnyPuny-iOSApp/Info.plist";
+				INFOPLIST_FILE = FunnyPuny/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FunnyPuny;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -481,7 +481,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEDAFF2A28E7199C006136B3 /* Build configuration list for PBXProject "FunnyPuny-iOSApp" */ = {
+		CEDAFF2A28E7199C006136B3 /* Build configuration list for PBXProject "FunnyPuny" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEDAFF4128E7199E006136B3 /* Debug */,
@@ -490,7 +490,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEDAFF4328E7199E006136B3 /* Build configuration list for PBXNativeTarget "FunnyPuny-iOSApp" */ = {
+		CEDAFF4328E7199E006136B3 /* Build configuration list for PBXNativeTarget "FunnyPuny" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEDAFF4428E7199E006136B3 /* Debug */,
