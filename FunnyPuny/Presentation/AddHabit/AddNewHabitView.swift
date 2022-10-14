@@ -4,19 +4,8 @@
 import UIKit
 
 class AddNewHabitView: UIView {
-    lazy var nameInputView: InputView = {
-        let inputView = InputView()
-        inputView.label.text = "Name"
-        inputView.textField.placeholder = "Name habit"
-        return inputView
-    }()
-
-    lazy var reminderInputView: InputView = {
-        let inputView = InputView()
-        inputView.label.text = "Reminder Note"
-        inputView.textField.placeholder = "Note"
-        return inputView
-    }()
+    private var nameInputView = TextFieldView(text: "Name", placeholder: "Name habit")
+    private var reminderInputView = TextFieldView(text: "Reminder Note", placeholder: "Note")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
