@@ -10,6 +10,7 @@
 		CE09C14628F9938700B7CB45 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09C14528F9938700B7CB45 /* Texts.swift */; };
 		CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09C14728F99BAF00B7CB45 /* Images.swift */; };
 		CE09C14A28F99F1700B7CB45 /* GIFs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09C14928F99F1700B7CB45 /* GIFs.swift */; };
+		CE09C14E28F9A12B00B7CB45 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE09C14D28F9A12B00B7CB45 /* Colors.xcassets */; };
 		CE10452028F6F23E006B31D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10451F28F6F23E006B31D6 /* HomeView.swift */; };
 		CE10452328F6F871006B31D6 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = CE10452228F6F871006B31D6 /* SwiftyGif */; };
 		CE10452628F6FD1B006B31D6 /* home.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE10452528F6FD1B006B31D6 /* home.gif */; };
@@ -35,6 +36,7 @@
 		CE09C14528F9938700B7CB45 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		CE09C14728F99BAF00B7CB45 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CE09C14928F99F1700B7CB45 /* GIFs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFs.swift; sourceTree = "<group>"; };
+		CE09C14D28F9A12B00B7CB45 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CE10451F28F6F23E006B31D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CE10452528F6FD1B006B31D6 /* home.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = home.gif; sourceTree = "<group>"; };
 		CE10452728F703B6006B31D6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDAFF3B28E7199E006136B3 /* Assets.xcassets */,
+				CE09C14D28F9A12B00B7CB45 /* Colors.xcassets */,
 				CE10452428F6FCE4006B31D6 /* GIF */,
 				CEDAFF3228E7199C006136B3 /* AppDelegate.swift */,
 				CEDAFF3D28E7199E006136B3 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE09C14E28F9A12B00B7CB45 /* Colors.xcassets in Resources */,
 				CEE6113628F85A5A003CF0AB /* profile.gif in Resources */,
 				CEDAFF3F28E7199E006136B3 /* LaunchScreen.storyboard in Resources */,
 				CE10452628F6FD1B006B31D6 /* home.gif in Resources */,

@@ -19,7 +19,7 @@ class TextFieldView: UIView {
         let textField = UITextField()
         textField.placeholder = placeholder
         textField.tintColor = .primaryText
-        textField.backgroundColor = .white.withAlphaComponent(0.5)
+        textField.backgroundColor = .foreground
         textField.layer.cornerRadius = 8
         textField.layer.borderColor = UIColor.primaryText?.cgColor
         textField.layer.borderWidth = CGFloat(1)

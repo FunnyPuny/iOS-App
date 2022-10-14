@@ -16,6 +16,6 @@ class NavigationController: UINavigationController {
         navigationBar.standardAppearance = appearance
         navigationBar.tintColor = .primaryText
         navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .mainBackground
+        view.backgroundColor = .background
     }
 }

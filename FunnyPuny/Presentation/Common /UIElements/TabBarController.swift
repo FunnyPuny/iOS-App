@@ -9,8 +9,8 @@ class TabBarController: UITabBarController {
         var configuration = UIButton.Configuration.filled()
         configuration.image = .plusApp
         configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
-        configuration.baseBackgroundColor = .mainBackground
-        configuration.baseForegroundColor = .gray
+        configuration.baseBackgroundColor = .background
+        configuration.baseForegroundColor = .tabForeground
         button.configuration = configuration
         button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         return button
@@ -29,7 +29,7 @@ class TabBarController: UITabBarController {
 
     private func setupStyleTabBar() {
         tabBar.tintColor = .primaryText
-        tabBar.barTintColor = .white
+        tabBar.unselectedItemTintColor = .tabForeground
     }
 
     private func setupTabBarItems() {
