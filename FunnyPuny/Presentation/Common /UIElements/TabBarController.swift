@@ -7,7 +7,7 @@ class TabBarController: UITabBarController {
     private var addButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
-        configuration.image = .init(systemName: "plus.app")
+        configuration.image = .plusApp
         configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
         configuration.baseBackgroundColor = .mainBackground
         configuration.baseForegroundColor = .gray
@@ -36,14 +36,14 @@ class TabBarController: UITabBarController {
         let firstViewController = NavigationController(rootViewController: HomeViewController())
         firstViewController.tabBarItem = UITabBarItem(
             title: Texts.habits,
-            image: .init(systemName: "heart.text.square"),
+            image: .heartList,
             tag: 0
         )
 
         let thirdViewController = NavigationController(rootViewController: ProfileViewController())
         thirdViewController.tabBarItem = UITabBarItem(
             title: Texts.profile,
-            image: .init(systemName: "book.closed"),
+            image: .bookClosed,
             tag: 1
         )
 

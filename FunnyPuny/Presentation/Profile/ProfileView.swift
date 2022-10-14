@@ -5,16 +5,7 @@ import SwiftyGif
 import UIKit
 
 class ProfileView: UIView {
-    private var gifImageView: UIImageView = {
-        do {
-            let gif = try UIImage(gifName: "profile.gif")
-            let imageView = UIImageView(gifImage: gif)
-            return imageView
-        } catch {
-            print(error)
-        }
-        return UIImageView()
-    }()
+    private var gifImageView: UIImageView = .profileGIF
 
     override init(frame: CGRect) {
         super.init(frame: frame)
