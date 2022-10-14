@@ -11,8 +11,8 @@ class NavigationController: UINavigationController {
 
     private func setupStyle() {
         let appearance = UINavigationBarAppearance()
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.primaryText]
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.primaryText]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.primaryText as Any]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.primaryText as Any]
         navigationBar.standardAppearance = appearance
         navigationBar.tintColor = .primaryText
         navigationBar.prefersLargeTitles = true
