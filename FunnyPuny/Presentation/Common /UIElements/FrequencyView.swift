@@ -64,11 +64,3 @@ class FrequencyView: UIView {
         }
     }
 }
-
-extension UIStackView {
-    func addSubviews(_ subViews: [UIView]) {
-        for value in subViews {
-            addArrangedSubview(value)
-        }
-    }
-}

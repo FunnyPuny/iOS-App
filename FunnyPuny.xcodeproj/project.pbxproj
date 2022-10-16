@@ -20,6 +20,7 @@
 		CE10452C28F70529006B31D6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452B28F70529006B31D6 /* Colors.swift */; };
 		CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */; };
 		CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddHabitView.swift */; };
+		CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */; };
 		CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2328F8A18600D2CE36 /* NavigationController.swift */; };
 		CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2528F8A9D100D2CE36 /* ViewController.swift */; };
 		CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2728F8AFCA00D2CE36 /* Habit.swift */; };
@@ -47,6 +48,7 @@
 		CE10452B28F70529006B31D6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		CE10453128F7696E006B31D6 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
+		CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		CEA71A2328F8A18600D2CE36 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		CEA71A2528F8A9D100D2CE36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEA71A2728F8AFCA00D2CE36 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		CE10452A28F70518006B31D6 /* Common  */ = {
 			isa = PBXGroup;
 			children = (
+				CEA0BF5128FC578A009B6BFD /* Extensions */,
 				CE09C14C28F9A07300B7CB45 /* Constants */,
 				CE09C14B28F9A06800B7CB45 /* UIElements */,
 			);
@@ -173,6 +176,14 @@
 				CEDAFF3628E7199C006136B3 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		CEA0BF5128FC578A009B6BFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CEDAFF2628E7199C006136B3 = {
@@ -332,6 +343,7 @@
 				CEA71A2A28F8B75400D2CE36 /* TextFieldView.swift in Sources */,
 				CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */,
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
+				CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */,
 				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,
 				CE09C15528F9FD0000B7CB45 /* FrequencyView.swift in Sources */,
 				CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */,
