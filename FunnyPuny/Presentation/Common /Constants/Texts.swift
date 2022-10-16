@@ -5,6 +5,7 @@ enum Texts {
     // MARK: Home
 
     static let welcome = "Welcome to FunnyPuny!"
+    static let dateFormat = "MMM, dd"
 
     // MARK: AddHabit
 

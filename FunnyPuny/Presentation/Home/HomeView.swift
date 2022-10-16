@@ -14,6 +14,17 @@ class HomeView: UIView {
     }()
 
     private var gifImageView: UIImageView = .homeGIF
+    
+    private var dateLabel: UILabel = {
+        let label = UILabel()
+        let date = Date()
+        let dateFormatStyle = DateFormatter()
+        dateFormatStyle.dateFormat = Texts.dateFormat
+        label.text = dateFormatStyle.string(from: date)
+        label.textColor = .primaryText
+        label.font = .boldSystemFont(ofSize: 24)
+        return label
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +44,7 @@ class HomeView: UIView {
     private func addSubviews() {
         addSubview(gifImageView)
         addSubview(mainLabel)
+        addSubview(dateLabel)
     }
 
     private func makeConstraints() {
@@ -41,9 +53,14 @@ class HomeView: UIView {
             make.center.equalTo(self)
         }
 
+        dateLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(160)
+        }
+
         mainLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(256)
+            make.top.equalTo(dateLabel.snp.bottom).offset(64)
         }
     }
 }
