@@ -1,6 +1,7 @@
 // AddHabitViewController.swift
 // Created by Zlata Guseva on 13.10.2022.
 
+import RealmSwift
 import UIKit
 
 class AddHabitViewController: ViewController {
@@ -26,15 +27,26 @@ class AddHabitViewController: ViewController {
 
     @objc
     func saveHabit() {
-        dismiss(animated: true)
-
-        var days: [Day] = []
+        let days = List<Day>()
         // swiftlint:disable all
         // TODO: избавиться от force cast
         for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
             if dayView.isSelected {
                 days.append(dayView.day)
             }
+        }
+        do {
+            try realm.write {
+                let newHabit = Habit(
+                    name: addHabitView.nameInputView.textField.text ?? "",
+                    note: addHabitView.reminderInputView.textField.text ?? "",
+                    frequency: days
+                )
+                realm.add(newHabit)
+                dismiss(animated: true)
+            }
+        } catch let error as NSError {
+            print("Can not create habit, error: \(error)")
         }
     }
 }

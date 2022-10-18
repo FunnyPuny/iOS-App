@@ -1,7 +1,9 @@
 // Day.swift
 // Created by Zlata Guseva on 18.10.2022.
 
-enum Day: String, CaseIterable {
+import RealmSwift
+
+enum Day: String, CaseIterable, PersistableEnum {
     case mon = "MON"
     case tue = "TUE"
     case wed = "WED"

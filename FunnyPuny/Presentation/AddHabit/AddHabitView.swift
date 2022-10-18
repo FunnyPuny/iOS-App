@@ -4,8 +4,8 @@
 import UIKit
 
 class AddHabitView: UIView {
-    private var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
-    private var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
+    var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
+    var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
     var frequencyView = FrequencyView()
 
     override init(frame: CGRect) {

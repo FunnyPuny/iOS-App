@@ -23,6 +23,8 @@
 		CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */; };
 		CEA0BF5328FEB568009B6BFD /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF5228FEB568009B6BFD /* Day.swift */; };
 		CEA0BF5528FEBA7A009B6BFD /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF5428FEBA7A009B6BFD /* DateFormat.swift */; };
+		CEA0BF5828FEC6B4009B6BFD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CEA0BF5728FEC6B4009B6BFD /* Realm */; };
+		CEA0BF5A28FEC6B4009B6BFD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEA0BF5928FEC6B4009B6BFD /* RealmSwift */; };
 		CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2328F8A18600D2CE36 /* NavigationController.swift */; };
 		CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2528F8A9D100D2CE36 /* ViewController.swift */; };
 		CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2728F8AFCA00D2CE36 /* Habit.swift */; };
@@ -73,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA0BF5A28FEC6B4009B6BFD /* RealmSwift in Frameworks */,
+				CEA0BF5828FEC6B4009B6BFD /* Realm in Frameworks */,
 				CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */,
 				CE10452328F6F871006B31D6 /* SwiftyGif in Frameworks */,
 			);
@@ -240,6 +244,8 @@
 			packageProductDependencies = (
 				CED733E828F5A36300B2B0D6 /* SnapKit */,
 				CE10452228F6F871006B31D6 /* SwiftyGif */,
+				CEA0BF5728FEC6B4009B6BFD /* Realm */,
+				CEA0BF5928FEC6B4009B6BFD /* RealmSwift */,
 			);
 			productName = "FunnyPuny-iOSApp";
 			productReference = CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */;
@@ -272,6 +278,7 @@
 			packageReferences = (
 				CED733E728F5A36300B2B0D6 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CE10452128F6F871006B31D6 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				CEA0BF5628FEC6B4009B6BFD /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = CEDAFF3028E7199C006136B3 /* Products */;
 			projectDirPath = "";
@@ -589,6 +596,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		CEA0BF5628FEC6B4009B6BFD /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		CED733E728F5A36300B2B0D6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -604,6 +619,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE10452128F6F871006B31D6 /* XCRemoteSwiftPackageReference "SwiftyGif" */;
 			productName = SwiftyGif;
+		};
+		CEA0BF5728FEC6B4009B6BFD /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEA0BF5628FEC6B4009B6BFD /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		CEA0BF5928FEC6B4009B6BFD /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEA0BF5628FEC6B4009B6BFD /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		CED733E828F5A36300B2B0D6 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
