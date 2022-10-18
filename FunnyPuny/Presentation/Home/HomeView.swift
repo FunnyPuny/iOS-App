@@ -14,13 +14,11 @@ class HomeView: UIView {
     }()
 
     private var gifImageView: UIImageView = .homeGIF
-    
+
     private var dateLabel: UILabel = {
         let label = UILabel()
         let date = Date()
-        let dateFormatStyle = DateFormatter()
-        dateFormatStyle.dateFormat = Texts.dateFormat
-        label.text = dateFormatStyle.string(from: date)
+        label.text = date.string(dateFormat: .formatMMMdd)
         label.textColor = .primaryText
         label.font = .boldSystemFont(ofSize: 24)
         return label

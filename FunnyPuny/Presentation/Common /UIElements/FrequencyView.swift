@@ -9,23 +9,12 @@ class FrequencyView: UIView {
         label.text = Texts.frequency
         label.textColor = .primaryText
         label.font = .boldSystemFont(ofSize: 24)
-
         return label
     }()
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.addSubviews(
-            [
-                DayView(.mon),
-                DayView(.tue),
-                DayView(.wed),
-                DayView(.thu),
-                DayView(.fri),
-                DayView(.sat),
-                DayView(.sun),
-            ]
-        )
+        stackView.addArrangedSubviews(Day.allCases.map { DayView($0) })
         stackView.spacing = 4
         stackView.distribution = .fillEqually
         return stackView
