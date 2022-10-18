@@ -43,6 +43,7 @@ class AddHabitViewController: ViewController {
                     frequency: days
                 )
                 realm.add(newHabit)
+                NotificationCenter.default.post(name: .habitDidAdd, object: nil)
                 dismiss(animated: true)
             }
         } catch let error as NSError {

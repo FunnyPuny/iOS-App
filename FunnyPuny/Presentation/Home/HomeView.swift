@@ -5,23 +5,28 @@ import SwiftyGif
 import UIKit
 
 class HomeView: UIView {
-    private var mainLabel: UILabel = {
+    private var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = Texts.welcome
+        label.text = Date().string(dateFormat: .formatMMMdd)
         label.textColor = .primaryText
         label.font = .boldSystemFont(ofSize: 24)
         return label
     }()
 
-    private var gifImageView: UIImageView = .homeGIF
-
-    private var dateLabel: UILabel = {
-        let label = UILabel()
-        let date = Date()
-        label.text = date.string(dateFormat: .formatMMMdd)
-        label.textColor = .primaryText
-        label.font = .boldSystemFont(ofSize: 24)
-        return label
+    var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .background
+        tableView.register(cellWithClass: HomeCell.self)
+        tableView.rowHeight = 86
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+    
+    // TODO:
+    private var calendarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .tabForeground
+        return view
     }()
 
     override init(frame: CGRect) {
@@ -40,25 +45,27 @@ class HomeView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(gifImageView)
-        addSubview(mainLabel)
         addSubview(dateLabel)
+        addSubview(tableView)
+        addSubview(calendarView)
     }
 
     private func makeConstraints() {
-        gifImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(300)
-            make.center.equalTo(self)
-        }
-
         dateLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(160)
         }
 
-        mainLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(dateLabel.snp.bottom).offset(64)
+        calendarView.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(64)
+        }
+
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(calendarView.snp.bottom).offset(8)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().inset(100)
         }
     }
 }

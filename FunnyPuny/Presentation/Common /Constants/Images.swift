@@ -8,4 +8,5 @@ extension UIImage {
     static let heartList = UIImage(systemName: "heart.text.square")
     static let bookClosed = UIImage(systemName: "book.closed")
     static let plusApp = UIImage(systemName: "plus.app")
+    static let checkmark = UIImage(systemName: "checkmark.circle")
 }
