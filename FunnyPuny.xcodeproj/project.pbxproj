@@ -23,11 +23,15 @@
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
 		CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */; };
 		CE7808E928FF66100016AD41 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E828FF660F0016AD41 /* Notifications.swift */; };
+		CE7808EC29003C850016AD41 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = CE7808EB29003C850016AD41 /* JTAppleCalendar */; };
 		CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */; };
 		CEA0BF5328FEB568009B6BFD /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF5228FEB568009B6BFD /* Day.swift */; };
 		CEA0BF5528FEBA7A009B6BFD /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF5428FEBA7A009B6BFD /* DateFormat.swift */; };
 		CEA0BF5828FEC6B4009B6BFD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CEA0BF5728FEC6B4009B6BFD /* Realm */; };
 		CEA0BF5A28FEC6B4009B6BFD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEA0BF5928FEC6B4009B6BFD /* RealmSwift */; };
+		CEA0CAF52900752B00EDCDFD /* CalendarDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0CAF42900752B00EDCDFD /* CalendarDateCell.swift */; };
+		CEA0CAF72900753B00EDCDFD /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0CAF62900753B00EDCDFD /* CalendarHeaderView.swift */; };
+		CEA0CAFA2901718500EDCDFD /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = CEA0CAF92901718500EDCDFD /* SwiftDate */; };
 		CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2328F8A18600D2CE36 /* NavigationController.swift */; };
 		CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2528F8A9D100D2CE36 /* ViewController.swift */; };
 		CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2728F8AFCA00D2CE36 /* Habit.swift */; };
@@ -61,6 +65,8 @@
 		CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		CEA0BF5228FEB568009B6BFD /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		CEA0BF5428FEBA7A009B6BFD /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		CEA0CAF42900752B00EDCDFD /* CalendarDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCell.swift; sourceTree = "<group>"; };
+		CEA0CAF62900753B00EDCDFD /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		CEA71A2328F8A18600D2CE36 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		CEA71A2528F8A9D100D2CE36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEA71A2728F8AFCA00D2CE36 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA0BF5A28FEC6B4009B6BFD /* RealmSwift in Frameworks */,
+				CE7808EC29003C850016AD41 /* JTAppleCalendar in Frameworks */,
+				CEA0CAFA2901718500EDCDFD /* SwiftDate in Frameworks */,
 				CEA0BF5828FEC6B4009B6BFD /* Realm in Frameworks */,
 				CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */,
 				CE10452328F6F871006B31D6 /* SwiftyGif in Frameworks */,
@@ -161,6 +169,7 @@
 				CE10452E28F756CD006B31D6 /* AddHabit */,
 				CE10452D28F756B5006B31D6 /* Profile */,
 				CE6AFF2528F6192A0079FD83 /* Home */,
+				CEA0CAF32900750C00EDCDFD /* Calendar */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -203,6 +212,15 @@
 				CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CEA0CAF32900750C00EDCDFD /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CEA0CAF42900752B00EDCDFD /* CalendarDateCell.swift */,
+				CEA0CAF62900753B00EDCDFD /* CalendarHeaderView.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		CEDAFF2628E7199C006136B3 = {
@@ -255,6 +273,8 @@
 				CE10452228F6F871006B31D6 /* SwiftyGif */,
 				CEA0BF5728FEC6B4009B6BFD /* Realm */,
 				CEA0BF5928FEC6B4009B6BFD /* RealmSwift */,
+				CE7808EB29003C850016AD41 /* JTAppleCalendar */,
+				CEA0CAF92901718500EDCDFD /* SwiftDate */,
 			);
 			productName = "FunnyPuny-iOSApp";
 			productReference = CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */;
@@ -288,6 +308,8 @@
 				CED733E728F5A36300B2B0D6 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CE10452128F6F871006B31D6 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 				CEA0BF5628FEC6B4009B6BFD /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CE7808EA29003C850016AD41 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
+				CEA0CAF82901718500EDCDFD /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = CEDAFF3028E7199C006136B3 /* Products */;
 			projectDirPath = "";
@@ -368,12 +390,14 @@
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
 				CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */,
 				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,
+				CEA0CAF52900752B00EDCDFD /* CalendarDateCell.swift in Sources */,
 				CE09C15528F9FD0000B7CB45 /* FrequencyView.swift in Sources */,
 				CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */,
 				CEE6113428F8595A003CF0AB /* ProfileViewController.swift in Sources */,
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
 				CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */,
 				CE09C14628F9938700B7CB45 /* Texts.swift in Sources */,
+				CEA0CAF72900753B00EDCDFD /* CalendarHeaderView.swift in Sources */,
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormat.swift in Sources */,
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,
@@ -608,12 +632,28 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		CE7808EA29003C850016AD41 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		CEA0BF5628FEC6B4009B6BFD /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		CEA0CAF82901718500EDCDFD /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
 			};
 		};
 		CED733E728F5A36300B2B0D6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -632,6 +672,11 @@
 			package = CE10452128F6F871006B31D6 /* XCRemoteSwiftPackageReference "SwiftyGif" */;
 			productName = SwiftyGif;
 		};
+		CE7808EB29003C850016AD41 /* JTAppleCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE7808EA29003C850016AD41 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
+			productName = JTAppleCalendar;
+		};
 		CEA0BF5728FEC6B4009B6BFD /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEA0BF5628FEC6B4009B6BFD /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -641,6 +686,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CEA0BF5628FEC6B4009B6BFD /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		CEA0CAF92901718500EDCDFD /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEA0CAF82901718500EDCDFD /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 		CED733E828F5A36300B2B0D6 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

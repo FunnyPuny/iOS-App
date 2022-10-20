@@ -7,6 +7,12 @@ extension Date {
     enum DateFormat: String {
         /// Oct, 18
         case formatMMMdd = "MMM, dd"
+        /// 18
+        case formatdd = "dd"
+        /// October, 18
+        case formatMMMMd = "MMMM, d"
+        /// 18 October 2022
+        case formatdMMMMyyyy = "d MMMM yyyy"
     }
 
     /// Строка из даты
