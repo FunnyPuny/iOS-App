@@ -29,7 +29,7 @@ class AddHabitViewController: ViewController {
     func saveHabit() {
         let days = List<Day>()
         // swiftlint:disable all
-        // TODO: избавиться от force cast
+        // TODO: 💩
         for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
             if dayView.isSelected {
                 days.append(dayView.day)

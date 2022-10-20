@@ -15,18 +15,8 @@ class HomeView: UIView {
         return tableView
     }()
 
-    var calendarView: JTACMonthView = {
-        let view = JTACMonthView()
-        view.register(CalendarDateCell.self, forCellWithReuseIdentifier: "CalendarDateCell")
-        view.register(
-            CalendarHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: "CalendarHeaderView"
-        )
-        view.backgroundColor = .background
-        view.scrollDirection = .horizontal
-        view.showsHorizontalScrollIndicator = false
-        view.scrollingMode = .stopAtEachSection
+    var calendarView: CalendarView = {
+        let view = CalendarView()
         return view
     }()
 
@@ -53,8 +43,8 @@ class HomeView: UIView {
     private func makeConstraints() {
         calendarView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(160)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(100)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(140)
         }
 
         tableView.snp.makeConstraints { make in

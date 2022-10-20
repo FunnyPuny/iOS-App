@@ -34,8 +34,9 @@ class HomeViewController: ViewController {
     }
 
     private func setupCalendar() {
-        homeView.calendarView.calendarDelegate = self
-        homeView.calendarView.calendarDataSource = self
+        homeView.calendarView.monthView.calendarDelegate = self
+        homeView.calendarView.monthView.calendarDataSource = self
+        homeView.calendarView.monthView.scrollToDate(Date() - 3.days) // TODO: 💩
     }
 
     private func setupNotification() {
@@ -72,28 +73,24 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
 
     func configureCell(view: JTACDayCell?, cellState: CellState) {
         guard let cell = view as? CalendarDateCell else { return }
-        cell.dateCell.text = cellState.text
+        cell.dateLabel.text = cellState.text
+        if cellState.date.isToday {
+            cell.dateLabel.backgroundColor = .primaryText
+            cell.dateLabel.textColor = .foreground
+        } else {
+            cell.dateLabel.backgroundColor = .foreground
+            cell.dateLabel.textColor = .primaryText
+        }
     }
 
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         // swiftlint:disable all
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDateCell", for: indexPath) as! CalendarDateCell
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDateCell", for: indexPath) as! CalendarDateCell // TODO: 💩
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         return cell
     }
 
     func calendar(_: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt _: Date, cellState: CellState, indexPath _: IndexPath) {
         configureCell(view: cell, cellState: cellState)
-    }
-
-    func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
-        // swiftlint:disable all
-        let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "CalendarHeaderView", for: indexPath) as! CalendarHeaderView
-        header.monthTitle.text = range.start.string(dateFormat: .formatdMMMMyyyy)
-        return header
-    }
-
-    func calendarSizeForMonths(_: JTACMonthView?) -> MonthSize? {
-        MonthSize(defaultSize: 50)
     }
 }

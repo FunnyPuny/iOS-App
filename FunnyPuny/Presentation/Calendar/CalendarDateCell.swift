@@ -6,9 +6,8 @@ import SnapKit
 import UIKit
 
 class CalendarDateCell: JTACDayCell {
-    var dateCell: UILabel = {
+    var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = Date().string(dateFormat: .formatdd)
         label.textColor = .primaryText
         label.font = .systemFont(ofSize: 24)
         label.backgroundColor = .foreground
@@ -36,11 +35,11 @@ class CalendarDateCell: JTACDayCell {
     }
 
     private func addSubviews() {
-        addSubview(dateCell)
+        addSubview(dateLabel)
     }
 
     private func makeConstraints() {
-        dateCell.snp.makeConstraints { make in
+        dateLabel.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
             make.size.equalTo(40)
         }
