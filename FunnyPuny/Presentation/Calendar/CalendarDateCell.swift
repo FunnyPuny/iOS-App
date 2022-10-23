@@ -6,6 +6,19 @@ import SnapKit
 import UIKit
 
 class CalendarDateCell: JTACDayCell {
+    var dayOfWeekLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .primaryText
+        label.font = .systemFont(ofSize: 12)
+        label.backgroundColor = .foreground
+        label.layer.borderColor = UIColor.primaryText?.cgColor
+        label.layer.borderWidth = 1
+        label.textAlignment = .center
+        label.layer.cornerRadius = 9
+        label.clipsToBounds = true
+        return label
+    }()
+
     var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .primaryText
@@ -35,12 +48,20 @@ class CalendarDateCell: JTACDayCell {
     }
 
     private func addSubviews() {
+        addSubview(dayOfWeekLabel)
         addSubview(dateLabel)
     }
 
     private func makeConstraints() {
+        dayOfWeekLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.size.equalTo(18)
+        }
+
         dateLabel.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.centerX.equalToSuperview()
             make.size.equalTo(40)
         }
     }

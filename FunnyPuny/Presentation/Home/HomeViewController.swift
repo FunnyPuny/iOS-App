@@ -66,20 +66,26 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         let parameters = ConfigurationParameters(
             startDate: Date() - 10.years,
             endDate: Date() + 10.years,
-            numberOfRows: 1
+            numberOfRows: 1,
+            firstDayOfWeek: .monday
         )
         return parameters
     }
 
     func configureCell(view: JTACDayCell?, cellState: CellState) {
         guard let cell = view as? CalendarDateCell else { return }
-        cell.dateLabel.text = cellState.text
+        cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
+        cell.dayOfWeekLabel.text = cellState.date.weekdayName(.veryShort)
         if cellState.date.isToday {
             cell.dateLabel.backgroundColor = .primaryText
             cell.dateLabel.textColor = .foreground
+            cell.dayOfWeekLabel.backgroundColor = .primaryText
+            cell.dayOfWeekLabel.textColor = .foreground
         } else {
             cell.dateLabel.backgroundColor = .foreground
             cell.dateLabel.textColor = .primaryText
+            cell.dayOfWeekLabel.backgroundColor = .foreground
+            cell.dayOfWeekLabel.textColor = .primaryText
         }
     }
 
