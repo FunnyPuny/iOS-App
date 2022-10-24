@@ -19,6 +19,7 @@ class HomeViewController: ViewController {
         setupData()
         setupCalendar()
         setupNotification()
+        setupTargets()
     }
 
     @objc private func habitDidAdd() {
@@ -50,8 +51,19 @@ class HomeViewController: ViewController {
         )
     }
 
+    private func setupTargets() {
+        let headerTap = UITapGestureRecognizer(target: self, action: #selector(headerDatePressed))
+        homeView.calendarView.headerView.addGestureRecognizer(headerTap)
+    }
+
+    @objc private func headerDatePressed() {
+        scrollToDate(Date())
+    }
+
     private func scrollToDate(_ date: Date) {
         homeView.calendarView.monthView.scrollToDate(date - 3.days, extraAddedOffset: -4) // TODO: 💩
+        homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
+        selectedDate = date
     }
 }
 
@@ -119,7 +131,5 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
 
     func calendar(_: JTACMonthView, didSelectDate date: Date, cell _: JTACDayCell?, cellState _: CellState, indexPath _: IndexPath) {
         scrollToDate(date)
-        homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
-        selectedDate = date
     }
 }
