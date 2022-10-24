@@ -37,7 +37,7 @@ class HomeViewController: ViewController {
     private func setupCalendar() {
         homeView.calendarView.monthView.calendarDelegate = self
         homeView.calendarView.monthView.calendarDataSource = self
-        homeView.calendarView.monthView.scrollToDate(Date() - 3.days) // TODO: 💩
+        scrollToDate(Date())
     }
 
     private func setupNotification() {
@@ -47,6 +47,10 @@ class HomeViewController: ViewController {
             name: .habitDidAdd,
             object: nil
         )
+    }
+
+    private func scrollToDate(_ date: Date) {
+        homeView.calendarView.monthView.scrollToDate(date - 3.days, extraAddedOffset: -4) // TODO: 💩
     }
 }
 
@@ -89,8 +93,6 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         guard let cell = view as? CalendarDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.weekdayName(.veryShort)
-        cell.dateLabel.backgroundColor = cellState.date.isToday ? .primaryText : .foreground
-        cell.dateLabel.textColor = cellState.date.isToday ? .foreground : .primaryText
         cell.dayOfWeekLabel.backgroundColor = cellState.date.isToday ? .primaryText : .foreground
         cell.dayOfWeekLabel.textColor = cellState.date.isToday ? .foreground : .primaryText
     }
@@ -109,5 +111,10 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
 
     func calendar(_: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt _: Date, cellState: CellState, indexPath _: IndexPath) {
         configureCell(view: cell, cellState: cellState)
+    }
+
+    func calendar(_: JTACMonthView, didSelectDate date: Date, cell _: JTACDayCell?, cellState _: CellState, indexPath _: IndexPath) {
+        scrollToDate(date)
+        homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
     }
 }

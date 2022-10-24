@@ -26,10 +26,10 @@ class CalendarHeaderView: UIView {
         var view = UIView()
         // Creating triangle
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 16, y: 0))
-        path.addLine(to: CGPoint(x: 8, y: 16))
-        path.addLine(to: CGPoint(x: 0, y: 0))
+        path.move(to: CGPoint(x: -6, y: 0))
+        path.addLine(to: CGPoint(x: 6, y: 0))
+        path.addLine(to: CGPoint(x: 0, y: 12))
+        path.addLine(to: CGPoint(x: -6, y: 0))
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         shapeLayer.fillColor = UIColor.primaryText?.cgColor
