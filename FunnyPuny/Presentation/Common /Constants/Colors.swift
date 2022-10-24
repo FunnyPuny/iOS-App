@@ -10,4 +10,6 @@ extension UIColor {
     static let foreground = UIColor(named: "foreground")
     /// Gray
     static let tabForeground = UIColor(named: "tabForeground")
+    /// Light gray for separators
+    static let separator = UIColor(named: "separator")
 }

@@ -32,7 +32,7 @@ class AddHabitView: UIView {
     private func makeConstraints() {
         nameInputView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
-            make.top.equalToSuperview().offset(128)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
         }
 
         reminderInputView.snp.makeConstraints { make in

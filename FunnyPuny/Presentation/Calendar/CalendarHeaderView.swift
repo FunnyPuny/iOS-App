@@ -18,7 +18,7 @@ class CalendarHeaderView: UIView {
 
     var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .tabForeground
+        view.backgroundColor = .separator
         return view
     }()
 

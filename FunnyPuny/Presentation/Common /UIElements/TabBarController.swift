@@ -24,12 +24,13 @@ class TabBarController: UITabBarController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        addButton.frame = CGRect(x: tabBar.center.x - 32, y: view.bounds.height - 96, width: 64, height: 64)
+        addButton.frame = CGRect(x: tabBar.center.x - 16, y: view.bounds.height - 80, width: 32, height: 32)
     }
 
     private func setupStyleTabBar() {
         tabBar.tintColor = .primaryText
         tabBar.unselectedItemTintColor = .tabForeground
+        tabBar.barTintColor = .background
     }
 
     private func setupTabBarItems() {

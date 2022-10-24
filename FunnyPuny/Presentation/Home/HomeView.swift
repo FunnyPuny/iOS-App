@@ -42,7 +42,7 @@ class HomeView: UIView {
 
     private func makeConstraints() {
         calendarView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(160)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(140)
         }
@@ -50,7 +50,7 @@ class HomeView: UIView {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(calendarView.snp.bottom).offset(8)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(100)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
     }
 }

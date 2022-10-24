@@ -13,6 +13,8 @@ class NavigationController: UINavigationController {
         let appearance = UINavigationBarAppearance()
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.primaryText as Any]
         appearance.titleTextAttributes = [.foregroundColor: UIColor.primaryText as Any]
+        appearance.backgroundColor = .background
+        appearance.shadowColor = .clear
         navigationBar.standardAppearance = appearance
         navigationBar.tintColor = .primaryText
         navigationBar.prefersLargeTitles = true
