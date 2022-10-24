@@ -9,6 +9,7 @@ import UIKit
 class HomeViewController: ViewController {
     private var homeView = HomeView()
     var habits: Results<Habit>?
+    var selectedDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
+        // TODO:
+        var selectedDayOfWeek = selectedDate.weekday
+        print("selectedDate = \(selectedDate) | selectedDayOfWeek = \(selectedDayOfWeek)")
         cell.label.text = habits?[indexPath.row].name ?? ""
         cell.iconImageView.image = habits?[indexPath.row].isDone ?? false ? .checkmark : .circle
         return cell
@@ -92,7 +96,7 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
     func configureCell(view: JTACDayCell?, cellState: CellState) {
         guard let cell = view as? CalendarDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
-        cell.dayOfWeekLabel.text = cellState.date.weekdayName(.veryShort)
+        cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
         cell.dayOfWeekLabel.backgroundColor = cellState.date.isToday ? .primaryText : .foreground
         cell.dayOfWeekLabel.textColor = cellState.date.isToday ? .foreground : .primaryText
     }
@@ -116,5 +120,6 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
     func calendar(_: JTACMonthView, didSelectDate date: Date, cell _: JTACDayCell?, cellState _: CellState, indexPath _: IndexPath) {
         scrollToDate(date)
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
+        selectedDate = date
     }
 }
