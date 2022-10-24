@@ -7,7 +7,7 @@ class HomeCell: UITableViewCell {
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
-        imageView.image = .checkmark
+        imageView.image = .circle
         imageView.tintColor = .tabForeground
         return imageView
     }()

@@ -8,6 +8,7 @@ class Habit: Object {
     @Persisted var name: String = ""
     @Persisted var note: String = ""
     @Persisted var frequency: List<Day>
+    @Persisted var isDone = false
 
     convenience init(name: String, note: String, frequency: List<Day>) {
         self.init()

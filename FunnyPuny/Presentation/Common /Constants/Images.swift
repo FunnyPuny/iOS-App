@@ -9,4 +9,5 @@ extension UIImage {
     static let bookClosed = UIImage(systemName: "book.closed")
     static let plusApp = UIImage(systemName: "plus.app")
     static let checkmark = UIImage(systemName: "checkmark.circle")
+    static let circle = UIImage(systemName: "circle")
 }

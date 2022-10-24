@@ -31,6 +31,7 @@ class HomeViewController: ViewController {
 
     private func setupTableView() {
         homeView.tableView.dataSource = self
+        homeView.tableView.delegate = self
     }
 
     private func setupCalendar() {
@@ -57,7 +58,19 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
         cell.label.text = habits?[indexPath.row].name ?? ""
+        cell.iconImageView.image = habits?[indexPath.row].isDone ?? false ? .checkmark : .circle
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        do {
+            try realm.write {
+                habits?[indexPath.row].isDone.toggle()
+            }
+        } catch let error as NSError {
+            print("Can't update habit, error: \(error)")
+        }
+        tableView.reloadData()
     }
 }
 
@@ -76,20 +89,18 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         guard let cell = view as? CalendarDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.weekdayName(.veryShort)
-        if cellState.date.isToday {
-            cell.dateLabel.backgroundColor = .primaryText
-            cell.dateLabel.textColor = .foreground
-            cell.dayOfWeekLabel.backgroundColor = .primaryText
-            cell.dayOfWeekLabel.textColor = .foreground
-        } else {
-            cell.dateLabel.backgroundColor = .foreground
-            cell.dateLabel.textColor = .primaryText
-            cell.dayOfWeekLabel.backgroundColor = .foreground
-            cell.dayOfWeekLabel.textColor = .primaryText
-        }
+        cell.dateLabel.backgroundColor = cellState.date.isToday ? .primaryText : .foreground
+        cell.dateLabel.textColor = cellState.date.isToday ? .foreground : .primaryText
+        cell.dayOfWeekLabel.backgroundColor = cellState.date.isToday ? .primaryText : .foreground
+        cell.dayOfWeekLabel.textColor = cellState.date.isToday ? .foreground : .primaryText
     }
 
-    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
+    func calendar(
+        _ calendar: JTACMonthView,
+        cellForItemAt date: Date,
+        cellState: CellState,
+        indexPath: IndexPath
+    ) -> JTACDayCell {
         // swiftlint:disable all
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDateCell", for: indexPath) as! CalendarDateCell // TODO: 💩
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
