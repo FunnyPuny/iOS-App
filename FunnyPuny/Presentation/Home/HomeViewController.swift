@@ -6,11 +6,13 @@ import RealmSwift
 import SwiftDate
 import UIKit
 
+// swiftlint:disable all
 class HomeViewController: ViewController {
     private var homeView = HomeView()
     var habits: Results<Habit>?
     var currentHabits: Results<Habit>?
     var selectedDate = Date()
+    var history: Results<History>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,6 @@ class HomeViewController: ViewController {
             $0.frequency.contains(Day(rawValue: selectedDate.dateComponents.weekday ?? 1) ?? .sun)
         }
         homeView.tableView.reloadData()
-        print(selectedDate.dateComponents.weekday)
     }
 
     private func setupData() {
@@ -85,14 +86,49 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
         cell.label.text = currentHabits?[indexPath.row].name ?? ""
-        cell.iconImageView.image = currentHabits?[indexPath.row].isDone ?? false ? .checkmark : .circle
+        
+        let date = selectedDate.string(dateFormat: .formatddMMyy)
+        let habitId = (currentHabits?[indexPath.row].id)!
+        let history = realm.object(ofType: History.self, forPrimaryKey: date)
+
+        if let history, history.habits.contains(habitId) {
+            cell.iconImageView.image = .checkmark
+            cell.isDone = true
+        } else {
+            cell.iconImageView.image = .circle
+            cell.isDone = false
+        }
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! HomeCell
         do {
             try realm.write {
-                currentHabits?[indexPath.row].isDone.toggle()
+                let date = selectedDate.string(dateFormat: .formatddMMyy)
+                let habitId = (currentHabits?[indexPath.row].id)!
+                let history = realm.object(ofType: History.self, forPrimaryKey: date)
+
+                if let history {
+                    if cell.isDone {
+                        for (i, habit) in history.habits.enumerated() {
+                            if habit == habitId {
+                                history.habits.remove(at: i)
+                            }
+                        }
+                    } else {
+                        history.habits.append(habitId)
+                    }
+                } else {
+                    let list = List<ObjectId>()
+                    list.append(habitId)
+                    let historyCimplete = History(
+                        date: date,
+                        habits: list
+                    )
+                    realm.add(historyCimplete)
+                }
             }
         } catch let error as NSError {
             print("Can't update habit, error: \(error)")
@@ -125,7 +161,6 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         cellState: CellState,
         indexPath: IndexPath
     ) -> JTACDayCell {
-        // swiftlint:disable all
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDateCell", for: indexPath) as! CalendarDateCell // TODO: 💩
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         return cell

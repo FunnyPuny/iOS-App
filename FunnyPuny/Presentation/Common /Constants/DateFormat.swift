@@ -15,6 +15,8 @@ extension Date {
         case formatMMMMd = "MMMM, d"
         /// 18 October 2022
         case formatdMMMMyyyy = "d MMMM yyyy"
+        /// 18/11/22
+        case formatddMMyy = "dd/MM/yy"
     }
 
     /// Строка из даты
