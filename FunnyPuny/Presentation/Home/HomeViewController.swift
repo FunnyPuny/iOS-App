@@ -9,6 +9,7 @@ import UIKit
 class HomeViewController: ViewController {
     private var homeView = HomeView()
     var habits: Results<Habit>?
+    var currentHabits: Results<Habit>?
     var selectedDate = Date()
 
     override func viewDidLoad() {
@@ -26,9 +27,17 @@ class HomeViewController: ViewController {
         homeView.tableView.reloadData()
     }
 
+    fileprivate func setupCurrentHabits() {
+        currentHabits = habits?.where {
+            $0.frequency.contains(Day(rawValue: selectedDate.dateComponents.weekday ?? 1) ?? .sun)
+        }
+        homeView.tableView.reloadData()
+        print(selectedDate.dateComponents.weekday)
+    }
+
     private func setupData() {
         habits = realm.objects(Habit.self)
-        homeView.tableView.reloadData()
+        setupCurrentHabits()
     }
 
     private func setupTableView() {
@@ -64,28 +73,26 @@ class HomeViewController: ViewController {
         homeView.calendarView.monthView.scrollToDate(date - 3.days, extraAddedOffset: -4) // TODO: 💩
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
         selectedDate = date
+        setupCurrentHabits()
     }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        habits?.count ?? 0
+        currentHabits?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
-        // TODO:
-        var selectedDayOfWeek = selectedDate.weekday
-        print("selectedDate = \(selectedDate) | selectedDayOfWeek = \(selectedDayOfWeek)")
-        cell.label.text = habits?[indexPath.row].name ?? ""
-        cell.iconImageView.image = habits?[indexPath.row].isDone ?? false ? .checkmark : .circle
+        cell.label.text = currentHabits?[indexPath.row].name ?? ""
+        cell.iconImageView.image = currentHabits?[indexPath.row].isDone ?? false ? .checkmark : .circle
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         do {
             try realm.write {
-                habits?[indexPath.row].isDone.toggle()
+                currentHabits?[indexPath.row].isDone.toggle()
             }
         } catch let error as NSError {
             print("Can't update habit, error: \(error)")
@@ -99,8 +106,7 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         let parameters = ConfigurationParameters(
             startDate: Date() - 10.years,
             endDate: Date() + 10.years,
-            numberOfRows: 1,
-            firstDayOfWeek: .monday
+            numberOfRows: 1
         )
         return parameters
     }
@@ -109,8 +115,8 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         guard let cell = view as? CalendarDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
-        cell.dayOfWeekLabel.backgroundColor = cellState.date.isToday ? .primaryText : .foreground
-        cell.dayOfWeekLabel.textColor = cellState.date.isToday ? .foreground : .primaryText
+        cell.dayOfWeekLabel.backgroundColor = Calendar.current.isDateInToday(cellState.date) ? .primaryText : .foreground
+        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .foreground : .primaryText
     }
 
     func calendar(

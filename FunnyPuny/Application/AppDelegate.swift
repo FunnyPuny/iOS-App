@@ -2,6 +2,7 @@
 // Created by Zlata Guseva on 12.10.2022.
 
 import RealmSwift
+import SwiftDate
 import UIKit
 
 @UIApplicationMain
@@ -12,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _: UIApplication,
         didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        SwiftDate.defaultRegion = .local
         setupRealm()
         setupRootViewController()
         return true
