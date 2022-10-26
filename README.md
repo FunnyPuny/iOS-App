@@ -1,5 +1,7 @@
 ### FunnyPuny
 
+Easy habit tracker
+
 ### About
 
 TBC
@@ -8,6 +10,7 @@ TBC
 
 Core:
 
+-   Realm
 -   TBC 
 
 Package Managers
