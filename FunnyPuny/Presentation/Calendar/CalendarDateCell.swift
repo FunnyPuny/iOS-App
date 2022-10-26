@@ -10,8 +10,8 @@ class CalendarDateCell: JTACDayCell {
         let label = UILabel()
         label.textColor = .primaryText
         label.font = .systemFont(ofSize: 12)
-        label.backgroundColor = .foreground
-        label.layer.borderColor = UIColor.primaryText?.cgColor
+        label.backgroundColor = .background
+        label.layer.borderColor = UIColor.mainText?.cgColor
         label.layer.borderWidth = 1
         label.textAlignment = .center
         label.layer.cornerRadius = 9
@@ -21,9 +21,9 @@ class CalendarDateCell: JTACDayCell {
 
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .primaryText
-        label.font = .systemFont(ofSize: 24)
-        label.backgroundColor = .foreground
+        label.textColor = .blackText
+        label.font = .init(name: "SF-Pro", size: 12)
+        label.backgroundColor = .background
         label.layer.borderColor = UIColor.primaryText?.cgColor
         label.layer.borderWidth = 2
         label.textAlignment = .center

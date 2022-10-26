@@ -8,8 +8,8 @@ import UIKit
 class CalendarHeaderView: UIView {
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .primaryText
-        label.font = .boldSystemFont(ofSize: 24)
+        label.textColor = .mainText
+        label.font = .init(name: "SF-Pro-Italic", size: 48)
         label.textAlignment = .center
         // TODO:
         label.text = Date().string(dateFormat: .formatMMMMd)
@@ -32,7 +32,7 @@ class CalendarHeaderView: UIView {
         path.addLine(to: CGPoint(x: -6, y: 0))
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = UIColor.primaryText?.cgColor
+        shapeLayer.fillColor = UIColor.mainText?.cgColor
         shapeLayer.lineWidth = 3
         view.layer.addSublayer(shapeLayer)
         return view

@@ -5,11 +5,16 @@ import UIKit
 
 extension UIColor {
     static let primaryText = UIColor(named: "primaryText")
-    static let background = UIColor(named: "background")
     /// White
-    static let foreground = UIColor(named: "foreground")
+    static let background = UIColor(named: "background")
+    /// Black
+    static let blackText = UIColor(named: "blackText")
     /// Gray
     static let tabForeground = UIColor(named: "tabForeground")
     /// Light gray for separators
     static let separator = UIColor(named: "separator")
+    /// Pink
+    static let mainText = UIColor(named: "mainText")
+    /// Pink for cells
+    static let primaryPink = UIColor(named: "primaryPink")
 }

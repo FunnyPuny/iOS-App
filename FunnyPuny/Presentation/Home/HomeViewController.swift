@@ -86,7 +86,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
         cell.label.text = currentHabits?[indexPath.row].name ?? ""
-        
+
         let date = selectedDate.string(dateFormat: .formatddMMyy)
         let habitId = (currentHabits?[indexPath.row].id)!
         let history = realm.object(ofType: History.self, forPrimaryKey: date)
@@ -98,7 +98,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.iconImageView.image = .circle
             cell.isDone = false
         }
-        
+
         return cell
     }
 
@@ -151,8 +151,8 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         guard let cell = view as? CalendarDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
-        cell.dayOfWeekLabel.backgroundColor = Calendar.current.isDateInToday(cellState.date) ? .primaryText : .foreground
-        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .foreground : .primaryText
+        cell.dayOfWeekLabel.backgroundColor = Calendar.current.isDateInToday(cellState.date) ? .primaryText : .background
+        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .background : .primaryText
     }
 
     func calendar(

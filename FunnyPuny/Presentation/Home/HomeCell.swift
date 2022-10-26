@@ -5,7 +5,7 @@ import UIKit
 
 class HomeCell: UITableViewCell {
     var isDone = false
-    
+
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
