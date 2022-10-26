@@ -6,8 +6,8 @@ import UIKit
 
 extension UIImage {
     static let heartList = UIImage(systemName: "heart.text.square")
-    static let bookClosed = UIImage(systemName: "book.closed")
+    static let smile = UIImage(systemName: "smiley")
     static let plusApp = UIImage(systemName: "plus.app")
     static let checkmark = UIImage(systemName: "checkmark.circle")
-    static let circle = UIImage(systemName: "circle")
+    static let circle = UIImage(systemName: "circle.fill")
 }

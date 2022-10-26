@@ -93,9 +93,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
         if let history, history.habits.contains(habitId) {
             cell.iconImageView.image = .checkmark
+            cell.iconImageView.tintColor = .mainText
+            cell.contentView.backgroundColor = .background
+            cell.contentView.layer.borderColor = UIColor.primaryPink?.cgColor
+            cell.contentView.layer.borderWidth = 2
             cell.isDone = true
         } else {
             cell.iconImageView.image = .circle
+            cell.iconImageView.tintColor = .background
+            cell.contentView.backgroundColor = .primaryPink
             cell.isDone = false
         }
 
@@ -151,8 +157,7 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         guard let cell = view as? CalendarDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
-        cell.dayOfWeekLabel.backgroundColor = Calendar.current.isDateInToday(cellState.date) ? .primaryText : .background
-        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .background : .primaryText
+        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .blackText : .greyDark
     }
 
     func calendar(

@@ -7,10 +7,10 @@ class TabBarController: UITabBarController {
     private var addButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
-        configuration.image = .plusApp
+        configuration.image = UIImage(systemName: "plus.circle.fill")
         configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
         configuration.baseBackgroundColor = .background
-        configuration.baseForegroundColor = .tabForeground
+        configuration.baseForegroundColor = .primaryPink
         button.configuration = configuration
         button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         return button
@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
     }
 
     private func setupStyleTabBar() {
-        tabBar.tintColor = .primaryText
+        tabBar.tintColor = .mainText
         tabBar.unselectedItemTintColor = .tabForeground
         tabBar.barTintColor = .background
     }
@@ -44,7 +44,7 @@ class TabBarController: UITabBarController {
         let thirdViewController = NavigationController(rootViewController: ProfileViewController())
         thirdViewController.tabBarItem = UITabBarItem(
             title: Texts.profile,
-            image: .bookClosed,
+            image: .smile,
             tag: 1
         )
 

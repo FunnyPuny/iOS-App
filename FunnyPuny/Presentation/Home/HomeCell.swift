@@ -10,13 +10,13 @@ class HomeCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
         imageView.image = .circle
-        imageView.tintColor = .tabForeground
+        imageView.backgroundColor = .background
         return imageView
     }()
 
     lazy var label: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18)
+        label.font = .init(name: "SFProText-Regular", size: 17)
         label.textColor = .black
         return label
     }()
@@ -40,7 +40,6 @@ class HomeCell: UITableViewCell {
     private func setupStyle() {
         backgroundColor = .background
         selectionStyle = .none
-        contentView.backgroundColor = .primaryText?.withAlphaComponent(0.5)
         contentView.layer.cornerRadius = 16
     }
 
