@@ -13,6 +13,7 @@ class HomeViewController: ViewController {
     var currentHabits: Results<Habit>?
     var selectedDate = Date()
     var history: Results<History>?
+    var historyComplete = History()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
         cell.label.text = currentHabits?[indexPath.row].name ?? ""
 
-        let date = selectedDate.string(dateFormat: .formatddMMyy)
+        let date = selectedDate.string(dateFormat: .formatyyMMdd)
         let habitId = (currentHabits?[indexPath.row].id)!
         let history = realm.object(ofType: History.self, forPrimaryKey: date)
 
@@ -109,11 +110,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! HomeCell
+        let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
         do {
             try realm.write {
-                let date = selectedDate.string(dateFormat: .formatddMMyy)
-                let habitId = (currentHabits?[indexPath.row].id)!
+                let date = selectedDate.string(dateFormat: .formatyyMMdd)
+                guard let habitId = (currentHabits?[indexPath.row].id) else {
+                    return
+                }
                 let history = realm.object(ofType: History.self, forPrimaryKey: date)
 
                 if let history {
@@ -127,13 +130,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                         history.habits.append(habitId)
                     }
                 } else {
-                    let list = List<ObjectId>()
-                    list.append(habitId)
-                    let historyCimplete = History(
-                        date: date,
-                        habits: list
-                    )
-                    realm.add(historyCimplete)
+                    historyComplete.date = date
+                    historyComplete.habits.append(habitId)
+                    realm.add(historyComplete)
                 }
             }
         } catch let error as NSError {
