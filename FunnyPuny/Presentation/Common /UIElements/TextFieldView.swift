@@ -10,18 +10,18 @@ class TextFieldView: UIView {
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = text
-        label.textColor = .primaryText
-        label.font = .boldSystemFont(ofSize: 24)
+        label.textColor = .primaryPink
+        label.font = .bold24
         return label
     }()
 
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.placeholder = placeholder
-        textField.tintColor = .primaryText
-        textField.backgroundColor = .foreground
+        textField.tintColor = .primaryPink
+        textField.backgroundColor = .background
         textField.layer.cornerRadius = 8
-        textField.layer.borderColor = UIColor.primaryText?.cgColor
+        textField.layer.borderColor = UIColor.primaryPink?.cgColor
         textField.layer.borderWidth = CGFloat(1)
         return textField
     }()

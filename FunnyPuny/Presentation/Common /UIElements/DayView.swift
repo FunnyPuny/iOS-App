@@ -47,7 +47,7 @@ class DayView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = isSelected ? .primaryText : .tabForeground
+        backgroundColor = isSelected ? .primaryPink : .tabForeground
     }
 
     private func addTap() {

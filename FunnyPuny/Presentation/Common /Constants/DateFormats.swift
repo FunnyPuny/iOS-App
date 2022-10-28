@@ -1,4 +1,4 @@
-// DateFormat.swift
+// DateFormats.swift
 // Created by Zlata Guseva on 18.10.2022.
 
 import Foundation
@@ -15,6 +15,8 @@ extension Date {
         case formatMMMMd = "MMMM, d"
         /// 18 October 2022
         case formatdMMMMyyyy = "d MMMM yyyy"
+        /// 18/11/22
+        case formatyyMMdd = "yy/MM/dd"
     }
 
     /// Строка из даты

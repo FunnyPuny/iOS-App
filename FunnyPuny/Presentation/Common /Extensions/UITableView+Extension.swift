@@ -14,6 +14,13 @@ extension UITableView {
         return cell
     }
 
+    func cellForRow<T: UITableViewCell>(at indexPath: IndexPath, withClass name: T.Type) -> T {
+        guard let cell = cellForRow(at: indexPath) as? T else {
+            fatalError("Couldn't find \(String(describing: name)), make sure the cell is registered with table view")
+        }
+        return cell
+    }
+
     /// Register UITableViewCell using class name.
     /// - Parameter name: UITableViewCell type.
     func register<T: UITableViewCell>(cellWithClass name: T.Type) {

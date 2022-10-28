@@ -6,11 +6,14 @@ import RealmSwift
 import SwiftDate
 import UIKit
 
+// swiftlint:disable all
 class HomeViewController: ViewController {
     private var homeView = HomeView()
     var habits: Results<Habit>?
     var currentHabits: Results<Habit>?
     var selectedDate = Date()
+    var history: Results<History>?
+    var historyComplete = History()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,6 @@ class HomeViewController: ViewController {
             $0.frequency.contains(Day(rawValue: selectedDate.dateComponents.weekday ?? 1) ?? .sun)
         }
         homeView.tableView.reloadData()
-        print(selectedDate.dateComponents.weekday)
     }
 
     private func setupData() {
@@ -85,14 +87,50 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
         cell.label.text = currentHabits?[indexPath.row].name ?? ""
-        cell.iconImageView.image = currentHabits?[indexPath.row].isDone ?? false ? .checkmark : .circle
+
+        let date = selectedDate.string(dateFormat: .formatyyMMdd)
+        let history = realm.object(ofType: History.self, forPrimaryKey: date)
+        if
+            let habitId = currentHabits?[indexPath.row].id,
+            let history,
+            history.habits.contains(habitId)
+        {
+            cell.iconImageView.image = .checkmark
+            cell.iconImageView.tintColor = .mainText
+            cell.contentView.backgroundColor = .background
+            cell.contentView.layer.borderColor = UIColor.primaryPink?.cgColor
+            cell.contentView.layer.borderWidth = 2
+            cell.isDone = true
+        } else {
+            cell.iconImageView.image = .circle
+            cell.iconImageView.tintColor = .background
+            cell.contentView.backgroundColor = .primaryPink
+            cell.isDone = false
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
         do {
             try realm.write {
-                currentHabits?[indexPath.row].isDone.toggle()
+                let date = selectedDate.string(dateFormat: .formatyyMMdd)
+                guard let habitId = (currentHabits?[indexPath.row].id) else {
+                    return
+                }
+                let history = realm.object(ofType: History.self, forPrimaryKey: date)
+
+                if let history {
+                    if cell.isDone {
+                        history.habits.remove(value: habitId)
+                    } else {
+                        history.habits.append(habitId)
+                    }
+                } else {
+                    historyComplete.date = date
+                    historyComplete.habits.append(habitId)
+                    realm.add(historyComplete)
+                }
             }
         } catch let error as NSError {
             print("Can't update habit, error: \(error)")
@@ -115,8 +153,7 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         guard let cell = view as? CalendarDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
-        cell.dayOfWeekLabel.backgroundColor = Calendar.current.isDateInToday(cellState.date) ? .primaryText : .foreground
-        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .foreground : .primaryText
+        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .blackText : .greyDark
     }
 
     func calendar(
@@ -125,7 +162,6 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         cellState: CellState,
         indexPath: IndexPath
     ) -> JTACDayCell {
-        // swiftlint:disable all
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDateCell", for: indexPath) as! CalendarDateCell // TODO: 💩
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         return cell
