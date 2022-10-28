@@ -9,9 +9,8 @@ class CalendarHeaderView: UIView {
     var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .mainText
-        label.font = .init(name: "SFProDisplay-Bold", size: 24)
+        label.font = .bold24
         label.textAlignment = .center
-        // TODO:
         label.text = Date().string(dateFormat: .formatMMMMd)
         return label
     }()

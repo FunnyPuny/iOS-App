@@ -7,7 +7,7 @@ class TabBarController: UITabBarController {
     private var addButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
-        configuration.image = UIImage(systemName: "plus.circle.fill")
+        configuration.image = .plusApp
         configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
         configuration.baseBackgroundColor = .background
         configuration.baseForegroundColor = .primaryPink

@@ -9,7 +9,7 @@ class CalendarDateCell: JTACDayCell {
     var dayOfWeekLabel: UILabel = {
         let label = UILabel()
         label.textColor = .blackText
-        label.font = .init(name: "SFProText-Regular", size: 14)
+        label.font = .regular14
         label.backgroundColor = .background
         label.textAlignment = .center
         label.layer.cornerRadius = 9
@@ -20,7 +20,7 @@ class CalendarDateCell: JTACDayCell {
     var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .blackText
-        label.font = .init(name: "SFProText-Regular", size: 12)
+        label.font = .regular12
         label.backgroundColor = .background
         label.layer.borderColor = UIColor.mainText?.cgColor
         label.layer.borderWidth = 1

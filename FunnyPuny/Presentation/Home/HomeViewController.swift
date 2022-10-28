@@ -89,10 +89,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.label.text = currentHabits?[indexPath.row].name ?? ""
 
         let date = selectedDate.string(dateFormat: .formatyyMMdd)
-        let habitId = (currentHabits?[indexPath.row].id)!
         let history = realm.object(ofType: History.self, forPrimaryKey: date)
-
-        if let history, history.habits.contains(habitId) {
+        if
+            let habitId = currentHabits?[indexPath.row].id,
+            let history,
+            history.habits.contains(habitId)
+        {
             cell.iconImageView.image = .checkmark
             cell.iconImageView.tintColor = .mainText
             cell.contentView.backgroundColor = .background
@@ -105,7 +107,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.contentView.backgroundColor = .primaryPink
             cell.isDone = false
         }
-
         return cell
     }
 
@@ -121,11 +122,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
                 if let history {
                     if cell.isDone {
-                        for (i, habit) in history.habits.enumerated() {
-                            if habit == habitId {
-                                history.habits.remove(at: i)
-                            }
-                        }
+                        history.habits.remove(value: habitId)
                     } else {
                         history.habits.append(habitId)
                     }

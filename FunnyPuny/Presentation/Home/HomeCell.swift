@@ -16,7 +16,7 @@ class HomeCell: UITableViewCell {
 
     lazy var label: UILabel = {
         let label = UILabel()
-        label.font = .init(name: "SFProText-Regular", size: 17)
+        label.font = .regular17
         label.textColor = .black
         return label
     }()
