@@ -1,5 +1,5 @@
 // FrequencyView.swift
-// Created by Zlata Guseva on 15.10.2022.
+// FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
 

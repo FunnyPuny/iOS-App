@@ -1,5 +1,5 @@
 // CalendarView.swift
-// Created by Zlata Guseva on 20.10.2022.
+// FunnyPuny. Created by Zlata Guseva.
 
 import JTAppleCalendar
 import SnapKit

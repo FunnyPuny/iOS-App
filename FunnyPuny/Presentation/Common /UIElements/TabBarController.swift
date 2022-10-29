@@ -1,5 +1,5 @@
 // TabBarController.swift
-// Created by Zlata Guseva on 12.10.2022.
+// FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
 

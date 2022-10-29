@@ -1,5 +1,5 @@
 // Notifications.swift
-// Created by Zlata Guseva on 19.10.2022.
+// FunnyPuny. Created by Zlata Guseva.
 
 import Foundation
 

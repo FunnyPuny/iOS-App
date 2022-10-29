@@ -1,5 +1,5 @@
 // ProfileView.swift
-// Created by Zlata Guseva on 13.10.2022.
+// FunnyPuny. Created by Zlata Guseva.
 
 import SwiftyGif
 import UIKit

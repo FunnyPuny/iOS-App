@@ -1,5 +1,5 @@
 // AddHabitViewController.swift
-// Created by Zlata Guseva on 13.10.2022.
+// FunnyPuny. Created by Zlata Guseva.
 
 import RealmSwift
 import UIKit
@@ -13,7 +13,7 @@ class AddHabitViewController: ViewController {
         view = addHabitView
         setupTargets()
     }
-    
+
     private func setupTargets() {
         addHabitView.addButtonView.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
     }
