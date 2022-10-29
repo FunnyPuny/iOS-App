@@ -10,18 +10,20 @@ class TextFieldView: UIView {
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = text
-        label.textColor = .primaryPink
-        label.font = .bold24
+        label.textColor = .foreground
+        label.font = .regular20
         return label
     }()
 
-    lazy var textField: UITextField = {
-        let textField = UITextField()
+    lazy var textField: TextField = {
+        let textField = TextField()
         textField.placeholder = placeholder
-        textField.tintColor = .primaryPink
-        textField.backgroundColor = .background
+        textField.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.greyLight]
+        )
         textField.layer.cornerRadius = 8
-        textField.layer.borderColor = UIColor.primaryPink?.cgColor
+        textField.layer.borderColor = UIColor.mainGrey?.cgColor
         textField.layer.borderWidth = CGFloat(1)
         return textField
     }()
@@ -39,8 +41,13 @@ class TextFieldView: UIView {
     }
 
     private func commonInit() {
+        setupStyle()
         addSubviews()
         makeConstraints()
+    }
+
+    private func setupStyle() {
+        backgroundColor = .background
     }
 
     private func addSubviews() {
@@ -51,12 +58,12 @@ class TextFieldView: UIView {
     private func makeConstraints() {
         label.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(32)
+            make.height.equalTo(24)
         }
 
         textField.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(8)
-            make.height.greaterThanOrEqualTo(32)
+            make.top.equalTo(label.snp.bottom).offset(16)
+            make.height.equalTo(40)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }

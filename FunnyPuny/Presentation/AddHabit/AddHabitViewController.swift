@@ -11,18 +11,11 @@ class AddHabitViewController: ViewController {
         super.viewDidLoad()
         title = Texts.addHabit
         view = addHabitView
-        setupNavigation()
+        setupTargets()
     }
-
-    private func setupNavigation() {
-        let addNavigationItem = UIBarButtonItem(
-            title: Texts.add,
-            style: .plain,
-            target: self,
-            action: #selector(saveHabit)
-        )
-        navigationItem.rightBarButtonItem = addNavigationItem
-        navigationController?.navigationBar.prefersLargeTitles = false
+    
+    private func setupTargets() {
+        addHabitView.addButtonView.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
     }
 
     @objc

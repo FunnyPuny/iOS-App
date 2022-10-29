@@ -31,8 +31,13 @@ class HomeView: UIView {
     }
 
     private func commonInit() {
+        setupStyle()
         addSubviews()
         makeConstraints()
+    }
+
+    private func setupStyle() {
+        backgroundColor = .background
     }
 
     private func addSubviews() {

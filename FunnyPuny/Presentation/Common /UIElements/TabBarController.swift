@@ -10,7 +10,7 @@ class TabBarController: UITabBarController {
         configuration.image = .plusApp
         configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
         configuration.baseBackgroundColor = .background
-        configuration.baseForegroundColor = .primaryPink
+        configuration.baseForegroundColor = .pinkLight
         button.configuration = configuration
         button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         return button
@@ -28,20 +28,20 @@ class TabBarController: UITabBarController {
     }
 
     private func setupStyleTabBar() {
-        tabBar.tintColor = .mainText
-        tabBar.unselectedItemTintColor = .tabForeground
+        tabBar.tintColor = .vividPink
+        tabBar.unselectedItemTintColor = .greyLight
         tabBar.barTintColor = .background
     }
 
     private func setupTabBarItems() {
-        let firstViewController = NavigationController(rootViewController: HomeViewController())
+        let firstViewController = HomeViewController()
         firstViewController.tabBarItem = UITabBarItem(
             title: Texts.habits,
             image: .heartList,
             tag: 0
         )
 
-        let thirdViewController = NavigationController(rootViewController: ProfileViewController())
+        let thirdViewController = ProfileViewController()
         thirdViewController.tabBarItem = UITabBarItem(
             title: Texts.profile,
             image: .smile,

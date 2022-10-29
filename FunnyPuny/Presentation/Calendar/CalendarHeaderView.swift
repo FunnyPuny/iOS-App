@@ -8,17 +8,11 @@ import UIKit
 class CalendarHeaderView: UIView {
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .mainText
+        label.textColor = .vividPink
         label.font = .bold24
         label.textAlignment = .center
         label.text = Date().string(dateFormat: .formatMMMMd)
         return label
-    }()
-
-    var separatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .separator
-        return view
     }()
 
     var pointerView: UIView = {
@@ -31,7 +25,7 @@ class CalendarHeaderView: UIView {
         path.addLine(to: CGPoint(x: -6, y: 0))
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = UIColor.mainText?.cgColor
+        shapeLayer.fillColor = UIColor.vividPink?.cgColor
         shapeLayer.lineWidth = 3
         view.layer.addSublayer(shapeLayer)
         return view
@@ -54,7 +48,6 @@ class CalendarHeaderView: UIView {
 
     private func addSubviews() {
         addSubview(dateLabel)
-        addSubview(separatorView)
         addSubview(pointerView)
     }
 
@@ -63,15 +56,10 @@ class CalendarHeaderView: UIView {
             make.edges.equalToSuperview()
         }
 
-        separatorView.snp.makeConstraints { make in
-            make.trailing.leading.bottom.equalToSuperview()
-            make.height.equalTo(1)
-        }
-
         pointerView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.height.equalTo(8)
-            make.top.equalTo(separatorView.snp.bottom)
+            make.top.equalTo(dateLabel.snp.bottom)
         }
     }
 }

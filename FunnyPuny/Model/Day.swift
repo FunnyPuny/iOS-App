@@ -15,19 +15,19 @@ enum Day: Int, CaseIterable, PersistableEnum {
     func toString() -> String {
         switch self {
         case .mon:
-            return "MON"
+            return "Mon"
         case .tue:
-            return "TUE"
+            return "Tue"
         case .wed:
-            return "WED"
+            return "Wed"
         case .thu:
-            return "THU"
+            return "Thu"
         case .fri:
-            return "FRI"
+            return "Fri"
         case .sat:
-            return "SAT"
+            return "Sat"
         case .sun:
-            return "SAN"
+            return "San"
         }
     }
 }

@@ -7,15 +7,15 @@ class FrequencyView: UIView {
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = Texts.frequency
-        label.textColor = .primaryPink
-        label.font = .boldSystemFont(ofSize: 24)
+        label.textColor = .foreground
+        label.font = .regular20
         return label
     }()
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubviews(Day.allCases.map { DayView($0) })
-        stackView.spacing = 4
+        stackView.spacing = 8
         stackView.distribution = .fillEqually
         return stackView
     }()
@@ -47,7 +47,7 @@ class FrequencyView: UIView {
         }
 
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(8)
+            make.top.equalTo(label.snp.bottom).offset(16)
             make.height.greaterThanOrEqualTo(32)
             make.leading.trailing.bottom.equalToSuperview()
         }

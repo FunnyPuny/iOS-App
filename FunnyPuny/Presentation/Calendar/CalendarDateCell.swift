@@ -8,7 +8,7 @@ import UIKit
 class CalendarDateCell: JTACDayCell {
     var dayOfWeekLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .blackText
+        label.textColor = .foreground
         label.font = .regular14
         label.backgroundColor = .background
         label.textAlignment = .center
@@ -19,10 +19,10 @@ class CalendarDateCell: JTACDayCell {
 
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .blackText
+        label.textColor = .foreground
         label.font = .regular12
         label.backgroundColor = .background
-        label.layer.borderColor = UIColor.mainText?.cgColor
+        label.layer.borderColor = UIColor.vividPink?.cgColor
         label.layer.borderWidth = 1
         label.textAlignment = .center
         label.layer.cornerRadius = 20
