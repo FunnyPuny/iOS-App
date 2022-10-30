@@ -10,6 +10,7 @@ TBC
 
 Core:
 
+-   SnapKit
 -   Realm
 -   TBC 
 
