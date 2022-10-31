@@ -20,6 +20,7 @@
 		CE10452C28F70529006B31D6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452B28F70529006B31D6 /* Colors.swift */; };
 		CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */; };
 		CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddHabitView.swift */; };
+		CE351C2E2910511A00ACCF0C /* ReminderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C2D2910511A00ACCF0C /* ReminderTimeView.swift */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
 		CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */; };
 		CE7808E928FF66100016AD41 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E828FF660F0016AD41 /* Notifications.swift */; };
@@ -66,6 +67,7 @@
 		CE10452B28F70529006B31D6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		CE10453128F7696E006B31D6 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
+		CE351C2D2910511A00ACCF0C /* ReminderTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTimeView.swift; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		CE7808E828FF660F0016AD41 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				CE09C15228F9EB1800B7CB45 /* DayView.swift */,
 				CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */,
+				CE351C2D2910511A00ACCF0C /* ReminderTimeView.swift */,
 				CEA71A2328F8A18600D2CE36 /* NavigationController.swift */,
 				CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */,
 				CEB1EA8F290D931A0087ED24 /* TextField.swift */,
@@ -433,6 +436,7 @@
 				CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */,
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CE09C14628F9938700B7CB45 /* Texts.swift in Sources */,
+				CE351C2E2910511A00ACCF0C /* ReminderTimeView.swift in Sources */,
 				CEA0CAF72900753B00EDCDFD /* CalendarHeaderView.swift in Sources */,
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,

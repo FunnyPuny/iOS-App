@@ -14,6 +14,7 @@ enum Texts {
     static let nameHabit = "Name habit"
     static let note = "Note"
     static let reminderNote = "Reminder Note"
+    static let reminderTime = "Reminder Time"
 
     // MARK: Frequency
 
