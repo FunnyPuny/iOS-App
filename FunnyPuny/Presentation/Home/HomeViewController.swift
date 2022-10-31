@@ -50,7 +50,7 @@ class HomeViewController: ViewController {
     private func setupCalendar() {
         homeView.calendarView.monthView.calendarDelegate = self
         homeView.calendarView.monthView.calendarDataSource = self
-        scrollToDate(Date())
+        scrollToDate(Date(), animated: false)
     }
 
     private func setupNotification() {
@@ -71,8 +71,12 @@ class HomeViewController: ViewController {
         scrollToDate(Date())
     }
 
-    private func scrollToDate(_ date: Date) {
-        homeView.calendarView.monthView.scrollToDate(date - 3.days, extraAddedOffset: -4) // TODO: 💩
+    private func scrollToDate(_ date: Date, animated: Bool = true) {
+        homeView.calendarView.monthView.scrollToDate(
+            date - 3.days,
+            animateScroll: animated,
+            extraAddedOffset: -4
+        )
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
         selectedDate = date
         setupCurrentHabits()
