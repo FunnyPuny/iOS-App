@@ -13,14 +13,7 @@ class AnalyticsView: UIView {
         return label
     }()
 
-    var commonAnalyticsView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .background
-        view.layer.cornerRadius = 16
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.vividPink?.cgColor
-        return view
-    }()
+    var commonAnalyticsView = AchivmentView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
