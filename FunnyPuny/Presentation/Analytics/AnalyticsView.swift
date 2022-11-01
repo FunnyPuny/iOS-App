@@ -5,9 +5,20 @@ import SnapKit
 import UIKit
 
 class AnalyticsView: UIView {
+    var categoryLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .foreground
+        label.font = .bold17
+        label.text = Texts.allHabits
+        return label
+    }()
+
     var commonAnalyticsView: UIView = {
         let view = UIView()
-        view.backgroundColor = .vividPink
+        view.backgroundColor = .background
+        view.layer.cornerRadius = 16
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.vividPink?.cgColor
         return view
     }()
 
@@ -33,13 +44,20 @@ class AnalyticsView: UIView {
 
     private func addSubviews() {
         addSubview(commonAnalyticsView)
+        addSubview(categoryLabel)
     }
 
     private func makeConstraints() {
+        categoryLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(20)
+        }
+
         commonAnalyticsView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(113)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(140)
+            make.top.equalTo(categoryLabel.snp.bottom).offset(36)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(76)
         }
     }
 }
