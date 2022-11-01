@@ -5,9 +5,10 @@ import SwiftyGif
 import UIKit
 
 extension UIImage {
-    static let heartList = UIImage(systemName: "heart.text.square")
-    static let smile = UIImage(systemName: "smiley")
     static let plusApp = UIImage(systemName: "plus.circle.fill")
     static let checkmark = UIImage(systemName: "checkmark.circle")
     static let circle = UIImage(systemName: "circle.fill")
+    static let analytics = UIImage(named: "analytics")
+    static let home = UIImage(named: "home")
+    static let profile = UIImage(named: "profile")
 }

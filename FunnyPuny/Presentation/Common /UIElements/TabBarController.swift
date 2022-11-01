@@ -24,7 +24,11 @@ class TabBarController: UITabBarController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        addButton.frame = CGRect(x: tabBar.center.x - 16, y: view.bounds.height - 80, width: 32, height: 32)
+        addButton.snp.makeConstraints { make in
+            make.size.equalTo(36)
+            make.leading.equalTo(tabBar.snp.leading).inset(48)
+            make.bottom.equalTo(tabBar.snp.bottom).inset(48)
+        }
     }
 
     private func setupStyleTabBar() {
@@ -34,22 +38,33 @@ class TabBarController: UITabBarController {
     }
 
     private func setupTabBarItems() {
+        let zeroViewController = ViewController()
+        zeroViewController.tabBarItem = UITabBarItem()
+
         let firstViewController = HomeViewController()
         firstViewController.tabBarItem = UITabBarItem(
             title: Texts.habits,
-            image: .heartList,
-            tag: 0
+            image: .home,
+            tag: 1
+        )
+
+        let secondViewController = AnalyticsViewController()
+        secondViewController.tabBarItem = UITabBarItem(
+            title: Texts.analytics,
+            image: .analytics,
+            tag: 2
         )
 
         let thirdViewController = ProfileViewController()
         thirdViewController.tabBarItem = UITabBarItem(
             title: Texts.profile,
-            image: .smile,
-            tag: 1
+            image: .profile,
+            tag: 3
         )
 
-        viewControllers = [firstViewController, thirdViewController]
+        viewControllers = [zeroViewController, firstViewController, secondViewController, thirdViewController]
         view.insertSubview(addButton, aboveSubview: tabBar)
+        selectedIndex = 1
     }
 
     @objc
