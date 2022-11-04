@@ -64,7 +64,7 @@ class TabBarController: UITabBarController {
 
         viewControllers = [zeroViewController, firstViewController, secondViewController, thirdViewController]
         view.insertSubview(addButton, aboveSubview: tabBar)
-        selectedIndex = 1
+        selectedIndex = 2
     }
 
     @objc

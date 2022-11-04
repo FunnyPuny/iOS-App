@@ -209,9 +209,9 @@
 				CE10452A28F70518006B31D6 /* Common  */,
 				CE351C2F2911924200ACCF0C /* Analytics */,
 				CE10452E28F756CD006B31D6 /* AddHabit */,
-				CE10452D28F756B5006B31D6 /* Profile */,
-				CE6AFF2528F6192A0079FD83 /* Home */,
 				CEA0CAF32900750C00EDCDFD /* Calendar */,
+				CE6AFF2528F6192A0079FD83 /* Home */,
+				CE10452D28F756B5006B31D6 /* Profile */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
