@@ -11,17 +11,15 @@ class AchivmentView: UIView {
         return view
     }()
 
-    lazy var allHabitsScore = ScoreView(amount: "100", text: Texts.times)
     lazy var completedScore = ScoreView(amount: "72", text: Texts.completed)
     lazy var missedScore = ScoreView(amount: "28", text: Texts.missed)
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubview(allHabitsScore)
         stackView.addArrangedSubview(completedScore)
         stackView.addArrangedSubview(missedScore)
-        stackView.addSeparators(at: [1, 3], color: .lightGray)
-        stackView.distribution = .equalCentering
+        stackView.addSeparators(at: [1], color: .lightGray)
+        stackView.distribution = .fillProportionally
         return stackView
     }()
 
