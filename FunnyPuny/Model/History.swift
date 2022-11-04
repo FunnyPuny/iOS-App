@@ -5,12 +5,11 @@ import RealmSwift
 import UIKit
 
 class History: Object {
-    @Persisted(primaryKey: true) var date: String = Date().string(dateFormat: .formatyyMMdd)
+    @Persisted(primaryKey: true) var date: String
     @Persisted var habits = List<ObjectId>()
 
-    convenience init(date: String, habits: List<ObjectId>) {
+    convenience init(date: String) {
         self.init()
         self.date = date
-        self.habits = habits
     }
 }

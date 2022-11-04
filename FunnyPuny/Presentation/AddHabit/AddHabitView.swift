@@ -75,5 +75,6 @@ class AddHabitView: UIView {
     private func setupTargets() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
         addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
     }
 }

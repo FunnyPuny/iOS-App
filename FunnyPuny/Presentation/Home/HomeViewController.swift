@@ -118,22 +118,21 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
         do {
             try realm.write {
-                let date = selectedDate.string(dateFormat: .formatyyMMdd)
+                let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
                 guard let habitId = (currentHabits?[indexPath.row].id) else {
                     return
                 }
-                let history = realm.object(ofType: History.self, forPrimaryKey: date)
 
-                if let history {
+                if let history = realm.object(ofType: History.self, forPrimaryKey: dateString) {
                     if cell.isDone {
                         history.habits.remove(value: habitId)
                     } else {
                         history.habits.append(habitId)
                     }
                 } else {
-                    historyComplete.date = date
-                    historyComplete.habits.append(habitId)
-                    realm.add(historyComplete)
+                    let history = History(date: dateString)
+                    history.habits.append(habitId)
+                    realm.add(history)
                 }
             }
         } catch let error as NSError {
@@ -153,13 +152,6 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         return parameters
     }
 
-    func configureCell(view: JTACDayCell?, cellState: CellState) {
-        guard let cell = view as? CalendarDateCell else { return }
-        cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
-        cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
-        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .foreground : .greyDark
-    }
-
     func calendar(
         _ calendar: JTACMonthView,
         cellForItemAt date: Date,
@@ -173,6 +165,13 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
 
     func calendar(_: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt _: Date, cellState: CellState, indexPath _: IndexPath) {
         configureCell(view: cell, cellState: cellState)
+    }
+
+    func configureCell(view: JTACDayCell?, cellState: CellState) {
+        guard let cell = view as? CalendarDateCell else { return }
+        cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
+        cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
+        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .foreground : .greyDark
     }
 
     func calendar(_: JTACMonthView, didSelectDate date: Date, cell _: JTACDayCell?, cellState _: CellState, indexPath _: IndexPath) {

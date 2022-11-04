@@ -14,10 +14,9 @@ class ReminderTimeView: UIView {
 
     lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
-        datePicker.backgroundColor = .background
         datePicker.datePickerMode = .time
-        datePicker.preferredDatePickerStyle = .automatic
-        datePicker.subviews[0].backgroundColor = .vividPink // TODO:
+        // datePicker.preferredDatePickerStyle = .automatic
+        // datePicker.subviews[0].backgroundColor = .vividPink // TODO:
         datePicker.subviews[0].layer.borderColor = UIColor.mainGrey?.cgColor
         datePicker.subviews[0].layer.borderWidth = 1
         datePicker.subviews[0].layer.cornerRadius = 10
