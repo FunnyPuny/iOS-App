@@ -11,6 +11,10 @@ class AnalyticsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = analyticsView
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupData()
     }
 
