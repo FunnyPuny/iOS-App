@@ -4,11 +4,11 @@
 import RealmSwift
 import SwiftDate
 import UIKit
+
 // swiftlint:disable all
 class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
-    var history: Results<History>?
-    var habits: Results<Habit>?
+    var dbManager = DBManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,37 +21,39 @@ class AnalyticsViewController: ViewController {
     }
 
     func setupData() {
-        analyticsView.commonAnalyticsView.completedScore.amountHabitsLabel.text = String(countTotalCompletedHabits())
-        analyticsView.commonAnalyticsView.missedScore.amountHabitsLabel.text = String(countAllMissedHabits())
+        // Refresh database
+        dbManager = DBManager()
+        // Temp
+        analyticsView.categoryLabel.text = "Test2"
+        analyticsView.commonAnalyticsView.completedScore.amountHabitsLabel.text = String(countCompletedHabitBy("Test2"))
+        analyticsView.commonAnalyticsView.missedScore.amountHabitsLabel.text = String(countMissedHabitsBy("Test2"))
     }
 
     func countTotalCompletedHabits() -> Int {
-        history = realm.objects(History.self)
         var totalCount = 0
-        if let history {
-            for history in history {
-                totalCount += history.habits.count
-            }
+        for history in dbManager.history {
+            totalCount += history.habits.count
         }
         return totalCount
     }
 
     func countGoalByHabitName(_ habitName: String) -> Int {
         var totalCount = 0
-        if let habit = = realm.object(ofType: Habit.self, forPrimaryKey: getHabit(by: habitName)?.id) {
-            let period = daysBetween(start: habit.creatingDate, end: Date())
-            let weeksPeriod = period / 7
-            let daysPeriod = period % 7
-            var array = [Int]()
-            for value in 0 ... daysPeriod {
-                array.append((Date() - value.days).weekday)
-            }
-            totalCount += habit.frequency.count * weeksPeriod
-            print("total count for week = \(totalCount)")
-            for i in 0 ... habit.frequency.count - 1 {
-                for j in array {
-                    if habit.frequency[i].rawValue == j {
-                        totalCount += 1
+        if let habitId = getHabitId(by: habitName) {
+            if let habit = realm.object(ofType: Habit.self, forPrimaryKey: habitId) {
+                let period = daysBetween(start: habit.creatingDate, end: Date())
+                let weeksPeriod = period / 7
+                let daysPeriod = period % 7
+                var array = [Int]()
+                for value in 0 ... daysPeriod {
+                    array.append((Date() - value.days).weekday)
+                }
+                totalCount += habit.frequency.count * weeksPeriod
+                for i in 0 ... habit.frequency.count - 1 {
+                    for j in array {
+                        if habit.frequency[i].rawValue == j {
+                            totalCount += 1
+                        }
                     }
                 }
             }
@@ -59,35 +61,51 @@ class AnalyticsViewController: ViewController {
         return totalCount
     }
 
-    func countAllHabit() -> Int {
-        habits = realm.objects(Habit.self)
+    func countCompletedHabitBy(_ habitName: String) -> Int {
         var totalCount = 0
-        if let habits {
-            for habit in habits {
-                totalCount += countGoalByHabitName(habit.name)
-                print("Total count \(totalCount) for \(habit.name)")
+        let history = realm.objects(History.self).toArray(type: History.self)
+        for row in history {
+            for habit in row.habits {
+                if habit == getHabitId(by: habitName) {
+                    totalCount += 1
+                }
             }
         }
         return totalCount
     }
 
-    func countAllMissedHabits() -> Int {
-        return countAllHabit() - countTotalCompletedHabits()
+    func countMissedHabitsBy(_ habitName: String) -> Int {
+        countGoalByHabitName(habitName) - countCompletedHabitBy(habitName)
     }
 
-    func getHabit(by name: String) -> Habit? {
-        habits = realm.objects(Habit.self)
-        if let habits {
-            for habit in habits {
-                if habit.name == name {
-                    return habit
-                }
-            }
+    func countAllHabit() -> Int {
+        let habits = realm.objects(Habit.self)
+        var totalCount = 0
+        for habit in habits {
+            totalCount += countGoalByHabitName(habit.name)
+        }
+        return totalCount
+    }
+
+    func countAllMissedHabits() -> Int {
+        countAllHabit() - countTotalCompletedHabits()
+    }
+
+    func getHabitId(by name: String) -> ObjectId? {
+        for habit in dbManager.habits where habit.name == name {
+            return habit.id
         }
         return nil
     }
 
     func daysBetween(start: Date, end: Date) -> Int {
         Calendar.current.dateComponents([.day], from: start, to: end).day! // TODO:
+    }
+}
+
+// TODO: Вынести в отдельный файл
+extension Results {
+    func toArray<T>(type _: T.Type) -> [T] {
+        compactMap { $0 as? T }
     }
 }

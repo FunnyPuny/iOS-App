@@ -26,6 +26,7 @@
 		CE351C332911929900ACCF0C /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C322911929900ACCF0C /* AnalyticsViewController.swift */; };
 		CE351C352911BC7400ACCF0C /* AchivmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C342911BC7400ACCF0C /* AchivmentView.swift */; };
 		CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C362911BD8000ACCF0C /* ScoreView.swift */; };
+		CE6B77BC29184F2F00996142 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BB29184F2F00996142 /* DBManager.swift */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
 		CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */; };
 		CE7808E928FF66100016AD41 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E828FF660F0016AD41 /* Notifications.swift */; };
@@ -78,6 +79,7 @@
 		CE351C322911929900ACCF0C /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		CE351C342911BC7400ACCF0C /* AchivmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivmentView.swift; sourceTree = "<group>"; };
 		CE351C362911BD8000ACCF0C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		CE6B77BB29184F2F00996142 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		CE7808E828FF660F0016AD41 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -257,6 +259,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		CE6B77BA29184F1100996142 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B77BB29184F2F00996142 /* DBManager.swift */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
 		CEA0BF5128FC578A009B6BFD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +311,7 @@
 				CE6AFF2428F6125C0079FD83 /* Application */,
 				CE6AFF2328F6124A0079FD83 /* Model */,
 				CE6AFF2228F6123E0079FD83 /* Presentation */,
+				CE6B77BA29184F1100996142 /* BusinessLogic */,
 			);
 			path = FunnyPuny;
 			sourceTree = "<group>";
@@ -447,6 +458,7 @@
 				CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */,
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
 				CEB4BD23290851CF006F6D1D /* History.swift in Sources */,
+				CE6B77BC29184F2F00996142 /* DBManager.swift in Sources */,
 				CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */,
 				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,
 				CEA0CAF52900752B00EDCDFD /* CalendarDateCell.swift in Sources */,
