@@ -99,13 +99,9 @@ class AnalyticsViewController: ViewController {
     }
 
     func daysBetween(start: Date, end: Date) -> Int {
-        Calendar.current.dateComponents([.day], from: start, to: end).day! // TODO:
-    }
-}
-
-// TODO: Вынести в отдельный файл
-extension Results {
-    func toArray<T>(type _: T.Type) -> [T] {
-        compactMap { $0 as? T }
+        guard let days = Calendar.current.dateComponents([.day], from: start, to: end).day else {
+            return 0
+        }
+        return days
     }
 }

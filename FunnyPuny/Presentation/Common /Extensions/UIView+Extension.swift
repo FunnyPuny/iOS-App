@@ -1,4 +1,4 @@
-// UIView + Extension.swift
+// UIView+Extension.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 //
