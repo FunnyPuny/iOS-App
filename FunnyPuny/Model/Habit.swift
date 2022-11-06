@@ -9,7 +9,7 @@ class Habit: Object {
     @Persisted var name: String = ""
     @Persisted var note: String = ""
     @Persisted var frequency: List<Day>
-    @Persisted var creatingDate = Date().string(dateFormat: .formatyyMMdd)
+    @Persisted var creatingDate = Date()
 
     convenience init(name: String, note: String, frequency: List<Day>) {
         self.init()
