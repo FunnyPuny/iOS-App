@@ -87,7 +87,6 @@ class HomeViewController: ViewController {
         let countOfCompletedHabits = completedHabit?.habits.count ?? 0
         let allHabits = realm.objects(Habit.self)
         var countAllHabits = 0
-        print("==== date = \(date.string(dateFormat: .formatyyMMdd))")
         for habit in allHabits {
             for frequency in habit.frequency {
                 if frequency.rawValue == date.weekday {
@@ -186,7 +185,7 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         cellState: CellState,
         indexPath: IndexPath
     ) -> JTACDayCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDateCell", for: indexPath) as! CalendarDateCell // TODO: 💩
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarHomeDateCell", for: indexPath) as! CalendarHomeDateCell // TODO: 💩
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         return cell
     }
@@ -196,10 +195,11 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
     }
 
     func configureCell(view: JTACDayCell?, cellState: CellState) {
-        guard let cell = view as? CalendarDateCell else { return }
+        guard let cell = view as? CalendarHomeDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
         cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .foreground : .greyDark
+        cell.dateLabel.layer.borderColor = Calendar.current.isDateInToday(cellState.date) ? UIColor.vividPink?.cgColor : UIColor.greyLight?.cgColor
         cell.dateLabel.backgroundColor = setBackgroundColorForDateCell(date: cellState.date)
     }
 
