@@ -50,7 +50,7 @@
 		CEB1EA8C290C113A0087ED24 /* List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8B290C113A0087ED24 /* List+Extension.swift */; };
 		CEB1EA8E290C170A0087ED24 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8D290C170A0087ED24 /* Fonts.swift */; };
 		CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8F290D931A0087ED24 /* TextField.swift */; };
-		CEB4BD23290851CF006F6D1D /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* History.swift */; };
+		CEB4BD23290851CF006F6D1D /* CompletedHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* CompletedHabits.swift */; };
 		CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED733E828F5A36300B2B0D6 /* SnapKit */; };
 		CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3228E7199C006136B3 /* AppDelegate.swift */; };
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
@@ -100,7 +100,7 @@
 		CEB1EA8B290C113A0087ED24 /* List+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+Extension.swift"; sourceTree = "<group>"; };
 		CEB1EA8D290C170A0087ED24 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CEB1EA8F290D931A0087ED24 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		CEB4BD22290851CF006F6D1D /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		CEB4BD22290851CF006F6D1D /* CompletedHabits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedHabits.swift; sourceTree = "<group>"; };
 		CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyPuny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDAFF3228E7199C006136B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDAFF3628E7199C006136B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 			children = (
 				CEA71A2728F8AFCA00D2CE36 /* Habit.swift */,
 				CEA0BF5228FEB568009B6BFD /* Day.swift */,
-				CEB4BD22290851CF006F6D1D /* History.swift */,
+				CEB4BD22290851CF006F6D1D /* CompletedHabits.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -460,7 +460,7 @@
 				CEA71A2A28F8B75400D2CE36 /* TextFieldView.swift in Sources */,
 				CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */,
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
-				CEB4BD23290851CF006F6D1D /* History.swift in Sources */,
+				CEB4BD23290851CF006F6D1D /* CompletedHabits.swift in Sources */,
 				CE6B77BC29184F2F00996142 /* DBManager.swift in Sources */,
 				CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */,
 				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,

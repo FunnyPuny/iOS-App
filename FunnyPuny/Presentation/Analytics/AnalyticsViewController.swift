@@ -63,7 +63,7 @@ class AnalyticsViewController: ViewController {
 
     func countCompletedHabitBy(_ habitName: String) -> Int {
         var totalCount = 0
-        let history = realm.objects(History.self).toArray(type: History.self)
+        let history = realm.objects(CompletedHabits.self).toArray(type: CompletedHabits.self)
         for row in history {
             for habit in row.habits {
                 if habit == getHabitId(by: habitName) {
