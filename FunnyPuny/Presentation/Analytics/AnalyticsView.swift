@@ -15,6 +15,11 @@ class AnalyticsView: UIView {
 
     var commonAnalyticsView = AchivmentView()
 
+    var calendarView: CalendarAnalyticView = {
+        let view = CalendarAnalyticView()
+        return view
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -36,8 +41,9 @@ class AnalyticsView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(commonAnalyticsView)
         addSubview(categoryLabel)
+        addSubview(commonAnalyticsView)
+        addSubview(calendarView)
     }
 
     private func makeConstraints() {
@@ -51,6 +57,12 @@ class AnalyticsView: UIView {
             make.top.equalTo(categoryLabel.snp.bottom).offset(36)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(76)
+        }
+
+        calendarView.snp.makeConstraints { make in
+            make.top.equalTo(commonAnalyticsView.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(332)
         }
     }
 }

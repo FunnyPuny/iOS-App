@@ -1,31 +1,20 @@
-// CalendarDateCell.swift
+// CalendarAnalyticDateCell.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import JTAppleCalendar
 import SnapKit
 import UIKit
 
-class CalendarDateCell: JTACDayCell {
-    var dayOfWeekLabel: UILabel = {
+class CalendarAnalyticDateCell: JTACDayCell {
+    var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .foreground
         label.font = .regular14
         label.backgroundColor = .background
-        label.textAlignment = .center
-        label.layer.cornerRadius = 9
-        label.clipsToBounds = true
-        return label
-    }()
-
-    var dateLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .foreground
-        label.font = .regular12
-        label.backgroundColor = .background
-        label.layer.borderColor = UIColor.vividPink?.cgColor
+        label.layer.borderColor = UIColor.greyLight?.cgColor
         label.layer.borderWidth = 1
         label.textAlignment = .center
-        label.layer.cornerRadius = 20
+        label.layer.cornerRadius = 18
         label.clipsToBounds = true
         return label
     }()
@@ -46,21 +35,14 @@ class CalendarDateCell: JTACDayCell {
     }
 
     private func addSubviews() {
-        addSubview(dayOfWeekLabel)
         addSubview(dateLabel)
     }
 
     private func makeConstraints() {
-        dayOfWeekLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.centerX.equalToSuperview()
-            make.size.equalTo(18)
-        }
-
         dateLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview()
-            make.centerX.equalToSuperview()
-            make.size.equalTo(40)
+            make.bottom.top.equalToSuperview()
+            make.center.equalToSuperview()
+            make.size.equalTo(36)
         }
     }
 }

@@ -1,6 +1,7 @@
 // AnalyticsViewController.swift
 // FunnyPuny. Created by Zlata Guseva.
 
+import JTAppleCalendar
 import RealmSwift
 import SwiftDate
 import UIKit
@@ -13,6 +14,7 @@ class AnalyticsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = analyticsView
+        setupCalendar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +29,11 @@ class AnalyticsViewController: ViewController {
         analyticsView.categoryLabel.text = "Test2"
         analyticsView.commonAnalyticsView.completedScore.amountHabitsLabel.text = String(countCompletedHabitBy("Test2"))
         analyticsView.commonAnalyticsView.missedScore.amountHabitsLabel.text = String(countMissedHabitsBy("Test2"))
+    }
+
+    func setupCalendar() {
+        analyticsView.calendarView.monthView.calendarDelegate = self
+        analyticsView.calendarView.monthView.calendarDataSource = self
     }
 
     func countTotalCompletedHabits() -> Int {
@@ -103,5 +110,41 @@ class AnalyticsViewController: ViewController {
             return 0
         }
         return days
+    }
+}
+
+extension AnalyticsViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
+    func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
+        let parameters = ConfigurationParameters(
+            startDate: Date() - 10.years,
+            endDate: Date() + 10.years,
+            numberOfRows: 5
+        )
+        return parameters
+    }
+
+    func calendar(
+        _ calendar: JTACMonthView,
+        cellForItemAt date: Date,
+        cellState: CellState,
+        indexPath: IndexPath
+    ) -> JTACDayCell {
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarAnalyticDateCell", for: indexPath) as! CalendarAnalyticDateCell // TODO: 💩
+        self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
+        return cell
+    }
+
+    func calendar(_: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt _: Date, cellState: CellState, indexPath _: IndexPath) {
+        configureCell(view: cell, cellState: cellState)
+    }
+
+    func configureCell(view: JTACDayCell?, cellState: CellState) {
+        guard let cell = view as? CalendarAnalyticDateCell else { return }
+        if cellState.dateBelongsTo == .thisMonth {
+            cell.isHidden = false
+        } else {
+            cell.isHidden = true
+        }
+        cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
     }
 }

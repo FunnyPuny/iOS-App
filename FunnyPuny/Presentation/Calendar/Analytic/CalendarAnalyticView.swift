@@ -1,25 +1,22 @@
-// CalendarView.swift
+// CalendarAnalyticView.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import JTAppleCalendar
 import SnapKit
 import UIKit
 
-class CalendarView: UIView {
-    var headerView: CalendarHeaderView = {
-        let view = CalendarHeaderView()
+class CalendarAnalyticView: UIView {
+    var headerView: CalendarAnalyticHeaderView = {
+        let view = CalendarAnalyticHeaderView()
         return view
     }()
 
     var monthView: JTACMonthView = {
         let view = JTACMonthView()
-        view.register(CalendarDateCell.self, forCellWithReuseIdentifier: "CalendarDateCell")
+        view.register(CalendarAnalyticDateCell.self, forCellWithReuseIdentifier: "CalendarAnalyticDateCell")
         view.backgroundColor = .background
         view.scrollDirection = .horizontal
         view.showsHorizontalScrollIndicator = false
-        // TODO:
-        // view.scrollingMode = .nonStopToCell(withResistance: 4)
-        view.cellSize = UIScreen.main.bounds.width / 7
         return view
     }()
 
@@ -34,6 +31,9 @@ class CalendarView: UIView {
     }
 
     private func commonInit() {
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.vividPink?.cgColor
+        layer.cornerRadius = 16
         addSubviews()
         makeConstraints()
     }
@@ -52,6 +52,7 @@ class CalendarView: UIView {
         monthView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(headerView.snp.bottom).offset(16)
+            make.height.equalTo(260)
         }
     }
 }
