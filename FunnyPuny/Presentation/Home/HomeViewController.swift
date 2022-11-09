@@ -105,7 +105,37 @@ class HomeViewController: ViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
+        do {
+            try realm.write {
+                let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
+                guard let habitId = (currentHabits?[indexPath.row].id) else {
+                    return
+                }
+
+                if let history = realm.object(ofType: CompletedHabits.self, forPrimaryKey: dateString) {
+                    if cell.isDone {
+                        history.habits.remove(value: habitId)
+                    } else {
+                        history.habits.append(habitId)
+                    }
+                } else {
+                    let history = CompletedHabits(date: dateString)
+                    history.habits.append(habitId)
+                    realm.add(history)
+                }
+            }
+        } catch let error as NSError {
+            print("Can't update habit, error: \(error)")
+        }
+        homeView.calendarView.monthView.reloadDates([selectedDate])
+        tableView.reloadData()
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         currentHabits?.count ?? 0
     }
@@ -134,34 +164,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.isDone = false
         }
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
-        do {
-            try realm.write {
-                let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
-                guard let habitId = (currentHabits?[indexPath.row].id) else {
-                    return
-                }
-
-                if let history = realm.object(ofType: CompletedHabits.self, forPrimaryKey: dateString) {
-                    if cell.isDone {
-                        history.habits.remove(value: habitId)
-                    } else {
-                        history.habits.append(habitId)
-                    }
-                } else {
-                    let history = CompletedHabits(date: dateString)
-                    history.habits.append(habitId)
-                    realm.add(history)
-                }
-            }
-        } catch let error as NSError {
-            print("Can't update habit, error: \(error)")
-        }
-        homeView.calendarView.monthView.reloadDates([selectedDate])
-        tableView.reloadData()
     }
 }
 

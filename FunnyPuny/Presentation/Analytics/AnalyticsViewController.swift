@@ -36,7 +36,7 @@ class AnalyticsViewController: ViewController {
         analyticsView.calendarView.monthView.calendarDataSource = self
     }
 
-    private var countTotalCompletedHabits: Int {
+    private var countCompletedHabits: Int {
         var totalCount = 0
         for history in dbManager.history {
             totalCount += history.habits.count
@@ -44,7 +44,7 @@ class AnalyticsViewController: ViewController {
         return totalCount
     }
 
-    private var countAllHabit: Int {
+    private var countHabits: Int {
         let habits = realm.objects(Habit.self)
         var totalCount = 0
         for habit in habits {
@@ -53,8 +53,8 @@ class AnalyticsViewController: ViewController {
         return totalCount
     }
 
-    private var countAllMissedHabits: Int {
-        countAllHabit - countTotalCompletedHabits
+    private var countMissedHabits: Int {
+        countHabits - countCompletedHabits
     }
 
     func countGoalByHabitName(_ habitName: String) -> Int {
