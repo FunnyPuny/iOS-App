@@ -1,10 +1,10 @@
-// History.swift
+// CompletedHabits.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import RealmSwift
 import UIKit
 
-class History: Object {
+class CompletedHabits: Object {
     @Persisted(primaryKey: true) var date: String
     @Persisted var habits = List<ObjectId>()
 

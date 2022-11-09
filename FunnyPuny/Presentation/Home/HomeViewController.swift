@@ -12,8 +12,6 @@ class HomeViewController: ViewController {
     var habits: Results<Habit>?
     var currentHabits: Results<Habit>?
     var selectedDate = Date()
-    var history: Results<History>?
-    var historyComplete = History()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,9 +79,63 @@ class HomeViewController: ViewController {
         selectedDate = date
         setupCurrentHabits()
     }
+
+    func setBackgroundColorForDateCell(date: Date) -> UIColor? {
+        let completedHabit = realm.object(ofType: CompletedHabits.self, forPrimaryKey: date.string(dateFormat: .formatyyMMdd))
+        let countOfCompletedHabits = completedHabit?.habits.count ?? 0
+        let allHabits = realm.objects(Habit.self)
+        var countAllHabits = 0
+        for habit in allHabits {
+            for frequency in habit.frequency where frequency.rawValue == date.weekday {
+                countAllHabits += 1
+            }
+        }
+        let x = Double(countOfCompletedHabits) / Double(countAllHabits)
+        switch x {
+        case 1:
+            return .pinkLight
+        case 0.1 ..< 0.35:
+            return .pinkLight?.withAlphaComponent(0.4)
+        case 0.35 ..< 0.65:
+            return .pinkLight?.withAlphaComponent(0.6)
+        case 0.65 ..< 1:
+            return .pinkLight?.withAlphaComponent(0.8)
+        default: return .background
+        }
+    }
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
+        do {
+            try realm.write {
+                let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
+                guard let habitId = (currentHabits?[indexPath.row].id) else {
+                    return
+                }
+
+                if let history = realm.object(ofType: CompletedHabits.self, forPrimaryKey: dateString) {
+                    if cell.isDone {
+                        history.habits.remove(value: habitId)
+                    } else {
+                        history.habits.append(habitId)
+                    }
+                } else {
+                    let history = CompletedHabits(date: dateString)
+                    history.habits.append(habitId)
+                    realm.add(history)
+                }
+            }
+        } catch let error as NSError {
+            print("Can't update habit, error: \(error)")
+        }
+        homeView.calendarView.monthView.reloadDates([selectedDate])
+        tableView.reloadData()
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         currentHabits?.count ?? 0
     }
@@ -93,11 +145,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.label.text = currentHabits?[indexPath.row].name ?? ""
 
         let date = selectedDate.string(dateFormat: .formatyyMMdd)
-        let history = realm.object(ofType: History.self, forPrimaryKey: date)
+        let completedHabits = realm.object(ofType: CompletedHabits.self, forPrimaryKey: date)
         if
             let habitId = currentHabits?[indexPath.row].id,
-            let history,
-            history.habits.contains(habitId)
+            let completedHabits,
+            completedHabits.habits.contains(habitId)
         {
             cell.iconImageView.image = .checkmark
             cell.iconImageView.tintColor = .vividPink
@@ -113,52 +165,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
-        do {
-            try realm.write {
-                let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
-                guard let habitId = (currentHabits?[indexPath.row].id) else {
-                    return
-                }
-
-                if let history = realm.object(ofType: History.self, forPrimaryKey: dateString) {
-                    if cell.isDone {
-                        history.habits.remove(value: habitId)
-                    } else {
-                        history.habits.append(habitId)
-                    }
-                } else {
-                    let history = History(date: dateString)
-                    history.habits.append(habitId)
-                    realm.add(history)
-                }
-            }
-        } catch let error as NSError {
-            print("Can't update habit, error: \(error)")
-        }
-        tableView.reloadData()
-    }
 }
 
-extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
-    func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
-        let parameters = ConfigurationParameters(
-            startDate: Date() - 10.years,
-            endDate: Date() + 10.years,
-            numberOfRows: 1
-        )
-        return parameters
-    }
-
+extension HomeViewController: JTACMonthViewDelegate {
     func calendar(
         _ calendar: JTACMonthView,
         cellForItemAt date: Date,
         cellState: CellState,
         indexPath: IndexPath
     ) -> JTACDayCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDateCell", for: indexPath) as! CalendarDateCell // TODO: 💩
+        let cell = calendar.dequeueReusableJTAppleCell(withClass: CalendarHomeDateCell.self, indexPath: indexPath)
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         return cell
     }
@@ -168,13 +184,26 @@ extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
     }
 
     func configureCell(view: JTACDayCell?, cellState: CellState) {
-        guard let cell = view as? CalendarDateCell else { return }
+        guard let cell = view as? CalendarHomeDateCell else { return }
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
-        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .foreground : .greyDark
+        cell.dayOfWeekLabel.textColor = cellState.date.isToday ? .foreground : .greyDark
+        cell.dateLabel.layer.borderColor = cellState.date.isToday ? UIColor.vividPink?.cgColor : UIColor.greyLight?.cgColor
+        cell.dateLabel.backgroundColor = setBackgroundColorForDateCell(date: cellState.date)
     }
 
     func calendar(_: JTACMonthView, didSelectDate date: Date, cell _: JTACDayCell?, cellState _: CellState, indexPath _: IndexPath) {
         scrollToDate(date)
+    }
+}
+
+extension HomeViewController: JTACMonthViewDataSource {
+    func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
+        let parameters = ConfigurationParameters(
+            startDate: Date() - 10.years,
+            endDate: Date() + 10.years,
+            numberOfRows: 1
+        )
+        return parameters
     }
 }

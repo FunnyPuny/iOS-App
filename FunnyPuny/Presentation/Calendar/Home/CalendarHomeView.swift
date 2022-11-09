@@ -1,19 +1,19 @@
-// CalendarView.swift
+// CalendarHomeView.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import JTAppleCalendar
 import SnapKit
 import UIKit
 
-class CalendarView: UIView {
-    var headerView: CalendarHeaderView = {
-        let view = CalendarHeaderView()
+class CalendarHomeView: UIView {
+    var headerView: CalendarHomeHeaderView = {
+        let view = CalendarHomeHeaderView()
         return view
     }()
 
     var monthView: JTACMonthView = {
         let view = JTACMonthView()
-        view.register(CalendarDateCell.self, forCellWithReuseIdentifier: "CalendarDateCell")
+        view.register(CalendarHomeDateCell.self, forCellWithReuseIdentifier: "CalendarHomeDateCell")
         view.backgroundColor = .background
         view.scrollDirection = .horizontal
         view.showsHorizontalScrollIndicator = false

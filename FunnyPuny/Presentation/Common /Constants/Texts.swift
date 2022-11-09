@@ -26,4 +26,11 @@ enum Texts {
     static let profile = "Profile"
     static let home = "Home"
     static let analytics = "Analytics"
+
+    // MARK: Analytics
+
+    static let allHabits = "All Habits"
+    static let completed = "completed"
+    static let missed = "missed"
+    static let times = "times"
 }

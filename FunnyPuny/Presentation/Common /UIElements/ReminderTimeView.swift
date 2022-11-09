@@ -15,11 +15,11 @@ class ReminderTimeView: UIView {
     lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
-        // datePicker.preferredDatePickerStyle = .automatic
-        // datePicker.subviews[0].backgroundColor = .vividPink // TODO:
-        datePicker.subviews[0].layer.borderColor = UIColor.mainGrey?.cgColor
-        datePicker.subviews[0].layer.borderWidth = 1
-        datePicker.subviews[0].layer.cornerRadius = 10
+        // datePicker.subviews[0].subviews[0].backgroundColor = .background
+        // datePicker.subviews[0].subviews[1].subviews[1].backgroundColor = .background
+        datePicker.subviews[0].subviews[1].layer.borderColor = UIColor.mainGrey?.cgColor
+        datePicker.subviews[0].subviews[1].layer.borderWidth = 1
+        datePicker.subviews[0].subviews[1].layer.cornerRadius = 10
         return datePicker
     }()
 
@@ -56,8 +56,7 @@ class ReminderTimeView: UIView {
 
         datePicker.snp.makeConstraints { make in
             make.top.equalTo(label.snp.bottom).offset(16)
-            make.height.equalTo(100)
-            make.width.equalTo(300)
+            make.height.equalTo(40)
             make.leading.equalToSuperview()
         }
     }

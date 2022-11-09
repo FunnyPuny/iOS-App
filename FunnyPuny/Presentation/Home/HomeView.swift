@@ -15,8 +15,8 @@ class HomeView: UIView {
         return tableView
     }()
 
-    var calendarView: CalendarView = {
-        let view = CalendarView()
+    var calendarView: CalendarHomeView = {
+        let view = CalendarHomeView()
         return view
     }()
 

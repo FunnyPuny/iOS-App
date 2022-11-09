@@ -1,11 +1,11 @@
-// CalendarHeaderView.swift
+// CalendarHomeHeaderView.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import JTAppleCalendar
 import SnapKit
 import UIKit
 
-class CalendarHeaderView: UIView {
+class CalendarHomeHeaderView: UIView {
     var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .vividPink

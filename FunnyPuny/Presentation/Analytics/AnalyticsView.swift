@@ -5,9 +5,18 @@ import SnapKit
 import UIKit
 
 class AnalyticsView: UIView {
-    var commonAnalyticsView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .vividPink
+    var categoryLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .foreground
+        label.font = .bold17
+        label.text = Texts.allHabits
+        return label
+    }()
+
+    var achivmentView = AchivmentView()
+
+    var calendarView: CalendarAnalyticView = {
+        let view = CalendarAnalyticView()
         return view
     }()
 
@@ -32,14 +41,28 @@ class AnalyticsView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(commonAnalyticsView)
+        addSubview(categoryLabel)
+        addSubview(achivmentView)
+        addSubview(calendarView)
     }
 
     private func makeConstraints() {
-        commonAnalyticsView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(113)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(140)
+        categoryLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(20)
+        }
+
+        achivmentView.snp.makeConstraints { make in
+            make.top.equalTo(categoryLabel.snp.bottom).offset(36)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(76)
+        }
+
+        calendarView.snp.makeConstraints { make in
+            make.top.equalTo(achivmentView.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(332)
         }
     }
 }
