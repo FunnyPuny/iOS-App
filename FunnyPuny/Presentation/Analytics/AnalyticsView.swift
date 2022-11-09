@@ -13,7 +13,7 @@ class AnalyticsView: UIView {
         return label
     }()
 
-    var commonAnalyticsView = AchivmentView()
+    var achivmentView = AchivmentView()
 
     var calendarView: CalendarAnalyticView = {
         let view = CalendarAnalyticView()
@@ -42,7 +42,7 @@ class AnalyticsView: UIView {
 
     private func addSubviews() {
         addSubview(categoryLabel)
-        addSubview(commonAnalyticsView)
+        addSubview(achivmentView)
         addSubview(calendarView)
     }
 
@@ -53,14 +53,14 @@ class AnalyticsView: UIView {
             make.height.equalTo(20)
         }
 
-        commonAnalyticsView.snp.makeConstraints { make in
+        achivmentView.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).offset(36)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(76)
         }
 
         calendarView.snp.makeConstraints { make in
-            make.top.equalTo(commonAnalyticsView.snp.bottom).offset(24)
+            make.top.equalTo(achivmentView.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(332)
         }

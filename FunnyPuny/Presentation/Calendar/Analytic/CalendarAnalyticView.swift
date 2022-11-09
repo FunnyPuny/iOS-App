@@ -31,11 +31,15 @@ class CalendarAnalyticView: UIView {
     }
 
     private func commonInit() {
+        setupStyle()
+        addSubviews()
+        makeConstraints()
+    }
+
+    private func setupStyle() {
         layer.borderWidth = 1
         layer.borderColor = UIColor.vividPink?.cgColor
         layer.cornerRadius = 16
-        addSubviews()
-        makeConstraints()
     }
 
     private func addSubviews() {

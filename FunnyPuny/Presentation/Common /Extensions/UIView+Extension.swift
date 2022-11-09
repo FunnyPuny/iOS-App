@@ -1,12 +1,6 @@
 // UIView+Extension.swift
 // FunnyPuny. Created by Zlata Guseva.
 
-//
-//  UIView + Extension.swift
-//  FunnyPuny
-//
-//  Created by Злата Гусева on 05.11.2022.
-//
 import UIKit
 
 extension UIView {

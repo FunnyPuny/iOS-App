@@ -4,21 +4,20 @@
 import UIKit
 
 class AchivmentView: UIView {
-    var statusView: UIView = {
+    private var statusView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 24
         view.backgroundColor = .pinkLight
         return view
     }()
 
-    lazy var completedScore = ScoreView(amount: "72", text: Texts.completed)
-    lazy var missedScore = ScoreView(amount: "28", text: Texts.missed)
+    var completedScore = ScoreView(amount: "72", text: Texts.completed)
+    var missedScore = ScoreView(amount: "28", text: Texts.missed)
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(completedScore)
         stackView.addArrangedSubview(missedScore)
-        stackView.addSeparators(at: [1], color: .lightGray)
         stackView.distribution = .fillProportionally
         return stackView
     }()

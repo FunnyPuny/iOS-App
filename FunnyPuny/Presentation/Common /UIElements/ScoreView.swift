@@ -4,8 +4,8 @@
 import UIKit
 
 class ScoreView: UIView {
-    var amount: String
-    var text: String
+    private var amount: String
+    private var text: String
 
     lazy var amountHabitsLabel: UILabel = {
         let label = UILabel()
