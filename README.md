@@ -1,6 +1,7 @@
 ### FunnyPuny
 
 Easy habit tracker
+Choose your own style
 
 ### About
 
