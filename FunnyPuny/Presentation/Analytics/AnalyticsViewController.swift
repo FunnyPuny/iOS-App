@@ -26,9 +26,8 @@ class AnalyticsViewController: ViewController {
         // Refresh database
         dbManager = DBManager()
         // Temp
-        analyticsView.categoryLabel.text = "Test2"
-        analyticsView.achivmentView.completedScore.amountHabitsLabel.text = String(countCompletedHabitBy("Test2"))
-        analyticsView.achivmentView.missedScore.amountHabitsLabel.text = String(countMissedHabitsBy("Test2"))
+        analyticsView.achivmentView.completedScore.amountHabitsLabel.text = String(countCompletedHabits)
+        analyticsView.achivmentView.missedScore.amountHabitsLabel.text = String(countMissedHabits)
     }
 
     func setupCalendar() {
