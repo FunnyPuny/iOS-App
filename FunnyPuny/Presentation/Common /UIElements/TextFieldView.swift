@@ -20,7 +20,7 @@ class TextFieldView: UIView {
         textField.placeholder = placeholder
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.greyLight]
+            attributes: [.foregroundColor: UIColor.greyLight ?? .clear]
         )
         textField.layer.cornerRadius = 8
         textField.layer.borderColor = UIColor.mainGrey?.cgColor

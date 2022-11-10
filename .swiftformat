@@ -1,2 +1,8 @@
 --header "{file}\nFunnyPuny. Created by Zlata Guseva."
+
+--rules markTypes
+--rules isEmpty
+--rules blankLineAfterImports
+--rules blankLinesBetweenImports
+
 --swiftversion 5.7

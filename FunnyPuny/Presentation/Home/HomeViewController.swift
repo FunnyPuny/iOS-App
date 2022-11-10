@@ -6,7 +6,8 @@ import RealmSwift
 import SwiftDate
 import UIKit
 
-// swiftlint:disable all
+// MARK: - HomeViewController
+
 class HomeViewController: ViewController {
     private var homeView = HomeView()
     var habits: Results<Habit>?
@@ -105,6 +106,8 @@ class HomeViewController: ViewController {
     }
 }
 
+// MARK: UITableViewDelegate
+
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
@@ -134,6 +137,8 @@ extension HomeViewController: UITableViewDelegate {
         tableView.reloadData()
     }
 }
+
+// MARK: UITableViewDataSource
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
@@ -167,6 +172,8 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
+// MARK: JTACMonthViewDelegate
+
 extension HomeViewController: JTACMonthViewDelegate {
     func calendar(
         _ calendar: JTACMonthView,
@@ -196,6 +203,8 @@ extension HomeViewController: JTACMonthViewDelegate {
         scrollToDate(date)
     }
 }
+
+// MARK: JTACMonthViewDataSource
 
 extension HomeViewController: JTACMonthViewDataSource {
     func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {

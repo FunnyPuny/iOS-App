@@ -4,7 +4,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    private var addButton: UIButton = {
+    private lazy var addButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.image = .plusApp

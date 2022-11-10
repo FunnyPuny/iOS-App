@@ -6,7 +6,8 @@ import RealmSwift
 import SwiftDate
 import UIKit
 
-// swiftlint:disable all
+// MARK: - AnalyticsViewController
+
 class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
     var dbManager = DBManager()
@@ -108,6 +109,8 @@ class AnalyticsViewController: ViewController {
     }
 }
 
+// MARK: JTACMonthViewDataSource
+
 extension AnalyticsViewController: JTACMonthViewDataSource {
     func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
         let parameters = ConfigurationParameters(
@@ -118,6 +121,8 @@ extension AnalyticsViewController: JTACMonthViewDataSource {
         return parameters
     }
 }
+
+// MARK: JTACMonthViewDelegate
 
 extension AnalyticsViewController: JTACMonthViewDelegate {
     func calendar(
@@ -131,7 +136,13 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         return cell
     }
 
-    func calendar(_: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt _: Date, cellState: CellState, indexPath _: IndexPath) {
+    func calendar(
+        _: JTACMonthView,
+        willDisplay cell: JTACDayCell,
+        forItemAt _: Date,
+        cellState: CellState,
+        indexPath _: IndexPath
+    ) {
         configureCell(view: cell, cellState: cellState)
     }
 

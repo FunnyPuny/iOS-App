@@ -2,6 +2,7 @@
 // FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
+
 class TextField: UITextField {
     let inset: CGFloat = 16
 
