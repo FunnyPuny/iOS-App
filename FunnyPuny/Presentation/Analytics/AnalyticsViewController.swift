@@ -69,8 +69,8 @@ class AnalyticsViewController: ViewController {
                     missedDays.append((Date() - value.days).weekday)
                 }
                 totalCount += habit.frequency.count * missedWeeks
-                for i in 0 ... habit.frequency.count - 1 {
-                    for j in missedDays where habit.frequency[i].rawValue == j {
+                for day in 0 ... habit.frequency.count - 1 {
+                    for days in missedDays where habit.frequency[day].rawValue == days {
                         totalCount += 1
                     }
                 }

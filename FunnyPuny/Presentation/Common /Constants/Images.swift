@@ -11,4 +11,5 @@ extension UIImage {
     static let analytics = UIImage(named: "analytics")
     static let home = UIImage(named: "home")
     static let profile = UIImage(named: "profile")
+    static let plus = UIImage(named: "plus")
 }

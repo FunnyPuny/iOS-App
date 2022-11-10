@@ -49,6 +49,7 @@ class HomeViewController: ViewController {
     private func setupCalendar() {
         homeView.calendarView.monthView.calendarDelegate = self
         homeView.calendarView.monthView.calendarDataSource = self
+        homeView.calendarView.headerView.addHabitButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         scrollToDate(Date(), animated: false)
     }
 
@@ -66,8 +67,18 @@ class HomeViewController: ViewController {
         homeView.calendarView.headerView.addGestureRecognizer(headerTap)
     }
 
-    @objc private func headerDatePressed() {
+    @objc
+    private func headerDatePressed() {
         scrollToDate(Date())
+    }
+    
+    @objc
+    private func addButtonPressed() {
+        let addHabitViewController = NavigationController(rootViewController: AddHabitViewController())
+        if let sheet = addHabitViewController.sheetPresentationController {
+            sheet.detents = [.large()]
+        }
+        present(addHabitViewController, animated: true)
     }
 
     private func scrollToDate(_ date: Date, animated: Bool = true) {
@@ -82,7 +93,10 @@ class HomeViewController: ViewController {
     }
 
     func setBackgroundColorForDateCell(date: Date) -> UIColor? {
-        let completedHabit = realm.object(ofType: CompletedHabits.self, forPrimaryKey: date.string(dateFormat: .formatyyMMdd))
+        let completedHabit = realm.object(
+            ofType: CompletedHabits.self,
+            forPrimaryKey: date.string(dateFormat: .formatyyMMdd)
+        )
         let countOfCompletedHabits = completedHabit?.habits.count ?? 0
         let allHabits = realm.objects(Habit.self)
         var countAllHabits = 0
@@ -91,8 +105,8 @@ class HomeViewController: ViewController {
                 countAllHabits += 1
             }
         }
-        let x = Double(countOfCompletedHabits) / Double(countAllHabits)
-        switch x {
+        let devision = Double(countOfCompletedHabits) / Double(countAllHabits)
+        switch devision {
         case 1:
             return .pinkLight
         case 0.1 ..< 0.35:
@@ -186,7 +200,13 @@ extension HomeViewController: JTACMonthViewDelegate {
         return cell
     }
 
-    func calendar(_: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt _: Date, cellState: CellState, indexPath _: IndexPath) {
+    func calendar(
+        _: JTACMonthView,
+        willDisplay cell: JTACDayCell,
+        forItemAt _: Date,
+        cellState: CellState,
+        indexPath _: IndexPath
+    ) {
         configureCell(view: cell, cellState: cellState)
     }
 
@@ -199,7 +219,13 @@ extension HomeViewController: JTACMonthViewDelegate {
         cell.dateLabel.backgroundColor = setBackgroundColorForDateCell(date: cellState.date)
     }
 
-    func calendar(_: JTACMonthView, didSelectDate date: Date, cell _: JTACDayCell?, cellState _: CellState, indexPath _: IndexPath) {
+    func calendar(
+        _: JTACMonthView,
+        didSelectDate date: Date,
+        cell _: JTACDayCell?,
+        cellState _: CellState,
+        indexPath _: IndexPath
+    ) {
         scrollToDate(date)
     }
 }

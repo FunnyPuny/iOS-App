@@ -14,6 +14,17 @@ class CalendarHomeHeaderView: UIView {
         label.text = Date().string(dateFormat: .formatMMMMd)
         return label
     }()
+    
+    var addHabitButton: UIButton = {
+        let button = UIButton()
+        var configuration = UIButton.Configuration.filled()
+        configuration.image = .plus
+        configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
+        configuration.baseBackgroundColor = .background
+        configuration.baseForegroundColor = .pinkLight
+        button.configuration = configuration
+        return button
+    }()
 
     var pointerView: UIView = {
         var view = UIView()
@@ -49,11 +60,19 @@ class CalendarHomeHeaderView: UIView {
     private func addSubviews() {
         addSubview(dateLabel)
         addSubview(pointerView)
+        addSubview(addHabitButton)
     }
 
     private func makeConstraints() {
         dateLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(16)
+        }
+        
+        addHabitButton.snp.makeConstraints { make in
+            make.size.equalTo(24)
+            make.trailing.equalToSuperview().inset(16)
+            make.top.equalToSuperview().offset(18)
         }
 
         pointerView.snp.makeConstraints { make in
