@@ -115,8 +115,7 @@ extension AnalyticsViewController: JTACMonthViewDataSource {
     func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
         let parameters = ConfigurationParameters(
             startDate: Date() - 10.years,
-            endDate: Date() + 10.years,
-            numberOfRows: 5
+            endDate: Date() + 10.years
         )
         return parameters
     }
@@ -150,5 +149,16 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         guard let cell = view as? CalendarAnalyticDateCell else { return }
         cell.isHidden = cellState.dateBelongsTo == .thisMonth ? false : true
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
+    }
+
+    func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
+        // swiftlint:disable all
+        let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "CalendarAnalyticHeaderView", for: indexPath) as! CalendarAnalyticHeaderView
+        header.dateLabel.text = range.start.string(dateFormat: .formatEEEEE)
+        return header
+    }
+
+    func calendarSizeForMonths(_: JTACMonthView?) -> MonthSize? {
+        MonthSize(defaultSize: 64)
     }
 }

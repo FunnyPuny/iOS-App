@@ -437,6 +437,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		CE09C14F28F9A6D000B7CB45 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -455,6 +456,7 @@
 		};
 		CEE6112F28F8434A003CF0AB /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);

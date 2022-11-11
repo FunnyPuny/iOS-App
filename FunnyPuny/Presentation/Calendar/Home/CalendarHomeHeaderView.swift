@@ -14,7 +14,7 @@ class CalendarHomeHeaderView: UIView {
         label.text = Date().string(dateFormat: .formatMMMMd)
         return label
     }()
-    
+
     var addHabitButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()

@@ -62,7 +62,7 @@ class AnalyticsView: UIView {
         calendarView.snp.makeConstraints { make in
             make.top.equalTo(achivmentView.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(332)
+            make.height.equalTo(364)
         }
     }
 }

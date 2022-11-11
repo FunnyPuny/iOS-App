@@ -20,8 +20,7 @@ class FrequencyView: UIView {
     }()
 
     lazy var everydayLabel: DayView = {
-        let view = DayView(.everyday)
-        view.isSelected = true
+        let view = DayView(.everyday, isSelected: true)
         return view
     }()
 

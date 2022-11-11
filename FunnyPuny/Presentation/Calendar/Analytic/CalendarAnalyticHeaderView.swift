@@ -5,13 +5,12 @@ import JTAppleCalendar
 import SnapKit
 import UIKit
 
-class CalendarAnalyticHeaderView: UIView {
+class CalendarAnalyticHeaderView: JTACMonthReusableView {
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .vividPink
-        label.font = .bold24
+        label.textColor = .greyDark
+        label.font = .regular10
         label.textAlignment = .center
-        label.text = Date().string(dateFormat: .formatMMMMyyyy)
         return label
     }()
 

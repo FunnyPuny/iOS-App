@@ -75,7 +75,7 @@ class HomeViewController: ViewController {
     private func headerDatePressed() {
         scrollToDate(Date())
     }
-    
+
     @objc
     private func addButtonPressed() {
         let addHabitViewController = NavigationController(rootViewController: AddHabitViewController())

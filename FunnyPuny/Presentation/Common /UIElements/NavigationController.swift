@@ -14,7 +14,7 @@ class NavigationController: UINavigationController {
         appearance.backgroundColor = .background
         appearance.titleTextAttributes = [
             .font: UIFont.bold17 ?? .systemFont(ofSize: 17),
-            .foregroundColor: UIColor.vividPink ?? .clear
+            .foregroundColor: UIColor.vividPink ?? .clear,
         ]
         navigationBar.standardAppearance = appearance
         view.backgroundColor = .background

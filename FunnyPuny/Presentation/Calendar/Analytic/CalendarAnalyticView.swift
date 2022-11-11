@@ -6,17 +6,21 @@ import SnapKit
 import UIKit
 
 class CalendarAnalyticView: UIView {
-    var headerView: CalendarAnalyticHeaderView = {
-        let view = CalendarAnalyticHeaderView()
-        return view
-    }()
-
     var monthView: JTACMonthView = {
         let view = JTACMonthView()
         view.register(CalendarAnalyticDateCell.self, forCellWithReuseIdentifier: "CalendarAnalyticDateCell")
+        view.register(
+            CalendarAnalyticHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "CalendarAnalyticHeaderView"
+        )
         view.backgroundColor = .background
         view.scrollDirection = .horizontal
+        view.scrollingMode = .stopAtEachSection
         view.showsHorizontalScrollIndicator = false
+        // TODO:
+        view.cellSize = (UIScreen.main.bounds.width - 64) / 7
+        print(view.cellSize)
         return view
     }()
 
@@ -38,25 +42,18 @@ class CalendarAnalyticView: UIView {
 
     private func setupStyle() {
         layer.borderWidth = 1
-        layer.borderColor = UIColor.vividPink?.cgColor
+        layer.borderColor = UIColor.pinkLight?.cgColor
         layer.cornerRadius = 16
     }
 
     private func addSubviews() {
-        addSubview(headerView)
         addSubview(monthView)
     }
 
     private func makeConstraints() {
-        headerView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
-            make.height.equalTo(50)
-        }
-
         monthView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(headerView.snp.bottom).offset(16)
-            make.height.equalTo(260)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview()
         }
     }
 }

@@ -40,7 +40,7 @@ class CalendarAnalyticDateCell: JTACDayCell {
 
     private func makeConstraints() {
         dateLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+//            make.edges.equalToSuperview()
             make.size.equalTo(36)
         }
     }

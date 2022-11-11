@@ -11,6 +11,7 @@ class AddHabitView: UIView {
         view.viewState = .everyday
         return view
     }()
+
     var reminderTimeView = ReminderTimeView()
 
     var addButtonView: UIButton = {
