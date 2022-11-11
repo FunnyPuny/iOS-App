@@ -49,7 +49,11 @@ class HomeViewController: ViewController {
     private func setupCalendar() {
         homeView.calendarView.monthView.calendarDelegate = self
         homeView.calendarView.monthView.calendarDataSource = self
-        homeView.calendarView.headerView.addHabitButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
+        homeView.calendarView.headerView.addHabitButton.addTarget(
+            self,
+            action: #selector(addButtonPressed),
+            for: .touchUpInside
+        )
         scrollToDate(Date(), animated: false)
     }
 
@@ -215,7 +219,9 @@ extension HomeViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
         cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
         cell.dayOfWeekLabel.textColor = cellState.date.isToday ? .foreground : .greyDark
-        cell.dateLabel.layer.borderColor = cellState.date.isToday ? UIColor.vividPink?.cgColor : UIColor.greyLight?.cgColor
+        cell.dateLabel.layer.borderColor = cellState.date.isToday
+            ? UIColor.vividPink?.cgColor
+            : UIColor.greyLight?.cgColor
         cell.dateLabel.backgroundColor = setBackgroundColorForDateCell(date: cellState.date)
     }
 

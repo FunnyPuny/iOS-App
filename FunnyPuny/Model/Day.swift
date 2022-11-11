@@ -11,6 +11,7 @@ enum Day: Int, CaseIterable, PersistableEnum {
     case thu = 5
     case fri = 6
     case sat = 7
+    case everyday = 0
 
     func toString() -> String {
         switch self {
@@ -28,6 +29,8 @@ enum Day: Int, CaseIterable, PersistableEnum {
             return "Sat"
         case .sun:
             return "San"
+        case .everyday:
+            return "Everyday"
         }
     }
 }

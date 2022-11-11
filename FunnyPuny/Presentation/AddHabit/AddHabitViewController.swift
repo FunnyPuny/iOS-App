@@ -23,11 +23,16 @@ class AddHabitViewController: ViewController {
         let days = List<Day>()
         // swiftlint:disable all
         // TODO: 💩
-        for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
-            if dayView.isSelected {
-                days.append(dayView.day)
+        if addHabitView.frequencyView.viewState == .everyday {
+            days.append(objectsIn: Day.allCases)
+        } else {
+            for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
+                if dayView.isSelected {
+                    days.append(dayView.day)
+                }
             }
         }
+
         do {
             try realm.write {
                 let newHabit = Habit(

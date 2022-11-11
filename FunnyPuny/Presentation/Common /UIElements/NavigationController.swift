@@ -11,8 +11,11 @@ class NavigationController: UINavigationController {
 
     private func setupStyle() {
         let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.foreground as Any]
         appearance.backgroundColor = .background
+        appearance.titleTextAttributes = [
+            .font: UIFont.bold17 ?? .systemFont(ofSize: 17),
+            .foregroundColor: UIColor.vividPink ?? .clear
+        ]
         navigationBar.standardAppearance = appearance
         view.backgroundColor = .background
     }

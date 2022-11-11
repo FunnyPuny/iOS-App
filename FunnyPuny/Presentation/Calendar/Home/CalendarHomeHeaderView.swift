@@ -68,7 +68,7 @@ class CalendarHomeHeaderView: UIView {
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().offset(16)
         }
-        
+
         addHabitButton.snp.makeConstraints { make in
             make.size.equalTo(24)
             make.trailing.equalToSuperview().inset(16)

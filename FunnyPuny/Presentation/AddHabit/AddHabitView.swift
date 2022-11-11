@@ -6,7 +6,11 @@ import UIKit
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
-    var frequencyView = FrequencyView()
+    var frequencyView: FrequencyView = {
+        let view = FrequencyView()
+        view.viewState = .everyday
+        return view
+    }()
     var reminderTimeView = ReminderTimeView()
 
     var addButtonView: UIButton = {

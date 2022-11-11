@@ -4,12 +4,25 @@
 import UIKit
 
 class FrequencyView: UIView {
+    var viewState: ViewState
+
+    enum ViewState {
+        case everyday
+        case specifcDays
+    }
+
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = Texts.frequency
         label.textColor = .foreground
         label.font = .regular20
         return label
+    }()
+
+    lazy var everydayLabel: DayView = {
+        let view = DayView(.everyday)
+        view.isSelected = true
+        return view
     }()
 
     lazy var stackView: UIStackView = {
@@ -20,7 +33,8 @@ class FrequencyView: UIView {
         return stackView
     }()
 
-    required init() {
+    required init(viewState: ViewState = .everyday) {
+        self.viewState = viewState
         super.init(frame: .zero)
         commonInit()
     }
@@ -37,6 +51,7 @@ class FrequencyView: UIView {
 
     private func addSubviews() {
         addSubview(label)
+        addSubview(everydayLabel)
         addSubview(stackView)
     }
 
@@ -46,8 +61,15 @@ class FrequencyView: UIView {
             make.height.equalTo(32)
         }
 
+        everydayLabel.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom).offset(12)
+            make.leading.equalToSuperview()
+            make.height.greaterThanOrEqualTo(32)
+            make.width.equalTo(92)
+        }
+
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(16)
+            make.top.equalTo(everydayLabel.snp.bottom).offset(12)
             make.height.greaterThanOrEqualTo(32)
             make.leading.trailing.bottom.equalToSuperview()
         }
