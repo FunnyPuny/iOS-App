@@ -13,7 +13,7 @@ enum Day: Int, CaseIterable, PersistableEnum {
     case sat = 7
     case everyday = 0
 
-    func toString() -> String {
+    var string: String {
         switch self {
         case .mon:
             return "Mon"

@@ -32,6 +32,8 @@
 		CE6B77C2291AD5FA00996142 /* CalendarAnalyticHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77C1291AD5FA00996142 /* CalendarAnalyticHeaderView.swift */; };
 		CE6B77C4291AE5B000996142 /* CalendarAnalyticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77C3291AE5B000996142 /* CalendarAnalyticView.swift */; };
 		CE6B77C8291C303C00996142 /* JTACMonthView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77C7291C303C00996142 /* JTACMonthView+Extension.swift */; };
+		CE6B77CA291FBD4800996142 /* DayOfWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */; };
+		CE6B77CC29201DD600996142 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77CB29201DD600996142 /* String+Extension.swift */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
 		CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */; };
 		CE7808E928FF66100016AD41 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E828FF660F0016AD41 /* Notifications.swift */; };
@@ -90,6 +92,8 @@
 		CE6B77C1291AD5FA00996142 /* CalendarAnalyticHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticHeaderView.swift; sourceTree = "<group>"; };
 		CE6B77C3291AE5B000996142 /* CalendarAnalyticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticView.swift; sourceTree = "<group>"; };
 		CE6B77C7291C303C00996142 /* JTACMonthView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JTACMonthView+Extension.swift"; sourceTree = "<group>"; };
+		CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekView.swift; sourceTree = "<group>"; };
+		CE6B77CB29201DD600996142 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		CE7808E828FF660F0016AD41 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			children = (
 				CE351C342911BC7400ACCF0C /* AchivmentView.swift */,
 				CE09C15228F9EB1800B7CB45 /* DayView.swift */,
+				CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */,
 				CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */,
 				CEA71A2328F8A18600D2CE36 /* NavigationController.swift */,
 				CE351C2D2910511A00ACCF0C /* ReminderTimeView.swift */,
@@ -301,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0C56CF2915AC710080ED5C /* UIView+Extension.swift */,
+				CE6B77CB29201DD600996142 /* String+Extension.swift */,
 				CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */,
 				CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */,
 				CEB1EA8B290C113A0087ED24 /* List+Extension.swift */,
@@ -492,6 +498,7 @@
 				CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */,
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
 				CEB4BD23290851CF006F6D1D /* CompletedHabits.swift in Sources */,
+				CE6B77CA291FBD4800996142 /* DayOfWeekView.swift in Sources */,
 				CE6B77BC29184F2F00996142 /* DBManager.swift in Sources */,
 				CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */,
 				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,
@@ -507,6 +514,7 @@
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
 				CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */,
 				CE0C56D02915AC710080ED5C /* UIView+Extension.swift in Sources */,
+				CE6B77CC29201DD600996142 /* String+Extension.swift in Sources */,
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CE09C14628F9938700B7CB45 /* Texts.swift in Sources */,
 				CE351C2E2910511A00ACCF0C /* ReminderTimeView.swift in Sources */,

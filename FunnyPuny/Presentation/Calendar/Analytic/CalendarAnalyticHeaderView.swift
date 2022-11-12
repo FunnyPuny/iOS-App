@@ -6,12 +6,26 @@ import SnapKit
 import UIKit
 
 class CalendarAnalyticHeaderView: JTACMonthReusableView {
-    var dateLabel: UILabel = {
+    var monthLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .greyDark
-        label.font = .regular10
+        label.textColor = .foreground
+        label.font = .regular17
         label.textAlignment = .center
         return label
+    }()
+
+    var weekStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.addArrangedSubview(WeekdayView(.sun))
+        stackView.addArrangedSubview(WeekdayView(.mon))
+        stackView.addArrangedSubview(WeekdayView(.tue))
+        stackView.addArrangedSubview(WeekdayView(.wed))
+        stackView.addArrangedSubview(WeekdayView(.thu))
+        stackView.addArrangedSubview(WeekdayView(.fri))
+        stackView.addArrangedSubview(WeekdayView(.sat))
+        stackView.spacing = 8
+        stackView.distribution = .fillEqually
+        return stackView
     }()
 
     override init(frame: CGRect) {
@@ -30,12 +44,19 @@ class CalendarAnalyticHeaderView: JTACMonthReusableView {
     }
 
     private func addSubviews() {
-        addSubview(dateLabel)
+        addSubview(monthLabel)
+        addSubview(weekStackView)
     }
 
     private func makeConstraints() {
-        dateLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        monthLabel.snp.makeConstraints { make in
+            make.leading.trailing.top.equalToSuperview()
+            make.height.equalTo(40)
+        }
+        weekStackView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(monthLabel.snp.bottom).offset(8)
+            make.height.equalTo(16)
         }
     }
 }

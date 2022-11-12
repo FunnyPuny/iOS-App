@@ -9,7 +9,7 @@ class DayView: UIView {
 
     lazy var dayLabel: UILabel = {
         let label = UILabel()
-        label.text = day.toString()
+        label.text = day.string
         label.textColor = isSelected ? .background : .foreground
         label.font = .regular17
         label.textAlignment = .center

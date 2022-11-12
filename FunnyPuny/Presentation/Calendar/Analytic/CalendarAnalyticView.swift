@@ -18,7 +18,6 @@ class CalendarAnalyticView: UIView {
         view.scrollDirection = .horizontal
         view.scrollingMode = .stopAtEachSection
         view.showsHorizontalScrollIndicator = false
-        // TODO:
         view.cellSize = (UIScreen.main.bounds.width - 64) / 7
         print(view.cellSize)
         return view
@@ -53,7 +52,7 @@ class CalendarAnalyticView: UIView {
     private func makeConstraints() {
         monthView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
-            make.top.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview().inset(16)
         }
     }
 }

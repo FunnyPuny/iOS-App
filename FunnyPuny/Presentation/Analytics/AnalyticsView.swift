@@ -7,10 +7,22 @@ import UIKit
 class AnalyticsView: UIView {
     var categoryLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .foreground
-        label.font = .bold17
+        label.textColor = .vividPink
+        label.font = .bold20
         label.text = Texts.allHabits
         return label
+    }()
+
+    var pointerBotton: UIButton = {
+        let button = UIButton()
+        var configuration = UIButton.Configuration.filled()
+        configuration.image = .down
+        configuration.image?.withTintColor(.vividPink ?? .clear)
+        // configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
+        configuration.baseBackgroundColor = .background
+        configuration.baseForegroundColor = .vividPink
+        button.configuration = configuration
+        return button
     }()
 
     var achivmentView = AchivmentView()
@@ -42,6 +54,7 @@ class AnalyticsView: UIView {
 
     private func addSubviews() {
         addSubview(categoryLabel)
+        addSubview(pointerBotton)
         addSubview(achivmentView)
         addSubview(calendarView)
     }
@@ -51,6 +64,12 @@ class AnalyticsView: UIView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(16)
             make.centerX.equalToSuperview()
             make.height.equalTo(20)
+        }
+
+        pointerBotton.snp.makeConstraints { make in
+            make.leading.equalTo(categoryLabel.snp.trailing).offset(4)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(20)
+            make.size.equalTo(16)
         }
 
         achivmentView.snp.makeConstraints { make in
