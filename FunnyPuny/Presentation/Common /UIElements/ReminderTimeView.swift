@@ -8,15 +8,13 @@ class ReminderTimeView: UIView {
         let label = UILabel()
         label.text = Texts.reminderTime
         label.textColor = .foreground
-        label.font = .regular20
+        label.font = .regular17
         return label
     }()
 
     lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
-        // datePicker.subviews[0].subviews[0].backgroundColor = .background
-        // datePicker.subviews[0].subviews[1].subviews[1].backgroundColor = .background
         datePicker.subviews[0].subviews[1].layer.borderColor = UIColor.mainGrey?.cgColor
         datePicker.subviews[0].subviews[1].layer.borderWidth = 1
         datePicker.subviews[0].subviews[1].layer.cornerRadius = 10

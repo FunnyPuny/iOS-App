@@ -11,7 +11,7 @@ enum Texts {
     static let add = "Add"
     static let addHabit = "Add habit"
     static let name = "Name"
-    static let nameHabit = "Name habit"
+    static let nameHabit = "Habit's name"
     static let note = "Note"
     static let reminderNote = "Reminder Note"
     static let reminderTime = "Reminder Time"
