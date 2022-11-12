@@ -34,6 +34,7 @@ class AnalyticsViewController: ViewController {
     func setupCalendar() {
         analyticsView.calendarView.monthView.calendarDelegate = self
         analyticsView.calendarView.monthView.calendarDataSource = self
+        analyticsView.calendarView.monthView.scrollToDate(Date(), animateScroll: false)
     }
 
     private var countCompletedHabits: Int {
@@ -114,8 +115,8 @@ class AnalyticsViewController: ViewController {
 extension AnalyticsViewController: JTACMonthViewDataSource {
     func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
         let parameters = ConfigurationParameters(
-            startDate: Date() - 10.years,
-            endDate: Date() + 10.years
+            startDate: Date() - 1.years,
+            endDate: Date() + 1.years
         )
         return parameters
     }
@@ -151,10 +152,13 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
     }
 
-    func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
-        // swiftlint:disable all
-        let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "CalendarAnalyticHeaderView", for: indexPath) as! CalendarAnalyticHeaderView
-        header.dateLabel.text = range.start.string(dateFormat: .formatEEEEE)
+    func calendar(
+        _ calendar: JTACMonthView,
+        headerViewForDateRange range: (start: Date, end: Date),
+        at indexPath: IndexPath
+    ) -> JTACMonthReusableView {
+        let header = calendar.dequeueReusableJTAppleSupplementaryView(withClass: CalendarAnalyticHeaderView.self, indexPath: indexPath)
+        header.monthLabel.text = range.start.string(dateFormat: .formatMMMMyyyy)
         return header
     }
 
