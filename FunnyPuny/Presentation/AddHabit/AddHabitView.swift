@@ -18,7 +18,7 @@ class AddHabitView: UIView {
         let button = UIButton()
         button.setTitle(Texts.add, for: .normal)
         button.titleLabel?.textColor = .background
-        button.titleLabel?.font = .regular17
+        button.titleLabel?.font = .regular20
         button.backgroundColor = .mainGrey
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 12
