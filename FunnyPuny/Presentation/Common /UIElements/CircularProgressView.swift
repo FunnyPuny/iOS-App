@@ -19,6 +19,10 @@ class CircularProgressView: UIView {
         }
     }
 
+    var progress: CGFloat = 0 {
+        didSet { setNeedsDisplay() }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStyle()
@@ -49,7 +53,9 @@ class CircularProgressView: UIView {
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.strokeColor = progressColor.cgColor
         progressLayer.lineWidth = 5.0
-        // progressLayer.strokeEnd = 0.4
+        progressLayer.lineCap = .round
+        progressLayer.strokeEnd = progress
+        progressLayer.strokeStart = 0
         layer.addSublayer(progressLayer)
         layer.transform = CATransform3DMakeRotation(CGFloat(90 * Double.pi / 180), 0, 0, 0)
     }

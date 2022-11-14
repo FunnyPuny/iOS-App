@@ -21,7 +21,7 @@ class AnalyticsViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupData()
-        analyticsView.achivmentView.statusView.progressAnimation(
+        analyticsView.achivmentView.circularProgressView.progressAnimation(
             duration: 1,
             value: Float(countCompletedHabits) / Float(countHabits)
         )
