@@ -4,8 +4,8 @@
 import UIKit
 
 class AchivmentView: UIView {
-    var circularProgressView: CircularProgressView = {
-        let progressView = CircularProgressView(frame: CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0))
+    var progressView: ProgressView = {
+        let progressView = ProgressView(frame: CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0))
         progressView.trackColor = .greyLight ?? .clear
         progressView.progressColor = .vividPink ?? .clear
         return progressView
@@ -46,19 +46,19 @@ class AchivmentView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(circularProgressView)
+        addSubview(progressView)
         addSubview(stackView)
     }
 
     private func makeConstraints() {
-        circularProgressView.snp.makeConstraints { make in
+        progressView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.centerY.equalToSuperview()
             make.size.equalTo(48)
         }
 
         stackView.snp.makeConstraints { make in
-            make.leading.equalTo(circularProgressView.snp.trailing).offset(32)
+            make.leading.equalTo(progressView.snp.trailing).offset(32)
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().inset(24)
             make.height.equalTo(52)

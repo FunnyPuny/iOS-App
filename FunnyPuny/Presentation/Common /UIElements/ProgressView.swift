@@ -1,9 +1,17 @@
-// CircularProgressView.swift
+// ProgressView.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
 
-class CircularProgressView: UIView {
+class ProgressView: UIView {
+    var statusLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .foreground
+        label.textAlignment = .center
+        label.font = .regular14
+        return label
+    }()
+
     var progressLayer = CAShapeLayer()
     var trackLayer = CAShapeLayer()
 
@@ -26,14 +34,16 @@ class CircularProgressView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStyle()
+        makeConstraints()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupStyle()
+        makeConstraints()
     }
 
-    func setupStyle() {
+    private func setupStyle() {
         backgroundColor = .clear
         layer.cornerRadius = frame.size.width / 2
         let circlePath = UIBezierPath(
@@ -58,12 +68,19 @@ class CircularProgressView: UIView {
         progressLayer.strokeStart = 0
         layer.addSublayer(progressLayer)
         layer.transform = CATransform3DMakeRotation(CGFloat(90 * Double.pi / 180), 0, 0, 0)
+
+        addSubview(statusLabel)
+    }
+
+    private func makeConstraints() {
+        statusLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview().offset(1)
+            make.centerX.equalToSuperview().offset(1)
+        }
     }
 
     func progressAnimation(duration: TimeInterval, value: Float) {
-        // created circularProgressAnimation with keyPath
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        // set the end time
         circularProgressAnimation.duration = duration
         circularProgressAnimation.toValue = value
         circularProgressAnimation.fillMode = .forwards

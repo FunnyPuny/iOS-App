@@ -11,6 +11,7 @@ import UIKit
 class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
     var dbManager = DBManager()
+    var value: Float?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ class AnalyticsViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupData()
-        analyticsView.achivmentView.circularProgressView.progressAnimation(
+        analyticsView.achivmentView.progressView.progressAnimation(
             duration: 1,
             value: Float(countCompletedHabits) / Float(countHabits)
         )
@@ -31,8 +32,10 @@ class AnalyticsViewController: ViewController {
         // Refresh database
         dbManager = DBManager()
         // Temp
+        value = Float(countCompletedHabits) / Float(countHabits)
         analyticsView.achivmentView.completedScore.amountHabitsLabel.text = String(countCompletedHabits)
         analyticsView.achivmentView.missedScore.amountHabitsLabel.text = String(countMissedHabits)
+        analyticsView.achivmentView.progressView.statusLabel.text = String(Int((value ?? 1) * 100)) + "%"
     }
 
     func setupCalendar() {
@@ -161,12 +164,15 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         headerViewForDateRange range: (start: Date, end: Date),
         at indexPath: IndexPath
     ) -> JTACMonthReusableView {
-        let header = calendar.dequeueReusableJTAppleSupplementaryView(withClass: CalendarAnalyticHeaderView.self, indexPath: indexPath)
+        let header = calendar.dequeueReusableJTAppleSupplementaryView(
+            withClass: CalendarAnalyticHeaderView.self,
+            indexPath: indexPath
+        )
         header.monthLabel.text = range.start.string(dateFormat: .formatMMMMyyyy)
         return header
     }
 
     func calendarSizeForMonths(_: JTACMonthView?) -> MonthSize? {
-        MonthSize(defaultSize: 64)
+        MonthSize(defaultSize: 88)
     }
 }

@@ -35,7 +35,7 @@
 		CE6B77CA291FBD4800996142 /* DayOfWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */; };
 		CE6B77CC29201DD600996142 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77CB29201DD600996142 /* String+Extension.swift */; };
 		CE6B77CF29225C3000996142 /* MKRingProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = CE6B77CE29225C3000996142 /* MKRingProgressView */; };
-		CE6B77D1292261FA00996142 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D0292261FA00996142 /* CircularProgressView.swift */; };
+		CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D0292261FA00996142 /* ProgressView.swift */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
 		CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */; };
 		CE7808E928FF66100016AD41 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E828FF660F0016AD41 /* Notifications.swift */; };
@@ -96,7 +96,7 @@
 		CE6B77C7291C303C00996142 /* JTACMonthView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JTACMonthView+Extension.swift"; sourceTree = "<group>"; };
 		CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekView.swift; sourceTree = "<group>"; };
 		CE6B77CB29201DD600996142 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		CE6B77D0292261FA00996142 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		CE6B77D0292261FA00996142 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		CE7808E828FF660F0016AD41 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				CE351C342911BC7400ACCF0C /* AchivmentView.swift */,
-				CE6B77D0292261FA00996142 /* CircularProgressView.swift */,
+				CE6B77D0292261FA00996142 /* ProgressView.swift */,
 				CE09C15228F9EB1800B7CB45 /* DayView.swift */,
 				CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */,
 				CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */,
@@ -529,7 +529,7 @@
 				CE6B77C0291AD5DE00996142 /* CalendarAnalyticDateCell.swift in Sources */,
 				CEA0CAF72900753B00EDCDFD /* CalendarHomeHeaderView.swift in Sources */,
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
-				CE6B77D1292261FA00996142 /* CircularProgressView.swift in Sources */,
+				CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,
 				CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */,
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,
