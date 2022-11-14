@@ -4,7 +4,7 @@
 import UIKit
 
 class AchivmentView: UIView {
-    private var statusView: CircularProgressView = {
+    var statusView: CircularProgressView = {
         let progressView = CircularProgressView(frame: CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0))
         progressView.trackColor = .greyLight ?? .clear
         progressView.progressColor = .vividPink ?? .clear

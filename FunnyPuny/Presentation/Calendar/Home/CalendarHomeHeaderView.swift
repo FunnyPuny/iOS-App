@@ -19,9 +19,8 @@ class CalendarHomeHeaderView: UIView {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.image = .plus
-        configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
         configuration.baseBackgroundColor = .background
-        configuration.baseForegroundColor = .pinkLight
+        configuration.baseForegroundColor = .foreground
         button.configuration = configuration
         return button
     }()

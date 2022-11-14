@@ -49,8 +49,19 @@ class CircularProgressView: UIView {
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.strokeColor = progressColor.cgColor
         progressLayer.lineWidth = 5.0
-        progressLayer.strokeEnd = 0.4
+        // progressLayer.strokeEnd = 0.4
         layer.addSublayer(progressLayer)
         layer.transform = CATransform3DMakeRotation(CGFloat(90 * Double.pi / 180), 0, 0, 0)
+    }
+
+    func progressAnimation(duration: TimeInterval, value: Float) {
+        // created circularProgressAnimation with keyPath
+        let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        // set the end time
+        circularProgressAnimation.duration = duration
+        circularProgressAnimation.toValue = value
+        circularProgressAnimation.fillMode = .forwards
+        circularProgressAnimation.isRemovedOnCompletion = false
+        progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
     }
 }
