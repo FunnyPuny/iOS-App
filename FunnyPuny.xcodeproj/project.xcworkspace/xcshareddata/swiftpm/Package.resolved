@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "mkringprogressview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxkonovalov/MKRingProgressView",
+      "state" : {
+        "revision" : "660888aab1d2ab0ed7eb9eb53caec12af4955fa7",
+        "version" : "2.3.0"
+      }
+    },
+    {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core",

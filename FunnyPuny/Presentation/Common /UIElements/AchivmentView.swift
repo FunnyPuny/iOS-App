@@ -4,11 +4,11 @@
 import UIKit
 
 class AchivmentView: UIView {
-    private var statusView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 24
-        view.backgroundColor = .pinkLight
-        return view
+    private var statusView: CircularProgressView = {
+        let progressView = CircularProgressView(frame: CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0))
+        progressView.trackColor = .greyLight ?? .clear
+        progressView.progressColor = .vividPink ?? .clear
+        return progressView
     }()
 
     var completedScore = ScoreView(amount: "72", text: Texts.completed)
