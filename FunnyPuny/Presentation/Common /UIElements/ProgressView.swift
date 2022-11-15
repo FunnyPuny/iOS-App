@@ -86,5 +86,7 @@ class ProgressView: UIView {
         circularProgressAnimation.fillMode = .forwards
         circularProgressAnimation.isRemovedOnCompletion = false
         progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
+
+        statusLabel.fadeIn()
     }
 }
