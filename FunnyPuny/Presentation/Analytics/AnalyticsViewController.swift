@@ -36,6 +36,8 @@ class AnalyticsViewController: ViewController {
         analyticsView.achivmentView.completedScore.amountHabitsLabel.text = String(countCompletedHabits)
         analyticsView.achivmentView.missedScore.amountHabitsLabel.text = String(countMissedHabits)
         analyticsView.achivmentView.progressView.statusLabel.text = String(Int((value ?? 1) * 100)) + "%"
+        // Refresh calendar
+        analyticsView.calendarView.monthView.reloadData()
     }
 
     func setupCalendar() {
