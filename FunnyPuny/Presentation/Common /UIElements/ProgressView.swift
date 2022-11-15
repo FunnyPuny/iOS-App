@@ -8,7 +8,7 @@ class ProgressView: UIView {
         let label = UILabel()
         label.textColor = .foreground
         label.textAlignment = .center
-        label.font = .regular14
+        label.font = .medium14
         return label
     }()
 

@@ -36,6 +36,7 @@
 		CE6B77CC29201DD600996142 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77CB29201DD600996142 /* String+Extension.swift */; };
 		CE6B77CF29225C3000996142 /* MKRingProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = CE6B77CE29225C3000996142 /* MKRingProgressView */; };
 		CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D0292261FA00996142 /* ProgressView.swift */; };
+		CE6B77D52923C3A300996142 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE6B77D42923C3A300996142 /* SF-Pro-Text-Medium.otf */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
 		CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */; };
 		CE7808E928FF66100016AD41 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E828FF660F0016AD41 /* Notifications.swift */; };
@@ -97,6 +98,7 @@
 		CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekView.swift; sourceTree = "<group>"; };
 		CE6B77CB29201DD600996142 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CE6B77D0292261FA00996142 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		CE6B77D42923C3A300996142 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		CE7808E828FF660F0016AD41 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB1EA872909C8670087ED24 /* SF-Pro-Display-Bold.otf */,
+				CE6B77D42923C3A300996142 /* SF-Pro-Text-Medium.otf */,
 				CEB1EA892909CB840087ED24 /* SF-Pro-Text-Regular.otf */,
 			);
 			path = Fonts;
@@ -439,6 +442,7 @@
 				CEE6113628F85A5A003CF0AB /* profile.gif in Resources */,
 				CEB1EA882909C8670087ED24 /* SF-Pro-Display-Bold.otf in Resources */,
 				CEDAFF3F28E7199E006136B3 /* LaunchScreen.storyboard in Resources */,
+				CE6B77D52923C3A300996142 /* SF-Pro-Text-Medium.otf in Resources */,
 				CE10452628F6FD1B006B31D6 /* home.gif in Resources */,
 				CEDAFF3C28E7199E006136B3 /* Assets.xcassets in Resources */,
 				CEB1EA8A2909CB840087ED24 /* SF-Pro-Text-Regular.otf in Resources */,
