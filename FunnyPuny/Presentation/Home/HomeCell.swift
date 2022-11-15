@@ -6,7 +6,7 @@ import UIKit
 class HomeCell: UITableViewCell {
     var isDone = false
 
-    lazy var iconImageView: UIImageView = {
+    private var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
         imageView.image = .circle
@@ -14,7 +14,7 @@ class HomeCell: UITableViewCell {
         return imageView
     }()
 
-    lazy var label: UILabel = {
+    private var label: UILabel = {
         let label = UILabel()
         label.font = .regular17
         label.textColor = .black
@@ -64,6 +64,27 @@ class HomeCell: UITableViewCell {
             make.trailing.equalToSuperview().inset(16)
             make.centerY.equalToSuperview()
             make.width.height.equalTo(32)
+        }
+    }
+}
+
+extension HomeCell: Configurable {
+    func configure(with viewModel: HomeCellViewModel) {
+        label.text = viewModel.habitName
+        if viewModel.isDone {
+            iconImageView.image = .checkmark
+            iconImageView.tintColor = .vividPink
+            contentView.backgroundColor = .background
+            contentView.layer.borderColor = UIColor.pinkLight?.cgColor
+            contentView.layer.borderWidth = 2
+            isDone = true
+        } else {
+            iconImageView.image = .circle
+            iconImageView.tintColor = .background
+            contentView.backgroundColor = .pinkLight
+            contentView.layer.borderColor = UIColor.clear.cgColor
+            contentView.layer.borderWidth = 0
+            isDone = false
         }
     }
 }

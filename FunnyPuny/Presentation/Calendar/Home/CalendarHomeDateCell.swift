@@ -6,7 +6,7 @@ import SnapKit
 import UIKit
 
 class CalendarHomeDateCell: JTACDayCell {
-    var dayOfWeekLabel: UILabel = {
+    private var dayOfWeekLabel: UILabel = {
         let label = UILabel()
         label.textColor = .foreground
         label.font = .regular14
@@ -17,7 +17,7 @@ class CalendarHomeDateCell: JTACDayCell {
         return label
     }()
 
-    var dateLabel: UILabel = {
+    private var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .foreground
         label.font = .regular12
@@ -62,5 +62,17 @@ class CalendarHomeDateCell: JTACDayCell {
             make.centerX.equalToSuperview()
             make.size.equalTo(40)
         }
+    }
+}
+
+extension CalendarHomeDateCell: Configurable {
+    func configure(with viewModel: CalendarHomeDateCellViewModel) {
+        dateLabel.text = viewModel.date.string(dateFormat: .formatdd)
+        dayOfWeekLabel.text = viewModel.date.string(dateFormat: .formatEEEEE)
+        dayOfWeekLabel.textColor = viewModel.date.isToday ? .foreground : .greyDark
+        dateLabel.layer.borderColor = viewModel.date.isToday
+            ? UIColor.vividPink?.cgColor
+            : UIColor.greyLight?.cgColor
+        dateLabel.backgroundColor = viewModel.backgroundColor
     }
 }

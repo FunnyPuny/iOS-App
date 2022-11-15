@@ -7,7 +7,7 @@ import RealmSwift
 // swiftlint:disable all
 // TODO:
 class DBManager {
-    private let realm = try! Realm()
+    let realm = try! Realm()
 
     lazy var habits: [Habit] = realm.objects(Habit.self).toArray(type: Habit.self)
     lazy var history: [CompletedHabits] = realm.objects(CompletedHabits.self).toArray(type: CompletedHabits.self)

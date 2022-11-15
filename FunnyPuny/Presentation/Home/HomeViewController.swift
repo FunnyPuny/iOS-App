@@ -95,33 +95,6 @@ class HomeViewController: ViewController {
         selectedDate = date
         setupCurrentHabits()
     }
-
-    func setBackgroundColorForDateCell(date: Date) -> UIColor? {
-        let completedHabit = realm.object(
-            ofType: CompletedHabits.self,
-            forPrimaryKey: date.string(dateFormat: .formatyyMMdd)
-        )
-        let countOfCompletedHabits = completedHabit?.habits.count ?? 0
-        let allHabits = realm.objects(Habit.self)
-        var countAllHabits = 0
-        for habit in allHabits {
-            for frequency in habit.frequency where frequency.rawValue == date.weekday {
-                countAllHabits += 1
-            }
-        }
-        let devision = Double(countOfCompletedHabits) / Double(countAllHabits)
-        switch devision {
-        case 1:
-            return .pinkLight
-        case 0.1 ..< 0.35:
-            return .pinkLight?.withAlphaComponent(0.4)
-        case 0.35 ..< 0.65:
-            return .pinkLight?.withAlphaComponent(0.6)
-        case 0.65 ..< 1:
-            return .pinkLight?.withAlphaComponent(0.8)
-        default: return .background
-        }
-    }
 }
 
 // MARK: UITableViewDelegate
@@ -165,7 +138,7 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
-        cell.label.text = currentHabits?[indexPath.row].name ?? ""
+        var viewModel = HomeCellViewModel(habitName: currentHabits?[indexPath.row].name ?? "", isDone: false)
 
         let date = selectedDate.string(dateFormat: .formatyyMMdd)
         let completedHabits = realm.object(ofType: CompletedHabits.self, forPrimaryKey: date)
@@ -174,17 +147,11 @@ extension HomeViewController: UITableViewDataSource {
             let completedHabits,
             completedHabits.habits.contains(habitId)
         {
-            cell.iconImageView.image = .checkmark
-            cell.iconImageView.tintColor = .vividPink
-            cell.contentView.backgroundColor = .background
-            cell.contentView.layer.borderColor = UIColor.pinkLight?.cgColor
-            cell.contentView.layer.borderWidth = 2
-            cell.isDone = true
+            viewModel.isDone = true
+            cell.configure(with: viewModel)
         } else {
-            cell.iconImageView.image = .circle
-            cell.iconImageView.tintColor = .background
-            cell.contentView.backgroundColor = .pinkLight
-            cell.isDone = false
+            viewModel.isDone = false
+            cell.configure(with: viewModel)
         }
         return cell
     }
@@ -216,13 +183,7 @@ extension HomeViewController: JTACMonthViewDelegate {
 
     func configureCell(view: JTACDayCell?, cellState: CellState) {
         guard let cell = view as? CalendarHomeDateCell else { return }
-        cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
-        cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
-        cell.dayOfWeekLabel.textColor = cellState.date.isToday ? .foreground : .greyDark
-        cell.dateLabel.layer.borderColor = cellState.date.isToday
-            ? UIColor.vividPink?.cgColor
-            : UIColor.greyLight?.cgColor
-        cell.dateLabel.backgroundColor = setBackgroundColorForDateCell(date: cellState.date)
+        cell.configure(with: .init(date: cellState.date))
     }
 
     func calendar(
