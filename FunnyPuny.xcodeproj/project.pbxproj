@@ -37,6 +37,9 @@
 		CE6B77CF29225C3000996142 /* MKRingProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = CE6B77CE29225C3000996142 /* MKRingProgressView */; };
 		CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D0292261FA00996142 /* ProgressView.swift */; };
 		CE6B77D52923C3A300996142 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE6B77D42923C3A300996142 /* SF-Pro-Text-Medium.otf */; };
+		CE6B77D72924060E00996142 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D62924060E00996142 /* HomeCellViewModel.swift */; };
+		CE6B77D9292406ED00996142 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D8292406ED00996142 /* Configurable.swift */; };
+		CE6B77DD29240D1100996142 /* CalendarHomeDateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77DC29240D1100996142 /* CalendarHomeDateCellViewModel.swift */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
 		CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */; };
 		CE7808E928FF66100016AD41 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E828FF660F0016AD41 /* Notifications.swift */; };
@@ -99,6 +102,9 @@
 		CE6B77CB29201DD600996142 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CE6B77D0292261FA00996142 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		CE6B77D42923C3A300996142 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
+		CE6B77D62924060E00996142 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		CE6B77D8292406ED00996142 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		CE6B77DC29240D1100996142 /* CalendarHomeDateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHomeDateCellViewModel.swift; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		CE7808E828FF660F0016AD41 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -192,7 +198,6 @@
 		CE10452A28F70518006B31D6 /* Common  */ = {
 			isa = PBXGroup;
 			children = (
-				CEA0BF5128FC578A009B6BFD /* Extensions */,
 				CE09C14C28F9A07300B7CB45 /* Constants */,
 				CE09C14B28F9A06800B7CB45 /* UIElements */,
 			);
@@ -275,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7808E428FEF8140016AD41 /* HomeCell.swift */,
+				CE6B77D62924060E00996142 /* HomeCellViewModel.swift */,
 				CE10451F28F6F23E006B31D6 /* HomeView.swift */,
 				CEDAFF3628E7199C006136B3 /* HomeViewController.swift */,
 			);
@@ -294,6 +300,7 @@
 			children = (
 				CEA0CAF62900753B00EDCDFD /* CalendarHomeHeaderView.swift */,
 				CE944F722901BB940000697A /* CalendarHomeView.swift */,
+				CE6B77DC29240D1100996142 /* CalendarHomeDateCellViewModel.swift */,
 				CEA0CAF42900752B00EDCDFD /* CalendarHomeDateCell.swift */,
 			);
 			path = Home;
@@ -307,6 +314,23 @@
 				CE6B77C1291AD5FA00996142 /* CalendarAnalyticHeaderView.swift */,
 			);
 			path = Analytic;
+			sourceTree = "<group>";
+		};
+		CE6B77DA2924070A00996142 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CEA0BF5128FC578A009B6BFD /* Extensions */,
+				CE6B77DB2924072D00996142 /* Protocols */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CE6B77DB2924072D00996142 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B77D8292406ED00996142 /* Configurable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		CEA0BF5128FC578A009B6BFD /* Extensions */ = {
@@ -356,6 +380,7 @@
 				CE6AFF2428F6125C0079FD83 /* Application */,
 				CE6AFF2328F6124A0079FD83 /* Model */,
 				CE6AFF2228F6123E0079FD83 /* Presentation */,
+				CE6B77DA2924070A00996142 /* Helpers */,
 				CE6B77BA29184F1100996142 /* BusinessLogic */,
 			);
 			path = FunnyPuny;
@@ -501,6 +526,7 @@
 				CEB1EA8C290C113A0087ED24 /* List+Extension.swift in Sources */,
 				CEE6113228F85950003CF0AB /* ProfileView.swift in Sources */,
 				CE10452028F6F23E006B31D6 /* HomeView.swift in Sources */,
+				CE6B77D72924060E00996142 /* HomeCellViewModel.swift in Sources */,
 				CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */,
 				CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */,
 				CE10452C28F70529006B31D6 /* Colors.swift in Sources */,
@@ -508,6 +534,7 @@
 				CEA71A2A28F8B75400D2CE36 /* TextFieldView.swift in Sources */,
 				CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */,
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
+				CE6B77DD29240D1100996142 /* CalendarHomeDateCellViewModel.swift in Sources */,
 				CEB4BD23290851CF006F6D1D /* CompletedHabits.swift in Sources */,
 				CE6B77CA291FBD4800996142 /* DayOfWeekView.swift in Sources */,
 				CE6B77BC29184F2F00996142 /* DBManager.swift in Sources */,
@@ -526,6 +553,7 @@
 				CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */,
 				CE0C56D02915AC710080ED5C /* UIView+Extension.swift in Sources */,
 				CE6B77CC29201DD600996142 /* String+Extension.swift in Sources */,
+				CE6B77D9292406ED00996142 /* Configurable.swift in Sources */,
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CE09C14628F9938700B7CB45 /* Texts.swift in Sources */,
 				CE351C2E2910511A00ACCF0C /* ReminderTimeView.swift in Sources */,
