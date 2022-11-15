@@ -150,13 +150,8 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         cellState: CellState,
         indexPath _: IndexPath
     ) {
-        configureCell(view: cell, cellState: cellState)
-    }
-
-    func configureCell(view: JTACDayCell?, cellState: CellState) {
-        guard let cell = view as? CalendarAnalyticDateCell else { return }
-        cell.isHidden = cellState.dateBelongsTo == .thisMonth ? false : true
-        cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
+        guard let cell = cell as? CalendarAnalyticDateCell else { return }
+        cell.configure(with: .init(date: cellState.date, isHidden: cellState.dateBelongsTo != .thisMonth))
     }
 
     func calendar(

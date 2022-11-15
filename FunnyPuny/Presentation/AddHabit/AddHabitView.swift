@@ -12,7 +12,7 @@ class AddHabitView: UIView {
         return view
     }()
 
-    var reminderTimeView = ReminderTimeView()
+    private var reminderTimeView = ReminderTimeView()
 
     var addButtonView: UIButton = {
         let button = UIButton()

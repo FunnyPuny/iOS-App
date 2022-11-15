@@ -2,6 +2,7 @@
 // FunnyPuny. Created by Zlata Guseva.
 
 import Foundation
+
 extension String {
     var length: Int {
         count

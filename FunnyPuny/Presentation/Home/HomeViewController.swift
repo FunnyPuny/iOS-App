@@ -178,11 +178,7 @@ extension HomeViewController: JTACMonthViewDelegate {
         cellState: CellState,
         indexPath _: IndexPath
     ) {
-        configureCell(view: cell, cellState: cellState)
-    }
-
-    func configureCell(view: JTACDayCell?, cellState: CellState) {
-        guard let cell = view as? CalendarHomeDateCell else { return }
+        guard let cell = cell as? CalendarHomeDateCell else { return }
         cell.configure(with: .init(date: cellState.date))
     }
 

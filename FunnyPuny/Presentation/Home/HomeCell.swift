@@ -3,6 +3,8 @@
 
 import UIKit
 
+// MARK: - HomeCell
+
 class HomeCell: UITableViewCell {
     var isDone = false
 
@@ -67,6 +69,8 @@ class HomeCell: UITableViewCell {
         }
     }
 }
+
+// MARK: Configurable
 
 extension HomeCell: Configurable {
     func configure(with viewModel: HomeCellViewModel) {
