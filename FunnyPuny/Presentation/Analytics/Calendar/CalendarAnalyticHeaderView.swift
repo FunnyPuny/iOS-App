@@ -6,13 +6,7 @@ import SnapKit
 import UIKit
 
 class CalendarAnalyticHeaderView: JTACMonthReusableView {
-    var monthLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .foreground
-        label.font = .regular17
-        label.textAlignment = .center
-        return label
-    }()
+    var monthView = CalendarAnalyticHeaderMonthView()
 
     var weekStackView: UIStackView = {
         let stackView = UIStackView()
@@ -44,18 +38,19 @@ class CalendarAnalyticHeaderView: JTACMonthReusableView {
     }
 
     private func addSubviews() {
-        addSubview(monthLabel)
+        addSubview(monthView)
         addSubview(weekStackView)
     }
 
     private func makeConstraints() {
-        monthLabel.snp.makeConstraints { make in
+        monthView.snp.makeConstraints { make in
             make.leading.trailing.top.equalToSuperview()
             make.height.equalTo(40)
         }
+
         weekStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(monthLabel.snp.bottom).offset(8)
+            make.top.equalTo(monthView.snp.bottom).offset(8)
             make.height.equalTo(16)
         }
     }

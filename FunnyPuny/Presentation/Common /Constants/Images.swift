@@ -13,4 +13,6 @@ extension UIImage {
     static let profile = UIImage(named: "profile")
     static let plus = UIImage(named: "plus")
     static let down = UIImage(named: "down")
+    static let left = UIImage(named: "left")
+    static let right = UIImage(named: "right")
 }

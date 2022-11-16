@@ -15,7 +15,6 @@ class CalendarHomeDateCell: JTACDayCell {
         label.backgroundColor = .background
         label.textAlignment = .center
         label.layer.cornerRadius = 9
-        label.clipsToBounds = true
         return label
     }()
 
