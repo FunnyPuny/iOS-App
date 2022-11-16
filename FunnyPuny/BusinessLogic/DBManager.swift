@@ -13,4 +13,11 @@ class DBManager {
     lazy var history: [CompletedHabits] = realm.objects(CompletedHabits.self).toArray(type: CompletedHabits.self)
 
     init() {}
+
+    func getHabitId(by name: String) -> ObjectId? {
+        for habit in habits where habit.name == name {
+            return habit.id
+        }
+        return nil
+    }
 }

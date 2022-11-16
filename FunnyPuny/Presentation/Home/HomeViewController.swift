@@ -13,6 +13,7 @@ class HomeViewController: ViewController {
     var habits: Results<Habit>?
     var currentHabits: Results<Habit>?
     var selectedDate = Date()
+    var dbManager = DBManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()

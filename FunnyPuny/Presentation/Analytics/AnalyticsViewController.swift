@@ -11,7 +11,6 @@ import UIKit
 class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
     var dbManager = DBManager()
-    var value: Float?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +31,10 @@ class AnalyticsViewController: ViewController {
         // Refresh database
         dbManager = DBManager()
         // Temp
-        value = Float(countCompletedHabits) / Float(countHabits)
+        var value = Float(countCompletedHabits) / Float(countHabits)
         analyticsView.achivmentView.completedScore.amountHabitsLabel.text = String(countCompletedHabits)
         analyticsView.achivmentView.missedScore.amountHabitsLabel.text = String(countMissedHabits)
-        analyticsView.achivmentView.progressView.statusLabel.text = String(Int((value ?? 1) * 100)) + "%"
+        analyticsView.achivmentView.progressView.statusLabel.text = String(Int((value) * 100)) + "%"
         // Refresh calendar
         analyticsView.calendarView.monthView.reloadData()
     }
@@ -55,7 +54,7 @@ class AnalyticsViewController: ViewController {
     }
 
     private var countHabits: Int {
-        let habits = realm.objects(Habit.self)
+        let habits = dbManager.habits
         var totalCount = 0
         for habit in habits {
             totalCount += countGoalByHabitName(habit.name)
@@ -69,7 +68,7 @@ class AnalyticsViewController: ViewController {
 
     func countGoalByHabitName(_ habitName: String) -> Int {
         var totalCount = 0
-        if let habitId = getHabitId(by: habitName) {
+        if let habitId = dbManager.getHabitId(by: habitName) {
             if let habit = realm.object(ofType: Habit.self, forPrimaryKey: habitId) {
                 let period = daysBetween(startDate: habit.createdDate, endDate: Date())
                 let missedWeeks = period / 7
@@ -91,9 +90,9 @@ class AnalyticsViewController: ViewController {
 
     func countCompletedHabitBy(_ habitName: String) -> Int {
         var totalCount = 0
-        let history = realm.objects(CompletedHabits.self).toArray(type: CompletedHabits.self)
+        let history = dbManager.history
         for row in history {
-            for habit in row.habits where habit == getHabitId(by: habitName) {
+            for habit in row.habits where habit == dbManager.getHabitId(by: habitName) {
                 totalCount += 1
             }
         }
@@ -102,13 +101,6 @@ class AnalyticsViewController: ViewController {
 
     func countMissedHabitsBy(_ habitName: String) -> Int {
         countGoalByHabitName(habitName) - countCompletedHabitBy(habitName)
-    }
-
-    func getHabitId(by name: String) -> ObjectId? {
-        for habit in dbManager.habits where habit.name == name {
-            return habit.id
-        }
-        return nil
     }
 
     func daysBetween(startDate: Date, endDate: Date) -> Int {

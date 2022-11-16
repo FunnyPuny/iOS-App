@@ -18,7 +18,6 @@ class AnalyticsView: UIView {
         var configuration = UIButton.Configuration.filled()
         configuration.image = .down
         configuration.image?.withTintColor(.vividPink ?? .clear)
-        // configuration.preferredSymbolConfigurationForImage = .init(weight: .bold)
         configuration.baseBackgroundColor = .background
         configuration.baseForegroundColor = .vividPink
         button.configuration = configuration
