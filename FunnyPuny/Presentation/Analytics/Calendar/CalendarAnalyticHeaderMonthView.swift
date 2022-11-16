@@ -61,7 +61,7 @@ class CalendarAnalyticHeaderMonthView: UIView {
             make.size.equalTo(24)
         }
         monthLabel.snp.makeConstraints { make in
-            make.leading.trailing.centerY.centerX.equalToSuperview()
+            make.center.equalToSuperview()
             make.height.equalTo(20)
         }
         rightButton.snp.makeConstraints { make in
