@@ -23,7 +23,7 @@ class AnalyticsViewController: ViewController {
         setupData()
         analyticsView.achivmentView.progressView.progressAnimation(
             duration: 1,
-            value: Float(dbManager.countCompletedHabits) / Float(dbManager.countHabits)
+            value: dbManager.allHabitValue
         )
     }
 
@@ -34,7 +34,7 @@ class AnalyticsViewController: ViewController {
         let value = Float(dbManager.countCompletedHabits) / Float(dbManager.countHabits)
         analyticsView.achivmentView.completedScore.amountHabitsLabel.text = String(dbManager.countCompletedHabits)
         analyticsView.achivmentView.missedScore.amountHabitsLabel.text = String(dbManager.countMissedHabits)
-        analyticsView.achivmentView.progressView.statusLabel.text = String(Int(value * 100)) + "%"
+        analyticsView.achivmentView.progressView.statusLabel.text = String(Int(dbManager.allHabitValue * 100)) + "%"
         // Refresh calendar
         analyticsView.calendarView.monthView.reloadData()
     }
@@ -92,7 +92,7 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
             withClass: CalendarAnalyticHeaderView.self,
             indexPath: indexPath
         )
-        header.monthLabel.text = range.start.string(dateFormat: .formatMMMMyyyy)
+        header.monthView.monthLabel.text = range.start.string(dateFormat: .formatMMMMyyyy)
         return header
     }
 

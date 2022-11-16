@@ -33,6 +33,10 @@ class DBManager {
         countHabits - countCompletedHabits
     }
 
+    var allHabitValue: Float {
+        Float(countCompletedHabits) / Float(countHabits)
+    }
+
     init() {}
 
     func getHabitId(by name: String) -> ObjectId? {

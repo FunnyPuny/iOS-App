@@ -15,7 +15,7 @@ class AddHabitViewController: ViewController {
     }
 
     private func setupTargets() {
-        addHabitView.addButtonView.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
+        addHabitView.addButton.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
     }
 
     @objc

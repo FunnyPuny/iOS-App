@@ -14,7 +14,7 @@ class AddHabitView: UIView {
 
     private var reminderTimeView = ReminderTimeView()
 
-    var addButtonView: UIButton = {
+    var addButton: UIButton = {
         let button = UIButton()
         button.setTitle(Texts.add, for: .normal)
         button.titleLabel?.textColor = .background
@@ -46,7 +46,7 @@ class AddHabitView: UIView {
         addSubview(reminderInputView)
         addSubview(frequencyView)
         addSubview(reminderTimeView)
-        addSubview(addButtonView)
+        addSubview(addButton)
     }
 
     private func makeConstraints() {
@@ -70,7 +70,7 @@ class AddHabitView: UIView {
             make.leading.equalToSuperview().inset(16)
         }
 
-        addButtonView.snp.makeConstraints { make in
+        addButton.snp.makeConstraints { make in
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(66)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(44)
