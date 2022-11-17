@@ -4,15 +4,17 @@
 import Foundation
 
 struct AnalyticsViewModel {
+    var selectedHabit: String
     var completedScoreText: String
     var missedScoreText: String
-    var statusText: String
+    var statusValue: Float
     var allHabitsName: [String]
 
-    init(completedScore: Int, missedScore: Int, statusValue: Float, allHabitsName: [String]) {
+    init(selectedHabit: String, completedScore: Int, missedScore: Int, statusValue: Float, allHabitsName: [String]) {
+        self.selectedHabit = selectedHabit
         completedScoreText = String(completedScore)
         missedScoreText = String(missedScore)
-        statusText = String(Int(statusValue * 100)) + "%"
+        self.statusValue = statusValue
         self.allHabitsName = allHabitsName
         // TODO: append [0] all habits
     }

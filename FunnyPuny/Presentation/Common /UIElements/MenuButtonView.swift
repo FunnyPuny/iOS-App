@@ -10,7 +10,7 @@ protocol MenuButtonViewDelegate: AnyObject {
 class MenuButtonView: UIView {
     var delegate: MenuButtonViewDelegate?
 
-    private var categoryLabel: UILabel = {
+    var categoryLabel: UILabel = {
         let label = UILabel()
         label.textColor = .vividPink
         label.font = .bold24

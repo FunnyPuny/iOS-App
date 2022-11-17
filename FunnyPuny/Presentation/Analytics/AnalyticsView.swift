@@ -61,7 +61,11 @@ extension AnalyticsView: Configurable {
     func configure(with viewModel: AnalyticsViewModel) {
         achivmentView.completedScore.amountHabitsLabel.text = viewModel.completedScoreText
         achivmentView.missedScore.amountHabitsLabel.text = viewModel.missedScoreText
-        achivmentView.progressView.statusLabel.text = viewModel.statusText
+
+        achivmentView.progressView.statusLabel.text = String(Int(viewModel.statusValue * 100)) + "%"
+        achivmentView.progressView.progressAnimation(value: viewModel.statusValue)
+
+        menuButtonView.categoryLabel.text = viewModel.selectedHabit
         menuButtonView.makeMenu(with: viewModel.allHabitsName)
     }
 }

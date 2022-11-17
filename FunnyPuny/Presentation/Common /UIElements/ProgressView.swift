@@ -79,7 +79,7 @@ class ProgressView: UIView {
         }
     }
 
-    func progressAnimation(duration: TimeInterval, value: Float) {
+    func progressAnimation(duration: TimeInterval = 1, value: Float) {
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         circularProgressAnimation.duration = duration
         circularProgressAnimation.toValue = value

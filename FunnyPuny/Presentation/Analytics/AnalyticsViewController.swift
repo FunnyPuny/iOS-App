@@ -12,6 +12,9 @@ class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
     private var habitManager = HabitManager()
 
+    // TODO:
+    var selectedHabitName = "Running"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view = analyticsView
@@ -22,10 +25,6 @@ class AnalyticsViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupData()
-        analyticsView.achivmentView.progressView.progressAnimation(
-            duration: 1,
-            value: habitManager.allHabitValue
-        )
     }
 
     func setupData() {
@@ -35,15 +34,19 @@ class AnalyticsViewController: ViewController {
         analyticsView.calendarView.monthView.reloadData()
         // Temp
         let viewModel = AnalyticsViewModel(
-            completedScore: habitManager.countCompletedHabits,
-            missedScore: habitManager.countMissedHabits,
-            statusValue: habitManager.allHabitValue,
+            selectedHabit: selectedHabitName,
+            completedScore: habitManager.countCompletedHabitBy(selectedHabitName),
+            missedScore: habitManager.countMissedHabitsBy(selectedHabitName),
+            statusValue: habitManager.countValueBy(selectedHabitName),
             allHabitsName: habitManager.allHabitsName
         )
         analyticsView.configure(with: viewModel)
     }
 
-    func switchHabit(by _: String) {}
+    func switchSelectedHabit(by name: String) {
+        selectedHabitName = name
+        setupData()
+    }
 
     func setupCalendar() {
         analyticsView.calendarView.monthView.calendarDelegate = self
@@ -60,7 +63,7 @@ class AnalyticsViewController: ViewController {
 
 extension AnalyticsViewController: MenuButtonViewDelegate {
     func menuButtonDidPressed(title: String) {
-        switchHabit(by: title)
+        switchSelectedHabit(by: title)
     }
 }
 

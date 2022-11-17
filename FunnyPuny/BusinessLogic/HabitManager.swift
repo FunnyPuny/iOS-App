@@ -10,6 +10,8 @@ import SwiftDate
 class HabitManager {
     let realm = try! Realm()
 
+    // MARK: Public properties
+
     lazy var habits: [Habit] = realm.objects(Habit.self).toArray(type: Habit.self)
     lazy var history: [CompletedHabits] = realm.objects(CompletedHabits.self).toArray(type: CompletedHabits.self)
 
@@ -17,7 +19,28 @@ class HabitManager {
         habits.map(\.name)
     }
 
-    var countCompletedHabits: Int {
+    func countValueBy(_ habitName: String) -> Float {
+        Float(countCompletedHabitBy(habitName)) / Float(countGoalBy(habitName))
+    }
+
+    func countCompletedHabitBy(_ habitName: String) -> Int {
+        var totalCount = 0
+        let history = history
+        for row in history {
+            for habit in row.habits where habit == getHabitId(by: habitName) {
+                totalCount += 1
+            }
+        }
+        return totalCount
+    }
+
+    func countMissedHabitsBy(_ habitName: String) -> Int {
+        countGoalBy(habitName) - countCompletedHabitBy(habitName)
+    }
+
+    // MARK: Private properties
+
+    private var countCompletedHabits: Int {
         var totalCount = 0
         for history in history {
             totalCount += history.habits.count
@@ -25,33 +48,27 @@ class HabitManager {
         return totalCount
     }
 
-    var countHabits: Int {
+    private var countMissedHabits: Int {
+        countHabits - countCompletedHabits
+    }
+
+    private var countHabits: Int {
         let habits = habits
         var totalCount = 0
         for habit in habits {
-            totalCount += countGoalByHabitName(habit.name)
+            totalCount += countGoalBy(habit.name)
         }
         return totalCount
     }
 
-    var countMissedHabits: Int {
-        countHabits - countCompletedHabits
-    }
-
-    var allHabitValue: Float {
-        Float(countCompletedHabits) / Float(countHabits)
-    }
-
-    init() {}
-
-    func getHabitId(by name: String) -> ObjectId? {
+    private func getHabitId(by name: String) -> ObjectId? {
         for habit in habits where habit.name == name {
             return habit.id
         }
         return nil
     }
 
-    func countGoalByHabitName(_ habitName: String) -> Int {
+    private func countGoalBy(_ habitName: String) -> Int {
         var totalCount = 0
         if let habitId = getHabitId(by: habitName) {
             if let habit = realm.object(ofType: Habit.self, forPrimaryKey: habitId) {
@@ -73,22 +90,7 @@ class HabitManager {
         return totalCount
     }
 
-    func countCompletedHabitBy(_ habitName: String) -> Int {
-        var totalCount = 0
-        let history = history
-        for row in history {
-            for habit in row.habits where habit == getHabitId(by: habitName) {
-                totalCount += 1
-            }
-        }
-        return totalCount
-    }
-
-    func countMissedHabitsBy(_ habitName: String) -> Int {
-        countGoalByHabitName(habitName) - countCompletedHabitBy(habitName)
-    }
-
-    func daysBetween(startDate: Date, endDate: Date) -> Int {
+    private func daysBetween(startDate: Date, endDate: Date) -> Int {
         guard let days = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day else {
             return 0
         }
