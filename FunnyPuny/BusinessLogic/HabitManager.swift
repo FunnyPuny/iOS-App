@@ -1,4 +1,4 @@
-// DBManager.swift
+// HabitManager.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import Foundation
@@ -7,7 +7,7 @@ import SwiftDate
 
 // swiftlint:disable all
 // TODO:
-class DBManager {
+class HabitManager {
     let realm = try! Realm()
 
     lazy var habits: [Habit] = realm.objects(Habit.self).toArray(type: Habit.self)

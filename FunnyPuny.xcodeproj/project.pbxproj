@@ -27,7 +27,7 @@
 		CE351C332911929900ACCF0C /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C322911929900ACCF0C /* AnalyticsViewController.swift */; };
 		CE351C352911BC7400ACCF0C /* AchivmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C342911BC7400ACCF0C /* AchivmentView.swift */; };
 		CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C362911BD8000ACCF0C /* ScoreView.swift */; };
-		CE6B77BC29184F2F00996142 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BB29184F2F00996142 /* DBManager.swift */; };
+		CE6B77BC29184F2F00996142 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BB29184F2F00996142 /* HabitManager.swift */; };
 		CE6B77BE2918586200996142 /* Results+Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BD2918586200996142 /* Results+Extension .swift */; };
 		CE6B77C0291AD5DE00996142 /* CalendarAnalyticDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BF291AD5DE00996142 /* CalendarAnalyticDateCell.swift */; };
 		CE6B77C2291AD5FA00996142 /* CalendarAnalyticHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77C1291AD5FA00996142 /* CalendarAnalyticHeaderView.swift */; };
@@ -96,7 +96,7 @@
 		CE351C322911929900ACCF0C /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		CE351C342911BC7400ACCF0C /* AchivmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivmentView.swift; sourceTree = "<group>"; };
 		CE351C362911BD8000ACCF0C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
-		CE6B77BB29184F2F00996142 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		CE6B77BB29184F2F00996142 /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
 		CE6B77BD2918586200996142 /* Results+Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extension .swift"; sourceTree = "<group>"; };
 		CE6B77BF291AD5DE00996142 /* CalendarAnalyticDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticDateCell.swift; sourceTree = "<group>"; };
 		CE6B77C1291AD5FA00996142 /* CalendarAnalyticHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticHeaderView.swift; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 		CE6B77BA29184F1100996142 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				CE6B77BB29184F2F00996142 /* DBManager.swift */,
+				CE6B77BB29184F2F00996142 /* HabitManager.swift */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -546,7 +546,7 @@
 				CE6B77DD29240D1100996142 /* CalendarCellViewModel.swift in Sources */,
 				CEB4BD23290851CF006F6D1D /* CompletedHabits.swift in Sources */,
 				CE6B77CA291FBD4800996142 /* DayOfWeekView.swift in Sources */,
-				CE6B77BC29184F2F00996142 /* DBManager.swift in Sources */,
+				CE6B77BC29184F2F00996142 /* HabitManager.swift in Sources */,
 				CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */,
 				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,
 				CEA0CAF52900752B00EDCDFD /* CalendarHomeDateCell.swift in Sources */,

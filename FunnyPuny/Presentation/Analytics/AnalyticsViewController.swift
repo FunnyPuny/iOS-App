@@ -10,7 +10,7 @@ import UIKit
 
 class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
-    private var dbManager = DBManager()
+    private var habitManager = HabitManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,28 +24,26 @@ class AnalyticsViewController: ViewController {
         setupData()
         analyticsView.achivmentView.progressView.progressAnimation(
             duration: 1,
-            value: dbManager.allHabitValue
+            value: habitManager.allHabitValue
         )
     }
 
     func setupData() {
         // Refresh database
-        dbManager = DBManager()
+        habitManager = HabitManager()
         // Refresh calendar
         analyticsView.calendarView.monthView.reloadData()
         // Temp
         let viewModel = AnalyticsViewModel(
-            completedScore: dbManager.countCompletedHabits,
-            missedScore: dbManager.countMissedHabits,
-            statusValue: dbManager.allHabitValue,
-            allHabitsName: dbManager.allHabitsName
+            completedScore: habitManager.countCompletedHabits,
+            missedScore: habitManager.countMissedHabits,
+            statusValue: habitManager.allHabitValue,
+            allHabitsName: habitManager.allHabitsName
         )
         analyticsView.configure(with: viewModel)
     }
 
-    func switchHabit(by name: String) {
-        
-    }
+    func switchHabit(by _: String) {}
 
     func setupCalendar() {
         analyticsView.calendarView.monthView.calendarDelegate = self

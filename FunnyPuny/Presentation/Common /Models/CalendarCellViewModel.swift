@@ -14,7 +14,7 @@ struct CalendarCellViewModel {
     }
 
     var backgroundColor: UIColor? {
-        let realm = DBManager().realm
+        let realm = HabitManager().realm
         let completedHabit = realm.object(
             ofType: CompletedHabits.self,
             forPrimaryKey: date.string(dateFormat: .formatyyMMdd)

@@ -1,4 +1,4 @@
-// MenuButton.swift
+// MenuButtonView.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
