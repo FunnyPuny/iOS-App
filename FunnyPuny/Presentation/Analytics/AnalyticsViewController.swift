@@ -30,13 +30,20 @@ class AnalyticsViewController: ViewController {
     func setupData() {
         // Refresh database
         dbManager = DBManager()
-        // Temp
-        let value = Float(dbManager.countCompletedHabits) / Float(dbManager.countHabits)
-        analyticsView.achivmentView.completedScore.amountHabitsLabel.text = String(dbManager.countCompletedHabits)
-        analyticsView.achivmentView.missedScore.amountHabitsLabel.text = String(dbManager.countMissedHabits)
-        analyticsView.achivmentView.progressView.statusLabel.text = String(Int(dbManager.allHabitValue * 100)) + "%"
         // Refresh calendar
         analyticsView.calendarView.monthView.reloadData()
+        // Temp
+        var viewModel = AnalyticsViewModel(
+            completedScore: dbManager.countCompletedHabits,
+            missedScore: dbManager.countMissedHabits,
+            statusValue: dbManager.allHabitValue,
+            allHabitsName: dbManager.allHabitsName
+        )
+        analyticsView.configure(with: viewModel)
+    }
+
+    func switchHabit(by _: String) {
+        // TODO:
     }
 
     func setupCalendar() {

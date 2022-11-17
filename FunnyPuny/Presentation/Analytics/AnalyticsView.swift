@@ -5,31 +5,9 @@ import SnapKit
 import UIKit
 
 class AnalyticsView: UIView {
-    var categoryLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .vividPink
-        label.font = .bold20
-        label.text = Texts.allHabits
-        return label
-    }()
-
-    var pointerBotton: UIButton = {
-        let button = UIButton()
-        var configuration = UIButton.Configuration.filled()
-        configuration.image = .down
-        configuration.image?.withTintColor(.vividPink ?? .clear)
-        configuration.baseBackgroundColor = .background
-        configuration.baseForegroundColor = .vividPink
-        button.configuration = configuration
-        return button
-    }()
-
+    var menuButtonView = MenuButtonView()
     var achivmentView = AchivmentView()
-
-    var calendarView: CalendarAnalyticView = {
-        let view = CalendarAnalyticView()
-        return view
-    }()
+    var calendarView = CalendarAnalyticView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,27 +30,21 @@ class AnalyticsView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(categoryLabel)
-        addSubview(pointerBotton)
+        addSubview(menuButtonView)
         addSubview(achivmentView)
         addSubview(calendarView)
     }
 
     private func makeConstraints() {
-        categoryLabel.snp.makeConstraints { make in
+        menuButtonView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(16)
             make.centerX.equalToSuperview()
-            make.height.equalTo(20)
-        }
-
-        pointerBotton.snp.makeConstraints { make in
-            make.leading.equalTo(categoryLabel.snp.trailing).offset(4)
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(20)
-            make.size.equalTo(16)
+            make.height.equalTo(28)
+            make.leading.trailing.equalToSuperview()
         }
 
         achivmentView.snp.makeConstraints { make in
-            make.top.equalTo(categoryLabel.snp.bottom).offset(36)
+            make.top.equalTo(menuButtonView.snp.bottom).offset(36)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(76)
         }
@@ -82,5 +54,14 @@ class AnalyticsView: UIView {
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(364)
         }
+    }
+}
+
+extension AnalyticsView: Configurable {
+    func configure(with viewModel: AnalyticsViewModel) {
+        achivmentView.completedScore.amountHabitsLabel.text = viewModel.completedScoreText
+        achivmentView.missedScore.amountHabitsLabel.text = viewModel.missedScoreText
+        achivmentView.progressView.statusLabel.text = viewModel.statusText
+        menuButtonView.makeMenu(with: viewModel.allHabitsName)
     }
 }

@@ -12,6 +12,11 @@ class DBManager {
 
     lazy var habits: [Habit] = realm.objects(Habit.self).toArray(type: Habit.self)
     lazy var history: [CompletedHabits] = realm.objects(CompletedHabits.self).toArray(type: CompletedHabits.self)
+
+    var allHabitsName: [String] {
+        habits.map(\.name)
+    }
+
     var countCompletedHabits: Int {
         var totalCount = 0
         for history in history {
