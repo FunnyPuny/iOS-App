@@ -3,8 +3,14 @@
 
 import UIKit
 
+protocol MenuButtonViewDelegate: AnyObject {
+    func menuButtonDidPressed(title: String)
+}
+
 class MenuButtonView: UIView {
-    var categoryLabel: UILabel = {
+    var delegate: MenuButtonViewDelegate?
+
+    private var categoryLabel: UILabel = {
         let label = UILabel()
         label.textColor = .vividPink
         label.font = .bold24
@@ -12,7 +18,7 @@ class MenuButtonView: UIView {
         return label
     }()
 
-    var pointerImageView: UIImageView = {
+    private var pointerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = .down
         imageView.backgroundColor = .background
@@ -20,7 +26,7 @@ class MenuButtonView: UIView {
         return imageView
     }()
 
-    var button = UIButton()
+    private var button = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,7 +73,9 @@ class MenuButtonView: UIView {
 
     func makeMenu(with array: [String]) {
         let actions = array.map {
-            UIAction(title: $0, handler: { _ in })
+            UIAction(title: $0, handler: { action in
+                self.delegate?.menuButtonDidPressed(title: action.title)
+            })
         }
         button.menu = UIMenu(title: "Choose habit", children: actions)
         button.showsMenuAsPrimaryAction = true

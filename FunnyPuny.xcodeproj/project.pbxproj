@@ -42,7 +42,7 @@
 		CE6B77D9292406ED00996142 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D8292406ED00996142 /* Configurable.swift */; };
 		CE6B77DD29240D1100996142 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77DC29240D1100996142 /* CalendarCellViewModel.swift */; };
 		CE7381CE29265EDE00FCAAAC /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7381CD29265EDE00FCAAAC /* AnalyticsViewModel.swift */; };
-		CE7381D029266D7800FCAAAC /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7381CF29266D7800FCAAAC /* MenuButton.swift */; };
+		CE7381D029266D7800FCAAAC /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
 		CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */; };
 		CE7808E928FF66100016AD41 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E828FF660F0016AD41 /* Notifications.swift */; };
@@ -110,7 +110,7 @@
 		CE6B77D8292406ED00996142 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		CE6B77DC29240D1100996142 /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
 		CE7381CD29265EDE00FCAAAC /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
-		CE7381CF29266D7800FCAAAC /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		CE7808E828FF660F0016AD41 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 				CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */,
 				CEA71A2328F8A18600D2CE36 /* NavigationController.swift */,
 				CE351C2D2910511A00ACCF0C /* ReminderTimeView.swift */,
-				CE7381CF29266D7800FCAAAC /* MenuButton.swift */,
+				CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */,
 				CE351C362911BD8000ACCF0C /* ScoreView.swift */,
 				CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */,
 				CEB1EA8F290D931A0087ED24 /* TextField.swift */,
@@ -555,7 +555,7 @@
 				CE6B77C2291AD5FA00996142 /* CalendarAnalyticHeaderView.swift in Sources */,
 				CE3429692925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift in Sources */,
 				CE09C15528F9FD0000B7CB45 /* FrequencyView.swift in Sources */,
-				CE7381D029266D7800FCAAAC /* MenuButton.swift in Sources */,
+				CE7381D029266D7800FCAAAC /* MenuButtonView.swift in Sources */,
 				CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */,
 				CE6B77C8291C303C00996142 /* JTACMonthView+Extension.swift in Sources */,
 				CEB1EA8E290C170A0087ED24 /* Fonts.swift in Sources */,

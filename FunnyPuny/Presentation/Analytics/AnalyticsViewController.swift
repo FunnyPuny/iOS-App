@@ -10,12 +10,13 @@ import UIKit
 
 class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
-    var dbManager = DBManager()
+    private var dbManager = DBManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = analyticsView
         setupCalendar()
+        setupMenuButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +34,7 @@ class AnalyticsViewController: ViewController {
         // Refresh calendar
         analyticsView.calendarView.monthView.reloadData()
         // Temp
-        var viewModel = AnalyticsViewModel(
+        let viewModel = AnalyticsViewModel(
             completedScore: dbManager.countCompletedHabits,
             missedScore: dbManager.countMissedHabits,
             statusValue: dbManager.allHabitValue,
@@ -42,14 +43,26 @@ class AnalyticsViewController: ViewController {
         analyticsView.configure(with: viewModel)
     }
 
-    func switchHabit(by _: String) {
-        // TODO:
+    func switchHabit(by name: String) {
+        
     }
 
     func setupCalendar() {
         analyticsView.calendarView.monthView.calendarDelegate = self
         analyticsView.calendarView.monthView.calendarDataSource = self
         analyticsView.calendarView.monthView.scrollToDate(Date(), animateScroll: false)
+    }
+
+    func setupMenuButton() {
+        analyticsView.menuButtonView.delegate = self
+    }
+}
+
+// MARK: MenuButtonViewDelegate
+
+extension AnalyticsViewController: MenuButtonViewDelegate {
+    func menuButtonDidPressed(title: String) {
+        switchHabit(by: title)
     }
 }
 
