@@ -4,7 +4,7 @@
 import RealmSwift
 import UIKit
 
-class CompletedHabits: Object {
+class Days: Object {
     @Persisted(primaryKey: true) var date: String
     @Persisted var habits = List<ObjectId>()
 

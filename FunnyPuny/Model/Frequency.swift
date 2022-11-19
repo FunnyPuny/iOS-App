@@ -3,7 +3,7 @@
 
 import RealmSwift
 
-enum Day: Int, CaseIterable, PersistableEnum {
+enum Frequency: Int, CaseIterable, PersistableEnum {
     case sun = 1
     case mon = 2
     case tue = 3

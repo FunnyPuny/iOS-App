@@ -32,7 +32,7 @@ class HomeViewController: ViewController {
 
     fileprivate func setupCurrentHabits() {
         currentHabits = habits?.where {
-            $0.frequency.contains(Day(rawValue: selectedDate.dateComponents.weekday ?? 1) ?? .sun)
+            $0.frequency.contains(Frequency(rawValue: selectedDate.dateComponents.weekday ?? 1) ?? .sun)
         }
         homeView.tableView.reloadData()
     }

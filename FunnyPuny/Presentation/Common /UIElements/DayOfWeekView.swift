@@ -4,7 +4,7 @@
 import UIKit
 
 class WeekdayView: UIView {
-    var weekday: Day
+    var weekday: Frequency
     lazy var weekdayLabel: UILabel = {
         let label = UILabel()
         label.text = weekday.string[0]
@@ -14,7 +14,7 @@ class WeekdayView: UIView {
         return label
     }()
 
-    required init(_ weekday: Day) {
+    required init(_ weekday: Frequency) {
         self.weekday = weekday
         super.init(frame: .zero)
         commonInit()

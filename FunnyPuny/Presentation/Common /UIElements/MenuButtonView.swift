@@ -77,7 +77,7 @@ class MenuButtonView: UIView {
                 self.delegate?.menuButtonDidPressed(title: action.title)
             })
         }
-        button.menu = UIMenu(title: "Choose habit", children: actions)
+        button.menu = UIMenu(children: actions)
         button.showsMenuAsPrimaryAction = true
     }
 }

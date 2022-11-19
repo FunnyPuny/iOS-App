@@ -49,7 +49,7 @@
 		CE7808EC29003C850016AD41 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = CE7808EB29003C850016AD41 /* JTAppleCalendar */; };
 		CE944F732901BB940000697A /* CalendarHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE944F722901BB940000697A /* CalendarHomeView.swift */; };
 		CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */; };
-		CEA0BF5328FEB568009B6BFD /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF5228FEB568009B6BFD /* Day.swift */; };
+		CEA0BF5328FEB568009B6BFD /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF5228FEB568009B6BFD /* Frequency.swift */; };
 		CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0BF5428FEBA7A009B6BFD /* DateFormats.swift */; };
 		CEA0BF5828FEC6B4009B6BFD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CEA0BF5728FEC6B4009B6BFD /* Realm */; };
 		CEA0BF5A28FEC6B4009B6BFD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEA0BF5928FEC6B4009B6BFD /* RealmSwift */; };
@@ -65,7 +65,7 @@
 		CEB1EA8C290C113A0087ED24 /* List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8B290C113A0087ED24 /* List+Extension.swift */; };
 		CEB1EA8E290C170A0087ED24 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8D290C170A0087ED24 /* Fonts.swift */; };
 		CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8F290D931A0087ED24 /* TextField.swift */; };
-		CEB4BD23290851CF006F6D1D /* CompletedHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* CompletedHabits.swift */; };
+		CEB4BD23290851CF006F6D1D /* Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* Days.swift */; };
 		CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED733E828F5A36300B2B0D6 /* SnapKit */; };
 		CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3228E7199C006136B3 /* AppDelegate.swift */; };
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
@@ -116,7 +116,7 @@
 		CE7808E828FF660F0016AD41 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		CE944F722901BB940000697A /* CalendarHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHomeView.swift; sourceTree = "<group>"; };
 		CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
-		CEA0BF5228FEB568009B6BFD /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		CEA0BF5228FEB568009B6BFD /* Frequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
 		CEA0BF5428FEBA7A009B6BFD /* DateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormats.swift; sourceTree = "<group>"; };
 		CEA0CAF42900752B00EDCDFD /* CalendarHomeDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHomeDateCell.swift; sourceTree = "<group>"; };
 		CEA0CAF62900753B00EDCDFD /* CalendarHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHomeHeaderView.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		CEB1EA8B290C113A0087ED24 /* List+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+Extension.swift"; sourceTree = "<group>"; };
 		CEB1EA8D290C170A0087ED24 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CEB1EA8F290D931A0087ED24 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		CEB4BD22290851CF006F6D1D /* CompletedHabits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedHabits.swift; sourceTree = "<group>"; };
+		CEB4BD22290851CF006F6D1D /* Days.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Days.swift; sourceTree = "<group>"; };
 		CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyPuny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDAFF3228E7199C006136B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDAFF3628E7199C006136B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -275,7 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				CEA71A2728F8AFCA00D2CE36 /* Habit.swift */,
-				CEA0BF5228FEB568009B6BFD /* Day.swift */,
+				CEA0BF5228FEB568009B6BFD /* Frequency.swift */,
+				CEB4BD22290851CF006F6D1D /* Days.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,7 +359,6 @@
 				CE6B77CB29201DD600996142 /* String+Extension.swift */,
 				CEA0BF4F28FC3D82009B6BFD /* UIStackView+Extension.swift */,
 				CE7808E628FF10CE0016AD41 /* UITableView+Extension.swift */,
-				CEB4BD22290851CF006F6D1D /* CompletedHabits.swift */,
 				CEB1EA8B290C113A0087ED24 /* List+Extension.swift */,
 				CE6B77BD2918586200996142 /* Results+Extension .swift */,
 				CE6B77C7291C303C00996142 /* JTACMonthView+Extension.swift */,
@@ -544,7 +544,7 @@
 				CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */,
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
 				CE6B77DD29240D1100996142 /* CalendarCellViewModel.swift in Sources */,
-				CEB4BD23290851CF006F6D1D /* CompletedHabits.swift in Sources */,
+				CEB4BD23290851CF006F6D1D /* Days.swift in Sources */,
 				CE6B77CA291FBD4800996142 /* DayOfWeekView.swift in Sources */,
 				CE6B77BC29184F2F00996142 /* HabitManager.swift in Sources */,
 				CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */,
@@ -579,7 +579,7 @@
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,
 				CE09C15328F9EB1800B7CB45 /* DayView.swift in Sources */,
 				CE09C14A28F99F1700B7CB45 /* GIFs.swift in Sources */,
-				CEA0BF5328FEB568009B6BFD /* Day.swift in Sources */,
+				CEA0BF5328FEB568009B6BFD /* Frequency.swift in Sources */,
 				CE6B77BE2918586200996142 /* Results+Extension .swift in Sources */,
 				CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */,
 				CE351C332911929900ACCF0C /* AnalyticsViewController.swift in Sources */,

@@ -20,11 +20,11 @@ class AddHabitViewController: ViewController {
 
     @objc
     func saveHabit() {
-        let days = List<Day>()
+        let days = List<Frequency>()
         // swiftlint:disable all
         // TODO: 💩
         if addHabitView.frequencyView.viewState == .everyday {
-            days.append(objectsIn: Day.allCases)
+            days.append(objectsIn: Frequency.allCases)
         } else {
             for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
                 if dayView.isSelected {

@@ -4,7 +4,7 @@
 import UIKit
 
 class DayView: UIView {
-    var day: Day
+    var day: Frequency
     var isSelected: Bool
 
     lazy var dayLabel: UILabel = {
@@ -16,7 +16,7 @@ class DayView: UIView {
         return label
     }()
 
-    required init(_ day: Day, isSelected: Bool = false) {
+    required init(_ day: Frequency, isSelected: Bool = false) {
         self.day = day
         self.isSelected = isSelected
         super.init(frame: .zero)

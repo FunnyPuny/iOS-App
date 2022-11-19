@@ -13,7 +13,7 @@ class HabitManager {
     // MARK: Public properties
 
     lazy var habits: [Habit] = realm.objects(Habit.self).toArray(type: Habit.self)
-    lazy var history: [CompletedHabits] = realm.objects(CompletedHabits.self).toArray(type: CompletedHabits.self)
+    lazy var days: [Days] = realm.objects(Days.self).toArray(type: Days.self)
 
     var allHabitsName: [String] {
         habits.map(\.name)
@@ -25,8 +25,8 @@ class HabitManager {
 
     func countCompletedHabitBy(_ habitName: String) -> Int {
         var totalCount = 0
-        let history = history
-        for row in history {
+        let days = days
+        for row in days {
             for habit in row.habits where habit == getHabitId(by: habitName) {
                 totalCount += 1
             }
@@ -42,8 +42,8 @@ class HabitManager {
 
     private var countCompletedHabits: Int {
         var totalCount = 0
-        for history in history {
-            totalCount += history.habits.count
+        for day in days {
+            totalCount += day.habits.count
         }
         return totalCount
     }

@@ -16,7 +16,7 @@ struct CalendarCellViewModel {
     var backgroundColor: UIColor? {
         let realm = HabitManager().realm
         let completedHabit = realm.object(
-            ofType: CompletedHabits.self,
+            ofType: Days.self,
             forPrimaryKey: date.string(dateFormat: .formatyyMMdd)
         )
         let countOfCompletedHabits = completedHabit?.habits.count ?? 0
