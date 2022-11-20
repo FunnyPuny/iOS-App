@@ -1,4 +1,4 @@
-// Day.swift
+// Frequency.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import RealmSwift

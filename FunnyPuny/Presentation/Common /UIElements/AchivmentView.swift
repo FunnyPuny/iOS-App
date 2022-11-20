@@ -11,13 +11,14 @@ class AchivmentView: UIView {
         return progressView
     }()
 
-    var completedScore = ScoreView(amount: "72", text: Texts.completed)
-    var missedScore = ScoreView(amount: "28", text: Texts.missed)
+    var completedScore = ScoreView(amount: "", text: Texts.completed)
+    var missedScore = ScoreView(amount: "", text: Texts.missed)
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(completedScore)
         stackView.addArrangedSubview(missedScore)
+        // stackView.addSeparators(at: [1], color: .greyLight ?? .clear)
         stackView.distribution = .fillProportionally
         return stackView
     }()

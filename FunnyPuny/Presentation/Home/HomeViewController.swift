@@ -110,16 +110,16 @@ extension HomeViewController: UITableViewDelegate {
                     return
                 }
 
-                if let history = realm.object(ofType: CompletedHabits.self, forPrimaryKey: dateString) {
+                if let days = realm.object(ofType: Days.self, forPrimaryKey: dateString) {
                     if cell.isDone {
-                        history.habits.remove(value: habitId)
+                        days.habits.remove(value: habitId)
                     } else {
-                        history.habits.append(habitId)
+                        days.habits.append(habitId)
                     }
                 } else {
-                    let history = CompletedHabits(date: dateString)
-                    history.habits.append(habitId)
-                    realm.add(history)
+                    let days = Days(date: dateString)
+                    days.habits.append(habitId)
+                    realm.add(days)
                 }
             }
         } catch let error as NSError {
@@ -142,11 +142,11 @@ extension HomeViewController: UITableViewDataSource {
         var viewModel = HomeCellViewModel(habitName: currentHabits?[indexPath.row].name ?? "", isDone: false)
 
         let date = selectedDate.string(dateFormat: .formatyyMMdd)
-        let completedHabits = realm.object(ofType: CompletedHabits.self, forPrimaryKey: date)
+        let days = realm.object(ofType: Days.self, forPrimaryKey: date)
         if
             let habitId = currentHabits?[indexPath.row].id,
-            let completedHabits,
-            completedHabits.habits.contains(habitId)
+            let days,
+            days.habits.contains(habitId)
         {
             viewModel.isDone = true
             cell.configure(with: viewModel)

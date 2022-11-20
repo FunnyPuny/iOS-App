@@ -1,4 +1,4 @@
-// CompletedHabits.swift
+// Days.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import RealmSwift
