@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: ViewController {
     private var homeView = HomeView()
     var habits: Results<Habit>?
-    var currentHabits: Results<Habit>?
+    var currentHabits = [Habit]()
     var selectedDate = Date()
     var habitManager = HabitManager()
 
@@ -30,9 +30,10 @@ class HomeViewController: ViewController {
         homeView.tableView.reloadData()
     }
 
-    fileprivate func setupCurrentHabits() {
-        currentHabits = habits?.where {
-            $0.frequency.contains(Frequency(rawValue: selectedDate.dateComponents.weekday ?? 1) ?? .sun)
+    private func setupCurrentHabits() {
+        let currentFrequency = Frequency(rawValue: selectedDate.weekday) ?? .sun
+        currentHabits = habitManager.habits.filter {
+            selectedDate >= $0.createdDate && $0.frequency.contains(currentFrequency)
         }
         homeView.tableView.reloadData()
     }
@@ -106,9 +107,7 @@ extension HomeViewController: UITableViewDelegate {
         do {
             try realm.write {
                 let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
-                guard let habitId = (currentHabits?[indexPath.row].id) else {
-                    return
-                }
+                let habitId = currentHabits[indexPath.row].id
 
                 if let days = realm.object(ofType: Days.self, forPrimaryKey: dateString) {
                     if cell.isDone {
@@ -134,20 +133,17 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        currentHabits?.count ?? 0
+        currentHabits.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
-        var viewModel = HomeCellViewModel(habitName: currentHabits?[indexPath.row].name ?? "", isDone: false)
+        var viewModel = HomeCellViewModel(habitName: currentHabits[indexPath.row].name, isDone: false)
 
         let date = selectedDate.string(dateFormat: .formatyyMMdd)
+        let habitId = currentHabits[indexPath.row].id
         let days = realm.object(ofType: Days.self, forPrimaryKey: date)
-        if
-            let habitId = currentHabits?[indexPath.row].id,
-            let days,
-            days.habits.contains(habitId)
-        {
+        if let days, days.habits.contains(habitId) {
             viewModel.isDone = true
             cell.configure(with: viewModel)
         } else {
