@@ -129,6 +129,6 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
     }
 
     func calendarSizeForMonths(_: JTACMonthView?) -> MonthSize? {
-        MonthSize(defaultSize: 88)
+        MonthSize(defaultSize: 72)
     }
 }

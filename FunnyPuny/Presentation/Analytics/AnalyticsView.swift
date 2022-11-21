@@ -45,7 +45,7 @@ class AnalyticsView: UIView {
         }
 
         achivmentView.snp.makeConstraints { make in
-            make.top.equalTo(menuButtonView.snp.bottom).offset(36)
+            make.top.equalTo(menuButtonView.snp.bottom).offset(26)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(76)
         }
