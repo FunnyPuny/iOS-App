@@ -12,8 +12,11 @@ class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
     private var habitManager = HabitManager()
 
-    // TODO:
-    var selectedHabitName = "Running"
+    private var analyticMode: AnalyticMode = .allHabits
+    private enum AnalyticMode {
+        case allHabits
+        case customHabit(name: String)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +35,27 @@ class AnalyticsViewController: ViewController {
         habitManager = HabitManager()
         // Refresh calendar
         analyticsView.calendarView.monthView.reloadData()
-        // Temp
-        let viewModel = AnalyticsViewModel(
-            selectedHabit: selectedHabitName,
-            completedScore: habitManager.countCompletedHabitBy(selectedHabitName),
-            missedScore: habitManager.countMissedHabitsBy(selectedHabitName),
-            statusValue: habitManager.countValueBy(selectedHabitName),
-            allHabitsName: habitManager.allHabitsName
-        )
-        analyticsView.configure(with: viewModel)
-    }
 
-    func switchSelectedHabit(by name: String) {
-        selectedHabitName = name
-        setupData()
+        switch analyticMode {
+        case .allHabits:
+            let viewModel = AnalyticsViewModel(
+                selectedHabit: Texts.allHabits,
+                completedScore: habitManager.countCompletedHabits,
+                missedScore: habitManager.countMissedHabits,
+                statusValue: habitManager.countValueAllHabits,
+                allHabitsName: habitManager.allHabitsName
+            )
+            analyticsView.configure(with: viewModel)
+        case let .customHabit(name):
+            let viewModel = AnalyticsViewModel(
+                selectedHabit: name,
+                completedScore: habitManager.countCompletedHabitBy(name),
+                missedScore: habitManager.countMissedHabitsBy(name),
+                statusValue: habitManager.countValueBy(name),
+                allHabitsName: habitManager.allHabitsName
+            )
+            analyticsView.configure(with: viewModel)
+        }
     }
 
     func setupCalendar() {
@@ -63,7 +73,8 @@ class AnalyticsViewController: ViewController {
 
 extension AnalyticsViewController: MenuButtonViewDelegate {
     func menuButtonDidPressed(title: String) {
-        switchSelectedHabit(by: title)
+        analyticMode = title == Texts.allHabits ? .allHabits : .customHabit(name: title)
+        setupData()
     }
 }
 

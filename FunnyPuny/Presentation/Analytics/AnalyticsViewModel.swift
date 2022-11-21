@@ -16,6 +16,6 @@ struct AnalyticsViewModel {
         missedScoreText = String(missedScore)
         self.statusValue = statusValue
         self.allHabitsName = allHabitsName
-        // TODO: append [0] all habits
+        self.allHabitsName.insert(Texts.allHabits, at: 0)
     }
 }

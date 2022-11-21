@@ -40,7 +40,7 @@ class HabitManager {
 
     // MARK: Private properties
 
-    private var countCompletedHabits: Int {
+    var countCompletedHabits: Int {
         var totalCount = 0
         for day in days {
             totalCount += day.habits.count
@@ -48,8 +48,12 @@ class HabitManager {
         return totalCount
     }
 
-    private var countMissedHabits: Int {
+    var countMissedHabits: Int {
         countHabits - countCompletedHabits
+    }
+
+    var countValueAllHabits: Float {
+        Float(countCompletedHabits) / Float(countHabits)
     }
 
     private var countHabits: Int {
