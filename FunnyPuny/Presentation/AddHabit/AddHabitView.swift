@@ -17,9 +17,9 @@ class AddHabitView: UIView {
     var addButton: UIButton = {
         let button = UIButton()
         button.setTitle(Texts.add, for: .normal)
-        button.titleLabel?.textColor = .background
+        button.titleLabel?.textColor = .mainGrey
         button.titleLabel?.font = .regular20
-        button.backgroundColor = .mainGrey
+        button.backgroundColor = .greyLight
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 12
         return button
@@ -81,5 +81,15 @@ class AddHabitView: UIView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
         addGestureRecognizer(tapGesture)
         tapGesture.cancelsTouchesInView = false
+        nameInputView.textField.addTarget(
+            self,
+            action: #selector(textFieldDidChange),
+            for: UIControl.Event.editingChanged
+        )
+    }
+
+    @objc func textFieldDidChange(_: UITextField) {
+        addButton.backgroundColor = nameInputView.textField.isValid(with: " ") ? .vividPink : .greyLight
+        addButton.titleLabel?.textColor = nameInputView.textField.isValid(with: " ") ? .background : .mainGrey
     }
 }
