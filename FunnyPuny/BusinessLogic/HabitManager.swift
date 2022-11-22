@@ -19,6 +19,13 @@ class HabitManager {
         habits.map(\.name)
     }
 
+    func getSpecificElement<T: Object>(type: T.Type, with primaryKey: String) -> T? {
+        realm.object(
+            ofType: type,
+            forPrimaryKey: primaryKey
+        )
+    }
+
     func countValueBy(_ habitName: String) -> Float {
         Float(countCompletedHabitBy(habitName)) / Float(countGoalBy(habitName))
     }

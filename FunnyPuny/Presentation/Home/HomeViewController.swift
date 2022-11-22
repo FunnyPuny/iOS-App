@@ -109,7 +109,7 @@ extension HomeViewController: UITableViewDelegate {
                 let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
                 let habitId = currentHabits[indexPath.row].id
 
-                if let days = realm.object(ofType: Days.self, forPrimaryKey: dateString) {
+                if let days = habitManager.getSpecificElement(type: Days.self, with: dateString) {
                     if cell.isDone {
                         days.habits.remove(value: habitId)
                     } else {

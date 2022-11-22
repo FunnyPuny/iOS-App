@@ -5,7 +5,6 @@ import SnapKit
 import UIKit
 
 class AnalyticsView: UIView {
-    var allHabitMode = true
     var menuButtonView = MenuButtonView()
     var achivmentView = AchivmentView()
     var calendarView = CalendarAnalyticView()

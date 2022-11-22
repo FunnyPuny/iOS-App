@@ -14,20 +14,19 @@ struct CalendarCellViewModel {
     }
 
     var backgroundColor: UIColor? {
-        let realm = HabitManager().realm
-        let completedHabit = realm.object(
-            ofType: Days.self,
-            forPrimaryKey: date.string(dateFormat: .formatyyMMdd)
+        let days = HabitManager().getSpecificElement(
+            type: Days.self,
+            with: date.string(dateFormat: .formatyyMMdd)
         )
-        let countOfCompletedHabits = completedHabit?.habits.count ?? 0
-        let allHabits = realm.objects(Habit.self)
+        let habitsByDay = days?.habits.count ?? 0
+        let habits = HabitManager().habits
         var countAllHabits = 0
-        for habit in allHabits {
+        for habit in habits {
             for frequency in habit.frequency where frequency.rawValue == date.weekday {
                 countAllHabits += 1
             }
         }
-        let devision = Double(countOfCompletedHabits) / Double(countAllHabits)
+        let devision = Double(habitsByDay) / Double(countAllHabits)
         switch devision {
         case 1:
             return .backgroundIsland
