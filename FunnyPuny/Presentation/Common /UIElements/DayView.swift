@@ -10,7 +10,7 @@ class DayView: UIView {
     lazy var dayLabel: UILabel = {
         let label = UILabel()
         label.text = day.string
-        label.textColor = isSelected ? .background : .foreground
+        label.textColor = isSelected ? .textPrimaryInverse : .textPrimary
         label.font = .regular17
         label.textAlignment = .center
         return label
@@ -47,8 +47,8 @@ class DayView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = isSelected ? .vividPink : .pinkLight
-        dayLabel.textColor = isSelected ? .background : .foreground
+        backgroundColor = isSelected ? .backgroundAccent : .backgroundIsland
+        dayLabel.textColor = isSelected ? .textPrimaryInverse : .textPrimary
     }
 
     private func addTap() {

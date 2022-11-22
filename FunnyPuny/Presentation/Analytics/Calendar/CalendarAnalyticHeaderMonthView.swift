@@ -8,7 +8,7 @@ import UIKit
 class CalendarAnalyticHeaderMonthView: UIView {
     var monthLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .foreground
+        label.textColor = .textPrimary
         label.font = .regular17
         label.textAlignment = .center
         return label
@@ -18,8 +18,8 @@ class CalendarAnalyticHeaderMonthView: UIView {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.image = .left
-        configuration.baseBackgroundColor = .background
-        configuration.baseForegroundColor = .greyDark
+        configuration.baseBackgroundColor = .backgroundGlobe
+        configuration.baseForegroundColor = .iconsOther
         button.configuration = configuration
         return button
     }()
@@ -28,8 +28,8 @@ class CalendarAnalyticHeaderMonthView: UIView {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.image = .right
-        configuration.baseBackgroundColor = .background
-        configuration.baseForegroundColor = .greyDark
+        configuration.baseBackgroundColor = .backgroundGlobe
+        configuration.baseForegroundColor = .iconsOther
         button.configuration = configuration
         return button
     }()

@@ -15,9 +15,9 @@ class TabBarController: UITabBarController {
     }
 
     private func setupStyleTabBar() {
-        tabBar.tintColor = .vividPink
-        tabBar.unselectedItemTintColor = .greyLight
-        tabBar.barTintColor = .background
+        tabBar.tintColor = .iconsActive
+        tabBar.unselectedItemTintColor = .iconsInactive
+        tabBar.barTintColor = .backgroundGlobe
     }
 
     private func setupTabBarItems() {

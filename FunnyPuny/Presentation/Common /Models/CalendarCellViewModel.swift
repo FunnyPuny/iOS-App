@@ -30,15 +30,15 @@ struct CalendarCellViewModel {
         let devision = Double(countOfCompletedHabits) / Double(countAllHabits)
         switch devision {
         case 1:
-            return .pinkLight
+            return .backgroundIsland
         case 0.1 ..< 0.35:
-            return .pinkLight?.withAlphaComponent(0.4)
+            return .backgroundIsland?.withAlphaComponent(0.4)
         case 0.35 ..< 0.65:
-            return .pinkLight?.withAlphaComponent(0.6)
+            return .backgroundIsland?.withAlphaComponent(0.6)
         case 0.65 ..< 1:
-            return .pinkLight?.withAlphaComponent(0.8)
+            return .backgroundIsland?.withAlphaComponent(0.8)
         default:
-            return .background
+            return .backgroundGlobe
         }
     }
 }

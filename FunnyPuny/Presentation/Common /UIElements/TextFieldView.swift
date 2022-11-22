@@ -10,7 +10,7 @@ class TextFieldView: UIView {
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = text
-        label.textColor = .foreground
+        label.textColor = .textPrimary
         label.font = .regular20
         return label
     }()
@@ -21,10 +21,10 @@ class TextFieldView: UIView {
         textField.placeholder = placeholder
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [.foregroundColor: UIColor.greyLight ?? .clear]
+            attributes: [.foregroundColor: UIColor.textTertiary ?? .clear]
         )
         textField.layer.cornerRadius = 8
-        textField.layer.borderColor = UIColor.mainGrey?.cgColor
+        textField.layer.borderColor = UIColor.inputDefault?.cgColor
         textField.layer.borderWidth = CGFloat(1)
         return textField
     }()
@@ -48,7 +48,7 @@ class TextFieldView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = .backgroundGlobe
     }
 
     private func addSubviews() {

@@ -11,7 +11,7 @@ class ScoreView: UIView {
         let label = UILabel()
         label.text = amount
         label.textAlignment = .center
-        label.textColor = .foreground
+        label.textColor = .textPrimary
         label.font = .regular17
         return label
     }()
@@ -20,7 +20,7 @@ class ScoreView: UIView {
         let label = UILabel()
         label.text = text
         label.textAlignment = .center
-        label.textColor = .foreground
+        label.textColor = .textPrimary
         label.font = .regular14
         return label
     }()
@@ -44,7 +44,7 @@ class ScoreView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = .backgroundGlobe
     }
 
     private func addSubviews() {

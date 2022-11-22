@@ -24,7 +24,7 @@ class ProfileView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = .backgroundGlobe
     }
 
     private func addSubviews() {

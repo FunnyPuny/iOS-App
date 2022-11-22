@@ -12,7 +12,7 @@ class HomeCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
         imageView.image = .circle
-        imageView.backgroundColor = .background
+        imageView.backgroundColor = .backgroundGlobe
         return imageView
     }()
 
@@ -40,7 +40,7 @@ class HomeCell: UITableViewCell {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = .backgroundGlobe
         selectionStyle = .none
         contentView.layer.cornerRadius = 16
     }
@@ -77,15 +77,15 @@ extension HomeCell: Configurable {
         label.text = viewModel.habitName
         if viewModel.isDone {
             iconImageView.image = .checkmark
-            iconImageView.tintColor = .vividPink
-            contentView.backgroundColor = .background
-            contentView.layer.borderColor = UIColor.pinkLight?.cgColor
+            iconImageView.tintColor = .iconsActive
+            contentView.backgroundColor = .backgroundGlobe
+            contentView.layer.borderColor = UIColor.backgroundIsland?.cgColor
             contentView.layer.borderWidth = 2
             isDone = true
         } else {
             iconImageView.image = .circle
-            iconImageView.tintColor = .background
-            contentView.backgroundColor = .pinkLight
+            iconImageView.tintColor = .backgroundGlobe
+            contentView.backgroundColor = .backgroundIsland
             contentView.layer.borderColor = UIColor.clear.cgColor
             contentView.layer.borderWidth = 0
             isDone = false

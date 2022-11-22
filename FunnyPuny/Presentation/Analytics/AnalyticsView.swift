@@ -27,7 +27,7 @@ class AnalyticsView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = .backgroundGlobe
     }
 
     private func addSubviews() {

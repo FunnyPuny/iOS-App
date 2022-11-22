@@ -14,7 +14,7 @@ class CalendarAnalyticView: UIView {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "CalendarAnalyticHeaderView"
         )
-        view.backgroundColor = .background
+        view.backgroundColor = .backgroundGlobe
         view.scrollDirection = .horizontal
         view.scrollingMode = .stopAtEachSection
         view.showsHorizontalScrollIndicator = false
@@ -40,7 +40,7 @@ class CalendarAnalyticView: UIView {
 
     private func setupStyle() {
         layer.borderWidth = 1
-        layer.borderColor = UIColor.pinkLight?.cgColor
+        layer.borderColor = UIColor.backgroundIsland?.cgColor
         layer.cornerRadius = 16
     }
 

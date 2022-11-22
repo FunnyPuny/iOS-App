@@ -8,7 +8,7 @@ import UIKit
 class CalendarHomeHeaderView: UIView {
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .vividPink
+        label.textColor = .textAccent
         label.font = .bold24
         label.textAlignment = .center
         label.text = Date().string(dateFormat: .formatMMMMd)
@@ -19,8 +19,8 @@ class CalendarHomeHeaderView: UIView {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.image = .plus
-        configuration.baseBackgroundColor = .background
-        configuration.baseForegroundColor = .foreground
+        configuration.baseBackgroundColor = .backgroundGlobe
+        configuration.baseForegroundColor = .iconsDefault
         button.configuration = configuration
         return button
     }()
@@ -35,7 +35,7 @@ class CalendarHomeHeaderView: UIView {
         path.addLine(to: CGPoint(x: -6, y: 0))
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = UIColor.vividPink?.cgColor
+        shapeLayer.fillColor = UIColor.backgroundAccent?.cgColor
         shapeLayer.lineWidth = 3
         view.layer.addSublayer(shapeLayer)
         return view

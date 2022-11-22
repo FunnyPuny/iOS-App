@@ -14,7 +14,7 @@ class CalendarHomeView: UIView {
     var monthView: JTACMonthView = {
         let view = JTACMonthView()
         view.register(CalendarHomeDateCell.self, forCellWithReuseIdentifier: "CalendarHomeDateCell")
-        view.backgroundColor = .background
+        view.backgroundColor = .backgroundGlobe
         view.scrollDirection = .horizontal
         view.showsHorizontalScrollIndicator = false
         // TODO:

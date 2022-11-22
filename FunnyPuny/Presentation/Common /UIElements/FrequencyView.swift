@@ -14,7 +14,7 @@ class FrequencyView: UIView {
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = Texts.frequency
-        label.textColor = .foreground
+        label.textColor = .textPrimary
         label.font = .regular20
         return label
     }()

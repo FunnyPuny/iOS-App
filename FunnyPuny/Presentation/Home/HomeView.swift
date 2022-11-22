@@ -8,7 +8,7 @@ import UIKit
 class HomeView: UIView {
     var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .background
+        tableView.backgroundColor = .backgroundGlobe
         tableView.register(cellWithClass: HomeCell.self)
         tableView.rowHeight = 86
         tableView.separatorStyle = .none
@@ -37,7 +37,7 @@ class HomeView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = .backgroundGlobe
     }
 
     private func addSubviews() {

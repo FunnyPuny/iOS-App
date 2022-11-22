@@ -4,22 +4,8 @@
 import UIKit
 
 extension UIColor {
-    /// White
-    static let background = UIColor(named: "background")
-    /// Black
-    static let foreground = UIColor(named: "foreground")
-    /// Grey light
-    static let greyLight = UIColor(named: "greyLight")
-    /// Light gray for separators
-    static let mainGrey = UIColor(named: "mainGrey")
-    /// Pink
-    static let vividPink = UIColor(named: "vividPink")
-    /// Pink for cells
-    static let pinkLight = UIColor(named: "pinkLight")
-    /// Grey dark
-    static let greyDark = UIColor(named: "greyDark")
-
     // MARK: Background
+
     /// Vivid Pink
     static let backgroundAccent = UIColor(named: "backgroundAccent")
     /// Grey light
@@ -32,6 +18,7 @@ extension UIColor {
     static let backgroundOther = UIColor(named: "backgroundOther")
 
     // MARK: Texts
+
     /// Vivid Pink
     static let textAccent = UIColor(named: "textAccent")
     /// Black
@@ -44,12 +31,14 @@ extension UIColor {
     static let textTertiary = UIColor(named: "textTertiary")
 
     // MARK: Buttons
+
     /// Vivid Pink
     static let buttonActive = UIColor(named: "buttonActive")
     /// Grey light
     static let buttonInactive = UIColor(named: "buttonInactive")
 
     // MARK: Icons
+
     /// Vivid Pink
     static let iconsActive = UIColor(named: "iconsActive")
     /// Black
@@ -58,8 +47,9 @@ extension UIColor {
     static let iconsInactive = UIColor(named: "iconsInactive")
     /// Grey dark
     static let iconsOther = UIColor(named: "iconsOther")
-    
+
     // MARK: Other
+
     /// Grey dark
     static let inputDefault = UIColor(named: "inputDefault")
 }

@@ -6,8 +6,8 @@ import UIKit
 class AchivmentView: UIView {
     var progressView: ProgressView = {
         let progressView = ProgressView(frame: CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0))
-        progressView.trackColor = .greyLight ?? .clear
-        progressView.progressColor = .vividPink ?? .clear
+        progressView.trackColor = .backgroundBoarder ?? .clear
+        progressView.progressColor = .backgroundAccent ?? .clear
         return progressView
     }()
 
@@ -40,9 +40,9 @@ class AchivmentView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = .backgroundGlobe
         layer.cornerRadius = 16
-        layer.borderColor = UIColor.pinkLight?.cgColor
+        layer.borderColor = UIColor.backgroundIsland?.cgColor
         layer.borderWidth = 1
     }
 
