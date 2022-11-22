@@ -67,6 +67,7 @@
 		CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8F290D931A0087ED24 /* TextField.swift */; };
 		CEB4BD23290851CF006F6D1D /* Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* Days.swift */; };
 		CEC51B0E292C106200DCC848 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC51B0D292C106200DCC848 /* UITextField+Extension.swift */; };
+		CEC51B10292D5B3200DCC848 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC51B0F292D5B3200DCC848 /* CalendarManager.swift */; };
 		CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED733E828F5A36300B2B0D6 /* SnapKit */; };
 		CEDAFF3328E7199C006136B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3228E7199C006136B3 /* AppDelegate.swift */; };
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
@@ -132,6 +133,7 @@
 		CEB1EA8F290D931A0087ED24 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		CEB4BD22290851CF006F6D1D /* Days.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Days.swift; sourceTree = "<group>"; };
 		CEC51B0D292C106200DCC848 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		CEC51B0F292D5B3200DCC848 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyPuny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDAFF3228E7199C006136B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDAFF3628E7199C006136B3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6B77BB29184F2F00996142 /* HabitManager.swift */,
+				CEC51B0F292D5B3200DCC848 /* CalendarManager.swift */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CE09C14628F9938700B7CB45 /* Texts.swift in Sources */,
 				CE351C2E2910511A00ACCF0C /* ReminderTimeView.swift in Sources */,
+				CEC51B10292D5B3200DCC848 /* CalendarManager.swift in Sources */,
 				CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */,
 				CE6B77C0291AD5DE00996142 /* CalendarAnalyticDateCell.swift in Sources */,
 				CEA0CAF72900753B00EDCDFD /* CalendarHomeHeaderView.swift in Sources */,

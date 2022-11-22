@@ -79,7 +79,7 @@ extension HomeCell: Configurable {
             iconImageView.image = .checkmark
             iconImageView.tintColor = .iconsActive
             contentView.backgroundColor = .backgroundGlobe
-            contentView.layer.borderColor = UIColor.backgroundIsland?.cgColor
+            contentView.layer.borderColor = UIColor.backgroundIsland.cgColor
             contentView.layer.borderWidth = 2
             isDone = true
         } else {

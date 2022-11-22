@@ -13,7 +13,9 @@ class HomeViewController: ViewController {
     var habits: Results<Habit>?
     var currentHabits = [Habit]()
     var selectedDate = Date()
+
     var habitManager = HabitManager()
+    var calendarManager = CalendarManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,7 +178,12 @@ extension HomeViewController: JTACMonthViewDelegate {
         indexPath _: IndexPath
     ) {
         guard let cell = cell as? CalendarHomeDateCell else { return }
-        cell.configure(with: .init(date: cellState.date))
+        cell.configure(with:
+            .init(
+                date: cellState.date,
+                backgroundColor: calendarManager.getColorForAllHabitMode(by: cellState.date)
+            )
+        )
     }
 
     func calendar(

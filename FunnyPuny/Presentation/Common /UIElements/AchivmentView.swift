@@ -42,7 +42,7 @@ class AchivmentView: UIView {
     private func setupStyle() {
         backgroundColor = .backgroundGlobe
         layer.cornerRadius = 16
-        layer.borderColor = UIColor.backgroundIsland?.cgColor
+        layer.borderColor = UIColor.backgroundIsland.cgColor
         layer.borderWidth = 1
     }
 

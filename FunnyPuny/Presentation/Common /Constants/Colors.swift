@@ -11,9 +11,9 @@ extension UIColor {
     /// Grey light
     static let backgroundBoarder = UIColor(named: "backgroundBoarder")
     /// White
-    static let backgroundGlobe = UIColor(named: "backgroundGlobe")
+    static let backgroundGlobe = UIColor(named: "backgroundGlobe") ?? .clear
     /// Pink light
-    static let backgroundIsland = UIColor(named: "backgroundIsland")
+    static let backgroundIsland = UIColor(named: "backgroundIsland") ?? .clear
     /// Grey dark
     static let backgroundOther = UIColor(named: "backgroundOther")
 

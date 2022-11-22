@@ -40,7 +40,7 @@ class CalendarAnalyticView: UIView {
 
     private func setupStyle() {
         layer.borderWidth = 1
-        layer.borderColor = UIColor.backgroundIsland?.cgColor
+        layer.borderColor = UIColor.backgroundIsland.cgColor
         layer.cornerRadius = 16
     }
 

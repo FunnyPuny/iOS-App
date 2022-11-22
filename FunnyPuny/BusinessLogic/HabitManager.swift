@@ -72,7 +72,7 @@ class HabitManager {
         return totalCount
     }
 
-    private func getHabitId(by name: String) -> ObjectId? {
+    func getHabitId(by name: String) -> ObjectId? {
         for habit in habits where habit.name == name {
             return habit.id
         }

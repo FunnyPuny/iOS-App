@@ -8,15 +8,17 @@ import UIKit
 
 // MARK: - AnalyticsViewController
 
+enum AnalyticMode {
+    case allHabits
+    case customHabit(name: String)
+}
+
 class AnalyticsViewController: ViewController {
     private var analyticsView = AnalyticsView()
     private var habitManager = HabitManager()
+    private var calendarManager = CalendarManager()
 
     private var analyticMode: AnalyticMode = .allHabits
-    private enum AnalyticMode {
-        case allHabits
-        case customHabit(name: String)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,7 +114,23 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         indexPath _: IndexPath
     ) {
         guard let cell = cell as? CalendarAnalyticDateCell else { return }
-        cell.configure(with: .init(date: cellState.date, isHidden: cellState.dateBelongsTo != .thisMonth))
+        // TODO:
+        switch analyticMode {
+        case .allHabits:
+            cell.configure(with: .init(
+                date: cellState.date,
+                isHidden: cellState.dateBelongsTo != .thisMonth,
+                backgroundColor: calendarManager.getColorForAllHabitMode(by: cellState.date)
+            )
+            )
+        case let .customHabit(name):
+            cell.configure(with: .init(
+                date: cellState.date,
+                isHidden: cellState.dateBelongsTo != .thisMonth,
+                backgroundColor: calendarManager.getColorForCustomMode(by: name, and: cellState.date)
+            )
+            )
+        }
     }
 
     func calendar(
