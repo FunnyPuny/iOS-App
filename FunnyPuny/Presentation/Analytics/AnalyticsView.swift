@@ -62,8 +62,8 @@ extension AnalyticsView: Configurable {
         achivmentView.completedScore.amountHabitsLabel.text = viewModel.completedScoreText
         achivmentView.missedScore.amountHabitsLabel.text = viewModel.missedScoreText
 
-        achivmentView.progressView.statusLabel.text = String(Int(viewModel.statusValue * 100)) + "%"
-        achivmentView.progressView.progressAnimation(value: viewModel.statusValue)
+        achivmentView.progressView.statusLabel.text = String(Int(viewModel.percentValue * 100)) + "%"
+        achivmentView.progressView.progressAnimation(value: viewModel.percentValue)
 
         menuButtonView.categoryLabel.text = viewModel.selectedHabit
         menuButtonView.makeMenu(with: viewModel.allHabitsName)

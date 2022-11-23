@@ -44,7 +44,7 @@ class AnalyticsViewController: ViewController {
                 selectedHabit: Texts.allHabits,
                 completedScore: habitManager.countCompletedHabits,
                 missedScore: habitManager.countMissedHabits,
-                statusValue: habitManager.countValueAllHabits,
+                percentValue: habitManager.countValueAllHabits,
                 allHabitsName: habitManager.allHabitsName
             )
             analyticsView.configure(with: viewModel)
@@ -53,7 +53,7 @@ class AnalyticsViewController: ViewController {
                 selectedHabit: name,
                 completedScore: habitManager.countCompletedHabitBy(name),
                 missedScore: habitManager.countMissedHabitsBy(name),
-                statusValue: habitManager.countValueBy(name),
+                percentValue: habitManager.countValueBy(name),
                 allHabitsName: habitManager.allHabitsName
             )
             analyticsView.configure(with: viewModel)
@@ -114,7 +114,6 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         indexPath _: IndexPath
     ) {
         guard let cell = cell as? CalendarAnalyticDateCell else { return }
-        // TODO:
         switch analyticMode {
         case .allHabits:
             cell.configure(with: .init(

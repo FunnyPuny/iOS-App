@@ -7,14 +7,14 @@ struct AnalyticsViewModel {
     var selectedHabit: String
     var completedScoreText: String
     var missedScoreText: String
-    var statusValue: Float
+    var percentValue: Float
     var allHabitsName: [String]
 
-    init(selectedHabit: String, completedScore: Int, missedScore: Int, statusValue: Float, allHabitsName: [String]) {
+    init(selectedHabit: String, completedScore: Int, missedScore: Int, percentValue: Float, allHabitsName: [String]) {
         self.selectedHabit = selectedHabit
         completedScoreText = String(completedScore)
         missedScoreText = String(missedScore)
-        self.statusValue = statusValue
+        self.percentValue = percentValue
         self.allHabitsName = allHabitsName
         self.allHabitsName.insert(Texts.allHabits, at: 0)
     }

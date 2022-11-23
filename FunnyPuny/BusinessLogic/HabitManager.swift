@@ -60,7 +60,8 @@ class HabitManager {
     }
 
     var countValueAllHabits: Float {
-        Float(countCompletedHabits) / Float(countHabits)
+        guard countHabits != 0 else { return 0.0 }
+        return Float(countCompletedHabits) / Float(countHabits)
     }
 
     private var countHabits: Int {

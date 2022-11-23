@@ -55,7 +55,7 @@ class CalendarHomeDateCell: JTACDayCell {
         dayOfWeekLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.size.equalTo(18)
+            make.size.equalTo(20)
         }
 
         dateLabel.snp.makeConstraints { make in
