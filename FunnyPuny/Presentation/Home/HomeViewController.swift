@@ -99,32 +99,42 @@ class HomeViewController: ViewController {
         selectedDate = date
         setupCurrentHabits()
     }
+
+    func presentAlert() {
+        let alert = UIAlertController(title: "Oops!", message: "This day doesn't come", preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .cancel))
+        present(alert, animated: true)
+    }
 }
 
 // MARK: UITableViewDelegate
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
-        do {
-            try realm.write {
-                let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
-                let habitId = currentHabits[indexPath.row].id
+        if selectedDate > Date() {
+            presentAlert()
+        } else {
+            do {
+                try realm.write {
+                    let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
+                    let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
+                    let habitId = currentHabits[indexPath.row].id
 
-                if let days = habitManager.getSpecificElement(type: Days.self, with: dateString) {
-                    if cell.isDone {
-                        days.habits.remove(value: habitId)
+                    if let days = habitManager.getSpecificElement(type: Days.self, with: dateString) {
+                        if cell.isDone {
+                            days.habits.remove(value: habitId)
+                        } else {
+                            days.habits.append(habitId)
+                        }
                     } else {
+                        let days = Days(date: dateString)
                         days.habits.append(habitId)
+                        realm.add(days)
                     }
-                } else {
-                    let days = Days(date: dateString)
-                    days.habits.append(habitId)
-                    realm.add(days)
                 }
+            } catch let error as NSError {
+                print("Can't update habit, error: \(error)")
             }
-        } catch let error as NSError {
-            print("Can't update habit, error: \(error)")
         }
         homeView.calendarView.monthView.reloadDates([selectedDate])
         tableView.reloadData()
