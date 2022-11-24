@@ -20,6 +20,8 @@ class AnalyticsViewController: ViewController {
 
     private var analyticMode: AnalyticMode = .allHabits
 
+    private var rangeStartDate = Date()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view = analyticsView
@@ -68,6 +70,16 @@ class AnalyticsViewController: ViewController {
 
     func setupMenuButton() {
         analyticsView.menuButtonView.delegate = self
+    }
+
+    @objc
+    func goToNextMonth() {
+        analyticsView.calendarView.monthView.scrollToDate(rangeStartDate + 1.months)
+    }
+
+    @objc
+    func goToPreviousMonth() {
+        analyticsView.calendarView.monthView.scrollToDate(rangeStartDate - 1.months)
     }
 }
 
@@ -141,7 +153,10 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
             withClass: CalendarAnalyticHeaderView.self,
             indexPath: indexPath
         )
-        header.monthView.monthLabel.text = range.start.string(dateFormat: .formatMMMMyyyy)
+        rangeStartDate = range.start
+        header.monthView.monthLabel.text = rangeStartDate.string(dateFormat: .formatMMMMyyyy)
+        header.monthView.rightButton.addTarget(self, action: #selector(goToNextMonth), for: .touchUpInside)
+        header.monthView.leftButton.addTarget(self, action: #selector(goToPreviousMonth), for: .touchUpInside)
         return header
     }
 
