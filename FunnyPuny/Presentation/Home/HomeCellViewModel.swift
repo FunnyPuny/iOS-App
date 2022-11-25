@@ -6,4 +6,5 @@ import Foundation
 struct HomeCellViewModel {
     let habitName: String
     var isDone: Bool
+    var selectedDate: Date
 }

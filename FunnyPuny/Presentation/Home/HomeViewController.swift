@@ -150,7 +150,11 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
-        var viewModel = HomeCellViewModel(habitName: currentHabits[indexPath.row].name, isDone: false)
+        var viewModel = HomeCellViewModel(
+            habitName: currentHabits[indexPath.row].name,
+            isDone: false,
+            selectedDate: selectedDate
+        )
 
         let date = selectedDate.string(dateFormat: .formatyyMMdd)
         let habitId = currentHabits[indexPath.row].id

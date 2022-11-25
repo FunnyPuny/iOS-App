@@ -1,6 +1,7 @@
 // HomeCell.swift
 // FunnyPuny. Created by Zlata Guseva.
 
+import SwiftDate
 import UIKit
 
 // MARK: - HomeCell
@@ -74,21 +75,31 @@ class HomeCell: UITableViewCell {
 
 extension HomeCell: Configurable {
     func configure(with viewModel: HomeCellViewModel) {
-        label.text = viewModel.habitName
-        if viewModel.isDone {
-            iconImageView.image = .checkmark
-            iconImageView.tintColor = .iconsActive
-            contentView.backgroundColor = .backgroundGlobe
-            contentView.layer.borderColor = UIColor.backgroundIsland.cgColor
-            contentView.layer.borderWidth = 2
-            isDone = true
-        } else {
+        if viewModel.selectedDate > Date() {
             iconImageView.image = .circle
             iconImageView.tintColor = .backgroundGlobe
-            contentView.backgroundColor = .backgroundIsland
+            contentView.backgroundColor = .backgroundBoarder
             contentView.layer.borderColor = UIColor.clear.cgColor
             contentView.layer.borderWidth = 0
+            label.textColor = .textPrimary
             isDone = false
+        } else {
+            label.text = viewModel.habitName
+            if viewModel.isDone {
+                iconImageView.image = .checkmark
+                iconImageView.tintColor = .iconsActive
+                contentView.backgroundColor = .backgroundGlobe
+                contentView.layer.borderColor = UIColor.backgroundIsland.cgColor
+                contentView.layer.borderWidth = 2
+                isDone = true
+            } else {
+                iconImageView.image = .circle
+                iconImageView.tintColor = .backgroundGlobe
+                contentView.backgroundColor = .backgroundIsland
+                contentView.layer.borderColor = UIColor.clear.cgColor
+                contentView.layer.borderWidth = 0
+                isDone = false
+            }
         }
     }
 }
