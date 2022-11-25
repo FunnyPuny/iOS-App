@@ -1,0 +1,29 @@
+"welcome" = "Welcome to FunnyPuny!";
+
+// MARK: AddHabit
+
+"add" = "Add";
+"addHabit" = "Add habit";
+"name" = "Name";
+"nameHabit" = "Habit's name";
+"note" = "Note";
+"reminderNote" = "Reminder Note";
+"reminderTime" = "Reminder Time";
+
+// MARK: Frequency
+
+"frequency" = "Frequency";
+
+// MARK: TabBar
+
+"habits" = "Habits";
+"profile" = "Profile";
+"home" = "Home";
+"analytics" = "Analytics";
+
+// MARK: Analytics
+
+"allHabits" = "All Habits";
+"completed" = "completed";
+"missed" = "missed";
+

@@ -1,0 +1,28 @@
+"welcome" = "Добро пожаловать в FunnyPuny!";
+
+// MARK: AddHabit
+
+"add" = "Добавить";
+"addHabit" = "Добавить привычку";
+"name" = "Название";
+"nameHabit" = "Введите название привычки";
+"note" = "Заметка";
+"reminderNote" = "Введите описание привычки";
+"reminderTime" = "Напоминание";
+
+// MARK: Frequency
+
+"frequency" = "Частота выполнения";
+
+// MARK: TabBar
+
+"habits" = "Привычки";
+"profile" = "Личный кабинет";
+"home" = "Основной экран";
+"analytics" = "Аналитика";
+
+// MARK: Analytics
+
+"allHabits" = "Все привычки";
+"completed" = "выполнено";
+"missed" = "пропущено";

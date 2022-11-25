@@ -32,5 +32,4 @@ enum Texts {
     static let allHabits = "All Habits"
     static let completed = "completed"
     static let missed = "missed"
-    static let times = "times"
 }
