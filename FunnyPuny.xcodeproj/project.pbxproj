@@ -41,6 +41,10 @@
 		CE6B77D72924060E00996142 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D62924060E00996142 /* HomeCellViewModel.swift */; };
 		CE6B77D9292406ED00996142 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77D8292406ED00996142 /* Configurable.swift */; };
 		CE6B77DD29240D1100996142 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77DC29240D1100996142 /* CalendarCellViewModel.swift */; };
+		CE6D4BB22930D06800647D7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE6D4BB12930D06800647D7D /* GoogleService-Info.plist */; };
+		CE6D4BB52930D25700647D7D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CE6D4BB42930D25700647D7D /* FirebaseAnalytics */; };
+		CE6D4BB72930D25700647D7D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = CE6D4BB62930D25700647D7D /* FirebaseCrashlytics */; };
+		CE6D4BB92930D25700647D7D /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = CE6D4BB82930D25700647D7D /* FirebasePerformance */; };
 		CE7381CE29265EDE00FCAAAC /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7381CD29265EDE00FCAAAC /* AnalyticsViewModel.swift */; };
 		CE7381D029266D7800FCAAAC /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
@@ -111,6 +115,7 @@
 		CE6B77D62924060E00996142 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
 		CE6B77D8292406ED00996142 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		CE6B77DC29240D1100996142 /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
+		CE6D4BB12930D06800647D7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE7381CD29265EDE00FCAAAC /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -152,9 +157,12 @@
 			files = (
 				CEA0BF5A28FEC6B4009B6BFD /* RealmSwift in Frameworks */,
 				CE6B77CF29225C3000996142 /* MKRingProgressView in Frameworks */,
+				CE6D4BB92930D25700647D7D /* FirebasePerformance in Frameworks */,
+				CE6D4BB52930D25700647D7D /* FirebaseAnalytics in Frameworks */,
 				CE7808EC29003C850016AD41 /* JTAppleCalendar in Frameworks */,
 				CEA0CAFA2901718500EDCDFD /* SwiftDate in Frameworks */,
 				CEA0BF5828FEC6B4009B6BFD /* Realm in Frameworks */,
+				CE6D4BB72930D25700647D7D /* FirebaseCrashlytics in Frameworks */,
 				CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */,
 				CE10452328F6F871006B31D6 /* SwiftyGif in Frameworks */,
 			);
@@ -392,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDAFF4028E7199E006136B3 /* Info.plist */,
+				CE6D4BB12930D06800647D7D /* GoogleService-Info.plist */,
 				CE6AFF2428F6125C0079FD83 /* Application */,
 				CE6AFF2328F6124A0079FD83 /* Model */,
 				CE6AFF2228F6123E0079FD83 /* Presentation */,
@@ -427,6 +436,9 @@
 				CE7808EB29003C850016AD41 /* JTAppleCalendar */,
 				CEA0CAF92901718500EDCDFD /* SwiftDate */,
 				CE6B77CE29225C3000996142 /* MKRingProgressView */,
+				CE6D4BB42930D25700647D7D /* FirebaseAnalytics */,
+				CE6D4BB62930D25700647D7D /* FirebaseCrashlytics */,
+				CE6D4BB82930D25700647D7D /* FirebasePerformance */,
 			);
 			productName = "FunnyPuny-iOSApp";
 			productReference = CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */;
@@ -463,6 +475,7 @@
 				CE7808EA29003C850016AD41 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
 				CEA0CAF82901718500EDCDFD /* XCRemoteSwiftPackageReference "SwiftDate" */,
 				CE6B77CD29225C3000996142 /* XCRemoteSwiftPackageReference "MKRingProgressView" */,
+				CE6D4BB32930D25700647D7D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CEDAFF3028E7199C006136B3 /* Products */;
 			projectDirPath = "";
@@ -480,6 +493,7 @@
 			files = (
 				CE09C14E28F9A12B00B7CB45 /* Colors.xcassets in Resources */,
 				CEE6113628F85A5A003CF0AB /* profile.gif in Resources */,
+				CE6D4BB22930D06800647D7D /* GoogleService-Info.plist in Resources */,
 				CEB1EA882909C8670087ED24 /* SF-Pro-Display-Bold.otf in Resources */,
 				CEDAFF3F28E7199E006136B3 /* LaunchScreen.storyboard in Resources */,
 				CE6B77D52923C3A300996142 /* SF-Pro-Text-Medium.otf in Resources */,
@@ -830,6 +844,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		CE6D4BB32930D25700647D7D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		CE7808EA29003C850016AD41 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar";
@@ -874,6 +896,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE6B77CD29225C3000996142 /* XCRemoteSwiftPackageReference "MKRingProgressView" */;
 			productName = MKRingProgressView;
+		};
+		CE6D4BB42930D25700647D7D /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE6D4BB32930D25700647D7D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		CE6D4BB62930D25700647D7D /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE6D4BB32930D25700647D7D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		CE6D4BB82930D25700647D7D /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE6D4BB32930D25700647D7D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
 		};
 		CE7808EB29003C850016AD41 /* JTAppleCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
