@@ -17,8 +17,6 @@ class CalendarHomeView: UIView {
         view.backgroundColor = .background
         view.scrollDirection = .horizontal
         view.showsHorizontalScrollIndicator = false
-        // TODO:
-        // view.scrollingMode = .nonStopToCell(withResistance: 4)
         view.cellSize = UIScreen.main.bounds.width / 7
         return view
     }()

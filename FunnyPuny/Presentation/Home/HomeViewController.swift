@@ -90,13 +90,14 @@ class HomeViewController: ViewController {
     }
 
     private func scrollToDate(_ date: Date, animated: Bool = true) {
+        selectedDate = date
+        homeView.calendarView.monthView.reloadData()
         homeView.calendarView.monthView.scrollToDate(
             date - 3.days,
             animateScroll: animated,
             extraAddedOffset: -4
         )
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
-        selectedDate = date
         setupCurrentHabits()
     }
 
@@ -187,7 +188,7 @@ extension HomeViewController: JTACMonthViewDelegate {
     func calendar(
         _: JTACMonthView,
         willDisplay cell: JTACDayCell,
-        forItemAt _: Date,
+        forItemAt date: Date,
         cellState: CellState,
         indexPath _: IndexPath
     ) {
@@ -195,17 +196,18 @@ extension HomeViewController: JTACMonthViewDelegate {
         cell.configure(with:
             .init(
                 date: cellState.date,
-                backgroundColor: calendarManager.getColorForAllHabitMode(by: cellState.date)
+                backgroundColor: calendarManager.getColorForAllHabitMode(by: cellState.date),
+                isSelected: date.dayOfYear == selectedDate.dayOfYear
             )
         )
     }
 
     func calendar(
-        _: JTACMonthView,
+        _ calendar: JTACMonthView,
         didSelectDate date: Date,
-        cell _: JTACDayCell?,
-        cellState _: CellState,
-        indexPath _: IndexPath
+        cell: JTACDayCell?,
+        cellState: CellState,
+        indexPath: IndexPath
     ) {
         scrollToDate(date)
     }

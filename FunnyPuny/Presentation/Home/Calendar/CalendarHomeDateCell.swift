@@ -12,9 +12,7 @@ class CalendarHomeDateCell: JTACDayCell {
         let label = UILabel()
         label.textColor = .textPrimary
         label.font = .regular14
-        label.backgroundColor = .backgroundGlobe
         label.textAlignment = .center
-        label.layer.cornerRadius = 9
         return label
     }()
 
@@ -22,13 +20,18 @@ class CalendarHomeDateCell: JTACDayCell {
         let label = UILabel()
         label.textColor = .textPrimary
         label.font = .regular12
-        label.backgroundColor = .backgroundGlobe
-        label.layer.borderColor = UIColor.backgroundBoarder?.cgColor
         label.layer.borderWidth = 1
         label.textAlignment = .center
-        label.layer.cornerRadius = 20
+        label.layer.cornerRadius = 18
         label.clipsToBounds = true
         return label
+    }()
+
+    private var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .backgroundGlobe
+        view.layer.masksToBounds = true
+        return view
     }()
 
     override init(frame: CGRect) {
@@ -47,21 +50,26 @@ class CalendarHomeDateCell: JTACDayCell {
     }
 
     private func addSubviews() {
-        addSubview(dayOfWeekLabel)
-        addSubview(dateLabel)
+        addSubview(containerView)
+        containerView.addSubview(dayOfWeekLabel)
+        containerView.addSubview(dateLabel)
     }
 
     private func makeConstraints() {
+        containerView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+        }
+
         dayOfWeekLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(8)
             make.centerX.equalToSuperview()
-            make.size.equalTo(20)
         }
 
         dateLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(8)
             make.centerX.equalToSuperview()
-            make.size.equalTo(40)
+            make.size.equalTo(36)
         }
     }
 }
@@ -77,5 +85,12 @@ extension CalendarHomeDateCell: Configurable {
             ? UIColor.backgroundAccent?.cgColor
             : UIColor.backgroundBoarder?.cgColor
         dateLabel.backgroundColor = viewModel.backgroundColor
+        if viewModel.isSelected {
+            containerView.layer.cornerRadius = 20
+            containerView.dropShadow()
+        } else {
+            containerView.layer.cornerRadius = 0
+            containerView.removeShadow()
+        }
     }
 }

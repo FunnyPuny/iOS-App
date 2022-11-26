@@ -49,7 +49,7 @@ class HomeView: UIView {
         calendarView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(140)
+            make.height.equalTo(148)
         }
 
         tableView.snp.makeConstraints { make in

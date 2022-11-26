@@ -17,8 +17,6 @@ class CalendarHomeView: UIView {
         view.backgroundColor = .backgroundGlobe
         view.scrollDirection = .horizontal
         view.showsHorizontalScrollIndicator = false
-        // TODO:
-        // view.scrollingMode = .nonStopToCell(withResistance: 4)
         view.cellSize = UIScreen.main.bounds.width / 7
         return view
     }()
@@ -46,12 +44,13 @@ class CalendarHomeView: UIView {
     private func makeConstraints() {
         headerView.snp.makeConstraints { make in
             make.leading.trailing.top.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(60)
         }
 
         monthView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(headerView.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(headerView.snp.bottom)
+            make.height.equalTo(88)
         }
     }
 }

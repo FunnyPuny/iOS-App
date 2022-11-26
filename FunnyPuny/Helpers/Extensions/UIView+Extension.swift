@@ -4,14 +4,19 @@
 import UIKit
 
 extension UIView {
-    func dropShadow(scale: Bool = true) {
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
+    func dropShadow() {
+        layer.shadowColor = UIColor.inputShadow?.cgColor
         layer.shadowOpacity = 0.2
+        layer.shadowOffset = CGSize(width: 2, height: 2)
+        layer.shadowRadius = 3.0
+        layer.masksToBounds = false
+    }
+
+    func removeShadow() {
+        layer.shadowColor = UIColor.clear.cgColor
+        layer.shadowOpacity = .zero
         layer.shadowOffset = .zero
-        layer.shadowRadius = 1
-        layer.shouldRasterize = true
-        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+        layer.shadowRadius = .zero
     }
 
     func fadeIn(

@@ -52,4 +52,5 @@ extension UIColor {
 
     /// Grey dark
     static let inputDefault = UIColor(named: "inputDefault")
+    static let inputShadow = UIColor(named: "inputShadow")
 }
