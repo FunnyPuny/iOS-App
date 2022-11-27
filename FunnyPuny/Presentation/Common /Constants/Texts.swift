@@ -5,6 +5,10 @@ enum Texts {
     // MARK: Home
 
     static let welcome = "Welcome to FunnyPuny!"
+    static let oops = "Oops!"
+    ///This day doesn't come
+    static let alert = "This day doesn't come"
+    static let ok = "OK"
 
     // MARK: AddHabit
 

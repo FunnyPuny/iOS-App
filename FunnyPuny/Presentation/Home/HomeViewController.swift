@@ -102,8 +102,8 @@ class HomeViewController: ViewController {
     }
 
     func presentAlert() {
-        let alert = UIAlertController(title: "Oops!", message: "This day doesn't come", preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .cancel))
+        let alert = UIAlertController(title: Texts.oops, message: Texts.alert, preferredStyle: .alert)
+        alert.addAction(.init(title: Texts.ok, style: .cancel))
         present(alert, animated: true)
     }
 }
