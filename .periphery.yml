@@ -1,0 +1,6 @@
+project: FunnyPuny.xcodeproj
+retain_public: true
+schemes:
+- FunnyPuny
+targets:
+- FunnyPuny

@@ -24,6 +24,7 @@ Others:
 -   SwiftLint
 -   SwiftFormat
 -   SwiftGen
+-   Periphery
 
 ### Requirements
 
