@@ -15,18 +15,15 @@ Core:
 -   Realm
 -   TBC 
 
-Package Managers
+Package Manager:
 
 -   Swift Package Manager
 
-Linter
+Others:
 
 -   SwiftLint
-
-Formatter
-
 -   SwiftFormat
-
+-   SwiftGen
 
 ### Requirements
 
