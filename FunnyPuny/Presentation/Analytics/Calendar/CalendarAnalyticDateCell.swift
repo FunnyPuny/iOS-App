@@ -10,7 +10,7 @@ import UIKit
 class CalendarAnalyticDateCell: JTACDayCell {
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .textPrimary
+        label.textColor = Colors.textPrimary.color
         label.font = .regular14
         label.layer.borderWidth = 1
         label.textAlignment = .center
@@ -53,7 +53,7 @@ extension CalendarAnalyticDateCell: Configurable {
         dateLabel.text = viewModel.date.string(dateFormat: .formatdd)
         dateLabel.backgroundColor = viewModel.backgroundColor
         dateLabel.layer.borderColor = viewModel.date.isToday
-            ? UIColor.backgroundAccent?.cgColor
-            : UIColor.backgroundBoarder?.cgColor
+            ? Colors.backgroundAccent.color.cgColor
+            : Colors.backgroundBoarder.color.cgColor
     }
 }

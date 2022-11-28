@@ -14,7 +14,7 @@ class CalendarHomeView: UIView {
     var monthView: JTACMonthView = {
         let view = JTACMonthView()
         view.register(CalendarHomeDateCell.self, forCellWithReuseIdentifier: "CalendarHomeDateCell")
-        view.backgroundColor = .backgroundGlobe
+        view.backgroundColor = Colors.backgroundGlobe.color
         view.scrollDirection = .horizontal
         view.showsHorizontalScrollIndicator = false
         view.cellSize = UIScreen.main.bounds.width / 7

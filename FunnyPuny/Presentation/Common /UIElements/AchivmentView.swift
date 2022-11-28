@@ -6,8 +6,8 @@ import UIKit
 class AchivmentView: UIView {
     var progressView: ProgressView = {
         let progressView = ProgressView(frame: CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0))
-        progressView.trackColor = .backgroundBoarder ?? .clear
-        progressView.progressColor = .backgroundAccent ?? .clear
+        progressView.trackColor = Asset.Colors.backgroundBoarder.color
+        progressView.progressColor = Colors.backgroundAccent.color
         return progressView
     }()
 
@@ -18,7 +18,6 @@ class AchivmentView: UIView {
         let stackView = UIStackView()
         stackView.addArrangedSubview(completedScore)
         stackView.addArrangedSubview(missedScore)
-        // stackView.addSeparators(at: [1], color: .greyLight ?? .clear)
         stackView.distribution = .fillProportionally
         return stackView
     }()
@@ -40,9 +39,9 @@ class AchivmentView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .backgroundGlobe
+        backgroundColor = Colors.backgroundGlobe.color
         layer.cornerRadius = 16
-        layer.borderColor = UIColor.backgroundIsland.cgColor
+        layer.borderColor = Colors.backgroundIsland.color.cgColor
         layer.borderWidth = 1
     }
 

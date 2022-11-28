@@ -7,7 +7,7 @@ class ReminderTimeView: UIView {
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = Texts.reminderTime
-        label.textColor = .textPrimary
+        label.textColor = Colors.textPrimary.color
         label.font = .regular20
         return label
     }()
@@ -15,7 +15,7 @@ class ReminderTimeView: UIView {
     lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
-        datePicker.subviews[0].subviews[1].layer.borderColor = UIColor.inputDefault?.cgColor
+        datePicker.subviews[0].subviews[1].layer.borderColor = Colors.inputDefault.color.cgColor
         datePicker.subviews[0].subviews[1].layer.borderWidth = 1
         datePicker.subviews[0].subviews[1].layer.cornerRadius = 10
         return datePicker
@@ -38,7 +38,7 @@ class ReminderTimeView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .backgroundGlobe
+        backgroundColor = Colors.backgroundGlobe.color
     }
 
     private func addSubviews() {

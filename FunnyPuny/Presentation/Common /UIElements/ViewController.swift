@@ -10,6 +10,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .backgroundGlobe
+        view.backgroundColor = Colors.backgroundGlobe.color
     }
 }

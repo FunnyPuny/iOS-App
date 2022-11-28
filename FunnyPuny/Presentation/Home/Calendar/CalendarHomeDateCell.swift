@@ -10,7 +10,7 @@ import UIKit
 class CalendarHomeDateCell: JTACDayCell {
     private var dayOfWeekLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .textPrimary
+        label.textColor = Colors.textPrimary.color
         label.font = .regular10
         label.textAlignment = .center
         return label
@@ -18,7 +18,7 @@ class CalendarHomeDateCell: JTACDayCell {
 
     private var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .textPrimary
+        label.textColor = Colors.textPrimary.color
         label.font = .regular12
         label.layer.borderWidth = 1
         label.textAlignment = .center
@@ -29,7 +29,7 @@ class CalendarHomeDateCell: JTACDayCell {
 
     private var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .backgroundGlobe
+        view.backgroundColor = Colors.backgroundGlobe.color
         view.layer.masksToBounds = true
         return view
     }()
@@ -80,10 +80,12 @@ extension CalendarHomeDateCell: Configurable {
     func configure(with viewModel: CalendarCellViewModel) {
         dateLabel.text = viewModel.date.string(dateFormat: .formatdd)
         dayOfWeekLabel.text = viewModel.date.string(dateFormat: .formatEEEEE)
-        dayOfWeekLabel.textColor = viewModel.date.isToday ? .textPrimary : .textSecondary
+        dayOfWeekLabel.textColor = viewModel.date.isToday
+            ? Colors.textPrimary.color
+            : Colors.textSecondary.color
         dateLabel.layer.borderColor = viewModel.date.isToday
-            ? UIColor.backgroundAccent?.cgColor
-            : UIColor.backgroundBoarder?.cgColor
+            ? Colors.backgroundAccent.color.cgColor
+            : Colors.backgroundBoarder.color.cgColor
         dateLabel.backgroundColor = viewModel.backgroundColor
         if viewModel.isSelected {
             containerView.layer.cornerRadius = 22

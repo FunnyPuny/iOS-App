@@ -6,7 +6,7 @@ import UIKit
 class ProgressView: UIView {
     var statusLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .textPrimary
+        label.textColor = Colors.textPrimary.color
         label.textAlignment = .center
         label.font = .medium14
         return label

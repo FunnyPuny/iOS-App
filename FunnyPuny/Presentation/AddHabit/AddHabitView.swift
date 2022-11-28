@@ -17,9 +17,9 @@ class AddHabitView: UIView {
     var addButton: UIButton = {
         let button = UIButton()
         button.setTitle(Texts.add, for: .normal)
-        button.titleLabel?.textColor = .textSecondary
+        button.titleLabel?.textColor = Colors.textSecondary.color
         button.titleLabel?.font = .regular20
-        button.backgroundColor = .buttonInactive
+        button.backgroundColor = Colors.buttonInactive.color
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 12
         return button
@@ -89,9 +89,11 @@ class AddHabitView: UIView {
     }
 
     @objc func textFieldDidChange(_: UITextField) {
-        addButton.backgroundColor = nameInputView.textField.isValid(with: " ") ? .buttonActive : .buttonInactive
+        addButton.backgroundColor = nameInputView.textField.isValid(with: " ")
+            ? Colors.buttonActive.color
+            : Colors.buttonInactive.color
         addButton.titleLabel?.textColor = nameInputView.textField.isValid(with: " ")
-            ? .textPrimaryInverse
-            : .textSecondary
+            ? Colors.textPrimaryInverse.color
+            : Colors.textSecondary.color
     }
 }
