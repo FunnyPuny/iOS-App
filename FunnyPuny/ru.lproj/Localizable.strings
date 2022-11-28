@@ -1,9 +1,9 @@
 //MARK: Home
 
 "welcome" = "Добро пожаловать в FunnyPuny!";
-"oops" = "Упс!"
-"alert" = "Этот день еще не настал"
-"ok" = "OK"
+"oops" = "Упс!";
+"alert" = "Этот день еще не настал";
+"ok" = "OK";
 
 // MARK: AddHabit
 
@@ -31,3 +31,14 @@
 "allHabits" = "Все привычки";
 "completed" = "выполнено";
 "missed" = "пропущено";
+
+// MARK: Frequency
+
+"Mon" = "ПН";
+"Tue" = "ВТ";
+"Wed" = "СР";
+"Thu" = "ЧТ";
+"Fri" = "ПТ";
+"Sat" = "СБ";
+"San" = "ВС";
+"Everyday" = "Каждый день";

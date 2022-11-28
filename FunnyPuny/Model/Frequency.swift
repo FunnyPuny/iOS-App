@@ -16,21 +16,21 @@ enum Frequency: Int, CaseIterable, PersistableEnum {
     var string: String {
         switch self {
         case .mon:
-            return "Mon"
+            return Texts.mon
         case .tue:
-            return "Tue"
+            return Texts.tue
         case .wed:
-            return "Wed"
+            return Texts.wed
         case .thu:
-            return "Thu"
+            return Texts.thu
         case .fri:
-            return "Fri"
+            return Texts.fri
         case .sat:
-            return "Sat"
+            return Texts.sat
         case .sun:
-            return "San"
+            return Texts.sun
         case .everyday:
-            return "Everyday"
+            return Texts.everyday
         }
     }
 }

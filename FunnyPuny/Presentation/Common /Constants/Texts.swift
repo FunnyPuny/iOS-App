@@ -6,7 +6,7 @@ enum Texts {
 
     static let welcome = "Welcome to FunnyPuny!"
     static let oops = "Oops!"
-    ///This day doesn't come
+    /// This day doesn't come
     static let alert = "This day doesn't come"
     static let ok = "OK"
 
@@ -36,4 +36,15 @@ enum Texts {
     static let allHabits = "All Habits"
     static let completed = "completed"
     static let missed = "missed"
+
+    // MARK: Frequency
+
+    static let mon = "Mon"
+    static let tue = "Tue"
+    static let wed = "Wed"
+    static let thu = "Thu"
+    static let fri = "Fri"
+    static let sat = "Sat"
+    static let sun = "San"
+    static let everyday = "Everyday"
 }

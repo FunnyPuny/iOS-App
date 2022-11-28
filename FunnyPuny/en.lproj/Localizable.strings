@@ -1,9 +1,9 @@
 //MARK: Home
 
 "welcome" = "Welcome to FunnyPuny!";
-"oops" = "Oops!"
-"alert" = "This day doesn't come"
-"ok" = "OK"
+"oops" = "Oops!";
+"alert" = "This day doesn't come";
+"ok" = "OK";
 
 // MARK: AddHabit
 
@@ -32,3 +32,13 @@
 "completed" = "completed";
 "missed" = "missed";
 
+// MARK: Frequency
+
+"Mon" = "Mon";
+"Tue" = "Tue";
+"Wed" = "Wed";
+"Thu" = "Thu";
+"Fri" = "Fri";
+"Sat" = "Sat";
+"San" = "San";
+"Everyday" = "Everyday";
