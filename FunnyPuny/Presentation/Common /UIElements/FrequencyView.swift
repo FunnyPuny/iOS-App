@@ -26,7 +26,13 @@ class FrequencyView: UIView {
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubviews(Frequency.allCases.map { DayView($0) })
+        stackView.addArrangedSubview(DayView(Frequency.mon))
+        stackView.addArrangedSubview(DayView(Frequency.tue))
+        stackView.addArrangedSubview(DayView(Frequency.wed))
+        stackView.addArrangedSubview(DayView(Frequency.thu))
+        stackView.addArrangedSubview(DayView(Frequency.fri))
+        stackView.addArrangedSubview(DayView(Frequency.sat))
+        stackView.addArrangedSubview(DayView(Frequency.sun))
         stackView.spacing = 8
         stackView.distribution = .fillEqually
         return stackView

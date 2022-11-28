@@ -78,10 +78,12 @@ extension HomeCell: Configurable {
         if viewModel.selectedDate > Date() {
             iconImageView.image = .circle
             iconImageView.tintColor = .backgroundGlobe
-            contentView.backgroundColor = .backgroundBoarder
-            contentView.layer.borderColor = UIColor.clear.cgColor
-            contentView.layer.borderWidth = 0
-            label.textColor = .textPrimary
+            iconImageView.layer.borderWidth = 2
+            iconImageView.layer.borderColor = UIColor.backgroundBoarder?.cgColor
+            contentView.backgroundColor = .backgroundGlobe
+            contentView.layer.borderColor = UIColor.backgroundBoarder?.cgColor
+            contentView.layer.borderWidth = 3
+            label.textColor = .textSecondary
             isDone = false
         } else {
             label.text = viewModel.habitName

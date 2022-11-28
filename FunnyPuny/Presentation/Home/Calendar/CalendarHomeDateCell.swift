@@ -11,7 +11,7 @@ class CalendarHomeDateCell: JTACDayCell {
     private var dayOfWeekLabel: UILabel = {
         let label = UILabel()
         label.textColor = .textPrimary
-        label.font = .regular14
+        label.font = .regular10
         label.textAlignment = .center
         return label
     }()
@@ -58,11 +58,11 @@ class CalendarHomeDateCell: JTACDayCell {
     private func makeConstraints() {
         containerView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview().inset(4)
         }
 
         dayOfWeekLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().inset(8)
             make.centerX.equalToSuperview()
         }
 
@@ -86,7 +86,7 @@ extension CalendarHomeDateCell: Configurable {
             : UIColor.backgroundBoarder?.cgColor
         dateLabel.backgroundColor = viewModel.backgroundColor
         if viewModel.isSelected {
-            containerView.layer.cornerRadius = 20
+            containerView.layer.cornerRadius = 22
             containerView.dropShadow()
         } else {
             containerView.layer.cornerRadius = 0
