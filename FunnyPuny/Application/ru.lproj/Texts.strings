@@ -22,8 +22,8 @@
 // MARK: TabBar
 
 "habits" = "Привычки";
-"profile" = "Личный кабинет";
-"home" = "Основной экран";
+"profile" = "Профиль";
+"home" = "Главная";
 "analytics" = "Аналитика";
 
 // MARK: Analytics
@@ -34,11 +34,11 @@
 
 // MARK: Frequency
 
-"Mon" = "ПН";
-"Tue" = "ВТ";
-"Wed" = "СР";
-"Thu" = "ЧТ";
-"Fri" = "ПТ";
-"Sat" = "СБ";
-"San" = "ВС";
+"Mon" = "Пн";
+"Tue" = "Вт";
+"Wed" = "Ср";
+"Thu" = "Чт";
+"Fri" = "Пт";
+"Sat" = "Сб";
+"Sun" = "Вс";
 "Everyday" = "Каждый день";
