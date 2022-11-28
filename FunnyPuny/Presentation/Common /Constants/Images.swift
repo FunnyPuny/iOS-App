@@ -5,7 +5,6 @@ import SwiftyGif
 import UIKit
 
 extension UIImage {
-    static let plusApp = UIImage(systemName: "plus.circle.fill")
     static let checkmark = UIImage(systemName: "checkmark.circle")
     static let circle = UIImage(systemName: "circle.fill")
     static let analytics = UIImage(named: "analytics")
