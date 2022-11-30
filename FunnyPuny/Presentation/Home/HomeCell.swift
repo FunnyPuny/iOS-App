@@ -19,7 +19,7 @@ class HomeCell: UITableViewCell {
     private var label: UILabel = {
         let label = UILabel()
         label.font = .regular17
-        label.textColor = .black
+        label.textColor = Colors.textPrimary.color
         return label
     }()
 

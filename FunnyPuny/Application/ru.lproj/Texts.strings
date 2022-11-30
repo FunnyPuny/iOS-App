@@ -2,7 +2,7 @@
 
 "oops" = "Упс!";
 "alert" = "Этот день еще не настал";
-"ok" = "OK";
+"okay" = "OK";
 
 // MARK: AddHabit
 
@@ -41,3 +41,11 @@
 "Sat" = "Сб";
 "Sun" = "Вс";
 "Everyday" = "Каждый день";
+
+// MARK: Profile
+
+"notifications" = "Уведомления";
+"appearance" = "Appearance";
+"achievments" = "Достижения";
+"donation" = "Donation";
+

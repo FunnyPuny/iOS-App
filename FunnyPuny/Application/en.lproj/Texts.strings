@@ -2,7 +2,7 @@
 
 "oops" = "Oops!";
 "alert" = "This day doesn't come";
-"ok" = "OK";
+"okay" = "OK";
 
 // MARK: AddHabit
 
@@ -41,3 +41,10 @@
 "Sat" = "Sat";
 "Sun" = "Sun";
 "Everyday" = "Everyday";
+
+// MARK: Profile
+
+"notifications" = "Notifications";
+"appearance" = "Appearance";
+"achievments" = "Achievments";
+"donation" = "Donation";

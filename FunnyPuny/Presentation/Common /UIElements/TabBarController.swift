@@ -43,6 +43,6 @@ class TabBarController: UITabBarController {
         )
 
         viewControllers = [firstViewController, secondViewController, thirdViewController]
-        selectedIndex = 0
+        selectedIndex = 2
     }
 }
