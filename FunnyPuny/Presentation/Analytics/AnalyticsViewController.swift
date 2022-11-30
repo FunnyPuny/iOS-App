@@ -130,7 +130,7 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         case .allHabits:
             cell.configure(with: .init(
                 date: cellState.date,
-                isHidden: cellState.dateBelongsTo != .thisMonth,
+                isDateBelongsToCurrentMonth: cellState.dateBelongsTo == .thisMonth,
                 backgroundColor: calendarManager.getColorForAllHabitMode(by: cellState.date),
                 isSelected: cellState.isSelected
             )
@@ -138,7 +138,7 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
         case let .customHabit(name):
             cell.configure(with: .init(
                 date: cellState.date,
-                isHidden: cellState.dateBelongsTo != .thisMonth,
+                isDateBelongsToCurrentMonth: cellState.dateBelongsTo == .thisMonth,
                 backgroundColor: calendarManager.getColorForCustomMode(by: name, and: cellState.date),
                 isSelected: cellState.isSelected
             )

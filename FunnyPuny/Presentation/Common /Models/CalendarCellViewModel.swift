@@ -7,13 +7,13 @@ import UIKit
 
 struct CalendarCellViewModel {
     let date: Date
-    let isHidden: Bool
+    let isDateBelongsToCurrentMonth: Bool
     let backgroundColor: UIColor
     let isSelected: Bool
 
-    init(date: Date, isHidden: Bool = false, backgroundColor: UIColor, isSelected: Bool) {
+    init(date: Date, isDateBelongsToCurrentMonth: Bool, backgroundColor: UIColor, isSelected: Bool) {
         self.date = date
-        self.isHidden = isHidden
+        self.isDateBelongsToCurrentMonth = isDateBelongsToCurrentMonth
         self.backgroundColor = backgroundColor
         self.isSelected = isSelected
     }
