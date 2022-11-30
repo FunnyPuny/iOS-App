@@ -6,15 +6,15 @@ import UIKit
 
 class ProfileView: UIView {
     private var gifImageView: UIImageView = .profileGIF
-    
+
     var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .backgroundGlobe
+        tableView.backgroundColor = Colors.backgroundGlobe.color
         tableView.register(cellWithClass: ProfileCell.self)
         tableView.rowHeight = 64
         tableView.separatorStyle = .singleLine
         tableView.layer.cornerRadius = 16
-        tableView.layer.borderColor = UIColor.backgroundIsland.cgColor
+        tableView.layer.borderColor = Colors.backgroundIsland.color.cgColor
         tableView.layer.borderWidth = 2
         return tableView
     }()
@@ -36,7 +36,7 @@ class ProfileView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .backgroundGlobe
+        backgroundColor = Colors.backgroundGlobe.color
     }
 
     private func addSubviews() {

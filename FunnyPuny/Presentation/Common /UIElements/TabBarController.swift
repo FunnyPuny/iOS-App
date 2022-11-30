@@ -15,30 +15,30 @@ class TabBarController: UITabBarController {
     }
 
     private func setupStyleTabBar() {
-        tabBar.tintColor = .iconsActive
-        tabBar.unselectedItemTintColor = .iconsInactive
-        tabBar.barTintColor = .backgroundGlobe
+        tabBar.tintColor = Colors.iconsActive.color
+        tabBar.unselectedItemTintColor = Colors.iconsInactive.color
+        tabBar.barTintColor = Colors.backgroundGlobe.color
     }
 
     private func setupTabBarItems() {
         let firstViewController = HomeViewController()
         firstViewController.tabBarItem = UITabBarItem(
             title: Texts.habits,
-            image: .home,
+            image: Images.home.image,
             tag: 0
         )
 
         let secondViewController = AnalyticsViewController()
         secondViewController.tabBarItem = UITabBarItem(
             title: Texts.analytics,
-            image: .analytics,
+            image: Images.analytics.image,
             tag: 1
         )
 
         let thirdViewController = ProfileViewController()
         thirdViewController.tabBarItem = UITabBarItem(
             title: Texts.profile,
-            image: .profile,
+            image: Images.profile.image,
             tag: 2
         )
 

@@ -6,7 +6,7 @@ import UIKit
 
 class ProfileViewController: ViewController {
     private var profileView = ProfileView()
-    private var profileOptions = [Texts.notification, Texts.appearance, Texts.achievments, Texts.donation]
+    private var profileOptions = [Texts.notifications, Texts.appearance, Texts.achievments, Texts.donation]
 
     override func viewDidLoad() {
         super.viewDidLoad()

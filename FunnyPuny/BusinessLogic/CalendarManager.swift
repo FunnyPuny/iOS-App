@@ -25,15 +25,15 @@ struct CalendarManager {
         let devision = Double(habitsByDay) / Double(countAllHabits)
         switch devision {
         case 1:
-            return .backgroundIsland
+            return Colors.backgroundAccent.color
         case 0.1 ..< 0.35:
-            return .backgroundIsland.withAlphaComponent(0.4)
+            return Colors.backgroundAccent.color.withAlphaComponent(0.4)
         case 0.35 ..< 0.65:
-            return .backgroundIsland.withAlphaComponent(0.6)
+            return Colors.backgroundAccent.color.withAlphaComponent(0.6)
         case 0.65 ..< 1:
-            return .backgroundIsland.withAlphaComponent(0.8)
+            return Colors.backgroundAccent.color.withAlphaComponent(0.8)
         default:
-            return .backgroundGlobe
+            return Colors.backgroundGlobe.color
         }
     }
 
@@ -43,9 +43,9 @@ struct CalendarManager {
             let habitId = habitManager.getHabitId(by: name),
             day.habits.contains(habitId)
         {
-            return .backgroundIsland
+            return Colors.backgroundAccent.color
         } else {
-            return .backgroundGlobe
+            return Colors.backgroundGlobe.color
         }
     }
 }

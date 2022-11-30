@@ -10,16 +10,16 @@ class ProfileCell: UITableViewCell {
     private var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
-        imageView.image = .right
-        imageView.tintColor = .iconsOther
-        imageView.backgroundColor = .backgroundGlobe
+        imageView.image = Images.right.image
+        imageView.tintColor = Colors.iconsOther.color
+        imageView.backgroundColor = Colors.backgroundGlobe.color
         return imageView
     }()
 
     private var label: UILabel = {
         let label = UILabel()
         label.font = .regular17
-        label.textColor = .textPrimary
+        label.textColor = Colors.textPrimary.color
         return label
     }()
 
@@ -40,7 +40,7 @@ class ProfileCell: UITableViewCell {
     }
 
     private func setupStyle() {
-        backgroundColor = .backgroundGlobe
+        backgroundColor = Colors.backgroundGlobe.color
         selectionStyle = .none
     }
 

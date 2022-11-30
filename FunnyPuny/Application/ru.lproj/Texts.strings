@@ -1,9 +1,8 @@
 //MARK: Home
 
-"welcome" = "Добро пожаловать в FunnyPuny!";
 "oops" = "Упс!";
 "alert" = "Этот день еще не настал";
-"ok" = "OK";
+"okay" = "OK";
 
 // MARK: AddHabit
 
@@ -22,8 +21,8 @@
 // MARK: TabBar
 
 "habits" = "Привычки";
-"profile" = "Личный кабинет";
-"home" = "Основной экран";
+"profile" = "Профиль";
+"home" = "Главная";
 "analytics" = "Аналитика";
 
 // MARK: Analytics
@@ -34,19 +33,19 @@
 
 // MARK: Frequency
 
-"Mon" = "ПН";
-"Tue" = "ВТ";
-"Wed" = "СР";
-"Thu" = "ЧТ";
-"Fri" = "ПТ";
-"Sat" = "СБ";
-"San" = "ВС";
+"Mon" = "Пн";
+"Tue" = "Вт";
+"Wed" = "Ср";
+"Thu" = "Чт";
+"Fri" = "Пт";
+"Sat" = "Сб";
+"Sun" = "Вс";
 "Everyday" = "Каждый день";
 
 // MARK: Profile
 
-"Notifications" = "Уведомления";
-"Apperance" = "Appearance";
-"Achievments" = "Достижения";
-"Donation" = "Donation";
+"notifications" = "Уведомления";
+"appearance" = "Appearance";
+"achievments" = "Достижения";
+"donation" = "Donation";
 

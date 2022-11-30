@@ -5,6 +5,9 @@
 ## Firebase
 GoogleService-Info.plist
 
+## SwiftGen 
+FunnyPuny/Application/Generated/
+
 ## User settings
 xcuserdata/
 

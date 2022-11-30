@@ -1,9 +1,8 @@
 //MARK: Home
 
-"welcome" = "Welcome to FunnyPuny!";
 "oops" = "Oops!";
 "alert" = "This day doesn't come";
-"ok" = "OK";
+"okay" = "OK";
 
 // MARK: AddHabit
 
@@ -40,12 +39,12 @@
 "Thu" = "Thu";
 "Fri" = "Fri";
 "Sat" = "Sat";
-"San" = "San";
+"Sun" = "Sun";
 "Everyday" = "Everyday";
 
 // MARK: Profile
 
-"Notifications" = "Notifications";
-"Apperance" = "Appearance";
-"Achievments" = "Achievments";
-"Donation" = "Donation";
+"notifications" = "Notifications";
+"appearance" = "Appearance";
+"achievments" = "Achievments";
+"donation" = "Donation";

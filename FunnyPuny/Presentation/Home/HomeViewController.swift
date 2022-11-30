@@ -10,7 +10,6 @@ import UIKit
 
 class HomeViewController: ViewController {
     private var homeView = HomeView()
-    var habits: Results<Habit>?
     var currentHabits = [Habit]()
     var selectedDate = Date()
 
@@ -41,7 +40,6 @@ class HomeViewController: ViewController {
     }
 
     private func setupData() {
-        habits = realm.objects(Habit.self)
         setupCurrentHabits()
     }
 

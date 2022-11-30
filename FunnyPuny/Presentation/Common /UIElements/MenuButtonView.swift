@@ -12,7 +12,7 @@ class MenuButtonView: UIView {
 
     var categoryLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .textAccent
+        label.textColor = Colors.textAccent.color
         label.font = .bold24
         label.text = Texts.allHabits
         return label
@@ -20,9 +20,9 @@ class MenuButtonView: UIView {
 
     private var pointerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .down
-        imageView.backgroundColor = .backgroundGlobe
-        imageView.tintColor = .iconsActive
+        imageView.image = Images.down.image
+        imageView.backgroundColor = Colors.backgroundGlobe.color
+        imageView.tintColor = Colors.iconsActive.color
         return imageView
     }()
 
@@ -45,7 +45,7 @@ class MenuButtonView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .backgroundGlobe
+        backgroundColor = Colors.backgroundGlobe.color
     }
 
     private func addSubviews() {
