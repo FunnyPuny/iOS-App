@@ -55,5 +55,6 @@ extension CalendarAnalyticDateCell: Configurable {
         dateLabel.layer.borderColor = viewModel.date.isToday
             ? Colors.backgroundAccent.color.cgColor
             : Colors.backgroundBoarder.color.cgColor
+        dateLabel.layer.borderWidth = 2
     }
 }

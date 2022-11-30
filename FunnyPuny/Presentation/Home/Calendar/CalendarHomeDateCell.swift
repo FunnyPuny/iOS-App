@@ -87,6 +87,7 @@ extension CalendarHomeDateCell: Configurable {
             ? Colors.backgroundAccent.color.cgColor
             : Colors.backgroundBoarder.color.cgColor
         dateLabel.backgroundColor = viewModel.backgroundColor
+        dateLabel.layer.borderWidth = 2
         if viewModel.isSelected {
             containerView.layer.cornerRadius = 22
             containerView.dropShadow()

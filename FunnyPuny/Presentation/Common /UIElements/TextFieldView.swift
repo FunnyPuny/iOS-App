@@ -21,7 +21,7 @@ class TextFieldView: UIView {
         textField.placeholder = placeholder
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [.foregroundColor: Colors.textTertiary.color ?? .clear]
+            attributes: [.foregroundColor: Colors.textTertiary.color]
         )
         textField.layer.cornerRadius = 8
         textField.layer.borderColor = Colors.inputDefault.color.cgColor

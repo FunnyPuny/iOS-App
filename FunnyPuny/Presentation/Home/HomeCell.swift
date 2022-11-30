@@ -12,7 +12,6 @@ class HomeCell: UITableViewCell {
     private var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
-        imageView.image = .circle
         imageView.backgroundColor = Colors.backgroundGlobe.color
         return imageView
     }()
@@ -88,19 +87,21 @@ extension HomeCell: Configurable {
             isDone = false
         } else {
             label.text = viewModel.habitName
+            label.textColor = Colors.textPrimary.color
             if viewModel.isDone {
-                iconImageView.image = .checkmark
-                iconImageView.tintColor = Colors.iconsActive.color
-                contentView.backgroundColor = Colors.backgroundGlobe.color
-                contentView.layer.borderColor = Colors.backgroundIsland.color.cgColor
-                contentView.layer.borderWidth = 2
-                isDone = true
-            } else {
-                iconImageView.image = .circle
-                iconImageView.tintColor = Colors.backgroundGlobe.color
+                iconImageView.image = Images.checkmark2.image
                 contentView.backgroundColor = Colors.backgroundIsland.color
                 contentView.layer.borderColor = UIColor.clear.cgColor
                 contentView.layer.borderWidth = 0
+                isDone = true
+            } else {
+                iconImageView.image = .circle
+                iconImageView.layer.borderWidth = 2
+                iconImageView.layer.borderColor = Colors.backgroundIsland.color.cgColor
+                iconImageView.tintColor = Colors.backgroundGlobe.color
+                contentView.backgroundColor = Colors.backgroundGlobe.color
+                contentView.layer.borderColor = Colors.backgroundIsland.color.cgColor
+                contentView.layer.borderWidth = 2
                 isDone = false
             }
         }
