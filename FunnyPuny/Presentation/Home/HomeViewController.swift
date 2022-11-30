@@ -134,9 +134,9 @@ extension HomeViewController: UITableViewDelegate {
             } catch let error as NSError {
                 print("Can't update habit, error: \(error)")
             }
+            homeView.calendarView.monthView.reloadDates([selectedDate])
+            tableView.reloadData()
         }
-        homeView.calendarView.monthView.reloadDates([selectedDate])
-        tableView.reloadData()
     }
 }
 
@@ -194,6 +194,7 @@ extension HomeViewController: JTACMonthViewDelegate {
         cell.configure(with:
             .init(
                 date: cellState.date,
+                isDateBelongsToCurrentMonth: false,
                 backgroundColor: calendarManager.getColorForAllHabitMode(by: cellState.date),
                 isSelected: date.dayOfYear == selectedDate.dayOfYear
             )
