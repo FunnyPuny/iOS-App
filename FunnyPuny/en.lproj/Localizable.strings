@@ -42,3 +42,10 @@
 "Sat" = "Sat";
 "San" = "San";
 "Everyday" = "Everyday";
+
+// MARK: Profile
+
+"Notifications" = "Notifications";
+"Apperance" = "Appearance";
+"Achievments" = "Achievments";
+"Donation" = "Donation";

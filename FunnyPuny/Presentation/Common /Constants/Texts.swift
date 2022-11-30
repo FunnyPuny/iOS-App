@@ -8,7 +8,7 @@ enum Texts {
     static let oops = "Oops!"
     /// This day doesn't come
     static let alert = "This day doesn't come"
-    static let ok = "OK"
+    static let okay = "OK"
 
     // MARK: AddHabit
 
@@ -47,4 +47,11 @@ enum Texts {
     static let sat = "Sat"
     static let sun = "San"
     static let everyday = "Everyday"
+
+    // MARK: Profile
+
+    static let notification = "Notifications"
+    static let appearance = "Appearance"
+    static let achievments = "Achievments"
+    static let donation = "Donation"
 }

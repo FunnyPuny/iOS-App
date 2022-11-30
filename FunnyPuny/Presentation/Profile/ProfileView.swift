@@ -6,12 +6,16 @@ import UIKit
 
 class ProfileView: UIView {
     private var gifImageView: UIImageView = .profileGIF
-    private var tableView: UITableView = {
+    
+    var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .backgroundGlobe
         tableView.register(cellWithClass: ProfileCell.self)
-        tableView.rowHeight = 46
+        tableView.rowHeight = 64
         tableView.separatorStyle = .singleLine
+        tableView.layer.cornerRadius = 16
+        tableView.layer.borderColor = UIColor.backgroundIsland.cgColor
+        tableView.layer.borderWidth = 2
         return tableView
     }()
 
@@ -43,13 +47,14 @@ class ProfileView: UIView {
     private func makeConstraints() {
         gifImageView.snp.makeConstraints { make in
             make.width.height.equalTo(100)
-            make.top.centerX.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
         }
 
         tableView.snp.makeConstraints { make in
             make.top.equalTo(gifImageView.snp.bottom).offset(44)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            make.height.equalTo(256)
         }
     }
 }

@@ -42,3 +42,11 @@
 "Sat" = "СБ";
 "San" = "ВС";
 "Everyday" = "Каждый день";
+
+// MARK: Profile
+
+"Notifications" = "Уведомления";
+"Apperance" = "Appearance";
+"Achievments" = "Достижения";
+"Donation" = "Donation";
+

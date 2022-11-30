@@ -103,7 +103,7 @@ class HomeViewController: ViewController {
 
     func presentAlert() {
         let alert = UIAlertController(title: Texts.oops, message: Texts.alert, preferredStyle: .alert)
-        alert.addAction(.init(title: Texts.ok, style: .cancel))
+        alert.addAction(.init(title: Texts.okay, style: .cancel))
         present(alert, animated: true)
     }
 }

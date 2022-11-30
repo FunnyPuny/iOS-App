@@ -1,4 +1,4 @@
-// HomeCell.swift
+// ProfileCell.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import SwiftDate
@@ -11,7 +11,8 @@ class ProfileCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
         imageView.image = .right
-        imageView.backgroundColor = .iconsOther
+        imageView.tintColor = .iconsOther
+        imageView.backgroundColor = .backgroundGlobe
         return imageView
     }()
 
@@ -41,7 +42,6 @@ class ProfileCell: UITableViewCell {
     private func setupStyle() {
         backgroundColor = .backgroundGlobe
         selectionStyle = .none
-        contentView.layer.cornerRadius = 16
     }
 
     private func addSubviews() {
@@ -57,7 +57,7 @@ class ProfileCell: UITableViewCell {
 
         label.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
-            make.top.bottom.equalToSuperview().inset(24)
+            make.top.bottom.equalToSuperview()
             make.trailing.equalToSuperview().inset(48)
         }
 
@@ -69,3 +69,8 @@ class ProfileCell: UITableViewCell {
     }
 }
 
+extension ProfileCell: Configurable {
+    func configure(with viewModel: ProfileCellViewModel) {
+        label.text = viewModel.itemName
+    }
+}

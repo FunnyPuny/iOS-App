@@ -67,6 +67,7 @@
 		CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2528F8A9D100D2CE36 /* ViewController.swift */; };
 		CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2728F8AFCA00D2CE36 /* Habit.swift */; };
 		CEA71A2A28F8B75400D2CE36 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */; };
+		CEADCCD52936210100BFD545 /* ProfileCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADCCD42936210100BFD545 /* ProfileCellViewModel.swift */; };
 		CEB1EA882909C8670087ED24 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEB1EA872909C8670087ED24 /* SF-Pro-Display-Bold.otf */; };
 		CEB1EA8A2909CB840087ED24 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEB1EA892909CB840087ED24 /* SF-Pro-Text-Regular.otf */; };
 		CEB1EA8C290C113A0087ED24 /* List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8B290C113A0087ED24 /* List+Extension.swift */; };
@@ -138,6 +139,7 @@
 		CEA71A2528F8A9D100D2CE36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEA71A2728F8AFCA00D2CE36 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		CEADCCD42936210100BFD545 /* ProfileCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellViewModel.swift; sourceTree = "<group>"; };
 		CEB1EA872909C8670087ED24 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		CEB1EA892909CB840087ED24 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		CEB1EA8B290C113A0087ED24 /* List+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+Extension.swift"; sourceTree = "<group>"; };
@@ -234,8 +236,9 @@
 		CE10452D28F756B5006B31D6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				CEE6113128F85950003CF0AB /* ProfileView.swift */,
 				CE6D4BC62935275900647D7D /* ProfileCell.swift */,
+				CEADCCD42936210100BFD545 /* ProfileCellViewModel.swift */,
+				CEE6113128F85950003CF0AB /* ProfileView.swift */,
 				CEE6113328F8595A003CF0AB /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -574,6 +577,7 @@
 				CE10452C28F70529006B31D6 /* Colors.swift in Sources */,
 				CE6B77C4291AE5B000996142 /* CalendarAnalyticView.swift in Sources */,
 				CEA71A2A28F8B75400D2CE36 /* TextFieldView.swift in Sources */,
+				CEADCCD52936210100BFD545 /* ProfileCellViewModel.swift in Sources */,
 				CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */,
 				CE09C14828F99BAF00B7CB45 /* Images.swift in Sources */,
 				CE6B77DD29240D1100996142 /* CalendarCellViewModel.swift in Sources */,
