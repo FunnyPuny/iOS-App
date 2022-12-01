@@ -156,7 +156,7 @@ extension AnalyticsViewController: JTACMonthViewDelegate {
             indexPath: indexPath
         )
         rangeStartDate = range.start
-        header.monthView.monthLabel.text = rangeStartDate.string(dateFormat: .formatMMMMyyyy)
+        header.monthView.monthLabel.text = rangeStartDate.string(dateFormat: .formatLLLLyyyy)
         header.monthView.rightButton.addTarget(self, action: #selector(goToNextMonth), for: .touchUpInside)
         header.monthView.leftButton.addTarget(self, action: #selector(goToPreviousMonth), for: .touchUpInside)
         return header

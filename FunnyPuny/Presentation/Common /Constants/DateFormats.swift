@@ -11,14 +11,14 @@ extension Date {
         case formatdd = "dd"
         /// T
         case formatEEEEE = "EEEEE"
-        /// October, 18
-        case formatMMMMd = "MMMM, d"
+        ///  October, 18
+        case formatLLLLd = "LLLL, d"
         /// 18 October 2022
         case formatdMMMMyyyy = "d MMMM yyyy"
         /// 22/10/18
         case formatyyMMdd = "yy/MM/dd"
         /// October 2022
-        case formatMMMMyyyy = "MMMM yyyy"
+        case formatLLLLyyyy = "LLLL yyyy"
     }
 
     /// Строка из даты

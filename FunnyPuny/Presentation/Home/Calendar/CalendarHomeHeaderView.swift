@@ -11,7 +11,7 @@ class CalendarHomeHeaderView: UIView {
         label.textColor = Colors.textAccent.color
         label.font = .bold24
         label.textAlignment = .center
-        label.text = Date().string(dateFormat: .formatMMMMd)
+        label.text = Date().string(dateFormat: .formatLLLLd)
         return label
     }()
 
