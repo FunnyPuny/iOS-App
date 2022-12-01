@@ -93,7 +93,7 @@ class AddHabitView: UIView {
             ? Colors.buttonActive.color
             : Colors.buttonInactive.color
         addButton.titleLabel?.textColor = nameInputView.textField.isValid(with: " ")
-            ? Colors.textPrimaryInverse.color
+            ? Colors.textButton.color
             : Colors.textSecondary.color
     }
 }
