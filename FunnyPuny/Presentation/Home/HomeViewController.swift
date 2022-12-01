@@ -8,6 +8,12 @@ import UIKit
 
 // MARK: - HomeViewController
 
+enum HomeState {
+    case emptyState
+    case chillState
+    case regularState
+}
+
 class HomeViewController: ViewController {
     private var homeView = HomeView()
     var currentHabits = [Habit]()
@@ -15,11 +21,13 @@ class HomeViewController: ViewController {
 
     var habitManager = HabitManager()
     var calendarManager = CalendarManager()
+    var homeViewModel = HomeViewModel(homeViewState: .emptyState)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Texts.home
         view = homeView
+        setupHomeStyle()
         setupTableView()
         setupData()
         setupCalendar()
@@ -29,6 +37,19 @@ class HomeViewController: ViewController {
 
     @objc private func habitDidAdd() {
         homeView.tableView.reloadData()
+    }
+
+    private func setupHomeStyle() {
+        if habitManager.habits.isEmpty {
+            homeViewModel.homeViewState = .emptyState
+        } else {
+            if currentHabits.count != 0 {
+                homeViewModel.homeViewState = .regularState
+            } else {
+                homeViewModel.homeViewState = .chillState
+            }
+        }
+        homeView.configure(with: homeViewModel)
     }
 
     private func setupCurrentHabits() {
@@ -85,6 +106,7 @@ class HomeViewController: ViewController {
             sheet.detents = [.large()]
         }
         present(addHabitViewController, animated: true)
+        setupHomeStyle()
     }
 
     private func scrollToDate(_ date: Date, animated: Bool = true) {
@@ -95,8 +117,9 @@ class HomeViewController: ViewController {
             animateScroll: animated,
             extraAddedOffset: -4
         )
-        homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
+        homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
         setupCurrentHabits()
+        setupHomeStyle()
     }
 
     func presentAlert() {
