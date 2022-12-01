@@ -4,9 +4,20 @@
 import UIKit
 
 extension UIImageView {
-    static let homeGIF: UIImageView = {
+    static let chillStateGIF: UIImageView = {
         do {
-            let gif = try UIImage(gifName: "home.gif")
+            let gif = try UIImage(gifName: "chillState.gif")
+            let imageView = UIImageView(gifImage: gif)
+            return imageView
+        } catch {
+            print(error)
+        }
+        return UIImageView()
+    }()
+
+    static let emptyStateGIF: UIImageView = {
+        do {
+            let gif = try UIImage(gifName: "emptyState.gif")
             let imageView = UIImageView(gifImage: gif)
             return imageView
         } catch {
