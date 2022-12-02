@@ -64,7 +64,6 @@
 		CEADCCCB2935339900BFD545 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADCCCA2935339900BFD545 /* Texts.swift */; };
 		CEADCCCD29354C6B00BFD545 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADCCCC29354C6B00BFD545 /* Assets.swift */; };
 		CEADCCCF29354EB600BFD545 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADCCCE29354EB600BFD545 /* Constants.swift */; };
-		CEADCCD32935564400BFD545 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADCCD22935564300BFD545 /* Images.swift */; };
 		CEB1EA882909C8670087ED24 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEB1EA872909C8670087ED24 /* SF-Pro-Display-Bold.otf */; };
 		CEB1EA8A2909CB840087ED24 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEB1EA892909CB840087ED24 /* SF-Pro-Text-Regular.otf */; };
 		CEB1EA8C290C113A0087ED24 /* List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8B290C113A0087ED24 /* List+Extension.swift */; };
@@ -140,7 +139,6 @@
 		CEADCCCA2935339900BFD545 /* Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		CEADCCCC29354C6B00BFD545 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assets.swift; path = FunnyPuny/Application/Generated/Assets.swift; sourceTree = SOURCE_ROOT; };
 		CEADCCCE29354EB600BFD545 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CEADCCD22935564300BFD545 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CEB1EA872909C8670087ED24 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		CEB1EA892909CB840087ED24 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		CEB1EA8B290C113A0087ED24 /* List+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+Extension.swift"; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 			children = (
 				CEB1EA8D290C170A0087ED24 /* Fonts.swift */,
 				CEA0BF5428FEBA7A009B6BFD /* DateFormats.swift */,
-				CEADCCD22935564300BFD545 /* Images.swift */,
 				CE09C14928F99F1700B7CB45 /* GIFs.swift */,
 				CE7808E828FF660F0016AD41 /* Notifications.swift */,
 			);
@@ -636,7 +633,6 @@
 				CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,
 				CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */,
-				CEADCCD32935564400BFD545 /* Images.swift in Sources */,
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,
 				CE09C15328F9EB1800B7CB45 /* DayView.swift in Sources */,
 				CE09C14A28F99F1700B7CB45 /* GIFs.swift in Sources */,

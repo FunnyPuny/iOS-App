@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Theme=Light, Property 1=Default, Property 2=Big, Selected=True.pdf",
+      "filename" : "Theme=Light, Property 1=Default, Property 2=Big, Selected=False.pdf",
       "idiom" : "universal"
     },
     {
@@ -11,15 +11,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Theme=Dark, Property 1=Default, Property 2=Big, Selected=True.pdf",
+      "filename" : "Theme=Dark, Property 1=Default, Property 2=Big, Selected=False.pdf",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }
