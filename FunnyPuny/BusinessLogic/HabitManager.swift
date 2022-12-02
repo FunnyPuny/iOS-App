@@ -16,7 +16,7 @@ class HabitManager {
     lazy var days: [Days] = realm.objects(Days.self).toArray(type: Days.self)
 
     var allHabitsName: [String] {
-        habits.map(\.name)
+        habits.map(\.name).sorted(by: <)
     }
 
     func getSpecificElement<T: Object>(type: T.Type, with primaryKey: String) -> T? {

@@ -27,7 +27,6 @@ class HomeViewController: ViewController {
         super.viewDidLoad()
         title = Texts.home
         view = homeView
-        setupHomeStyle()
         setupTableView()
         setupData()
         setupCalendar()
@@ -57,6 +56,7 @@ class HomeViewController: ViewController {
         currentHabits = habitManager.habits.filter {
             selectedDate >= $0.createdDate && $0.frequency.contains(currentFrequency)
         }
+        setupHomeStyle()
         homeView.tableView.reloadData()
     }
 
@@ -119,7 +119,6 @@ class HomeViewController: ViewController {
         )
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
         setupCurrentHabits()
-        setupHomeStyle()
     }
 
     func presentAlert() {
@@ -180,7 +179,7 @@ extension HomeViewController: UITableViewDataSource {
 
         let date = selectedDate.string(dateFormat: .formatyyMMdd)
         let habitId = currentHabits[indexPath.row].id
-        let days = realm.object(ofType: Days.self, forPrimaryKey: date)
+        let days = habitManager.getSpecificElement(type: Days.self, with: date)
         if let days, days.habits.contains(habitId) {
             viewModel.isDone = true
             cell.configure(with: viewModel)
