@@ -16,6 +16,7 @@ class CalendarHomeView: UIView {
         view.register(CalendarHomeDateCell.self, forCellWithReuseIdentifier: "CalendarHomeDateCell")
         view.backgroundColor = Colors.backgroundGlobe.color
         view.scrollDirection = .horizontal
+        view.scrollingMode = .none
         view.showsHorizontalScrollIndicator = false
         view.cellSize = UIScreen.main.bounds.width / 7
         return view

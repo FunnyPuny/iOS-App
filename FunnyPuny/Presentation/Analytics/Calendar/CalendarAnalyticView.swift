@@ -16,7 +16,7 @@ class CalendarAnalyticView: UIView {
         )
         view.backgroundColor = Colors.backgroundGlobe.color
         view.scrollDirection = .horizontal
-        view.scrollingMode = .none
+        view.scrollingMode = .stopAtEachSection
         view.showsHorizontalScrollIndicator = false
         view.cellSize = (UIScreen.main.bounds.width - 64) / 7
         return view
