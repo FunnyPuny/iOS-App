@@ -33,14 +33,13 @@
 
 // MARK: Frequency
 
-"Mon" = "Mon";
-"Tue" = "Tue";
-"Wed" = "Wed";
-"Thu" = "Thu";
-"Fri" = "Fri";
-"Sat" = "Sat";
-"Sun" = "Sun";
-"Everyday" = "Everyday";
+"mon" = "Mon";
+"tue" = "Tue";
+"wed" = "Wed";
+"thu" = "Thu";
+"fri" = "Fri";
+"sat" = "Sat";
+"sun" = "Sun";
 
 // MARK: Profile
 
@@ -57,3 +56,7 @@
 
 "chillStateTitle" = "There're no habits to complete today";
 "chillStateLabel" = "It's chill day! See you tomorrow!";
+
+// MARK: FrequencyView
+
+"everyday" = "Everyday";

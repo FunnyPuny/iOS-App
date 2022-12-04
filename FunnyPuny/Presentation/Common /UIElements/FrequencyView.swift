@@ -19,20 +19,11 @@ class FrequencyView: UIView {
         return label
     }()
 
-    lazy var everydayLabel: DayView = {
-        let view = DayView(.everyday, isSelected: true)
-        return view
-    }()
+    lazy var everydayLabel = EverydayView(Texts.everyday, isSelected: true)
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubview(DayView(Frequency.mon))
-        stackView.addArrangedSubview(DayView(Frequency.tue))
-        stackView.addArrangedSubview(DayView(Frequency.wed))
-        stackView.addArrangedSubview(DayView(Frequency.thu))
-        stackView.addArrangedSubview(DayView(Frequency.fri))
-        stackView.addArrangedSubview(DayView(Frequency.sat))
-        stackView.addArrangedSubview(DayView(Frequency.sun))
+        stackView.addArrangedSubviews(Frequency.allCases.map { DayView($0) })
         stackView.spacing = 8
         stackView.distribution = .fillEqually
         return stackView

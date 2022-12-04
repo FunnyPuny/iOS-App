@@ -33,14 +33,13 @@
 
 // MARK: Frequency
 
-"Mon" = "Пн";
-"Tue" = "Вт";
-"Wed" = "Ср";
-"Thu" = "Чт";
-"Fri" = "Пт";
-"Sat" = "Сб";
-"Sun" = "Вс";
-"Everyday" = "Каждый день";
+"mon" = "Пн";
+"tue" = "Вт";
+"wed" = "Ср";
+"thu" = "Чт";
+"fri" = "Пт";
+"sat" = "Сб";
+"sun" = "Вс";
 
 // MARK: Profile
 
@@ -57,3 +56,7 @@
 
 "chillStateTitle" = "Сегодня отдыхай";
 "chillStateLabel" = "Увидимся завтра!";
+
+// MARK: FrequencyView
+
+"everyday" = "Каждый день";
