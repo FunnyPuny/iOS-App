@@ -46,7 +46,7 @@ class DayView: UIView {
         }
     }
 
-    private func setupStyle() {
+    func setupStyle() {
         backgroundColor = isSelected ? Colors.backgroundAccent.color : Colors.backgroundIsland.color
         dayLabel.textColor = isSelected ? Colors.textButton.color : Colors.textPrimary.color
     }

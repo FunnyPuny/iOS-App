@@ -46,7 +46,7 @@ class EverydayView: UIView {
         }
     }
 
-    private func setupStyle() {
+    func setupStyle() {
         backgroundColor = isSelected ? Colors.backgroundAccent.color : Colors.backgroundIsland.color
         label.textColor = isSelected ? Colors.textButton.color : Colors.textPrimary.color
     }

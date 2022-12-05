@@ -49,6 +49,7 @@ class HomeViewController: ViewController {
             }
         }
         homeView.configure(with: homeViewModel)
+        homeView.tableView.reloadData()
     }
 
     private func setupCurrentHabits() {
@@ -118,10 +119,11 @@ class HomeViewController: ViewController {
             extraAddedOffset: -4
         )
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
+        homeView.tableView.reloadData()
         setupCurrentHabits()
     }
 
-    func presentAlert() {
+    private func presentAlert() {
         let alert = UIAlertController(title: Texts.oops, message: Texts.alert, preferredStyle: .alert)
         alert.addAction(.init(title: Texts.okay, style: .cancel))
         present(alert, animated: true)
@@ -170,6 +172,7 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        currentHabits = currentHabits.sorted { $0.name < $1.name }
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
         var viewModel = HomeCellViewModel(
             habitName: currentHabits[indexPath.row].name,
@@ -239,7 +242,7 @@ extension HomeViewController: JTACMonthViewDelegate {
 extension HomeViewController: JTACMonthViewDataSource {
     func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
         let parameters = ConfigurationParameters(
-            startDate: Date() - 10.years,
+            startDate: Date() - 1.years,
             endDate: Date() + 10.years,
             numberOfRows: 1
         )

@@ -6,11 +6,6 @@ import UIKit
 class FrequencyView: UIView {
     var viewState: ViewState
 
-    enum ViewState {
-        case everyday
-        case specifcDays
-    }
-
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = Texts.frequency

@@ -2,7 +2,7 @@
 // FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
-
+// swiftlint:disable all
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
@@ -95,5 +95,18 @@ class AddHabitView: UIView {
         addButton.titleLabel?.textColor = nameInputView.textField.isValid(with: " ")
             ? Colors.textButton.color
             : Colors.textSecondary.color
+    }
+}
+
+extension AddHabitView: Configurable {
+    func configure(with viewModel: AddHabitViewModel) {
+        if viewModel.state == .everyday {
+            frequencyView.everydayLabel.isSelected = true
+
+        } else {
+            frequencyView.everydayLabel.isSelected = false
+            }
+        }
+        frequencyView.everydayLabel.setupStyle()
     }
 }
