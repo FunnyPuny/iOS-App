@@ -105,7 +105,6 @@ extension AddHabitView: Configurable {
 
         } else {
             frequencyView.everydayLabel.isSelected = false
-            }
         }
         frequencyView.everydayLabel.setupStyle()
     }

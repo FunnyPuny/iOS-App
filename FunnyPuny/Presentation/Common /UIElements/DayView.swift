@@ -6,11 +6,12 @@ import UIKit
 class DayView: UIView {
     var day: Frequency
     var isSelected: Bool
+    weak var delegate: EverydayViewProtocolDelegate?
+    var index: Int?
 
     lazy var dayLabel: UILabel = {
         let label = UILabel()
         label.text = day.string
-        label.textColor = isSelected ? Colors.textButton.color : Colors.textPrimary.color
         label.font = .regular17
         label.textAlignment = .center
         return label
@@ -33,7 +34,17 @@ class DayView: UIView {
         layer.cornerRadius = 6
         setupStyle()
         makeConstraints()
-        addTap()
+        // addTap()
+        isUserInteractionEnabled = true
+        let gesture = UIGestureRecognizer(target: self, action: #selector(onTap))
+        addGestureRecognizer(gesture)
+    }
+
+    @objc
+    func onTap(tapGesture: UITapGestureRecognizer) {
+        isSelected.toggle()
+        setupStyle()
+        delegate?.didSelect(index: index ?? 0)
     }
 
     private func addSubviews() {

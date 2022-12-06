@@ -4,7 +4,20 @@
 import RealmSwift
 import UIKit
 // swiftlint:disable all
-class AddHabitViewController: ViewController {
+class AddHabitViewController: ViewController, EverydayViewProtocolDelegate {
+    func didSelect(index: Int?) {
+        guard let index else { return }
+        if index == 0 {
+            addHabitViewModel.state = addHabitView.frequencyView.everydayLabel.isSelected ? .everyday : .specifcDays
+            addHabitView.configure(with: addHabitViewModel) // логика для евридей
+        } else {
+            addHabitViewModel.state = .specifcDays
+//            let view = addHabitView.frequencyView.stackView.subviews[index] as! DayView
+//            view.setupStyle()
+            addHabitView.configure(with: addHabitViewModel) // логика для вьюшек
+        }
+    }
+
     private var addHabitView = AddHabitView()
     private var addHabitViewModel = AddHabitViewModel(state: .everyday)
 
@@ -13,15 +26,27 @@ class AddHabitViewController: ViewController {
         title = Texts.addHabit
         view = addHabitView
         addHabitView.configure(with: addHabitViewModel)
+        addHabitView.frequencyView.everydayLabel.delegate = self
         setupTargets()
+        setupFrequency()
+    }
+
+    func setupFrequency() {
+        let views = addHabitView.frequencyView.stackView.subviews as! [DayView]
+        views.enumerated().forEach { index, view in
+            view.index = index + 1
+            view.delegate = self
+        }
+        addHabitView.frequencyView.everydayLabel.delegate = self
+        addHabitView.frequencyView.everydayLabel.index = 0
     }
 
     private func setupTargets() {
         addHabitView.addButton.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
-        for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
-            let gesture = UITapGestureRecognizer(target: self, action: #selector(dayDidSelected))
-            dayView.addGestureRecognizer(gesture)
-        }
+//        for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
+//            let gesture = UITapGestureRecognizer(target: self, action: #selector(dayDidSelected))
+//            dayView.addGestureRecognizer(gesture)
+//        }
     }
 
     @objc
