@@ -14,11 +14,17 @@ class FrequencyView: UIView {
         return label
     }()
 
-    lazy var everydayLabel = EverydayView(Texts.everyday, isSelected: true)
+    lazy var everydayLabel = DayView(.everyday, isSelected: true)
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubviews(Frequency.allCases.map { DayView($0) })
+        stackView.addArrangedSubview(DayView(.mon))
+        stackView.addArrangedSubview(DayView(.tue))
+        stackView.addArrangedSubview(DayView(.wed))
+        stackView.addArrangedSubview(DayView(.thu))
+        stackView.addArrangedSubview(DayView(.fri))
+        stackView.addArrangedSubview(DayView(.sat))
+        stackView.addArrangedSubview(DayView(.sun))
         stackView.spacing = 8
         stackView.distribution = .fillEqually
         return stackView
@@ -55,14 +61,14 @@ class FrequencyView: UIView {
         everydayLabel.snp.makeConstraints { make in
             make.top.equalTo(label.snp.bottom).offset(12)
             make.leading.equalToSuperview()
-            make.height.greaterThanOrEqualTo(32)
+            make.height.equalTo(32)
             make.width.equalTo(92)
         }
 
         stackView.snp.makeConstraints { make in
             make.top.equalTo(everydayLabel.snp.bottom).offset(12)
-            make.height.greaterThanOrEqualTo(32)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(32)
+            make.leading.trailing.equalToSuperview()
         }
     }
 }

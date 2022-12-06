@@ -11,6 +11,7 @@ enum Frequency: Int, CaseIterable, PersistableEnum {
     case thu = 5
     case fri = 6
     case sat = 7
+    case everyday = 0
 
     var string: String {
         switch self {
@@ -28,6 +29,8 @@ enum Frequency: Int, CaseIterable, PersistableEnum {
             return Texts.sat
         case .sun:
             return Texts.sun
+        case .everyday:
+            return Texts.everyday
         }
     }
 }

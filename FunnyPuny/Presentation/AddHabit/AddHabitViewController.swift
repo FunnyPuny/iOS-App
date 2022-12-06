@@ -4,16 +4,14 @@
 import RealmSwift
 import UIKit
 // swiftlint:disable all
-class AddHabitViewController: ViewController, EverydayViewProtocolDelegate {
+class AddHabitViewController: ViewController, DayViewProtocolDelegate {
     func didSelect(index: Int?) {
         guard let index else { return }
         if index == 0 {
-            addHabitViewModel.state = addHabitView.frequencyView.everydayLabel.isSelected ? .everyday : .specifcDays
+            addHabitViewModel.state = addHabitView.frequencyView.everydayLabel.isSelected ? .everyday : .specificDays
             addHabitView.configure(with: addHabitViewModel) // логика для евридей
         } else {
-            addHabitViewModel.state = .specifcDays
-//            let view = addHabitView.frequencyView.stackView.subviews[index] as! DayView
-//            view.setupStyle()
+            addHabitViewModel.state = .specificDays
             addHabitView.configure(with: addHabitViewModel) // логика для вьюшек
         }
     }
@@ -43,10 +41,6 @@ class AddHabitViewController: ViewController, EverydayViewProtocolDelegate {
 
     private func setupTargets() {
         addHabitView.addButton.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
-//        for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
-//            let gesture = UITapGestureRecognizer(target: self, action: #selector(dayDidSelected))
-//            dayView.addGestureRecognizer(gesture)
-//        }
     }
 
     @objc
@@ -78,12 +72,5 @@ class AddHabitViewController: ViewController, EverydayViewProtocolDelegate {
         } catch let error as NSError {
             print("Can not create habit, error: \(error)")
         }
-    }
-
-    @objc
-    func dayDidSelected() {
-        addHabitViewModel.state = .specifcDays
-        addHabitView.configure(with: addHabitViewModel)
-        print("day was selected")
     }
 }

@@ -3,10 +3,14 @@
 
 import UIKit
 
+protocol DayViewProtocolDelegate: AnyObject {
+    func didSelect(index: Int?)
+}
+
 class DayView: UIView {
     var day: Frequency
     var isSelected: Bool
-    weak var delegate: EverydayViewProtocolDelegate?
+    weak var delegate: DayViewProtocolDelegate?
     var index: Int?
 
     lazy var dayLabel: UILabel = {
@@ -17,10 +21,21 @@ class DayView: UIView {
         return label
     }()
 
+    lazy var button: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
+        button.backgroundColor = .clear
+        return button
+    }()
+
     required init(_ day: Frequency, isSelected: Bool = false) {
         self.day = day
         self.isSelected = isSelected
+        index = day.rawValue
         super.init(frame: .zero)
+        isUserInteractionEnabled = true
+        let gesture = UIGestureRecognizer(target: self, action: #selector(onTap))
+        addGestureRecognizer(gesture)
         commonInit()
     }
 
@@ -35,24 +50,26 @@ class DayView: UIView {
         setupStyle()
         makeConstraints()
         // addTap()
-        isUserInteractionEnabled = true
-        let gesture = UIGestureRecognizer(target: self, action: #selector(onTap))
-        addGestureRecognizer(gesture)
     }
 
     @objc
-    func onTap(tapGesture: UITapGestureRecognizer) {
+    func onTap() {
         isSelected.toggle()
         setupStyle()
-        delegate?.didSelect(index: index ?? 0)
+        delegate?.didSelect(index: index)
     }
 
     private func addSubviews() {
         addSubview(dayLabel)
+        addSubview(button)
     }
 
     private func makeConstraints() {
         dayLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(4)
+        }
+
+        button.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(4)
         }
     }
@@ -60,16 +77,5 @@ class DayView: UIView {
     func setupStyle() {
         backgroundColor = isSelected ? Colors.backgroundAccent.color : Colors.backgroundIsland.color
         dayLabel.textColor = isSelected ? Colors.textButton.color : Colors.textPrimary.color
-    }
-
-    private func addTap() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(daySelected))
-        addGestureRecognizer(tap)
-    }
-
-    @objc
-    func daySelected() {
-        isSelected.toggle()
-        setupStyle()
     }
 }

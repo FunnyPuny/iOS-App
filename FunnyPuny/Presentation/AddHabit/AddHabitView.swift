@@ -100,12 +100,13 @@ class AddHabitView: UIView {
 
 extension AddHabitView: Configurable {
     func configure(with viewModel: AddHabitViewModel) {
-        if viewModel.state == .everyday {
+        switch viewModel.state {
+        case .everyday:
             frequencyView.everydayLabel.isSelected = true
-
-        } else {
+            frequencyView.everydayLabel.setupStyle()
+        case .specificDays:
             frequencyView.everydayLabel.isSelected = false
+            frequencyView.everydayLabel.setupStyle()
         }
-        frequencyView.everydayLabel.setupStyle()
     }
 }

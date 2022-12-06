@@ -112,7 +112,7 @@ class HomeViewController: ViewController {
 
     private func scrollToDate(_ date: Date, animated: Bool = true) {
         selectedDate = date
-        homeView.calendarView.monthView.reloadData()
+        homeView.calendarView.monthView.reloadData(withAnchor: selectedDate)
         homeView.calendarView.monthView.scrollToDate(
             date - 3.days,
             animateScroll: animated,

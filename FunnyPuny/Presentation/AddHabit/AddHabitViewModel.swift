@@ -2,9 +2,10 @@
 // FunnyPuny. Created by Zlata Guseva.
 
 import Foundation
+
 enum ViewState {
     case everyday
-    case specifcDays
+    case specificDays
 }
 
 struct AddHabitViewModel {
