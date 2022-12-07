@@ -19,13 +19,8 @@ class AddHabitViewController: ViewController {
     }
 
     func setupFrequency() {
-        let views = addHabitView.frequencyView.views
-        views.enumerated().forEach { index, view in
-            view.index = index + 1
-            view.delegate = self
-        }
+        addHabitView.frequencyView.views.forEach { $0.delegate = self }
         addHabitView.frequencyView.everydayView.delegate = self
-        addHabitView.frequencyView.everydayView.index = 0
     }
 
     private func setupTargets() {
@@ -35,16 +30,13 @@ class AddHabitViewController: ViewController {
     @objc
     func saveHabit() {
         let days = List<Frequency>()
-        // TODO: 💩
+
         if addHabitViewModel.state == .everyday {
-            var currentDays = Frequency.allCases
-            currentDays.removeLast()
-            days.append(objectsIn: currentDays)
+            let everyday: [Frequency] = [.mon, .tue, .wed, .thu, .fri, .sat, .sun]
+            days.append(objectsIn: everyday)
         } else {
-            for dayView in addHabitView.frequencyView.views {
-                if dayView.isSelected {
-                    days.append(dayView.day)
-                }
+            for dayView in addHabitView.frequencyView.views where dayView.isSelected {
+                days.append(dayView.day)
             }
         }
 
@@ -68,9 +60,8 @@ class AddHabitViewController: ViewController {
 // MARK: DayViewProtocolDelegate
 
 extension AddHabitViewController: DayViewProtocolDelegate {
-    func dayDidSelect(index: Int?) {
-        guard let index else { return }
-        if index == 0 {
+    func didSelect(_ day: Frequency) {
+        if day == .everyday {
             addHabitViewModel.state = addHabitView.frequencyView.everydayView.isSelected ? .everyday : .specificDays
             for day in addHabitView.frequencyView.views {
                 day.isSelected = false

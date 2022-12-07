@@ -4,14 +4,13 @@
 import UIKit
 
 protocol DayViewProtocolDelegate: AnyObject {
-    func dayDidSelect(index: Int?)
+    func didSelect(_ day: Frequency)
 }
 
 class DayView: UIView {
     var day: Frequency
     var isSelected: Bool
     weak var delegate: DayViewProtocolDelegate?
-    var index: Int?
 
     lazy var dayLabel: UILabel = {
         let label = UILabel()
@@ -50,7 +49,7 @@ class DayView: UIView {
     func onTap(tapGesture: UITapGestureRecognizer) {
         isSelected.toggle()
         setupStyle()
-        delegate?.dayDidSelect(index: index)
+        delegate?.didSelect(day)
     }
 
     private func addSubviews() {
