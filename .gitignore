@@ -2,11 +2,9 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## Firebase
-GoogleService-Info.plist
-
 ## SwiftGen 
-FunnyPuny/Application/Generated/
+FunnyPuny/Application/Generated/Assets.swift
+FunnyPuny/Application/Generated/Texts.swift
 
 ## User settings
 xcuserdata/
