@@ -13,7 +13,7 @@ class AddHabitViewController: ViewController {
         title = Texts.addHabit
         view = addHabitView
         addHabitView.configure(with: addHabitViewModel)
-        addHabitView.frequencyView.everydayLabel.delegate = self
+        addHabitView.frequencyView.everydayView.delegate = self
         setupTargets()
         setupFrequency()
     }
@@ -24,8 +24,8 @@ class AddHabitViewController: ViewController {
             view.index = index + 1
             view.delegate = self
         }
-        addHabitView.frequencyView.everydayLabel.delegate = self
-        addHabitView.frequencyView.everydayLabel.index = 0
+        addHabitView.frequencyView.everydayView.delegate = self
+        addHabitView.frequencyView.everydayView.index = 0
     }
 
     private func setupTargets() {
@@ -71,7 +71,7 @@ extension AddHabitViewController: DayViewProtocolDelegate {
     func dayDidSelect(index: Int?) {
         guard let index else { return }
         if index == 0 {
-            addHabitViewModel.state = addHabitView.frequencyView.everydayLabel.isSelected ? .everyday : .specificDays
+            addHabitViewModel.state = addHabitView.frequencyView.everydayView.isSelected ? .everyday : .specificDays
             for day in addHabitView.frequencyView.views {
                 day.isSelected = false
             }

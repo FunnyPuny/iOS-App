@@ -44,10 +44,6 @@ class DayView: UIView {
         layer.cornerRadius = 6
         setupStyle()
         makeConstraints()
-        // addTap()
-//        isUserInteractionEnabled = true
-//        let gesture = UIGestureRecognizer(target: self, action: #selector(onTap))
-//        addGestureRecognizer(gesture)
     }
 
     @objc
@@ -64,7 +60,7 @@ class DayView: UIView {
 
     private func makeConstraints() {
         dayLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(4)
+            make.edges.equalToSuperview().inset(8)
         }
 
         button.snp.makeConstraints { make in
@@ -75,16 +71,5 @@ class DayView: UIView {
     func setupStyle() {
         backgroundColor = isSelected ? Colors.backgroundAccent.color : Colors.backgroundIsland.color
         dayLabel.textColor = isSelected ? Colors.textButton.color : Colors.textPrimary.color
-    }
-
-    private func addTap() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(daySelected))
-        addGestureRecognizer(tap)
-    }
-
-    @objc
-    func daySelected() {
-        isSelected.toggle()
-        setupStyle()
     }
 }

@@ -2,7 +2,7 @@
 // FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
-// swiftlint:disable all
+
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
@@ -62,7 +62,8 @@ class AddHabitView: UIView {
 
         frequencyView.snp.makeConstraints { make in
             make.top.equalTo(nameInputView.snp.bottom).offset(24)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
 
 //        reminderTimeView.snp.makeConstraints { make in
@@ -101,12 +102,12 @@ class AddHabitView: UIView {
 extension AddHabitView: Configurable {
     func configure(with viewModel: AddHabitViewModel) {
         if viewModel.state == .everyday {
-            frequencyView.everydayLabel.isSelected = true
+            frequencyView.everydayView.isSelected = true
 
         } else {
-            frequencyView.everydayLabel.isSelected = false
+            frequencyView.everydayView.isSelected = false
         }
-        frequencyView.everydayLabel.setupStyle()
+        frequencyView.everydayView.setupStyle()
         for day in frequencyView.views {
             day.setupStyle()
         }
