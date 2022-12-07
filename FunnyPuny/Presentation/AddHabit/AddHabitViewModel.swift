@@ -4,7 +4,7 @@
 import Foundation
 enum ViewState {
     case everyday
-    case specifcDays
+    case specificDays
 }
 
 struct AddHabitViewModel {

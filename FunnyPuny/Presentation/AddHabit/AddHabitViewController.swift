@@ -3,21 +3,8 @@
 
 import RealmSwift
 import UIKit
-// swiftlint:disable all
-class AddHabitViewController: ViewController, EverydayViewProtocolDelegate {
-    func didSelect(index: Int?) {
-        guard let index else { return }
-        if index == 0 {
-            addHabitViewModel.state = addHabitView.frequencyView.everydayLabel.isSelected ? .everyday : .specifcDays
-            addHabitView.configure(with: addHabitViewModel) // логика для евридей
-        } else {
-            addHabitViewModel.state = .specifcDays
-//            let view = addHabitView.frequencyView.stackView.subviews[index] as! DayView
-//            view.setupStyle()
-            addHabitView.configure(with: addHabitViewModel) // логика для вьюшек
-        }
-    }
 
+class AddHabitViewController: ViewController {
     private var addHabitView = AddHabitView()
     private var addHabitViewModel = AddHabitViewModel(state: .everyday)
 
@@ -32,7 +19,7 @@ class AddHabitViewController: ViewController, EverydayViewProtocolDelegate {
     }
 
     func setupFrequency() {
-        let views = addHabitView.frequencyView.stackView.subviews as! [DayView]
+        let views = addHabitView.frequencyView.views
         views.enumerated().forEach { index, view in
             view.index = index + 1
             view.delegate = self
@@ -43,21 +30,18 @@ class AddHabitViewController: ViewController, EverydayViewProtocolDelegate {
 
     private func setupTargets() {
         addHabitView.addButton.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
-//        for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
-//            let gesture = UITapGestureRecognizer(target: self, action: #selector(dayDidSelected))
-//            dayView.addGestureRecognizer(gesture)
-//        }
     }
 
     @objc
     func saveHabit() {
         let days = List<Frequency>()
-
         // TODO: 💩
-        if addHabitView.frequencyView.viewState == .everyday {
-            days.append(objectsIn: Frequency.allCases)
+        if addHabitViewModel.state == .everyday {
+            var currentDays = Frequency.allCases
+            currentDays.removeLast()
+            days.append(objectsIn: currentDays)
         } else {
-            for dayView in addHabitView.frequencyView.stackView.arrangedSubviews as! [DayView] {
+            for dayView in addHabitView.frequencyView.views {
                 if dayView.isSelected {
                     days.append(dayView.day)
                 }
@@ -79,11 +63,22 @@ class AddHabitViewController: ViewController, EverydayViewProtocolDelegate {
             print("Can not create habit, error: \(error)")
         }
     }
+}
 
-    @objc
-    func dayDidSelected() {
-        addHabitViewModel.state = .specifcDays
-        addHabitView.configure(with: addHabitViewModel)
-        print("day was selected")
+// MARK: DayViewProtocolDelegate
+
+extension AddHabitViewController: DayViewProtocolDelegate {
+    func dayDidSelect(index: Int?) {
+        guard let index else { return }
+        if index == 0 {
+            addHabitViewModel.state = addHabitView.frequencyView.everydayLabel.isSelected ? .everyday : .specificDays
+            for day in addHabitView.frequencyView.views {
+                day.isSelected = false
+            }
+            addHabitView.configure(with: addHabitViewModel)
+        } else {
+            addHabitViewModel.state = .specificDays
+            addHabitView.configure(with: addHabitViewModel)
+        }
     }
 }
