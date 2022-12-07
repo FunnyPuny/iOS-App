@@ -4,29 +4,33 @@
 import UIKit
 
 class HomeViewState: UIView {
-    var titleText: String
-    var labelText: String
+    var primaryText: String
+    var secondaryText: String
     var gifImageView: UIImageView
 
-    lazy var title: UILabel = {
-        let title = UILabel()
-        title.text = titleText
-        title.textColor = Colors.textPrimary.color
-        title.font = .regular17
-        return title
+    lazy var primaryLabel: UILabel = {
+        let label = UILabel()
+        label.text = primaryText
+        label.textColor = Colors.textPrimary.color
+        label.font = .regular17
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
     }()
 
-    lazy var label: UILabel = {
+    lazy var secondaryLabel: UILabel = {
         let label = UILabel()
-        label.text = labelText
-        title.textColor = Colors.textPrimary.color
-        title.font = .regular17
+        label.text = secondaryText
+        label.textColor = Colors.textPrimary.color
+        label.font = .regular17
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
 
     required init(titleText: String, labelText: String, gifImageView: UIImageView) {
-        self.titleText = titleText
-        self.labelText = labelText
+        primaryText = titleText
+        secondaryText = labelText
         self.gifImageView = gifImageView
         super.init(frame: .zero)
         commonInit()
@@ -49,8 +53,8 @@ class HomeViewState: UIView {
 
     private func addSubviews() {
         addSubview(gifImageView)
-        addSubview(title)
-        addSubview(label)
+        addSubview(primaryLabel)
+        addSubview(secondaryLabel)
     }
 
     private func makeConstraints() {
@@ -59,16 +63,16 @@ class HomeViewState: UIView {
             make.centerX.equalToSuperview()
         }
 
-        title.snp.makeConstraints { make in
+        primaryLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(gifImageView.snp.bottom).offset(24)
-            make.height.equalTo(20)
+            make.leading.trailing.equalToSuperview().inset(32)
         }
 
-        label.snp.makeConstraints { make in
+        secondaryLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(title.snp.bottom).offset(8)
-            make.height.equalTo(24)
+            make.top.equalTo(primaryLabel.snp.bottom).offset(8)
+            make.leading.trailing.equalToSuperview().inset(32)
         }
     }
 }

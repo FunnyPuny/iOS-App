@@ -6,7 +6,7 @@ import UIKit
 class FrequencyView: UIView {
     var viewState: ViewState
 
-    lazy var label: UILabel = {
+    private var label: UILabel = {
         let label = UILabel()
         label.text = Texts.frequency
         label.textColor = Colors.textPrimary.color
@@ -14,14 +14,27 @@ class FrequencyView: UIView {
         return label
     }()
 
-    lazy var everydayLabel = EverydayView(Texts.everyday, isSelected: true)
+    var everydayView = DayView(.everyday, isSelected: true)
 
-    lazy var stackView: UIStackView = {
+    let views: [DayView] = {
+        var views = Frequency.allCases.map { DayView($0) }
+        views.removeLast()
+        return views
+    }()
+
+    private var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubviews(Frequency.allCases.map { DayView($0) })
-        stackView.spacing = 8
+
+        stackView.spacing = 12
         stackView.distribution = .fillEqually
         return stackView
+    }()
+
+    private var scrollView: UIScrollView = {
+        var scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+        return scrollView
     }()
 
     required init(viewState: ViewState = .everyday) {
@@ -42,27 +55,33 @@ class FrequencyView: UIView {
 
     private func addSubviews() {
         addSubview(label)
-        addSubview(everydayLabel)
-        addSubview(stackView)
+        addSubview(everydayView)
+        addSubview(scrollView)
+        stackView.addArrangedSubviews(views)
+        scrollView.addSubview(stackView)
     }
 
     private func makeConstraints() {
         label.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.trailing.equalToSuperview()
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(32)
         }
 
-        everydayLabel.snp.makeConstraints { make in
+        everydayView.snp.makeConstraints { make in
             make.top.equalTo(label.snp.bottom).offset(12)
-            make.leading.equalToSuperview()
-            make.height.greaterThanOrEqualTo(32)
-            make.width.equalTo(92)
+            make.leading.equalToSuperview().inset(16)
+            make.height.equalTo(36)
+        }
+
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(everydayView.snp.bottom).offset(12)
+            make.leading.trailing.bottom.equalToSuperview()
         }
 
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(everydayLabel.snp.bottom).offset(12)
-            make.height.greaterThanOrEqualTo(32)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.edges.equalTo(scrollView.snp.edges)
+            make.height.equalTo(scrollView.snp.height)
         }
     }
 }
