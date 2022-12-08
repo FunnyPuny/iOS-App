@@ -27,6 +27,10 @@ extension Date {
         string(dateFormat: .formatyyyyMMdd)
     }
 
+    var localDate: Date {
+        Date() + Double(TimeZone.current.secondsFromGMT(for: Date()))
+    }
+
     /// Строка из даты
     /// - Parameter dateFormat: Формат даты
     /// - Parameter timeZone: Часовой пояс. По умолчанию используется системный
