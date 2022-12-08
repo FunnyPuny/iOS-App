@@ -23,6 +23,10 @@ extension Date {
         case formatyyyyMMdd = "yyyyMMdd"
     }
 
+    var shortForm: String {
+        string(dateFormat: .formatyyyyMMdd)
+    }
+
     /// Строка из даты
     /// - Parameter dateFormat: Формат даты
     /// - Parameter timeZone: Часовой пояс. По умолчанию используется системный

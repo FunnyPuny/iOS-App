@@ -55,8 +55,7 @@ class HomeViewController: ViewController {
     private func setupCurrentHabits() {
         let currentFrequency = Frequency(rawValue: selectedDate.weekday) ?? .sun
         currentHabits = habitManager.habits.filter {
-            selectedDate.string(dateFormat: .formatyyyyMMdd) >= $0.createdDate.string(dateFormat: .formatyyyyMMdd)
-                && $0.frequency.contains(currentFrequency)
+            selectedDate.shortForm >= $0.createdDate.shortForm && $0.frequency.contains(currentFrequency)
         }
         currentHabits = currentHabits.sorted { $0.name < $1.name }
         setupHomeStyle()
@@ -108,7 +107,6 @@ class HomeViewController: ViewController {
             sheet.detents = [.large()]
         }
         present(addHabitViewController, animated: true)
-        setupHomeStyle()
     }
 
     private func scrollToDate(_ date: Date, animated: Bool = true) {
@@ -232,6 +230,7 @@ extension HomeViewController: JTACMonthViewDelegate {
         cellState: CellState,
         indexPath: IndexPath
     ) {
+        guard date.shortForm != selectedDate.shortForm else { return }
         scrollToDate(date)
     }
 }
