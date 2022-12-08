@@ -19,6 +19,8 @@ extension Date {
         case formatyyMMdd = "yy/MM/dd"
         /// October 2022
         case formatLLLLyyyy = "LLLL yyyy"
+        /// 20221018
+        case formatyyyyMMdd = "yyyyMMdd"
     }
 
     /// Строка из даты
@@ -27,10 +29,6 @@ extension Date {
     /// - Parameter locale: Локаль. По умолчанию используется системная
     /// - Returns: Строка из даты
     func string(dateFormat: DateFormat, timeZone: TimeZone = .current, locale: Locale = .current) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = timeZone
-        dateFormatter.locale = locale
-        dateFormatter.dateFormat = dateFormat.rawValue
-        return dateFormatter.string(from: self)
+        toFormat(dateFormat.rawValue)
     }
 }

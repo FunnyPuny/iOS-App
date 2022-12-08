@@ -12,8 +12,8 @@ class HabitManager {
 
     // MARK: Public properties
 
-    lazy var habits: [Habit] = realm.objects(Habit.self).toArray(type: Habit.self)
-    lazy var days: [Days] = realm.objects(Days.self).toArray(type: Days.self)
+    lazy var habits = realm.objects(Habit.self)
+    lazy var days = realm.objects(Days.self)
 
     var allHabitsName: [String] {
         habits.map(\.name).sorted(by: <)
@@ -45,8 +45,6 @@ class HabitManager {
         countGoalBy(habitName) - countCompletedHabitBy(habitName)
     }
 
-    // MARK: Private properties
-
     var countCompletedHabits: Int {
         var totalCount = 0
         for day in days {
@@ -63,6 +61,8 @@ class HabitManager {
         guard countHabits != 0 else { return 0.0 }
         return Float(countCompletedHabits) / Float(countHabits)
     }
+
+    // MARK: Private properties
 
     private var countHabits: Int {
         let habits = habits

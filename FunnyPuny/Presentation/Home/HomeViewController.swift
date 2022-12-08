@@ -35,7 +35,7 @@ class HomeViewController: ViewController {
     }
 
     @objc private func habitDidAdd() {
-        homeView.tableView.reloadData()
+        setupCurrentHabits()
     }
 
     private func setupHomeStyle() {
@@ -55,10 +55,11 @@ class HomeViewController: ViewController {
     private func setupCurrentHabits() {
         let currentFrequency = Frequency(rawValue: selectedDate.weekday) ?? .sun
         currentHabits = habitManager.habits.filter {
-            selectedDate >= $0.createdDate && $0.frequency.contains(currentFrequency)
+            selectedDate.string(dateFormat: .formatyyyyMMdd) >= $0.createdDate.string(dateFormat: .formatyyyyMMdd)
+                && $0.frequency.contains(currentFrequency)
         }
+        currentHabits = currentHabits.sorted { $0.name < $1.name }
         setupHomeStyle()
-        homeView.tableView.reloadData()
     }
 
     private func setupData() {
@@ -119,7 +120,6 @@ class HomeViewController: ViewController {
             extraAddedOffset: -4
         )
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
-        homeView.tableView.reloadData()
         setupCurrentHabits()
     }
 
@@ -144,7 +144,7 @@ extension HomeViewController: UITableViewDelegate {
                     let habitId = currentHabits[indexPath.row].id
 
                     if let days = habitManager.getSpecificElement(type: Days.self, with: dateString) {
-                        if cell.isDone {
+                        if cell.state == .checked {
                             days.habits.remove(value: habitId)
                         } else {
                             days.habits.append(habitId)
@@ -172,7 +172,6 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        currentHabits = currentHabits.sorted { $0.name < $1.name }
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
         var viewModel = HomeCellViewModel(
             habitName: currentHabits[indexPath.row].name,
