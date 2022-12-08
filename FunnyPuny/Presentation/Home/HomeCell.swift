@@ -7,7 +7,50 @@ import UIKit
 // MARK: - HomeCell
 
 class HomeCell: UITableViewCell {
-    var isDone = false
+    enum HomeCellState {
+        case checked
+        case unchecked
+        case inactive
+
+        var contentBackgroundColor: UIColor {
+            switch self {
+            case .checked: return Colors.backgroundIsland.color
+            case .unchecked, .inactive: return Colors.backgroundGlobe.color
+            }
+        }
+
+        var borderWidth: CGFloat {
+            switch self {
+            case .checked: return 0
+            case .unchecked: return 2
+            case .inactive: return 3
+            }
+        }
+
+        var borderColor: CGColor {
+            switch self {
+            case .checked: return UIColor.clear.cgColor
+            case .unchecked: return Colors.backgroundIsland.color.cgColor
+            case .inactive: return Colors.backgroundBoarder.color.cgColor
+            }
+        }
+
+        var textColor: UIColor {
+            switch self {
+            case .checked, .unchecked: return Colors.textPrimary.color
+            case .inactive: return Colors.textSecondary.color
+            }
+        }
+
+        var iconImage: UIImage {
+            switch self {
+            case .checked: return Images.checkmark.image
+            case .unchecked, .inactive: return Images.cicrle.image
+            }
+        }
+    }
+
+    var state: HomeCellState = .unchecked
 
     private var iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -42,6 +85,11 @@ class HomeCell: UITableViewCell {
         backgroundColor = Colors.backgroundGlobe.color
         selectionStyle = .none
         contentView.layer.cornerRadius = 16
+        contentView.backgroundColor = state.contentBackgroundColor
+        iconImageView.image = state.iconImage
+        label.textColor = state.textColor
+        contentView.layer.borderColor = state.borderColor
+        contentView.layer.borderWidth = state.borderWidth
     }
 
     private func addSubviews() {
@@ -73,30 +121,12 @@ class HomeCell: UITableViewCell {
 
 extension HomeCell: Configurable {
     func configure(with viewModel: HomeCellViewModel) {
+        label.text = viewModel.habitName
         if viewModel.selectedDate > Date() {
-            // TODO:
-            iconImageView.image = Images.cicrle.image
-            contentView.backgroundColor = Colors.backgroundGlobe.color
-            contentView.layer.borderColor = Colors.backgroundBoarder.color.cgColor
-            contentView.layer.borderWidth = 3
-            label.textColor = Colors.textSecondary.color
-            isDone = false
+            state = .inactive
         } else {
-            label.text = viewModel.habitName
-            label.textColor = Colors.textPrimary.color
-            if viewModel.isDone {
-                iconImageView.image = Images.checkmark.image
-                contentView.backgroundColor = Colors.backgroundIsland.color
-                contentView.layer.borderColor = UIColor.clear.cgColor
-                contentView.layer.borderWidth = 0
-                isDone = true
-            } else {
-                iconImageView.image = Images.cicrle.image
-                contentView.backgroundColor = Colors.backgroundGlobe.color
-                contentView.layer.borderColor = Colors.backgroundIsland.color.cgColor
-                contentView.layer.borderWidth = 2
-                isDone = false
-            }
+            state = viewModel.isDone ? .checked : .unchecked
         }
+        setupStyle()
     }
 }
