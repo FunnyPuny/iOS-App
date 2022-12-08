@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "inactivecicle.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Theme=Dark, Property 1=Inactive, Property 2=Big, Selected=False.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
