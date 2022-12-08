@@ -3,6 +3,10 @@
 "oops" = "Упс!";
 "alert" = "Этот день еще не настал";
 "okay" = "OK";
+"emptyStateTitle" = "Давай сформируем твои новые привычки вместе!";
+"emptyStateLabel" = "Нажми +, чтобы добавить твою первую привычку";
+"chillStateTitle" = "Сегодня отдыхай";
+"chillStateLabel" = "Увидимся завтра!";
 
 // MARK: AddHabit
 
@@ -13,9 +17,6 @@
 "note" = "Заметка";
 "reminderNote" = "Введите описание привычки";
 "reminderTime" = "Напоминание";
-
-// MARK: Frequency
-
 "frequency" = "Частота выполнения";
 
 // MARK: TabBar
@@ -40,6 +41,7 @@
 "fri" = "Пт";
 "sat" = "Сб";
 "sun" = "Вс";
+"everyday" = "Каждый день";
 
 // MARK: Profile
 
@@ -47,16 +49,3 @@
 "appearance" = "Appearance";
 "achievments" = "Достижения";
 "donation" = "Donation";
-
-// MARK: HomeState
-
-"emptyStateTitle" = "Давай сформируем твои новые привычки вместе!";
-"emptyStateLabel" = "Нажми +, чтобы добавить твою первую привычку";
-
-
-"chillStateTitle" = "Сегодня отдыхай";
-"chillStateLabel" = "Увидимся завтра!";
-
-// MARK: FrequencyView
-
-"everyday" = "Каждый день";
