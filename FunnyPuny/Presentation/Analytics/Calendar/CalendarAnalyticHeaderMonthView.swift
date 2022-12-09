@@ -9,7 +9,7 @@ class CalendarAnalyticHeaderMonthView: UIView {
     var monthLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.textPrimary.color
-        label.font = .regular17
+        label.font = .bodyRegular
         label.textAlignment = .center
         return label
     }()

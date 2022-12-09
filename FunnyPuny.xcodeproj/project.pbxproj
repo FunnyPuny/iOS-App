@@ -130,6 +130,7 @@
 		CEA71A2528F8A9D100D2CE36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEA71A2728F8AFCA00D2CE36 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		CEA8D6E029432BA600B8E081 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		CEADCCC8293531C000BFD545 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Texts.strings; sourceTree = "<group>"; };
 		CEADCCCA2935339900BFD545 /* Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		CEADCCCC29354C6B00BFD545 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assets.swift; path = FunnyPuny/Application/Generated/Assets.swift; sourceTree = SOURCE_ROOT; };
@@ -258,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB1EA872909C8670087ED24 /* SF-Pro-Display-Bold.otf */,
+				CEA8D6E029432BA600B8E081 /* SF-Pro-Display-Medium.otf */,
 				CE6B77D42923C3A300996142 /* SF-Pro-Text-Medium.otf */,
 				CEB1EA892909CB840087ED24 /* SF-Pro-Text-Regular.otf */,
 			);

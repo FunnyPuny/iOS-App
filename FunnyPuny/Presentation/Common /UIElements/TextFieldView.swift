@@ -11,13 +11,13 @@ class TextFieldView: UIView {
         let label = UILabel()
         label.text = text
         label.textColor = Colors.textPrimary.color
-        label.font = .medium17
+        label.font = .bodyMedium
         return label
     }()
 
     lazy var textField: TextField = {
         let textField = TextField()
-        textField.font = .regular17
+        textField.font = .bodyRegular
         textField.placeholder = placeholder
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,

@@ -9,7 +9,7 @@ class CalendarHomeHeaderView: UIView {
     var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.textAccent.color
-        label.font = .bold24
+        label.font = .titleLarge
         label.textAlignment = .center
         label.text = Date().string(dateFormat: .formatLLLLd)
         return label

@@ -15,7 +15,7 @@ class DayView: UIView {
     lazy var dayLabel: UILabel = {
         let label = UILabel()
         label.text = day.string
-        label.font = .regular17
+        label.font = .bodyRegular
         label.textAlignment = .center
         return label
     }()

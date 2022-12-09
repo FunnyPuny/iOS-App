@@ -10,7 +10,7 @@ import UIKit
 class CalendarAnalyticDateCell: JTACDayCell {
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = .regular14
+        label.font = .body
         label.textAlignment = .center
         label.layer.cornerRadius = 18
         label.clipsToBounds = true

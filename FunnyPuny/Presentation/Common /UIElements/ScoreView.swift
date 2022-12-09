@@ -12,7 +12,7 @@ class ScoreView: UIView {
         label.text = amount
         label.textAlignment = .center
         label.textColor = Colors.textPrimary.color
-        label.font = .regular17
+        label.font = .bodyRegular
         return label
     }()
 
@@ -21,7 +21,7 @@ class ScoreView: UIView {
         label.text = text
         label.textAlignment = .center
         label.textColor = Colors.textPrimary.color
-        label.font = .regular14
+        label.font = .body
         return label
     }()
 

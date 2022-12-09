@@ -12,7 +12,7 @@ class HomeViewState: UIView {
         let label = UILabel()
         label.text = primaryText
         label.textColor = Colors.textPrimary.color
-        label.font = .regular17
+        label.font = .bodyRegular
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -22,7 +22,7 @@ class HomeViewState: UIView {
         let label = UILabel()
         label.text = secondaryText
         label.textColor = Colors.textPrimary.color
-        label.font = .regular17
+        label.font = .bodyRegular
         label.numberOfLines = 0
         label.textAlignment = .center
         return label

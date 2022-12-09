@@ -13,7 +13,7 @@ class NavigationController: UINavigationController {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = Colors.backgroundGlobe.color
         appearance.titleTextAttributes = [
-            .font: UIFont.bold17 ?? .systemFont(ofSize: 17),
+            .font: UIFont.titleSmall ?? .systemFont(ofSize: 17),
             .foregroundColor: Colors.textAccent.color
         ]
         navigationBar.standardAppearance = appearance
