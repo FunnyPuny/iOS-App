@@ -42,7 +42,7 @@ class TabBarController: UITabBarController {
             tag: 2
         )
 
-        viewControllers = [firstViewController, secondViewController]
+        viewControllers = [firstViewController, secondViewController, thirdViewController]
         selectedIndex = 0
     }
 }

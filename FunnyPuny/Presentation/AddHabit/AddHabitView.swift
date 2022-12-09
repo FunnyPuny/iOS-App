@@ -43,9 +43,9 @@ class AddHabitView: UIView {
 
     private func addSubviews() {
         addSubview(nameInputView)
-        // addSubview(reminderInputView)
+        addSubview(reminderInputView)
         addSubview(frequencyView)
-        // addSubview(reminderTimeView)
+        addSubview(reminderTimeView)
         addSubview(addButton)
     }
 
@@ -55,10 +55,10 @@ class AddHabitView: UIView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(16)
         }
 
-//        reminderInputView.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview().inset(16)
-//            make.top.equalTo(nameInputView.snp.bottom).offset(24)
-//        }
+        reminderInputView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(nameInputView.snp.bottom).offset(24)
+        }
 
         frequencyView.snp.makeConstraints { make in
             make.top.equalTo(nameInputView.snp.bottom).offset(24)
@@ -66,10 +66,10 @@ class AddHabitView: UIView {
             make.trailing.equalToSuperview()
         }
 
-//        reminderTimeView.snp.makeConstraints { make in
-//            make.top.equalTo(frequencyView.snp.bottom).offset(24)
-//            make.leading.equalToSuperview().inset(16)
-//        }
+        reminderTimeView.snp.makeConstraints { make in
+            make.top.equalTo(frequencyView.snp.bottom).offset(24)
+            make.leading.equalToSuperview().inset(16)
+        }
 
         addButton.snp.makeConstraints { make in
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(66)
