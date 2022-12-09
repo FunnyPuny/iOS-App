@@ -17,7 +17,6 @@ struct CalendarManager {
         let habits = habitManager.habits
         var countAllHabits = 0
         for habit in habits {
-            // TODO: filter
             for frequency in habit.frequency where frequency.rawValue == date.weekday {
                 countAllHabits += 1
             }
