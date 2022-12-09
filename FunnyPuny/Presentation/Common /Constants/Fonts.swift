@@ -5,6 +5,7 @@ import UIKit
 
 extension UIFont {
     static let medium14 = UIFont(name: "SFProText-Medium", size: 14)
+    static let medium17 = UIFont(name: "SFProText-Medium", size: 17)
     static let regular20 = UIFont(name: "SFProText-Regular", size: 20)
     static let regular17 = UIFont(name: "SFProText-Regular", size: 17)
     static let regular14 = UIFont(name: "SFProText-Regular", size: 14)

@@ -44,7 +44,6 @@ class AddHabitViewController: ViewController {
             try realm.write {
                 let newHabit = Habit(
                     name: addHabitView.nameInputView.textField.text ?? "",
-                    note: addHabitView.reminderInputView.textField.text ?? "",
                     frequency: days
                 )
                 realm.add(newHabit)

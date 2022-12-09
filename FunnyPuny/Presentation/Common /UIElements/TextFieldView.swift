@@ -11,7 +11,7 @@ class TextFieldView: UIView {
         let label = UILabel()
         label.text = text
         label.textColor = Colors.textPrimary.color
-        label.font = .regular20
+        label.font = .medium17
         return label
     }()
 

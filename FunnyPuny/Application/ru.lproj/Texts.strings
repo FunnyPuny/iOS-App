@@ -3,8 +3,8 @@
 "oops" = "Упс!";
 "alert" = "Этот день еще не настал";
 "okay" = "OK";
-"emptyStateTitle" = "Давай сформируем твои новые привычки вместе!";
-"emptyStateLabel" = "Нажми +, чтобы добавить твою первую привычку";
+"emptyStateTitle" = "Давай сформируем твои привычки вместе!";
+"emptyStateLabel" = "Нажми + и добавь свою первую привычку";
 "chillStateTitle" = "Сегодня отдыхай";
 "chillStateLabel" = "Увидимся завтра!";
 
@@ -14,15 +14,11 @@
 "addHabit" = "Добавить привычку";
 "name" = "Название";
 "nameHabit" = "Введите название привычки";
-"note" = "Заметка";
-"reminderNote" = "Введите описание привычки";
-"reminderTime" = "Напоминание";
 "frequency" = "Частота выполнения";
 
 // MARK: TabBar
 
 "habits" = "Привычки";
-"profile" = "Профиль";
 "home" = "Главная";
 "analytics" = "Аналитика";
 
@@ -42,10 +38,3 @@
 "sat" = "Сб";
 "sun" = "Вс";
 "everyday" = "Каждый день";
-
-// MARK: Profile
-
-"notifications" = "Уведомления";
-"appearance" = "Appearance";
-"achievments" = "Достижения";
-"donation" = "Donation";

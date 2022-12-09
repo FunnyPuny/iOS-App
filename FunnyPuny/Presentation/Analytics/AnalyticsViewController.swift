@@ -35,9 +35,7 @@ class AnalyticsViewController: ViewController {
     }
 
     func setupData() {
-        // Refresh database
         habitManager = HabitManager()
-        // Refresh calendar
         analyticsView.calendarView.monthView.reloadData()
 
         switch analyticMode {

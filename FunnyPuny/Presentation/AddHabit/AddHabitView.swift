@@ -5,14 +5,11 @@ import UIKit
 
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
-    var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
     var frequencyView: FrequencyView = {
         let view = FrequencyView()
         view.viewState = .everyday
         return view
     }()
-
-    private var reminderTimeView = ReminderTimeView()
 
     var addButton: UIButton = {
         let button = UIButton()
@@ -43,9 +40,7 @@ class AddHabitView: UIView {
 
     private func addSubviews() {
         addSubview(nameInputView)
-        // addSubview(reminderInputView)
         addSubview(frequencyView)
-        // addSubview(reminderTimeView)
         addSubview(addButton)
     }
 
@@ -55,21 +50,11 @@ class AddHabitView: UIView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(16)
         }
 
-//        reminderInputView.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview().inset(16)
-//            make.top.equalTo(nameInputView.snp.bottom).offset(24)
-//        }
-
         frequencyView.snp.makeConstraints { make in
             make.top.equalTo(nameInputView.snp.bottom).offset(24)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
-
-//        reminderTimeView.snp.makeConstraints { make in
-//            make.top.equalTo(frequencyView.snp.bottom).offset(24)
-//            make.leading.equalToSuperview().inset(16)
-//        }
 
         addButton.snp.makeConstraints { make in
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(66)

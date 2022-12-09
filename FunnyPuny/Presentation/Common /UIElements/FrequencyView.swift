@@ -10,7 +10,7 @@ class FrequencyView: UIView {
         let label = UILabel()
         label.text = Texts.frequency
         label.textColor = Colors.textPrimary.color
-        label.font = .regular20
+        label.font = .medium17
         return label
     }()
 

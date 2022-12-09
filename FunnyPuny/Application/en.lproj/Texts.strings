@@ -14,18 +14,11 @@
 "addHabit" = "Add habit";
 "name" = "Name";
 "nameHabit" = "Habit's name";
-"note" = "Note";
-"reminderNote" = "Reminder Note";
-"reminderTime" = "Reminder Time";
-
-// MARK: Frequency
-
 "frequency" = "Frequency";
 
 // MARK: TabBar
 
 "habits" = "Habits";
-"profile" = "Profile";
 "home" = "Home";
 "analytics" = "Analytics";
 
@@ -45,10 +38,3 @@
 "sat" = "Sat";
 "sun" = "Sun";
 "everyday" = "Everyday";
-
-// MARK: Profile
-
-"notifications" = "Notifications";
-"appearance" = "Appearance";
-"achievments" = "Achievments";
-"donation" = "Donation";

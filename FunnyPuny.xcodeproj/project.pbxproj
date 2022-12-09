@@ -18,7 +18,6 @@
 		CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */; };
 		CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddHabitView.swift */; };
 		CE3429692925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */; };
-		CE351C2E2910511A00ACCF0C /* ReminderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C2D2910511A00ACCF0C /* ReminderTimeView.swift */; };
 		CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C302911927F00ACCF0C /* AnalyticsView.swift */; };
 		CE351C332911929900ACCF0C /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C322911929900ACCF0C /* AnalyticsViewController.swift */; };
 		CE351C352911BC7400ACCF0C /* AchivmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C342911BC7400ACCF0C /* AchivmentView.swift */; };
@@ -71,8 +70,6 @@
 		CEB1EA8E290C170A0087ED24 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8D290C170A0087ED24 /* Fonts.swift */; };
 		CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8F290D931A0087ED24 /* TextField.swift */; };
 		CEB4BD23290851CF006F6D1D /* Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* Days.swift */; };
-		CEBE1AC82937DE7F00F52C3F /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1AC62937DE7F00F52C3F /* ProfileCell.swift */; };
-		CEBE1AC92937DE7F00F52C3F /* ProfileCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1AC72937DE7F00F52C3F /* ProfileCellViewModel.swift */; };
 		CEBE1ACB2938E37C00F52C3F /* HomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1ACA2938E37C00F52C3F /* HomeViewState.swift */; };
 		CEBE1ACD2938E80D00F52C3F /* emptyState.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBE1ACC2938E80C00F52C3F /* emptyState.gif */; };
 		CEBE1ACF293920C900F52C3F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1ACE293920C900F52C3F /* HomeViewModel.swift */; };
@@ -84,9 +81,6 @@
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
 		CEDAFF3C28E7199E006136B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFF3B28E7199E006136B3 /* Assets.xcassets */; };
 		CEDAFF3F28E7199E006136B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFF3D28E7199E006136B3 /* LaunchScreen.storyboard */; };
-		CEE6113228F85950003CF0AB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6113128F85950003CF0AB /* ProfileView.swift */; };
-		CEE6113428F8595A003CF0AB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6113328F8595A003CF0AB /* ProfileViewController.swift */; };
-		CEE6113628F85A5A003CF0AB /* profile.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEE6113528F85A5A003CF0AB /* profile.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,7 +94,6 @@
 		CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		CE10453128F7696E006B31D6 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticHeaderMonthView.swift; sourceTree = "<group>"; };
-		CE351C2D2910511A00ACCF0C /* ReminderTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTimeView.swift; sourceTree = "<group>"; };
 		CE351C302911927F00ACCF0C /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		CE351C322911929900ACCF0C /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		CE351C342911BC7400ACCF0C /* AchivmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivmentView.swift; sourceTree = "<group>"; };
@@ -147,8 +140,6 @@
 		CEB1EA8D290C170A0087ED24 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CEB1EA8F290D931A0087ED24 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		CEB4BD22290851CF006F6D1D /* Days.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Days.swift; sourceTree = "<group>"; };
-		CEBE1AC62937DE7F00F52C3F /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
-		CEBE1AC72937DE7F00F52C3F /* ProfileCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCellViewModel.swift; sourceTree = "<group>"; };
 		CEBE1ACA2938E37C00F52C3F /* HomeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewState.swift; sourceTree = "<group>"; };
 		CEBE1ACC2938E80C00F52C3F /* emptyState.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = emptyState.gif; sourceTree = "<group>"; };
 		CEBE1ACE293920C900F52C3F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -161,9 +152,6 @@
 		CEDAFF3B28E7199E006136B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEDAFF3E28E7199E006136B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEDAFF4028E7199E006136B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEE6113128F85950003CF0AB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		CEE6113328F8595A003CF0AB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		CEE6113528F85A5A003CF0AB /* profile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = profile.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +184,6 @@
 				CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */,
 				CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */,
 				CEA71A2328F8A18600D2CE36 /* NavigationController.swift */,
-				CE351C2D2910511A00ACCF0C /* ReminderTimeView.swift */,
 				CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */,
 				CE351C362911BD8000ACCF0C /* ScoreView.swift */,
 				CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */,
@@ -224,7 +211,6 @@
 			children = (
 				CEBE1AD029392DA800F52C3F /* chillState.gif */,
 				CEBE1ACC2938E80C00F52C3F /* emptyState.gif */,
-				CEE6113528F85A5A003CF0AB /* profile.gif */,
 			);
 			path = GIF;
 			sourceTree = "<group>";
@@ -237,17 +223,6 @@
 				CE34296729241D580037EE0E /* Models */,
 			);
 			path = "Common ";
-			sourceTree = "<group>";
-		};
-		CE10452D28F756B5006B31D6 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				CEBE1AC62937DE7F00F52C3F /* ProfileCell.swift */,
-				CEBE1AC72937DE7F00F52C3F /* ProfileCellViewModel.swift */,
-				CEE6113128F85950003CF0AB /* ProfileView.swift */,
-				CEE6113328F8595A003CF0AB /* ProfileViewController.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		CE10452E28F756CD006B31D6 /* AddHabit */ = {
@@ -296,7 +271,6 @@
 				CE351C2F2911924200ACCF0C /* Analytics */,
 				CE10452E28F756CD006B31D6 /* AddHabit */,
 				CE6AFF2528F6192A0079FD83 /* Home */,
-				CE10452D28F756B5006B31D6 /* Profile */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -525,7 +499,6 @@
 			files = (
 				CE09C14E28F9A12B00B7CB45 /* Colors.xcassets in Resources */,
 				CEBE1AD129392DA900F52C3F /* chillState.gif in Resources */,
-				CEE6113628F85A5A003CF0AB /* profile.gif in Resources */,
 				CE6D4BC32930ED0F00647D7D /* Texts.strings in Resources */,
 				CE6D4BB22930D06800647D7D /* GoogleService-Info.plist in Resources */,
 				CEB1EA882909C8670087ED24 /* SF-Pro-Display-Bold.otf in Resources */,
@@ -587,7 +560,6 @@
 			files = (
 				CE7808E928FF66100016AD41 /* Notifications.swift in Sources */,
 				CEB1EA8C290C113A0087ED24 /* List+Extension.swift in Sources */,
-				CEE6113228F85950003CF0AB /* ProfileView.swift in Sources */,
 				CE10452028F6F23E006B31D6 /* HomeView.swift in Sources */,
 				CE6B77D72924060E00996142 /* HomeCellViewModel.swift in Sources */,
 				CEA71A2628F8A9D100D2CE36 /* ViewController.swift in Sources */,
@@ -598,7 +570,6 @@
 				CE6B77DD29240D1100996142 /* CalendarCellViewModel.swift in Sources */,
 				CEADCCCB2935339900BFD545 /* Texts.swift in Sources */,
 				CEB4BD23290851CF006F6D1D /* Days.swift in Sources */,
-				CEBE1AC82937DE7F00F52C3F /* ProfileCell.swift in Sources */,
 				CE6B77CA291FBD4800996142 /* DayOfWeekView.swift in Sources */,
 				CE6B77BC29184F2F00996142 /* HabitManager.swift in Sources */,
 				CEA0BF5028FC3D82009B6BFD /* UIStackView+Extension.swift in Sources */,
@@ -609,7 +580,6 @@
 				CE6B77C2291AD5FA00996142 /* CalendarAnalyticHeaderView.swift in Sources */,
 				CEADCCCD29354C6B00BFD545 /* Assets.swift in Sources */,
 				CE3429692925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift in Sources */,
-				CEBE1AC92937DE7F00F52C3F /* ProfileCellViewModel.swift in Sources */,
 				CE09C15528F9FD0000B7CB45 /* FrequencyView.swift in Sources */,
 				CEC51B0E292C106200DCC848 /* UITextField+Extension.swift in Sources */,
 				CE47FAB9293E59FE00B4239C /* AddHabitViewModel.swift in Sources */,
@@ -619,7 +589,6 @@
 				CEB1EA8E290C170A0087ED24 /* Fonts.swift in Sources */,
 				CEBE1ACB2938E37C00F52C3F /* HomeViewState.swift in Sources */,
 				CE944F732901BB940000697A /* CalendarHomeView.swift in Sources */,
-				CEE6113428F8595A003CF0AB /* ProfileViewController.swift in Sources */,
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
 				CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */,
 				CE0C56D02915AC710080ED5C /* UIView+Extension.swift in Sources */,
@@ -627,7 +596,6 @@
 				CE6B77D9292406ED00996142 /* Configurable.swift in Sources */,
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CEADCCCF29354EB600BFD545 /* Constants.swift in Sources */,
-				CE351C2E2910511A00ACCF0C /* ReminderTimeView.swift in Sources */,
 				CEC51B10292D5B3200DCC848 /* CalendarManager.swift in Sources */,
 				CEBE1ACF293920C900F52C3F /* HomeViewModel.swift in Sources */,
 				CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */,
