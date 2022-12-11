@@ -14,6 +14,7 @@ class MenuButtonView: UIView {
         let label = UILabel()
         label.textColor = Colors.textAccent.color
         label.font = .titleLarge
+        label.numberOfLines = 0
         label.text = Texts.allHabits
         return label
     }()
