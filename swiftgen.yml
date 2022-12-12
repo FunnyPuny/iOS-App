@@ -15,7 +15,7 @@
      - FunnyPuny/Application/en.lproj/Texts.strings
    outputs:
      - templateName: structured-swift5
-       output: FunnyPuny/Application/Generated/Texts.swift
+       output: FunnyPuny/Generated/Texts.swift
        params:
             enumName: Texts
 
@@ -32,7 +32,7 @@
      - templateName: swift5
        params:
          forceProvidesNamespaces: true
-       output: FunnyPuny/Application/Generated/Assets.swift
+       output: FunnyPuny/Generated/Assets.swift
 
 
 ## Generate constants for your storyboards and XIBs.
