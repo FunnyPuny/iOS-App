@@ -1,10 +1,5 @@
-## Note: all of the config entries below are just examples with placeholders. Be sure to edit and adjust to your needs when uncommenting.
-
-## In case your config entries all use a common input/output parent directory, you can specify those here.
-##   Every input/output paths in the rest of the config will then be expressed relative to these.
-##   Those two top-level keys are optional and default to "." (the directory of the config file).
-# input_dir: MyLib/Sources/
-# output_dir: MyLib/Generated/
+ input_dir: FunnyPuny/Application/
+ output_dir: FunnyPuny/Generated/
 
 
 ## Generate constants for your localized strings.
@@ -12,10 +7,10 @@
 ##   SwiftGen will parse all `.strings` files found in that folder.
  strings:
    inputs:
-     - FunnyPuny/Application/en.lproj/Texts.strings
+     - en.lproj/Texts.strings
    outputs:
      - templateName: structured-swift5
-       output: FunnyPuny/Generated/Texts.swift
+       output: Texts.swift
        params:
             enumName: Texts
 
@@ -26,34 +21,10 @@
 ##   - To know which params are supported for a template, use `swiftgen template doc xcassets swift5` to open the template documentation on GitHub.
  xcassets:
    inputs:
-     - FunnyPuny/Application/Assets.xcassets
-     - FunnyPuny/Application/Colors.xcassets
+     - Assets.xcassets
+     - Colors.xcassets
    outputs:
      - templateName: swift5
        params:
          forceProvidesNamespaces: true
-       output: FunnyPuny/Generated/Assets.swift
-
-
-## Generate constants for your storyboards and XIBs.
-##   This one generates 2 output files, one containing the storyboard scenes, and another for the segues.
-##    (You can remove the segues entry if you don't use segues in your IB files).
-##   For `inputs` we can use "." here (aka "current directory", at least relative to `input_dir` = "MyLib/Sources"),
-##    and SwiftGen will recursively find all `*.storyboard` and `*.xib` files in there.
-# ib:
-#   inputs:
-#     - .
-#   outputs:
-#     - templateName: scenes-swift5
-#       output: IB-Scenes+Generated.swift
-#     - templateName: segues-swift5
-#       output: IB-Segues+Generated.swift
-
-
-## There are other parsers available for you to use depending on your needs, for example:
-##  - `coredata` (for CoreData models)
-##  - `json`, `yaml` and `plist` (to parse custom JSON/YAML/Plist files and generate code from their content)
-## …
-##
-## For more info, use `swiftgen config doc` to open the full documentation on GitHub.
-## https://github.com/SwiftGen/SwiftGen/tree/6.6.2/Documentation/
+       output: Assets.swift
