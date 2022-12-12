@@ -29,4 +29,13 @@ extension String {
         let end = index(start, offsetBy: fullRange.upperBound - fullRange.lowerBound)
         return String(self[start ..< end])
     }
+
+    func isEmptyOrWhitespace() -> Bool {
+        // Check empty string
+        if isEmpty {
+            return true
+        }
+        // Trim and check empty string
+        return (trimmingCharacters(in: .whitespaces) == "")
+    }
 }

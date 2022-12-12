@@ -14,8 +14,9 @@ class AddHabitViewController: ViewController {
         view = addHabitView
         addHabitView.configure(with: addHabitViewModel)
         addHabitView.frequencyView.everydayView.delegate = self
-        setupTargets()
         setupFrequency()
+        setupTargets()
+        setupTextField()
     }
 
     func setupFrequency() {
@@ -25,6 +26,11 @@ class AddHabitViewController: ViewController {
 
     private func setupTargets() {
         addHabitView.addButton.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
+    }
+
+    func setupTextField() {
+        addHabitView.nameInputView.textField.smartInsertDeleteType = .no
+        addHabitView.nameInputView.textField.delegate = self
     }
 
     @objc
@@ -65,10 +71,29 @@ extension AddHabitViewController: DayViewProtocolDelegate {
             for day in addHabitView.frequencyView.views {
                 day.isSelected = false
             }
-            addHabitView.configure(with: addHabitViewModel)
+            // addHabitView.configure(with: addHabitViewModel)
         } else {
             addHabitViewModel.state = .specificDays
-            addHabitView.configure(with: addHabitViewModel)
+            // addHabitView.configure(with: addHabitViewModel)
         }
+    }
+}
+
+// MARK: UITextFieldDelegate
+
+extension AddHabitViewController: UITextFieldDelegate {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        guard let textFieldText = textField.text,
+              let rangeOfTextToReplace = Range(range, in: textFieldText)
+        else {
+            return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        return count <= 25
     }
 }
