@@ -11,7 +11,6 @@ Core:
 
 Others:
 -   Swift Package Manager
-
 -   SwiftLint
 -   SwiftFormat
 -   SwiftGen
@@ -24,11 +23,11 @@ Others:
 
 ### Getting started
 
-'run.command'
+```run.command```
 
 ### Contributing
 
-Contributing is more than welcome, if you feel like helping the app, or want to add new feature, feel free to create issues. Thanks!
+Contributing is more than welcome, if you feel like helping the app, or want to add new feature, feel free to create issues.
 
 ### License
 
