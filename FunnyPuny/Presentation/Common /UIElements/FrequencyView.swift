@@ -24,7 +24,6 @@ class FrequencyView: UIView {
 
     private var stackView: UIStackView = {
         let stackView = UIStackView()
-
         stackView.spacing = 12
         stackView.distribution = .fillEqually
         return stackView

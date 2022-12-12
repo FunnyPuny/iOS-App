@@ -27,6 +27,7 @@ class AnalyticsViewController: ViewController {
         view = analyticsView
         setupCalendar()
         setupMenuButton()
+        setupTargets()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +79,16 @@ class AnalyticsViewController: ViewController {
     @objc
     func goToPreviousMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate - 1.months)
+    }
+
+    private func setupTargets() {
+        let headerTap = UITapGestureRecognizer(target: self, action: #selector(headerDatePressed))
+        analyticsView.calendarView.monthView.addGestureRecognizer(headerTap)
+    }
+
+    @objc
+    private func headerDatePressed() {
+        analyticsView.calendarView.monthView.scrollToDate(Date())
     }
 }
 
