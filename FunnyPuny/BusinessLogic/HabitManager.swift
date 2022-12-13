@@ -62,6 +62,21 @@ class HabitManager {
         return Float(countCompletedHabits) / Float(countHabits)
     }
 
+    func saveHabit(name: String, frequency: List<Frequency>, handler: () -> Void) {
+        do {
+            try realm.write {
+                let newHabit = Habit(
+                    name: name,
+                    frequency: frequency
+                )
+                realm.add(newHabit)
+                handler()
+            }
+        } catch let error as NSError {
+            print("Can not create habit, error: \(error)")
+        }
+    }
+
     // MARK: Private properties
 
     private var countHabits: Int {

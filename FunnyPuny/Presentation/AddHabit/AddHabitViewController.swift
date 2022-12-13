@@ -7,18 +7,20 @@ import UIKit
 class AddHabitViewController: ViewController {
     private var addHabitView = AddHabitView()
     private let selectedFrequencies = List<Frequency>()
+    private var habitManager = HabitManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Texts.addHabit
         view = addHabitView
+        selectedFrequencies.append(objectsIn: [.mon, .tue, .wed, .thu, .fri, .sat, .sun])
         setupTargets()
         setupTextField()
         setupFrequency()
     }
 
     private func setupTargets() {
-        addHabitView.addButton.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
+        addHabitView.addButton.addTarget(self, action: #selector(addButtonDidPressed), for: .touchUpInside)
     }
 
     private func setupTextField() {
@@ -31,20 +33,30 @@ class AddHabitViewController: ViewController {
     }
 
     @objc
-    func saveHabit() {
-        do {
-            try realm.write {
-                let newHabit = Habit(
-                    name: addHabitView.nameInputView.textField.text ?? "",
-                    frequency: selectedFrequencies
-                )
-                realm.add(newHabit)
-                NotificationCenter.default.post(name: .habitDidAdd, object: nil)
-                dismiss(animated: true)
-            }
-        } catch let error as NSError {
-            print("Can not create habit, error: \(error)")
+    func addButtonDidPressed() {
+        if addHabitView.frequencyView.selectedFrequencies.isEmpty, !addHabitView.nameInputView.textField.isValid {
+            presentAlert(message: Texts.addAllItems)
+        } else if addHabitView.frequencyView.selectedFrequencies.isEmpty, addHabitView.nameInputView.textField.isValid {
+            presentAlert(message: Texts.addFrequency)
+        } else if !addHabitView.frequencyView.selectedFrequencies.isEmpty, !addHabitView.nameInputView.textField.isValid {
+            presentAlert(message: Texts.addName)
+        } else {
+            saveHabit()
         }
+    }
+
+    private func presentAlert(message: String) {
+        let alert = UIAlertController(title: Texts.oops, message: message, preferredStyle: .alert)
+        alert.addAction(.init(title: Texts.okay, style: .cancel))
+        present(alert, animated: true)
+    }
+
+    private func saveHabit() {
+        habitManager.saveHabit(name: addHabitView.nameInputView.textField.text ?? "", frequency: selectedFrequencies) {
+            NotificationCenter.default.post(name: .habitDidAdd, object: nil)
+            dismiss(animated: true)
+        }
+        print("selectedFrequencies is \(selectedFrequencies)")
     }
 }
 
@@ -52,7 +64,12 @@ class AddHabitViewController: ViewController {
 
 extension AddHabitViewController: FrequencyViewDelegate {
     func didSelect(_ frequencies: [Frequency]) {
-        selectedFrequencies.append(objectsIn: frequencies)
+        selectedFrequencies.removeAll()
+        if frequencies.contains(.everyday) {
+            selectedFrequencies.append(objectsIn: [.mon, .tue, .wed, .thu, .fri, .sat, .sun])
+        } else {
+            selectedFrequencies.append(objectsIn: frequencies)
+        }
     }
 }
 
