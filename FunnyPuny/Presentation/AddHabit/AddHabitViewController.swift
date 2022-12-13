@@ -6,51 +6,37 @@ import UIKit
 
 class AddHabitViewController: ViewController {
     private var addHabitView = AddHabitView()
-    private var addHabitViewModel = AddHabitViewModel(state: .everyday)
+    private let selectedFrequencies = List<Frequency>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Texts.addHabit
         view = addHabitView
-        addHabitView.configure(with: addHabitViewModel)
-        addHabitView.frequencyView.everydayView.delegate = self
-        setupFrequency()
         setupTargets()
         setupTextField()
-    }
-
-    func setupFrequency() {
-        addHabitView.frequencyView.views.forEach { $0.delegate = self }
-        addHabitView.frequencyView.everydayView.delegate = self
+        setupFrequency()
     }
 
     private func setupTargets() {
         addHabitView.addButton.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
     }
 
-    func setupTextField() {
+    private func setupTextField() {
         addHabitView.nameInputView.textField.smartInsertDeleteType = .no
         addHabitView.nameInputView.textField.delegate = self
     }
 
+    private func setupFrequency() {
+        addHabitView.frequencyView.delegate = self
+    }
+
     @objc
     func saveHabit() {
-        let days = List<Frequency>()
-
-        if addHabitViewModel.state == .everyday {
-            let everyday: [Frequency] = [.mon, .tue, .wed, .thu, .fri, .sat, .sun]
-            days.append(objectsIn: everyday)
-        } else {
-            for dayView in addHabitView.frequencyView.views where dayView.isSelected {
-                days.append(dayView.day)
-            }
-        }
-
         do {
             try realm.write {
                 let newHabit = Habit(
                     name: addHabitView.nameInputView.textField.text ?? "",
-                    frequency: days
+                    frequency: selectedFrequencies
                 )
                 realm.add(newHabit)
                 NotificationCenter.default.post(name: .habitDidAdd, object: nil)
@@ -62,20 +48,11 @@ class AddHabitViewController: ViewController {
     }
 }
 
-// MARK: DayViewProtocolDelegate
+// MARK: FrequencyViewDelegate
 
-extension AddHabitViewController: DayViewProtocolDelegate {
-    func didSelect(_ day: Frequency) {
-        if day == .everyday {
-            addHabitViewModel.state = addHabitView.frequencyView.everydayView.isSelected ? .everyday : .specificDays
-            for day in addHabitView.frequencyView.views {
-                day.isSelected = false
-            }
-            // addHabitView.configure(with: addHabitViewModel)
-        } else {
-            addHabitViewModel.state = .specificDays
-            // addHabitView.configure(with: addHabitViewModel)
-        }
+extension AddHabitViewController: FrequencyViewDelegate {
+    func didSelect(_ frequencies: [Frequency]) {
+        selectedFrequencies.append(objectsIn: frequencies)
     }
 }
 

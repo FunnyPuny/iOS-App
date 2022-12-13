@@ -5,11 +5,7 @@ import UIKit
 
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
-    var frequencyView: FrequencyView = {
-        let view = FrequencyView()
-        view.viewState = .everyday
-        return view
-    }()
+    var frequencyView = FrequencyView()
 
     var addButton: UIButton = {
         let button = UIButton()
@@ -82,20 +78,5 @@ class AddHabitView: UIView {
             ? Colors.textButton.color
             : Colors.textSecondary.color
         addButton.isEnabled = nameInputView.textField.isValid()
-    }
-}
-
-extension AddHabitView: Configurable {
-    func configure(with viewModel: AddHabitViewModel) {
-        if viewModel.state == .everyday {
-            frequencyView.everydayView.isSelected = true
-
-        } else {
-            frequencyView.everydayView.isSelected = false
-        }
-        frequencyView.everydayView.setupStyle()
-        for day in frequencyView.views {
-            day.setupStyle()
-        }
     }
 }

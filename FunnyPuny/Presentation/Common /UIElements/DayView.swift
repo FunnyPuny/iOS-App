@@ -3,14 +3,19 @@
 
 import UIKit
 
-protocol DayViewProtocolDelegate: AnyObject {
+protocol DayViewDelegate: AnyObject {
     func didSelect(_ day: Frequency)
 }
 
 class DayView: UIView {
     var day: Frequency
-    var isSelected: Bool
-    weak var delegate: DayViewProtocolDelegate?
+    var isSelected: Bool {
+        didSet {
+            setupStyle()
+        }
+    }
+
+    weak var delegate: DayViewDelegate?
 
     lazy var dayLabel: UILabel = {
         let label = UILabel()
