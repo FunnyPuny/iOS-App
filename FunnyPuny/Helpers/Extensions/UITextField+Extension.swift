@@ -4,7 +4,7 @@
 import UIKit
 
 extension UITextField {
-    func isValid() -> Bool {
+    var isValid: Bool {
         guard let text, !text.isEmptyOrWhitespace() else {
             print("Please fill the field.")
             return false

@@ -15,8 +15,9 @@
 "name" = "Name";
 "nameHabit" = "Habit's name";
 "frequency" = "Frequency";
-"alertTitle" = "Name is too long";
-"alertText" = "Please, create another habit's name";
+"addName" = "Please, create habit's name";
+"addFrequency" = "Please, choose frequency";
+"addAllItems" = "Please, create habit's name and choose frequency";
 
 // MARK: TabBar
 

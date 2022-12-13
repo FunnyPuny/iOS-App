@@ -71,12 +71,11 @@ class AddHabitView: UIView {
     }
 
     @objc func textFieldDidChange(_: UITextField) {
-        addButton.backgroundColor = nameInputView.textField.isValid()
+        addButton.backgroundColor = nameInputView.textField.isValid && !frequencyView.selectedFrequencies.isEmpty
             ? Colors.buttonActive.color
             : Colors.buttonInactive.color
-        addButton.titleLabel?.textColor = nameInputView.textField.isValid()
+        addButton.titleLabel?.textColor = nameInputView.textField.isValid && !frequencyView.selectedFrequencies.isEmpty
             ? Colors.textButton.color
             : Colors.textSecondary.color
-        addButton.isEnabled = nameInputView.textField.isValid()
     }
 }
