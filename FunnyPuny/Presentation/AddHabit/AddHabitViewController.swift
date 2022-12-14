@@ -56,7 +56,6 @@ class AddHabitViewController: ViewController {
             NotificationCenter.default.post(name: .habitDidAdd, object: nil)
             dismiss(animated: true)
         }
-        print("selectedFrequencies is \(selectedFrequencies)")
     }
 }
 

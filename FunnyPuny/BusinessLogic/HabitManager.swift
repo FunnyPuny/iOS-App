@@ -77,6 +77,13 @@ class HabitManager {
         }
     }
 
+    func getHabitId(by name: String) -> ObjectId? {
+        for habit in habits where habit.name == name {
+            return habit.id
+        }
+        return nil
+    }
+
     // MARK: Private properties
 
     private var countHabits: Int {
@@ -86,13 +93,6 @@ class HabitManager {
             totalCount += countGoalBy(habit.name)
         }
         return totalCount
-    }
-
-    func getHabitId(by name: String) -> ObjectId? {
-        for habit in habits where habit.name == name {
-            return habit.id
-        }
-        return nil
     }
 
     private func countGoalBy(_ habitName: String) -> Int {
