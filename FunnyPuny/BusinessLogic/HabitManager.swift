@@ -27,7 +27,8 @@ class HabitManager {
     }
 
     func countValueBy(_ habitName: String) -> Float {
-        Float(countCompletedHabitBy(habitName)) / Float(countGoalBy(habitName))
+        guard countHabits != 0 else { return 0.0 }
+        return Float(countCompletedHabitBy(habitName)) / Float(countGoalBy(habitName))
     }
 
     func countCompletedHabitBy(_ habitName: String) -> Int {
@@ -87,7 +88,6 @@ class HabitManager {
     // MARK: Private properties
 
     private var countHabits: Int {
-        let habits = habits
         var totalCount = 0
         for habit in habits {
             totalCount += countGoalBy(habit.name)
@@ -100,7 +100,7 @@ class HabitManager {
         if let habitId = getHabitId(by: habitName) {
             if let habit = realm.object(ofType: Habit.self, forPrimaryKey: habitId) {
                 let localDate = Date().localDate
-                let period = daysBetween(startDate: habit.createdDate, endDate: localDate)
+                let period = daysBetween(startDate: habit.createdDate.localDate, endDate: localDate)
                 let missedWeeks = period / 7
                 let daysPeriod = period % 7
                 var missedDays = [Int]()
@@ -108,7 +108,7 @@ class HabitManager {
                     missedDays.append((localDate - value.days).weekday)
                 }
                 totalCount += habit.frequency.count * missedWeeks
-                for day in 0 ... habit.frequency.count - 1 {
+                for day in stride(from: 0, through: habit.frequency.count - 1, by: 1) {
                     for days in missedDays where habit.frequency[day].rawValue == days {
                         totalCount += 1
                     }
