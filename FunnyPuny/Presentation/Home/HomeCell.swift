@@ -46,7 +46,7 @@ class HomeCell: UITableViewCell {
             switch self {
             case .checked: return Images.checkmark.image
             case .unchecked: return Images.cicrle.image
-            case .inactive: return Images.inactiveCicle.image
+            case .inactive: return Images.circleInactive.image
             }
         }
     }

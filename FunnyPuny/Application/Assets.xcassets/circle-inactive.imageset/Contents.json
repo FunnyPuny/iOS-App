@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "inactivecicle.pdf",
+      "filename" : "inactiveCicle_light.pdf",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Theme=Dark, Property 1=Inactive, Property 2=Big, Selected=False.pdf",
+      "filename" : "inactiveCicle_dark.pdf",
       "idiom" : "universal"
     }
   ],
