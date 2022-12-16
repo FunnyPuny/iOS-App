@@ -3,6 +3,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # go to it
 cd "$DIR"
+cd ..
 
 # install SwiftGen, if needed
 brew install swiftgen
