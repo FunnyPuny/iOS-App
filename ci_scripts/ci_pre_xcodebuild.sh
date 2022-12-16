@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # find the directory where the executable script file is located
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
