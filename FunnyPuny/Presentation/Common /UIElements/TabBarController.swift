@@ -18,6 +18,7 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = Colors.iconsActive.color
         tabBar.unselectedItemTintColor = Colors.iconsInactive.color
         tabBar.barTintColor = Colors.backgroundGlobe.color
+        tabBar.tintAdjustmentMode = .normal
     }
 
     private func setupTabBarItems() {
