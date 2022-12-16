@@ -16,7 +16,7 @@ struct CalendarManager {
         let habitsByDay = days?.habits.count ?? 0
         let habits = habitManager.habits
         var countAllHabits = 0
-        for habit in habits {
+        for habit in habits where habit.createdDate.shortForm <= date.shortForm {
             for frequency in habit.frequency where frequency.rawValue == date.weekday {
                 countAllHabits += 1
             }

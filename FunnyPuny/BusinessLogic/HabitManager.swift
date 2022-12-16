@@ -98,17 +98,19 @@ class HabitManager {
         var totalCount = 0
         if let habitId = getHabitId(by: habitName) {
             if let habit = realm.object(ofType: Habit.self, forPrimaryKey: habitId) {
-                let localDate = Date().localDate
-                let period = daysBetween(startDate: habit.createdDate.localDate, endDate: localDate)
-                let missedWeeks = period / 7
+                let currentDate = Date().localDate
+                let period = daysBetween(startDate: habit.createdDate, endDate: currentDate)
+                let pastWeeks = period / 7
                 let daysPeriod = period % 7
-                var missedDays = [Int]()
-                for value in 0 ... daysPeriod {
-                    missedDays.append((localDate - value.days).weekday)
+                var pastDays: [Int] = []
+                if daysPeriod != 0 {
+                    for value in 0 ... daysPeriod {
+                        pastDays.append((currentDate - value.days).weekday)
+                    }
                 }
-                totalCount += habit.frequency.count * missedWeeks
+                totalCount += habit.frequency.count * pastWeeks
                 for day in stride(from: 0, through: habit.frequency.count - 1, by: 1) {
-                    for days in missedDays where habit.frequency[day].rawValue == days {
+                    for days in pastDays where habit.frequency[day].rawValue == days {
                         totalCount += 1
                     }
                 }
@@ -118,6 +120,12 @@ class HabitManager {
     }
 
     private func daysBetween(startDate: Date, endDate: Date) -> Int {
-        (endDate - startDate).day ?? 0
+        let calendar = Calendar.current
+        let components = calendar.dateComponents(
+            [.day],
+            from: calendar.startOfDay(for: startDate),
+            to: calendar.startOfDay(for: endDate)
+        )
+        return components.day ?? 0
     }
 }

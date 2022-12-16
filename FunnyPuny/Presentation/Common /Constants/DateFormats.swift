@@ -28,7 +28,7 @@ extension Date {
     }
 
     var localDate: Date {
-        Date() + Double(TimeZone.current.secondsFromGMT(for: Date()))
+        self + Double(TimeZone.current.secondsFromGMT(for: Date()))
     }
 
     /// Строка из даты

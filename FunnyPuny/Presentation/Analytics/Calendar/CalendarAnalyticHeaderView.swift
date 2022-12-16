@@ -10,13 +10,7 @@ class CalendarAnalyticHeaderView: JTACMonthReusableView {
 
     var weekStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubview(WeekdayView(.mon))
-        stackView.addArrangedSubview(WeekdayView(.tue))
-        stackView.addArrangedSubview(WeekdayView(.wed))
-        stackView.addArrangedSubview(WeekdayView(.thu))
-        stackView.addArrangedSubview(WeekdayView(.fri))
-        stackView.addArrangedSubview(WeekdayView(.sat))
-        stackView.addArrangedSubview(WeekdayView(.sun))
+        stackView.addArrangedSubviews(Frequency.allWeek.map { WeekdayView($0) })
         stackView.spacing = 8
         stackView.distribution = .fillEqually
         return stackView

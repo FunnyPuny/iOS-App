@@ -21,11 +21,7 @@ class FrequencyView: UIView {
 
     private var dayViews: [DayView] = []
     private var everydayView = DayView(.everyday, isSelected: true)
-    private var weekdayViews: [DayView] = {
-        var views = Frequency.allCases.map { DayView($0) }
-        views.removeLast()
-        return views
-    }()
+    private var weekdayViews = Frequency.allWeek.map { DayView($0) }
 
     private var stackView: UIStackView = {
         let stackView = UIStackView()
