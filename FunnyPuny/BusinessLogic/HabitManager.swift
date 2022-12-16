@@ -27,15 +27,14 @@ class HabitManager {
     }
 
     func countValueBy(_ habitName: String) -> Float {
-        guard countHabits != 0 else { return 0.0 }
+        guard countGoalBy(habitName) != 0 else { return 0.0 }
         return Float(countCompletedHabitBy(habitName)) / Float(countGoalBy(habitName))
     }
 
     func countCompletedHabitBy(_ habitName: String) -> Int {
         var totalCount = 0
-        let days = days
-        for row in days {
-            for habit in row.habits where habit == getHabitId(by: habitName) {
+        for day in days {
+            for habit in day.habits where habit == getHabitId(by: habitName) {
                 totalCount += 1
             }
         }
