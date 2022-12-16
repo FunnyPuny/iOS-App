@@ -38,7 +38,10 @@ class AddHabitViewController: ViewController {
             presentAlert(message: Texts.addAllItems)
         } else if addHabitView.frequencyView.selectedFrequencies.isEmpty, addHabitView.nameInputView.textField.isValid {
             presentAlert(message: Texts.addFrequency)
-        } else if !addHabitView.frequencyView.selectedFrequencies.isEmpty, !addHabitView.nameInputView.textField.isValid {
+        } else if
+            !addHabitView.frequencyView.selectedFrequencies.isEmpty,
+            !addHabitView.nameInputView.textField.isValid
+        {
             presentAlert(message: Texts.addName)
         } else {
             saveHabit()
