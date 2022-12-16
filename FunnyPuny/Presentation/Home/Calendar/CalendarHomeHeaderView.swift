@@ -22,23 +22,8 @@ class CalendarHomeHeaderView: UIView {
         configuration.baseBackgroundColor = Colors.backgroundGlobe.color
         configuration.baseForegroundColor = Colors.iconsDefault.color
         button.configuration = configuration
+        button.tintAdjustmentMode = .normal
         return button
-    }()
-
-    var pointerView: UIView = {
-        var view = UIView()
-        // Creating triangle
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: -6, y: 0))
-        path.addLine(to: CGPoint(x: 6, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: 12))
-        path.addLine(to: CGPoint(x: -6, y: 0))
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = Colors.backgroundAccent.color.cgColor
-        shapeLayer.lineWidth = 3
-        view.layer.addSublayer(shapeLayer)
-        return view
     }()
 
     override init(frame: CGRect) {
@@ -58,7 +43,6 @@ class CalendarHomeHeaderView: UIView {
 
     private func addSubviews() {
         addSubview(dateLabel)
-        addSubview(pointerView)
         addSubview(addHabitButton)
     }
 
@@ -72,12 +56,6 @@ class CalendarHomeHeaderView: UIView {
             make.size.equalTo(24)
             make.trailing.equalToSuperview().inset(16)
             make.top.equalToSuperview().offset(18)
-        }
-
-        pointerView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.height.equalTo(8)
-            make.top.equalTo(dateLabel.snp.bottom)
         }
     }
 }

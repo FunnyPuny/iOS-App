@@ -78,7 +78,7 @@ class HomeViewController: ViewController {
             action: #selector(addButtonPressed),
             for: .touchUpInside
         )
-        scrollToDate(Date(), animated: false)
+        didSelect(Date())
     }
 
     private func setupNotification() {
@@ -97,7 +97,7 @@ class HomeViewController: ViewController {
 
     @objc
     private func headerDatePressed() {
-        scrollToDate(Date())
+        didSelect(Date())
     }
 
     @objc
@@ -109,14 +109,9 @@ class HomeViewController: ViewController {
         present(addHabitViewController, animated: true)
     }
 
-    private func scrollToDate(_ date: Date, animated: Bool = true) {
+    private func didSelect(_ date: Date) {
         selectedDate = date
         homeView.calendarView.monthView.reloadData(withAnchor: selectedDate)
-        homeView.calendarView.monthView.scrollToDate(
-            date - 3.days,
-            animateScroll: animated,
-            extraAddedOffset: -4
-        )
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
         setupCurrentHabits()
     }
@@ -231,7 +226,7 @@ extension HomeViewController: JTACMonthViewDelegate {
         indexPath: IndexPath
     ) {
         guard date.shortForm != selectedDate.shortForm else { return }
-        scrollToDate(date)
+        didSelect(date)
     }
 }
 
@@ -241,7 +236,7 @@ extension HomeViewController: JTACMonthViewDataSource {
     func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
         let parameters = ConfigurationParameters(
             startDate: Date() - 1.years,
-            endDate: Date() + 10.years,
+            endDate: Date() + 1.years,
             numberOfRows: 1
         )
         return parameters

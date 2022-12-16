@@ -6,17 +6,14 @@ import SnapKit
 import UIKit
 
 class CalendarHomeView: UIView {
-    var headerView: CalendarHomeHeaderView = {
-        let view = CalendarHomeHeaderView()
-        return view
-    }()
+    var headerView = CalendarHomeHeaderView()
 
     var monthView: JTACMonthView = {
         let view = JTACMonthView()
         view.register(CalendarHomeDateCell.self, forCellWithReuseIdentifier: "CalendarHomeDateCell")
         view.backgroundColor = Colors.backgroundGlobe.color
         view.scrollDirection = .horizontal
-        view.scrollingMode = .none
+        view.scrollingMode = .stopAtEachSection
         view.showsHorizontalScrollIndicator = false
         view.cellSize = UIScreen.main.bounds.width / 7
         return view
