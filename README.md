@@ -2,6 +2,7 @@
 
 Easy habit tracker
 Choose your own style
+Create your new everyday routine 
 
 ### Tech stacks
 
