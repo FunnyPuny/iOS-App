@@ -13,7 +13,7 @@ class AddHabitViewController: ViewController {
         super.viewDidLoad()
         title = Texts.addHabit
         view = addHabitView
-        selectedFrequencies.append(objectsIn: [.mon, .tue, .wed, .thu, .fri, .sat, .sun])
+        selectedFrequencies.append(objectsIn: Frequency.allWeek)
         setupTargets()
         setupTextField()
         setupFrequency()

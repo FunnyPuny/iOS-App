@@ -68,7 +68,7 @@
 		CEB1EA8E290C170A0087ED24 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8D290C170A0087ED24 /* Fonts.swift */; };
 		CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1EA8F290D931A0087ED24 /* TextField.swift */; };
 		CEB4BD23290851CF006F6D1D /* Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* Days.swift */; };
-		CEBE1ACB2938E37C00F52C3F /* HomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1ACA2938E37C00F52C3F /* HomeViewState.swift */; };
+		CEBE1ACB2938E37C00F52C3F /* HomeStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1ACA2938E37C00F52C3F /* HomeStateView.swift */; };
 		CEBE1ACD2938E80D00F52C3F /* emptyState.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBE1ACC2938E80C00F52C3F /* emptyState.gif */; };
 		CEBE1ACF293920C900F52C3F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1ACE293920C900F52C3F /* HomeViewModel.swift */; };
 		CEBE1AD129392DA900F52C3F /* chillState.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBE1AD029392DA800F52C3F /* chillState.gif */; };
@@ -137,7 +137,7 @@
 		CEB1EA8D290C170A0087ED24 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CEB1EA8F290D931A0087ED24 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		CEB4BD22290851CF006F6D1D /* Days.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Days.swift; sourceTree = "<group>"; };
-		CEBE1ACA2938E37C00F52C3F /* HomeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewState.swift; sourceTree = "<group>"; };
+		CEBE1ACA2938E37C00F52C3F /* HomeStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStateView.swift; sourceTree = "<group>"; };
 		CEBE1ACC2938E80C00F52C3F /* emptyState.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = emptyState.gif; sourceTree = "<group>"; };
 		CEBE1ACE293920C900F52C3F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CEBE1AD029392DA800F52C3F /* chillState.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chillState.gif; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 				CEB1EA8F290D931A0087ED24 /* TextField.swift */,
 				CE10452728F703B6006B31D6 /* TabBarController.swift */,
 				CEA71A2528F8A9D100D2CE36 /* ViewController.swift */,
-				CEBE1ACA2938E37C00F52C3F /* HomeViewState.swift */,
+				CEBE1ACA2938E37C00F52C3F /* HomeStateView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -584,7 +584,7 @@
 				CE10452828F703B6006B31D6 /* TabBarController.swift in Sources */,
 				CE6B77C8291C303C00996142 /* JTACMonthView+Extension.swift in Sources */,
 				CEB1EA8E290C170A0087ED24 /* Fonts.swift in Sources */,
-				CEBE1ACB2938E37C00F52C3F /* HomeViewState.swift in Sources */,
+				CEBE1ACB2938E37C00F52C3F /* HomeStateView.swift in Sources */,
 				CE944F732901BB940000697A /* CalendarHomeView.swift in Sources */,
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
 				CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */,

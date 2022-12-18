@@ -11,13 +11,13 @@ class HomeView: UIView {
         return view
     }()
 
-    var emptyImageView = HomeViewState(
+    var emptyViewState = HomeStateView(
         titleText: Texts.emptyStateTitle,
         labelText: Texts.emptyStateLabel,
         gifImageView: .emptyStateGIF
     )
 
-    var chillImageView = HomeViewState(
+    var chillViewState = HomeStateView(
         titleText: Texts.chillStateTitle,
         labelText: Texts.chillStateLabel,
         gifImageView: .chillStateGIF
@@ -55,8 +55,8 @@ class HomeView: UIView {
     private func addSubviews() {
         addSubview(tableView)
         addSubview(calendarView)
-        addSubview(emptyImageView)
-        addSubview(chillImageView)
+        addSubview(emptyViewState)
+        addSubview(chillViewState)
     }
 
     private func makeConstraints() {
@@ -72,13 +72,13 @@ class HomeView: UIView {
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
 
-        emptyImageView.snp.makeConstraints { make in
+        emptyViewState.snp.makeConstraints { make in
             make.top.equalTo(calendarView.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(300)
         }
 
-        chillImageView.snp.makeConstraints { make in
+        chillViewState.snp.makeConstraints { make in
             make.top.equalTo(calendarView.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(300)
@@ -90,16 +90,16 @@ extension HomeView: Configurable {
     func configure(with viewModel: HomeViewModel) {
         switch viewModel.homeViewState {
         case .emptyState:
-            emptyImageView.isHidden = false
-            chillImageView.isHidden = true
+            emptyViewState.isHidden = false
+            chillViewState.isHidden = true
             tableView.isHidden = true
         case .chillState:
-            emptyImageView.isHidden = true
-            chillImageView.isHidden = false
+            emptyViewState.isHidden = true
+            chillViewState.isHidden = false
             tableView.isHidden = true
         case .regularState:
-            emptyImageView.isHidden = true
-            chillImageView.isHidden = true
+            emptyViewState.isHidden = true
+            chillViewState.isHidden = true
             tableView.isHidden = false
         }
     }

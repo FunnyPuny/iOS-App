@@ -1,9 +1,9 @@
-// HomeViewState.swift
+// HomeStateView.swift
 // FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
 
-class HomeViewState: UIView {
+class HomeStateView: UIView {
     var primaryText: String
     var secondaryText: String
     var gifImageView: UIImageView
