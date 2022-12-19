@@ -15,7 +15,8 @@ class CalendarHomeView: UIView {
         view.scrollDirection = .horizontal
         view.scrollingMode = .stopAtEachSection
         view.showsHorizontalScrollIndicator = false
-        view.cellSize = UIScreen.main.bounds.width / 7
+        view.cellSize = (UIScreen.main.bounds.width - 16) / 7
+        view.minimumInteritemSpacing = 2
         return view
     }()
 
@@ -46,7 +47,7 @@ class CalendarHomeView: UIView {
         }
 
         monthView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(8)
             make.top.equalTo(headerView.snp.bottom)
             make.height.equalTo(88)
         }
