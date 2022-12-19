@@ -99,18 +99,9 @@ class HabitManager {
         if let habitId = getHabitId(by: habitName) {
             if let habit = realm.object(ofType: Habit.self, forPrimaryKey: habitId) {
                 let currentDate = Date().localDate
-                let period = daysBetween(startDate: habit.createdDate, endDate: currentDate)
-                let pastWeeks = period / 7
-                let daysPeriod = period % 7
-                var pastDays: [Int] = []
-                if daysPeriod != 0 || currentDate.shortForm == habit.createdDate.shortForm {
-                    for value in 0 ... daysPeriod {
-                        pastDays.append((currentDate - value.days).weekday)
-                    }
-                }
-                totalCount += habit.frequency.count * pastWeeks
+                let daysPeriod = getFrequency(startDate: habit.createdDate, endDate: currentDate)
                 for frequency in habit.frequency {
-                    for day in pastDays where frequency.rawValue == day {
+                    for day in daysPeriod where frequency.rawValue == day {
                         totalCount += 1
                     }
                 }
@@ -119,13 +110,14 @@ class HabitManager {
         return totalCount
     }
 
-    private func daysBetween(startDate: Date, endDate: Date) -> Int {
-        let calendar = Calendar.current
-        let components = calendar.dateComponents(
-            [.day],
-            from: calendar.startOfDay(for: startDate),
-            to: calendar.startOfDay(for: endDate)
-        )
-        return components.day ?? 0
+    // swiftlint:disable shorthand_operator
+    private func getFrequency(startDate: Date, endDate: Date) -> [Int] {
+        var frequency: [Int] = []
+        var date = endDate
+        while date >= startDate {
+            frequency.append(date.weekday)
+            date = date - 1.days
+        }
+        return frequency
     }
 }
