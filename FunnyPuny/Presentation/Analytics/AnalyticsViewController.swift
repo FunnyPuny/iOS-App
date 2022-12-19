@@ -35,7 +35,7 @@ class AnalyticsViewController: ViewController {
         setupData()
     }
 
-    func setupData() {
+    private func setupData() {
         habitManager = HabitManager()
         analyticsView.calendarView.monthView.reloadData()
 
@@ -61,23 +61,23 @@ class AnalyticsViewController: ViewController {
         }
     }
 
-    func setupCalendar() {
+    private func setupCalendar() {
         analyticsView.calendarView.monthView.calendarDelegate = self
         analyticsView.calendarView.monthView.calendarDataSource = self
         analyticsView.calendarView.monthView.scrollToDate(Date(), animateScroll: false)
     }
 
-    func setupMenuButton() {
+    private func setupMenuButton() {
         analyticsView.menuButtonView.delegate = self
     }
 
     @objc
-    func goToNextMonth() {
+    private func goToNextMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate + 1.months)
     }
 
     @objc
-    func goToPreviousMonth() {
+    private func goToPreviousMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate - 1.months)
     }
 

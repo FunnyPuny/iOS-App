@@ -12,8 +12,8 @@ class ProgressView: UIView {
         return label
     }()
 
-    var progressLayer = CAShapeLayer()
-    var trackLayer = CAShapeLayer()
+    private var progressLayer = CAShapeLayer()
+    private var trackLayer = CAShapeLayer()
 
     var progressColor = UIColor.white {
         didSet {
@@ -27,7 +27,7 @@ class ProgressView: UIView {
         }
     }
 
-    var progress: CGFloat = 0 {
+    private var progress: CGFloat = 0 {
         didSet { setNeedsDisplay() }
     }
 

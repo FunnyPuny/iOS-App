@@ -15,13 +15,13 @@ class HomeViewController: ViewController {
         case regularState
     }
 
-    var currentHabits: [Habit] = []
-    var selectedDate = Date()
+    private var currentHabits: [Habit] = []
+    private var selectedDate = Date()
 
-    var habitManager = HabitManager()
-    var calendarManager = CalendarManager()
+    private var habitManager = HabitManager()
+    private var calendarManager = CalendarManager()
 
-    var viewState: ViewState = .emptyState
+    private var viewState: ViewState = .emptyState
 
     private var homeView = HomeView()
 

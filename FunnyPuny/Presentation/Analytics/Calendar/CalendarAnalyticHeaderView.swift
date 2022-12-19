@@ -8,7 +8,7 @@ import UIKit
 class CalendarAnalyticHeaderView: JTACMonthReusableView {
     var monthView = CalendarAnalyticHeaderMonthView()
 
-    var weekStackView: UIStackView = {
+    private var weekStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubviews(Frequency.allWeek.map { WeekdayView($0) })
         stackView.spacing = 8

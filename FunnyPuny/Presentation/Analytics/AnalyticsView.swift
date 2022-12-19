@@ -6,8 +6,8 @@ import UIKit
 
 class AnalyticsView: UIView {
     var menuButtonView = MenuButtonView()
-    var achivmentView = AchivmentView()
     var calendarView = CalendarAnalyticView()
+    private var achivmentView = AchivmentView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

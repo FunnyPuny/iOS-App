@@ -33,7 +33,7 @@ class AddHabitViewController: ViewController {
     }
 
     @objc
-    func addButtonDidPressed() {
+    private func addButtonDidPressed() {
         if addHabitView.frequencyView.selectedFrequencies.isEmpty, !addHabitView.nameInputView.textField.isValid {
             presentAlert(message: Texts.addAllItems)
         } else if addHabitView.frequencyView.selectedFrequencies.isEmpty, addHabitView.nameInputView.textField.isValid {
