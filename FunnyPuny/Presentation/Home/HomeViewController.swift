@@ -8,20 +8,22 @@ import UIKit
 
 // MARK: - HomeViewController
 
-enum HomeState {
-    case emptyState
-    case chillState
-    case regularState
-}
-
 class HomeViewController: ViewController {
-    private var homeView = HomeView()
-    var currentHabits = [Habit]()
+    enum ViewState {
+        case emptyState
+        case chillState
+        case regularState
+    }
+
+    var currentHabits: [Habit] = []
     var selectedDate = Date()
 
     var habitManager = HabitManager()
     var calendarManager = CalendarManager()
-    var homeViewModel = HomeViewModel(homeViewState: .emptyState)
+
+    var viewState: ViewState = .emptyState
+
+    private var homeView = HomeView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,15 +42,15 @@ class HomeViewController: ViewController {
 
     private func setupHomeStyle() {
         if habitManager.habits.isEmpty {
-            homeViewModel.homeViewState = .emptyState
+            viewState = .emptyState
         } else {
             if currentHabits.count != 0 {
-                homeViewModel.homeViewState = .regularState
+                viewState = .regularState
             } else {
-                homeViewModel.homeViewState = .chillState
+                viewState = .chillState
             }
         }
-        homeView.configure(with: homeViewModel)
+        homeView.configure(with: viewState)
         homeView.tableView.reloadData()
     }
 
@@ -227,6 +229,10 @@ extension HomeViewController: JTACMonthViewDelegate {
     ) {
         guard date.shortForm != selectedDate.shortForm else { return }
         didSelect(date)
+    }
+
+    func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        didSelect(calendar.cellStatusForDate(at: 0, column: 0)?.date ?? Date())
     }
 }
 

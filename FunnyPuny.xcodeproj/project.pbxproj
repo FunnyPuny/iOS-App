@@ -70,7 +70,6 @@
 		CEB4BD23290851CF006F6D1D /* Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* Days.swift */; };
 		CEBE1ACB2938E37C00F52C3F /* HomeStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1ACA2938E37C00F52C3F /* HomeStateView.swift */; };
 		CEBE1ACD2938E80D00F52C3F /* emptyState.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBE1ACC2938E80C00F52C3F /* emptyState.gif */; };
-		CEBE1ACF293920C900F52C3F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE1ACE293920C900F52C3F /* HomeViewModel.swift */; };
 		CEBE1AD129392DA900F52C3F /* chillState.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBE1AD029392DA800F52C3F /* chillState.gif */; };
 		CEC51B0E292C106200DCC848 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC51B0D292C106200DCC848 /* UITextField+Extension.swift */; };
 		CEC51B10292D5B3200DCC848 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC51B0F292D5B3200DCC848 /* CalendarManager.swift */; };
@@ -139,7 +138,6 @@
 		CEB4BD22290851CF006F6D1D /* Days.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Days.swift; sourceTree = "<group>"; };
 		CEBE1ACA2938E37C00F52C3F /* HomeStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStateView.swift; sourceTree = "<group>"; };
 		CEBE1ACC2938E80C00F52C3F /* emptyState.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = emptyState.gif; sourceTree = "<group>"; };
-		CEBE1ACE293920C900F52C3F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CEBE1AD029392DA800F52C3F /* chillState.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chillState.gif; sourceTree = "<group>"; };
 		CEC51B0D292C106200DCC848 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		CEC51B0F292D5B3200DCC848 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
@@ -306,7 +304,6 @@
 				CE6B77D62924060E00996142 /* HomeCellViewModel.swift */,
 				CE10451F28F6F23E006B31D6 /* HomeView.swift */,
 				CEDAFF3628E7199C006136B3 /* HomeViewController.swift */,
-				CEBE1ACE293920C900F52C3F /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -594,7 +591,6 @@
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CEADCCCF29354EB600BFD545 /* Constants.swift in Sources */,
 				CEC51B10292D5B3200DCC848 /* CalendarManager.swift in Sources */,
-				CEBE1ACF293920C900F52C3F /* HomeViewModel.swift in Sources */,
 				CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */,
 				CE6B77C0291AD5DE00996142 /* CalendarAnalyticDateCell.swift in Sources */,
 				CEA0CAF72900753B00EDCDFD /* CalendarHomeHeaderView.swift in Sources */,

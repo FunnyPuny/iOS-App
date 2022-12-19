@@ -87,8 +87,8 @@ class HomeView: UIView {
 }
 
 extension HomeView: Configurable {
-    func configure(with viewModel: HomeViewModel) {
-        switch viewModel.homeViewState {
+    func configure(with state: HomeViewController.ViewState) {
+        switch state {
         case .emptyState:
             emptyViewState.isHidden = false
             chillViewState.isHidden = true

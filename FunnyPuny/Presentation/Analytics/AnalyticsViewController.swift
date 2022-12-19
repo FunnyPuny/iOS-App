@@ -8,12 +8,12 @@ import UIKit
 
 // MARK: - AnalyticsViewController
 
-enum AnalyticMode {
-    case allHabits
-    case customHabit(name: String)
-}
-
 class AnalyticsViewController: ViewController {
+    enum AnalyticMode {
+        case allHabits
+        case customHabit(name: String)
+    }
+
     private var analyticsView = AnalyticsView()
     private var habitManager = HabitManager()
     private var calendarManager = CalendarManager()
