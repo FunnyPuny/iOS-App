@@ -5,10 +5,10 @@ import Foundation
 import RealmSwift
 import SwiftDate
 
-// swiftlint:disable all
-// TODO:
 class HabitManager {
+    // swiftlint:disable force_try
     let realm = try! Realm()
+    // swiftlint:enable force_try
 
     // MARK: Public properties
 
@@ -103,14 +103,14 @@ class HabitManager {
                 let pastWeeks = period / 7
                 let daysPeriod = period % 7
                 var pastDays: [Int] = []
-                if daysPeriod != 0 {
+                if daysPeriod != 0 || currentDate.shortForm == habit.createdDate.shortForm {
                     for value in 0 ... daysPeriod {
                         pastDays.append((currentDate - value.days).weekday)
                     }
                 }
                 totalCount += habit.frequency.count * pastWeeks
-                for day in stride(from: 0, through: habit.frequency.count - 1, by: 1) {
-                    for days in pastDays where habit.frequency[day].rawValue == days {
+                for frequency in habit.frequency {
+                    for day in pastDays where frequency.rawValue == day {
                         totalCount += 1
                     }
                 }
