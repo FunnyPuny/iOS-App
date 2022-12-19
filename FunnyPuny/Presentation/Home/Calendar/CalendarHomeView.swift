@@ -16,7 +16,7 @@ class CalendarHomeView: UIView {
         view.scrollingMode = .stopAtEachSection
         view.showsHorizontalScrollIndicator = false
         view.cellSize = (UIScreen.main.bounds.width - 16) / 7
-        view.minimumInteritemSpacing = 2
+        view.minimumInteritemSpacing = 3
         return view
     }()
 
