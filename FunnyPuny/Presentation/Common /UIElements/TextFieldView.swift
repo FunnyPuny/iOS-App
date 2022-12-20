@@ -23,7 +23,7 @@ class TextFieldView: UIView {
             string: placeholder,
             attributes: [.foregroundColor: Colors.textTertiary.color]
         )
-        textField.layer.cornerRadius = 8
+        textField.layer.cornerRadius = 10
         textField.layer.borderColor = Colors.inputDefault.color.cgColor
         textField.layer.borderWidth = CGFloat(1)
         return textField

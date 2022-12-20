@@ -13,6 +13,7 @@ class CalendarAnalyticDateCell: JTACDayCell {
         label.font = .body
         label.textAlignment = .center
         label.layer.cornerRadius = 18
+        label.layer.cornerCurve = .continuous
         label.clipsToBounds = true
         return label
     }()

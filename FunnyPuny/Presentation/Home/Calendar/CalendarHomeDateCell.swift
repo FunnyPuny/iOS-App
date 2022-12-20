@@ -90,9 +90,11 @@ extension CalendarHomeDateCell: Configurable {
         dateLabel.layer.borderWidth = 2
         if viewModel.isSelected {
             containerView.layer.cornerRadius = 24
+            containerView.backgroundColor = Colors.backgroundSelectedDate.color
             containerView.dropShadow()
         } else {
             containerView.layer.cornerRadius = 0
+            containerView.backgroundColor = .clear
             containerView.removeShadow()
         }
     }

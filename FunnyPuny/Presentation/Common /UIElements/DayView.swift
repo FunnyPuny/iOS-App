@@ -45,7 +45,6 @@ class DayView: UIView {
 
     private func commonInit() {
         addSubviews()
-        layer.cornerRadius = 6
         setupStyle()
         makeConstraints()
     }
@@ -73,6 +72,8 @@ class DayView: UIView {
     }
 
     func setupStyle() {
+        layer.cornerRadius = 8
+        layer.cornerCurve = .continuous
         backgroundColor = isSelected ? Colors.backgroundAccent.color : Colors.backgroundIsland.color
         dayLabel.textColor = isSelected ? Colors.textButton.color : Colors.textPrimary.color
     }

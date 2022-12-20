@@ -10,6 +10,7 @@ extension UIView {
         layer.shadowOffset = CGSize(width: 0, height: 3)
         layer.shadowRadius = 3.2
         layer.masksToBounds = false
+        layer.cornerCurve = .continuous
     }
 
     func removeShadow() {
