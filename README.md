@@ -26,8 +26,11 @@ Localization: English, Russian
 ### Tech stacks
 
 Core:
--   SnapKit
--   Realm
+-   [SnapKit](https://github.com/SnapKit/SnapKit)
+-   [Realm](https://github.com/realm/realm-swift)
+-   [JTAppleCalendar](https://github.com/patchthecode/JTAppleCalendar)
+-   [SwiftyGif](https://github.com/kirualex/SwiftyGif)
+-   [SwiftDate](https://github.com/malcommac/SwiftDate)
 
 Others:
 -   Swift Package Manager
