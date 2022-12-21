@@ -5,8 +5,7 @@ FunnyPuny is an easy-to-use app that helps you to create or maintain your everyd
 - Mark completed habits
 - Track your productivity 
 - Check your achievements with count of completed and missed habits 
-
-Localization: English, Russian 
+- Localization: English, Russian 
 
 ![Frame 110](https://user-images.githubusercontent.com/104151157/208861154-9101b9ee-1c06-4c56-9785-ada5a4fc6242.jpg)
 ![Frame 111](https://user-images.githubusercontent.com/104151157/208861162-1ea1169e-a96e-41be-af90-9b20fc01ebdf.jpg)
