@@ -68,7 +68,7 @@ extension AddHabitViewController: FrequencyViewDelegate {
     func didSelect(_ frequencies: [Frequency]) {
         selectedFrequencies.removeAll()
         if frequencies.contains(.everyday) {
-            selectedFrequencies.append(objectsIn: [.mon, .tue, .wed, .thu, .fri, .sat, .sun])
+            selectedFrequencies.append(objectsIn: Frequency.allWeek)
         } else {
             selectedFrequencies.append(objectsIn: frequencies)
         }

@@ -22,8 +22,10 @@ extension String {
 
     subscript(range: Range<Int>) -> String {
         let fullRange = Range(
-            uncheckedBounds: (lower: max(0, min(length, range.lowerBound)),
-                              upper: min(length, max(0, range.upperBound)))
+            uncheckedBounds: (
+                lower: max(0, min(length, range.lowerBound)),
+                upper: min(length, max(0, range.upperBound))
+            )
         )
         let start = index(startIndex, offsetBy: fullRange.lowerBound)
         let end = index(start, offsetBy: fullRange.upperBound - fullRange.lowerBound)
