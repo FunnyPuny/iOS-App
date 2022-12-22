@@ -1,23 +1,68 @@
 // HomeCell.swift
 // FunnyPuny. Created by Zlata Guseva.
 
+import SwiftDate
 import UIKit
 
-class HomeCell: UITableViewCell {
-    var isDone = false
+// MARK: - HomeCell
 
-    lazy var iconImageView: UIImageView = {
+class HomeCell: UITableViewCell {
+    enum HomeCellState {
+        case checked
+        case unchecked
+        case inactive
+
+        var contentBackgroundColor: UIColor {
+            switch self {
+            case .checked: return Colors.backgroundIsland.color
+            case .unchecked, .inactive: return Colors.backgroundGlobe.color
+            }
+        }
+
+        var borderWidth: CGFloat {
+            switch self {
+            case .checked: return 0
+            case .unchecked: return 2
+            case .inactive: return 3
+            }
+        }
+
+        var borderColor: CGColor {
+            switch self {
+            case .checked: return UIColor.clear.cgColor
+            case .unchecked: return Colors.backgroundIsland.color.cgColor
+            case .inactive: return Colors.backgroundBoarder.color.cgColor
+            }
+        }
+
+        var textColor: UIColor {
+            switch self {
+            case .checked, .unchecked: return Colors.textPrimary.color
+            case .inactive: return Colors.textSecondary.color
+            }
+        }
+
+        var iconImage: UIImage {
+            switch self {
+            case .checked: return Images.checkmark.image
+            case .unchecked: return Images.cicrle.image
+            case .inactive: return Images.circleInactive.image
+            }
+        }
+    }
+
+    var state: HomeCellState = .unchecked
+
+    private var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
-        imageView.image = .circle
-        imageView.backgroundColor = .background
         return imageView
     }()
 
-    lazy var label: UILabel = {
+    private var label: UILabel = {
         let label = UILabel()
-        label.font = .regular17
-        label.textColor = .black
+        label.font = .bodyRegular
+        label.textColor = Colors.textPrimary.color
         return label
     }()
 
@@ -38,9 +83,14 @@ class HomeCell: UITableViewCell {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = Colors.backgroundGlobe.color
         selectionStyle = .none
         contentView.layer.cornerRadius = 16
+        contentView.backgroundColor = state.contentBackgroundColor
+        iconImageView.image = state.iconImage
+        label.textColor = state.textColor
+        contentView.layer.borderColor = state.borderColor
+        contentView.layer.borderWidth = state.borderWidth
     }
 
     private func addSubviews() {
@@ -65,5 +115,19 @@ class HomeCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.width.height.equalTo(32)
         }
+    }
+}
+
+// MARK: Configurable
+
+extension HomeCell: Configurable {
+    func configure(with viewModel: HomeCellViewModel) {
+        label.text = viewModel.habitName
+        if viewModel.selectedDate > Date() {
+            state = .inactive
+        } else {
+            state = viewModel.isDone ? .checked : .unchecked
+        }
+        setupStyle()
     }
 }

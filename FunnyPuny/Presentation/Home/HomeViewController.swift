@@ -6,14 +6,24 @@ import RealmSwift
 import SwiftDate
 import UIKit
 
-// swiftlint:disable all
+// MARK: - HomeViewController
+
 class HomeViewController: ViewController {
+    enum ViewState {
+        case emptyState
+        case chillState
+        case regularState
+    }
+
+    private var currentHabits: [Habit] = []
+    private var selectedDate = Date()
+
+    private var habitManager = HabitManager()
+    private var calendarManager = CalendarManager()
+
+    private var viewState: ViewState = .emptyState
+
     private var homeView = HomeView()
-    var habits: Results<Habit>?
-    var currentHabits: Results<Habit>?
-    var selectedDate = Date()
-    var history: Results<History>?
-    var historyComplete = History()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +37,33 @@ class HomeViewController: ViewController {
     }
 
     @objc private func habitDidAdd() {
+        setupCurrentHabits()
+    }
+
+    private func setupHomeStyle() {
+        if habitManager.habits.isEmpty {
+            viewState = .emptyState
+        } else {
+            if currentHabits.count != 0 {
+                viewState = .regularState
+            } else {
+                viewState = .chillState
+            }
+        }
+        homeView.configure(with: viewState)
         homeView.tableView.reloadData()
     }
 
-    fileprivate func setupCurrentHabits() {
-        currentHabits = habits?.where {
-            $0.frequency.contains(Day(rawValue: selectedDate.dateComponents.weekday ?? 1) ?? .sun)
+    private func setupCurrentHabits() {
+        let currentFrequency = Frequency(rawValue: selectedDate.weekday) ?? .sun
+        currentHabits = habitManager.habits.filter {
+            selectedDate.shortForm >= $0.createdDate.shortForm && $0.frequency.contains(currentFrequency)
         }
-        homeView.tableView.reloadData()
+        currentHabits = currentHabits.sorted { $0.name < $1.name }
+        setupHomeStyle()
     }
 
     private func setupData() {
-        habits = realm.objects(Habit.self)
         setupCurrentHabits()
     }
 
@@ -50,7 +75,12 @@ class HomeViewController: ViewController {
     private func setupCalendar() {
         homeView.calendarView.monthView.calendarDelegate = self
         homeView.calendarView.monthView.calendarDataSource = self
-        scrollToDate(Date())
+        homeView.calendarView.headerView.addHabitButton.addTarget(
+            self,
+            action: #selector(addButtonPressed),
+            for: .touchUpInside
+        )
+        didSelect(Date())
     }
 
     private func setupNotification() {
@@ -67,111 +97,154 @@ class HomeViewController: ViewController {
         homeView.calendarView.headerView.addGestureRecognizer(headerTap)
     }
 
-    @objc private func headerDatePressed() {
-        scrollToDate(Date())
+    @objc
+    private func headerDatePressed() {
+        didSelect(Date())
     }
 
-    private func scrollToDate(_ date: Date) {
-        homeView.calendarView.monthView.scrollToDate(date - 3.days, extraAddedOffset: -4) // TODO: 💩
-        homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatMMMMd)
+    @objc
+    private func addButtonPressed() {
+        let addHabitViewController = NavigationController(rootViewController: AddHabitViewController())
+        if let sheet = addHabitViewController.sheetPresentationController {
+            sheet.detents = [.large()]
+        }
+        present(addHabitViewController, animated: true)
+    }
+
+    private func didSelect(_ date: Date) {
         selectedDate = date
+        homeView.calendarView.monthView.reloadData(withAnchor: selectedDate)
+        homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
         setupCurrentHabits()
+    }
+
+    private func presentAlert() {
+        let alert = UIAlertController(title: Texts.oops, message: Texts.alert, preferredStyle: .alert)
+        alert.addAction(.init(title: Texts.okay, style: .cancel))
+        present(alert, animated: true)
     }
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: UITableViewDelegate
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if selectedDate > Date() {
+            presentAlert()
+        } else {
+            do {
+                try realm.write {
+                    let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
+                    let dateString = selectedDate.string(dateFormat: .formatyyMMdd)
+                    let habitId = currentHabits[indexPath.row].id
+
+                    if let days = habitManager.getSpecificElement(type: Days.self, with: dateString) {
+                        if cell.state == .checked {
+                            days.habits.remove(value: habitId)
+                        } else {
+                            days.habits.append(habitId)
+                        }
+                    } else {
+                        let days = Days(date: dateString)
+                        days.habits.append(habitId)
+                        realm.add(days)
+                    }
+                }
+            } catch let error as NSError {
+                print("Can't update habit, error: \(error)")
+            }
+            homeView.calendarView.monthView.reloadDates([selectedDate])
+            tableView.reloadData()
+        }
+    }
+}
+
+// MARK: UITableViewDataSource
+
+extension HomeViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        currentHabits?.count ?? 0
+        currentHabits.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: HomeCell.self)
-        cell.label.text = currentHabits?[indexPath.row].name ?? ""
+        var viewModel = HomeCellViewModel(
+            habitName: currentHabits[indexPath.row].name,
+            isDone: false,
+            selectedDate: selectedDate
+        )
 
         let date = selectedDate.string(dateFormat: .formatyyMMdd)
-        let history = realm.object(ofType: History.self, forPrimaryKey: date)
-        if
-            let habitId = currentHabits?[indexPath.row].id,
-            let history,
-            history.habits.contains(habitId)
-        {
-            cell.iconImageView.image = .checkmark
-            cell.iconImageView.tintColor = .vividPink
-            cell.contentView.backgroundColor = .background
-            cell.contentView.layer.borderColor = UIColor.pinkLight?.cgColor
-            cell.contentView.layer.borderWidth = 2
-            cell.isDone = true
+        let habitId = currentHabits[indexPath.row].id
+        let days = habitManager.getSpecificElement(type: Days.self, with: date)
+        if let days, days.habits.contains(habitId) {
+            viewModel.isDone = true
+            cell.configure(with: viewModel)
         } else {
-            cell.iconImageView.image = .circle
-            cell.iconImageView.tintColor = .background
-            cell.contentView.backgroundColor = .pinkLight
-            cell.isDone = false
+            viewModel.isDone = false
+            cell.configure(with: viewModel)
         }
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath, withClass: HomeCell.self)
-        do {
-            try realm.write {
-                let date = selectedDate.string(dateFormat: .formatyyMMdd)
-                guard let habitId = (currentHabits?[indexPath.row].id) else {
-                    return
-                }
-                let history = realm.object(ofType: History.self, forPrimaryKey: date)
-
-                if let history {
-                    if cell.isDone {
-                        history.habits.remove(value: habitId)
-                    } else {
-                        history.habits.append(habitId)
-                    }
-                } else {
-                    historyComplete.date = date
-                    historyComplete.habits.append(habitId)
-                    realm.add(historyComplete)
-                }
-            }
-        } catch let error as NSError {
-            print("Can't update habit, error: \(error)")
-        }
-        tableView.reloadData()
-    }
 }
 
-extension HomeViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
-    func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
-        let parameters = ConfigurationParameters(
-            startDate: Date() - 10.years,
-            endDate: Date() + 10.years,
-            numberOfRows: 1
-        )
-        return parameters
-    }
+// MARK: JTACMonthViewDelegate
 
-    func configureCell(view: JTACDayCell?, cellState: CellState) {
-        guard let cell = view as? CalendarDateCell else { return }
-        cell.dateLabel.text = cellState.date.string(dateFormat: .formatdd)
-        cell.dayOfWeekLabel.text = cellState.date.string(dateFormat: .formatEEEEE)
-        cell.dayOfWeekLabel.textColor = Calendar.current.isDateInToday(cellState.date) ? .foreground : .greyDark
-    }
-
+extension HomeViewController: JTACMonthViewDelegate {
     func calendar(
         _ calendar: JTACMonthView,
         cellForItemAt date: Date,
         cellState: CellState,
         indexPath: IndexPath
     ) -> JTACDayCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDateCell", for: indexPath) as! CalendarDateCell // TODO: 💩
+        let cell = calendar.dequeueReusableJTAppleCell(withClass: CalendarHomeDateCell.self, indexPath: indexPath)
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         return cell
     }
 
-    func calendar(_: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt _: Date, cellState: CellState, indexPath _: IndexPath) {
-        configureCell(view: cell, cellState: cellState)
+    func calendar(
+        _: JTACMonthView,
+        willDisplay cell: JTACDayCell,
+        forItemAt date: Date,
+        cellState: CellState,
+        indexPath _: IndexPath
+    ) {
+        guard let cell = cell as? CalendarHomeDateCell else { return }
+        cell.configure(with:
+            .init(
+                date: cellState.date,
+                isDateBelongsToCurrentMonth: false,
+                backgroundColor: calendarManager.getColorForAllHabitMode(by: cellState.date),
+                isSelected: date.dayOfYear == selectedDate.dayOfYear
+            )
+        )
     }
 
-    func calendar(_: JTACMonthView, didSelectDate date: Date, cell _: JTACDayCell?, cellState _: CellState, indexPath _: IndexPath) {
-        scrollToDate(date)
+    func calendar(
+        _ calendar: JTACMonthView,
+        didSelectDate date: Date,
+        cell: JTACDayCell?,
+        cellState: CellState,
+        indexPath: IndexPath
+    ) {
+        guard date.shortForm != selectedDate.shortForm else { return }
+        didSelect(date)
+    }
+
+    func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        didSelect(calendar.cellStatusForDate(at: 0, column: 0)?.date ?? Date())
+    }
+}
+
+// MARK: JTACMonthViewDataSource
+
+extension HomeViewController: JTACMonthViewDataSource {
+    func configureCalendar(_: JTAppleCalendar.JTACMonthView) -> JTAppleCalendar.ConfigurationParameters {
+        let parameters = ConfigurationParameters(
+            startDate: Date() - 1.years,
+            endDate: Date() + 1.years,
+            numberOfRows: 1
+        )
+        return parameters
     }
 }

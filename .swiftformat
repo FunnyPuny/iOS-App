@@ -1,2 +1,5 @@
 --header "{file}\nFunnyPuny. Created by Zlata Guseva."
+
+--disable unusedArguments, trailingCommas
+
 --swiftversion 5.7

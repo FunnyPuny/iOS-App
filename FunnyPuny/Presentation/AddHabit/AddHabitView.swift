@@ -5,14 +5,14 @@ import UIKit
 
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
-    var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
     var frequencyView = FrequencyView()
-    var addButtonView: UIButton = {
+
+    var addButton: UIButton = {
         let button = UIButton()
         button.setTitle(Texts.add, for: .normal)
-        button.titleLabel?.textColor = .background
-        button.titleLabel?.font = .regular17
-        button.backgroundColor = .mainGrey
+        button.titleLabel?.textColor = Colors.textSecondary.color
+        button.titleLabel?.font = .bodyRegular
+        button.backgroundColor = Colors.buttonInactive.color
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 12
         return button
@@ -36,9 +36,8 @@ class AddHabitView: UIView {
 
     private func addSubviews() {
         addSubview(nameInputView)
-        addSubview(reminderInputView)
         addSubview(frequencyView)
-        addSubview(addButtonView)
+        addSubview(addButton)
     }
 
     private func makeConstraints() {
@@ -47,17 +46,13 @@ class AddHabitView: UIView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(16)
         }
 
-        reminderInputView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.top.equalTo(nameInputView.snp.bottom).offset(24)
-        }
-
         frequencyView.snp.makeConstraints { make in
-            make.top.equalTo(reminderInputView.snp.bottom).offset(24)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(nameInputView.snp.bottom).offset(24)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
 
-        addButtonView.snp.makeConstraints { make in
+        addButton.snp.makeConstraints { make in
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(66)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(44)
@@ -67,5 +62,20 @@ class AddHabitView: UIView {
     private func setupTargets() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
         addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
+        nameInputView.textField.addTarget(
+            self,
+            action: #selector(textFieldDidChange),
+            for: UIControl.Event.editingChanged
+        )
+    }
+
+    @objc func textFieldDidChange(_: UITextField) {
+        addButton.backgroundColor = nameInputView.textField.isValid && !frequencyView.selectedFrequencies.isEmpty
+            ? Colors.buttonActive.color
+            : Colors.buttonInactive.color
+        addButton.titleLabel?.textColor = nameInputView.textField.isValid && !frequencyView.selectedFrequencies.isEmpty
+            ? Colors.textButton.color
+            : Colors.textSecondary.color
     }
 }

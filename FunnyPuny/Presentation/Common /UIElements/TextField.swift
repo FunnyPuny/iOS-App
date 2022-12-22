@@ -2,8 +2,9 @@
 // FunnyPuny. Created by Zlata Guseva.
 
 import UIKit
+
 class TextField: UITextField {
-    let inset: CGFloat = 16
+    private let inset: CGFloat = 16
 
     // placeholder position
     override func textRect(forBounds bounds: CGRect) -> CGRect {

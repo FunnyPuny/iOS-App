@@ -10,20 +10,21 @@ class TextFieldView: UIView {
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = text
-        label.textColor = .foreground
-        label.font = .regular20
+        label.textColor = Colors.textPrimary.color
+        label.font = .bodyMedium
         return label
     }()
 
     lazy var textField: TextField = {
         let textField = TextField()
+        textField.font = .bodyRegular
         textField.placeholder = placeholder
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.greyLight]
+            attributes: [.foregroundColor: Colors.textTertiary.color]
         )
-        textField.layer.cornerRadius = 8
-        textField.layer.borderColor = UIColor.mainGrey?.cgColor
+        textField.layer.cornerRadius = 10
+        textField.layer.borderColor = Colors.inputDefault.color.cgColor
         textField.layer.borderWidth = CGFloat(1)
         return textField
     }()
@@ -47,7 +48,7 @@ class TextFieldView: UIView {
     }
 
     private func setupStyle() {
-        backgroundColor = .background
+        backgroundColor = Colors.backgroundGlobe.color
     }
 
     private func addSubviews() {
@@ -62,7 +63,7 @@ class TextFieldView: UIView {
         }
 
         textField.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(16)
+            make.top.equalTo(label.snp.bottom).offset(12)
             make.height.equalTo(40)
             make.leading.trailing.bottom.equalToSuperview()
         }

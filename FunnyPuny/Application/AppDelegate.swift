@@ -1,6 +1,7 @@
 // AppDelegate.swift
 // FunnyPuny. Created by Zlata Guseva.
 
+import FirebaseCore
 import RealmSwift
 import SwiftDate
 import UIKit
@@ -13,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _: UIApplication,
         didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        FirebaseApp.configure()
         SwiftDate.defaultRegion = .local
         setupRealm()
         setupRootViewController()

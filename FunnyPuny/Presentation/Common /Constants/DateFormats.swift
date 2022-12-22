@@ -11,12 +11,24 @@ extension Date {
         case formatdd = "dd"
         /// T
         case formatEEEEE = "EEEEE"
-        /// October, 18
-        case formatMMMMd = "MMMM, d"
+        ///  October, 18
+        case formatLLLLd = "LLLL, d"
         /// 18 October 2022
         case formatdMMMMyyyy = "d MMMM yyyy"
-        /// 18/11/22
+        /// 22/10/18
         case formatyyMMdd = "yy/MM/dd"
+        /// October 2022
+        case formatLLLLyyyy = "LLLL yyyy"
+        /// 20221018
+        case formatyyyyMMdd = "yyyyMMdd"
+    }
+
+    var shortForm: String {
+        string(dateFormat: .formatyyyyMMdd)
+    }
+
+    var localDate: Date {
+        self + Double(TimeZone.current.secondsFromGMT(for: Date()))
     }
 
     /// Строка из даты
@@ -25,10 +37,6 @@ extension Date {
     /// - Parameter locale: Локаль. По умолчанию используется системная
     /// - Returns: Строка из даты
     func string(dateFormat: DateFormat, timeZone: TimeZone = .current, locale: Locale = .current) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = timeZone
-        dateFormatter.locale = locale
-        dateFormatter.dateFormat = dateFormat.rawValue
-        return dateFormatter.string(from: self)
+        toFormat(dateFormat.rawValue)
     }
 }

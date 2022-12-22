@@ -5,11 +5,12 @@ import RealmSwift
 import UIKit
 
 class ViewController: UIViewController {
-    // swiftlint:disable all
+    // swiftlint:disable force_try
     let realm = try! Realm()
+    // swiftlint:enable force_try
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .background
+        view.backgroundColor = Colors.backgroundGlobe.color
     }
 }

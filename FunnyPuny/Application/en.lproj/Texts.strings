@@ -1,0 +1,43 @@
+//MARK: Home
+
+"oops" = "Oops!";
+"alert" = "This day doesn't come";
+"okay" = "OK";
+"emptyStateTitle" = "Let's create your new routine together";
+"emptyStateLabel" = "Tap + button to add your first habit";
+"chillStateTitle" = "There're no habits to complete today";
+"chillStateLabel" = "It's chill day! See you tomorrow!";
+
+// MARK: AddHabit
+
+"add" = "Add";
+"addHabit" = "Add habit";
+"name" = "Name";
+"nameHabit" = "Habit's name";
+"frequency" = "Frequency";
+"addName" = "Please, create habit's name";
+"addFrequency" = "Please, choose frequency";
+"addAllItems" = "Please, create habit's name and choose frequency";
+
+// MARK: TabBar
+
+"habits" = "Habits";
+"home" = "Home";
+"analytics" = "Analytics";
+
+// MARK: Analytics
+
+"allHabits" = "All Habits";
+"completed" = "completed";
+"missed" = "missed";
+
+// MARK: Frequency
+
+"mon" = "Mon";
+"tue" = "Tue";
+"wed" = "Wed";
+"thu" = "Thu";
+"fri" = "Fri";
+"sat" = "Sat";
+"sun" = "Sun";
+"everyday" = "Everyday";
