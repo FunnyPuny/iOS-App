@@ -34,11 +34,11 @@ Core:
 -   [SwiftDate](https://github.com/malcommac/SwiftDate)
 
 Others:
--   Swift Package Manager
--   SwiftLint
--   SwiftFormat
--   SwiftGen
--   Periphery
+-   [Swift Package Manager](https://github.com/apple/swift-package-manager)
+-   [SwiftLint](https://github.com/realm/SwiftLint)
+-   [SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
+-   [SwiftGen](https://github.com/SwiftGen/SwiftGen)
+-   [Periphery](https://github.com/peripheryapp/periphery)
 
 ### Requirements
 
