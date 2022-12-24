@@ -74,11 +74,13 @@ class AnalyticsViewController: ViewController {
     @objc
     private func goToNextMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate + 1.months)
+        setupHapticFeedback()
     }
 
     @objc
     private func goToPreviousMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate - 1.months)
+        setupHapticFeedback()
     }
 
     private func setupTargets() {
@@ -89,6 +91,13 @@ class AnalyticsViewController: ViewController {
     @objc
     private func headerDatePressed() {
         analyticsView.calendarView.monthView.scrollToDate(Date())
+        setupHapticFeedback()
+    }
+
+    private func setupHapticFeedback() {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
+        feedbackGenerator.prepare()
+        feedbackGenerator.impactOccurred()
     }
 }
 
