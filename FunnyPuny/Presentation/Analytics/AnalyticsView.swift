@@ -59,8 +59,8 @@ class AnalyticsView: UIView {
 
 extension AnalyticsView: Configurable {
     func configure(with viewModel: AnalyticsViewModel) {
-        achivmentView.completedScore.amountHabitsLabel.text = viewModel.completedScoreText
-        achivmentView.missedScore.amountHabitsLabel.text = viewModel.missedScoreText
+        achivmentView.completedScoreView.amountHabitsLabel.text = viewModel.completedScoreText
+        achivmentView.missedScoreView.amountHabitsLabel.text = viewModel.missedScoreText
 
         achivmentView.progressView.statusLabel.text = String(Int(viewModel.percentValue * 100)) + "%"
         achivmentView.progressView.progressAnimation(value: viewModel.percentValue)
