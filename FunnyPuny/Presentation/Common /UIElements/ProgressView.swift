@@ -81,3 +81,10 @@ class ProgressView: UIView {
         statusLabel.fadeIn()
     }
 }
+
+extension ProgressView {
+    func configure(percentValue: Float) {
+        statusLabel.text = String(Int(percentValue * 100)) + "%"
+        progressAnimation(value: percentValue)
+    }
+}
