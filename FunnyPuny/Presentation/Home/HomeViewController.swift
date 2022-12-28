@@ -116,20 +116,13 @@ class HomeViewController: ViewController {
         homeView.calendarView.monthView.reloadData(withAnchor: selectedDate)
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
         setupCurrentHabits()
-        setupHapticFeedback(style: .soft)
+        addHapticFeedback(style: .soft)
     }
 
     private func presentAlert() {
         let alert = UIAlertController(title: Texts.oops, message: Texts.alert, preferredStyle: .alert)
         alert.addAction(.init(title: Texts.okay, style: .cancel))
         present(alert, animated: true)
-    }
-
-    private func setupHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) -> UIImpactFeedbackGenerator {
-        let feedbackGenerator = UIImpactFeedbackGenerator(style: style)
-        feedbackGenerator.prepare()
-        feedbackGenerator.impactOccurred()
-        return feedbackGenerator
     }
 }
 
@@ -164,7 +157,7 @@ extension HomeViewController: UITableViewDelegate {
             homeView.calendarView.monthView.reloadDates([selectedDate])
             tableView.reloadData()
         }
-        setupHapticFeedback(style: .heavy)
+        addHapticFeedback(style: .heavy)
     }
 }
 
