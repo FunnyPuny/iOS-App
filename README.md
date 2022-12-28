@@ -17,8 +17,8 @@ FunnyPuny is an easy-to-use app that helps you to create or maintain your everyd
 ### Road map
 
  - Add ability to edit habit 
- - Delete all habits and its history
- - Support different design styles
+ - Delete all habits and history of their completion 
+ - Different design styles support
  - Add reminder time and notifications
  - Sigh-In with Apple
  - Achievements

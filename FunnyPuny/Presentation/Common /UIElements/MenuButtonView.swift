@@ -80,12 +80,5 @@ class MenuButtonView: UIView {
         }
         button.menu = UIMenu(children: actions)
         button.showsMenuAsPrimaryAction = true
-        setupHapticFeedback()
-    }
-
-    private func setupHapticFeedback() {
-        let feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
-        feedbackGenerator.prepare()
-        feedbackGenerator.impactOccurred()
     }
 }
