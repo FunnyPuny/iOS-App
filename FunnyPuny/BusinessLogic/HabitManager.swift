@@ -114,7 +114,7 @@ class HabitManager {
     private func getFrequency(startDate: Date, endDate: Date) -> [Int] {
         var frequency: [Int] = []
         var date = endDate
-        while date >= startDate {
+        while date.shortForm >= startDate.shortForm {
             frequency.append(date.weekday)
             date = date - 1.days
         }
