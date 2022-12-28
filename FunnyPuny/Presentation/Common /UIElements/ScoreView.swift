@@ -64,3 +64,9 @@ class ScoreView: UIView {
         }
     }
 }
+
+extension ScoreView {
+    func configure(scoreText: String) {
+        amountHabitsLabel.text = scoreText
+    }
+}
