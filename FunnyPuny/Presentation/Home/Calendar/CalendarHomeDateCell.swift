@@ -11,7 +11,7 @@ class CalendarHomeDateCell: JTACDayCell {
     private var dayOfWeekLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.textPrimary.color
-        label.font = .regular10
+        label.font = .caption
         label.textAlignment = .center
         return label
     }()
@@ -19,7 +19,7 @@ class CalendarHomeDateCell: JTACDayCell {
     private var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.textPrimary.color
-        label.font = .regular12
+        label.font = .body
         label.layer.borderWidth = 1
         label.textAlignment = .center
         label.layer.cornerRadius = 18
@@ -89,10 +89,12 @@ extension CalendarHomeDateCell: Configurable {
         dateLabel.backgroundColor = viewModel.backgroundColor
         dateLabel.layer.borderWidth = 2
         if viewModel.isSelected {
-            containerView.layer.cornerRadius = 22
+            containerView.layer.cornerRadius = 24
+            containerView.backgroundColor = Colors.backgroundSelectedDate.color
             containerView.dropShadow()
         } else {
             containerView.layer.cornerRadius = 0
+            containerView.backgroundColor = .clear
             containerView.removeShadow()
         }
     }

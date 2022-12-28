@@ -9,7 +9,7 @@ class CalendarAnalyticHeaderMonthView: UIView {
     var monthLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.textPrimary.color
-        label.font = .regular17
+        label.font = .bodyRegular
         label.textAlignment = .center
         return label
     }()
@@ -60,10 +60,12 @@ class CalendarAnalyticHeaderMonthView: UIView {
             make.leading.centerY.equalToSuperview()
             make.size.equalTo(24)
         }
+
         monthLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.height.equalTo(20)
         }
+
         rightButton.snp.makeConstraints { make in
             make.trailing.centerY.equalToSuperview()
             make.size.equalTo(24)

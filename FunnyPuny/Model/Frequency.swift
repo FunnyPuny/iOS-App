@@ -1,6 +1,7 @@
 // Frequency.swift
 // FunnyPuny. Created by Zlata Guseva.
 
+import Foundation
 import RealmSwift
 
 enum Frequency: Int, CaseIterable, PersistableEnum {
@@ -32,5 +33,11 @@ enum Frequency: Int, CaseIterable, PersistableEnum {
         case .everyday:
             return Texts.everyday
         }
+    }
+
+    static var allWeek: [Frequency] {
+        var array: [Frequency] = [.mon, .tue, .wed, .thu, .fri, .sat]
+        array.insert(.sun, at: Calendar.current.firstWeekday == 1 ? 0 : 6)
+        return array
     }
 }

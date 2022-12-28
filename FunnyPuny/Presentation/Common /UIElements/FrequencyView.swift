@@ -3,28 +3,28 @@
 
 import UIKit
 
+protocol FrequencyViewDelegate: AnyObject {
+    func didSelect(_ frequencies: [Frequency])
+}
+
 class FrequencyView: UIView {
-    var viewState: ViewState
+    var selectedFrequencies: [Frequency] = [.everyday]
+    weak var delegate: FrequencyViewDelegate?
 
     private var label: UILabel = {
         let label = UILabel()
         label.text = Texts.frequency
         label.textColor = Colors.textPrimary.color
-        label.font = .regular20
+        label.font = .bodyMedium
         return label
     }()
 
-    var everydayView = DayView(.everyday, isSelected: true)
-
-    let views: [DayView] = {
-        var views = Frequency.allCases.map { DayView($0) }
-        views.removeLast()
-        return views
-    }()
+    private var dayViews: [DayView] = []
+    private var everydayView = DayView(.everyday, isSelected: true)
+    private var weekdayViews = Frequency.allWeek.map { DayView($0) }
 
     private var stackView: UIStackView = {
         let stackView = UIStackView()
-
         stackView.spacing = 12
         stackView.distribution = .fillEqually
         return stackView
@@ -37,8 +37,7 @@ class FrequencyView: UIView {
         return scrollView
     }()
 
-    required init(viewState: ViewState = .everyday) {
-        self.viewState = viewState
+    required init() {
         super.init(frame: .zero)
         commonInit()
     }
@@ -51,13 +50,22 @@ class FrequencyView: UIView {
     private func commonInit() {
         addSubviews()
         makeConstraints()
+        setup()
+    }
+
+    private func setup() {
+        weekdayViews.forEach { $0.delegate = self }
+        everydayView.delegate = self
+
+        dayViews = weekdayViews.map { $0 }
+        dayViews.append(everydayView)
     }
 
     private func addSubviews() {
         addSubview(label)
         addSubview(everydayView)
         addSubview(scrollView)
-        stackView.addArrangedSubviews(views)
+        stackView.addArrangedSubviews(weekdayViews)
         scrollView.addSubview(stackView)
     }
 
@@ -83,5 +91,22 @@ class FrequencyView: UIView {
             make.edges.equalTo(scrollView.snp.edges)
             make.height.equalTo(scrollView.snp.height)
         }
+    }
+}
+
+extension FrequencyView: DayViewDelegate {
+    func didSelect(_ day: Frequency) {
+        selectedFrequencies = []
+
+        if day == .everyday {
+            weekdayViews.forEach { $0.isSelected = false }
+        } else {
+            everydayView.isSelected = false
+        }
+
+        for dayView in dayViews where dayView.isSelected {
+            selectedFrequencies.append(dayView.day)
+        }
+        delegate?.didSelect(selectedFrequencies)
     }
 }

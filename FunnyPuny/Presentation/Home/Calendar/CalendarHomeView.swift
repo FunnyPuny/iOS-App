@@ -6,19 +6,17 @@ import SnapKit
 import UIKit
 
 class CalendarHomeView: UIView {
-    var headerView: CalendarHomeHeaderView = {
-        let view = CalendarHomeHeaderView()
-        return view
-    }()
+    var headerView = CalendarHomeHeaderView()
 
     var monthView: JTACMonthView = {
         let view = JTACMonthView()
         view.register(CalendarHomeDateCell.self, forCellWithReuseIdentifier: "CalendarHomeDateCell")
         view.backgroundColor = Colors.backgroundGlobe.color
         view.scrollDirection = .horizontal
-        view.scrollingMode = .none
+        view.scrollingMode = .stopAtEachSection
         view.showsHorizontalScrollIndicator = false
-        view.cellSize = UIScreen.main.bounds.width / 7
+        view.cellSize = (UIScreen.main.bounds.width - 16) / 7
+        view.minimumInteritemSpacing = 3
         return view
     }()
 
@@ -49,7 +47,7 @@ class CalendarHomeView: UIView {
         }
 
         monthView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(8)
             make.top.equalTo(headerView.snp.bottom)
             make.height.equalTo(88)
         }

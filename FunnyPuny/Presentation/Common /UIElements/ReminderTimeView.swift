@@ -8,7 +8,7 @@ class ReminderTimeView: UIView {
         let label = UILabel()
         label.text = Texts.reminderTime
         label.textColor = Colors.textPrimary.color
-        label.font = .regular20
+        label.font = .bodyMedium
         return label
     }()
 

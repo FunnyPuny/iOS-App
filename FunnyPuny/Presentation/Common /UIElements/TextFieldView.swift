@@ -11,19 +11,19 @@ class TextFieldView: UIView {
         let label = UILabel()
         label.text = text
         label.textColor = Colors.textPrimary.color
-        label.font = .regular20
+        label.font = .bodyMedium
         return label
     }()
 
     lazy var textField: TextField = {
         let textField = TextField()
-        textField.font = .regular17
+        textField.font = .bodyRegular
         textField.placeholder = placeholder
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [.foregroundColor: Colors.textTertiary.color]
         )
-        textField.layer.cornerRadius = 8
+        textField.layer.cornerRadius = 10
         textField.layer.borderColor = Colors.inputDefault.color.cgColor
         textField.layer.borderWidth = CGFloat(1)
         return textField

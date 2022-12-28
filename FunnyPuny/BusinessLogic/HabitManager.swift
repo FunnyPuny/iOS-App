@@ -5,10 +5,10 @@ import Foundation
 import RealmSwift
 import SwiftDate
 
-// swiftlint:disable all
-// TODO:
 class HabitManager {
+    // swiftlint:disable force_try
     let realm = try! Realm()
+    // swiftlint:enable force_try
 
     // MARK: Public properties
 
@@ -27,14 +27,14 @@ class HabitManager {
     }
 
     func countValueBy(_ habitName: String) -> Float {
-        Float(countCompletedHabitBy(habitName)) / Float(countGoalBy(habitName))
+        guard countGoalBy(habitName) != 0 else { return 0.0 }
+        return Float(countCompletedHabitBy(habitName)) / Float(countGoalBy(habitName))
     }
 
     func countCompletedHabitBy(_ habitName: String) -> Int {
         var totalCount = 0
-        let days = days
-        for row in days {
-            for habit in row.habits where habit == getHabitId(by: habitName) {
+        for day in days {
+            for habit in day.habits where habit == getHabitId(by: habitName) {
                 totalCount += 1
             }
         }
@@ -62,15 +62,19 @@ class HabitManager {
         return Float(countCompletedHabits) / Float(countHabits)
     }
 
-    // MARK: Private properties
-
-    private var countHabits: Int {
-        let habits = habits
-        var totalCount = 0
-        for habit in habits {
-            totalCount += countGoalBy(habit.name)
+    func saveHabit(name: String, frequency: List<Frequency>, handler: () -> Void) {
+        do {
+            try realm.write {
+                let newHabit = Habit(
+                    name: name,
+                    frequency: frequency
+                )
+                realm.add(newHabit)
+                handler()
+            }
+        } catch let error as NSError {
+            print("Can not create habit, error: \(error)")
         }
-        return totalCount
     }
 
     func getHabitId(by name: String) -> ObjectId? {
@@ -80,21 +84,24 @@ class HabitManager {
         return nil
     }
 
+    // MARK: Private properties
+
+    private var countHabits: Int {
+        var totalCount = 0
+        for habit in habits {
+            totalCount += countGoalBy(habit.name)
+        }
+        return totalCount
+    }
+
     private func countGoalBy(_ habitName: String) -> Int {
         var totalCount = 0
         if let habitId = getHabitId(by: habitName) {
             if let habit = realm.object(ofType: Habit.self, forPrimaryKey: habitId) {
-                let localDate = Date().localDate
-                let period = daysBetween(startDate: habit.createdDate, endDate: localDate)
-                let missedWeeks = period / 7
-                let daysPeriod = period % 7
-                var missedDays = [Int]()
-                for value in 0 ... daysPeriod {
-                    missedDays.append((localDate - value.days).weekday)
-                }
-                totalCount += habit.frequency.count * missedWeeks
-                for day in 0 ... habit.frequency.count - 1 {
-                    for days in missedDays where habit.frequency[day].rawValue == days {
+                let currentDate = Date().localDate
+                let daysPeriod = getFrequency(startDate: habit.createdDate, endDate: currentDate)
+                for frequency in habit.frequency {
+                    for day in daysPeriod where frequency.rawValue == day {
                         totalCount += 1
                     }
                 }
@@ -103,7 +110,14 @@ class HabitManager {
         return totalCount
     }
 
-    private func daysBetween(startDate: Date, endDate: Date) -> Int {
-        (endDate - startDate).day ?? 0
+    // swiftlint:disable shorthand_operator
+    private func getFrequency(startDate: Date, endDate: Date) -> [Int] {
+        var frequency: [Int] = []
+        var date = endDate
+        while date.shortForm >= startDate.shortForm {
+            frequency.append(date.weekday)
+            date = date - 1.days
+        }
+        return frequency
     }
 }

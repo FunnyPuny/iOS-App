@@ -5,20 +5,16 @@ import UIKit
 
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
-    var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
-    var frequencyView: FrequencyView = {
-        let view = FrequencyView()
-        view.viewState = .everyday
-        return view
-    }()
+    var frequencyView = FrequencyView()
 
-    private var reminderTimeView = ReminderTimeView()
+    var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
+    var reminderTimeView = ReminderTimeView()
 
     var addButton: UIButton = {
         let button = UIButton()
         button.setTitle(Texts.add, for: .normal)
         button.titleLabel?.textColor = Colors.textSecondary.color
-        button.titleLabel?.font = .regular20
+        button.titleLabel?.font = .bodyRegular
         button.backgroundColor = Colors.buttonInactive.color
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 12
@@ -43,8 +39,8 @@ class AddHabitView: UIView {
 
     private func addSubviews() {
         addSubview(nameInputView)
-        addSubview(reminderInputView)
         addSubview(frequencyView)
+        addSubview(reminderInputView)
         addSubview(reminderTimeView)
         addSubview(addButton)
     }
@@ -55,19 +51,19 @@ class AddHabitView: UIView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(16)
         }
 
-        reminderInputView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.top.equalTo(nameInputView.snp.bottom).offset(24)
-        }
-
         frequencyView.snp.makeConstraints { make in
             make.top.equalTo(nameInputView.snp.bottom).offset(24)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
 
-        reminderTimeView.snp.makeConstraints { make in
+        reminderInputView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
             make.top.equalTo(frequencyView.snp.bottom).offset(24)
+        }
+
+        reminderTimeView.snp.makeConstraints { make in
+            make.top.equalTo(reminderInputView.snp.bottom).offset(24)
             make.leading.equalToSuperview().inset(16)
         }
 
@@ -90,26 +86,11 @@ class AddHabitView: UIView {
     }
 
     @objc func textFieldDidChange(_: UITextField) {
-        addButton.backgroundColor = nameInputView.textField.isValid(with: " ")
+        addButton.backgroundColor = nameInputView.textField.isValid && !frequencyView.selectedFrequencies.isEmpty
             ? Colors.buttonActive.color
             : Colors.buttonInactive.color
-        addButton.titleLabel?.textColor = nameInputView.textField.isValid(with: " ")
+        addButton.titleLabel?.textColor = nameInputView.textField.isValid && !frequencyView.selectedFrequencies.isEmpty
             ? Colors.textButton.color
             : Colors.textSecondary.color
-    }
-}
-
-extension AddHabitView: Configurable {
-    func configure(with viewModel: AddHabitViewModel) {
-        if viewModel.state == .everyday {
-            frequencyView.everydayView.isSelected = true
-
-        } else {
-            frequencyView.everydayView.isSelected = false
-        }
-        frequencyView.everydayView.setupStyle()
-        for day in frequencyView.views {
-            day.setupStyle()
-        }
     }
 }

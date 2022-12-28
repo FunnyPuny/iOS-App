@@ -9,7 +9,7 @@ class WeekdayView: UIView {
         let label = UILabel()
         label.text = weekday.string[0]
         label.textColor = Colors.textSecondary.color
-        label.font = .regular10
+        label.font = .caption
         label.textAlignment = .center
         return label
     }()

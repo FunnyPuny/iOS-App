@@ -46,7 +46,7 @@ class HomeCell: UITableViewCell {
             switch self {
             case .checked: return Images.checkmark.image
             case .unchecked: return Images.cicrle.image
-            case .inactive: return Images.inactiveCicle.image
+            case .inactive: return Images.circleInactive.image
             }
         }
     }
@@ -61,7 +61,7 @@ class HomeCell: UITableViewCell {
 
     private var label: UILabel = {
         let label = UILabel()
-        label.font = .regular17
+        label.font = .bodyRegular
         label.textColor = Colors.textPrimary.color
         return label
     }()

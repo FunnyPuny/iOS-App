@@ -3,19 +3,24 @@
 
 import UIKit
 
-protocol DayViewProtocolDelegate: AnyObject {
+protocol DayViewDelegate: AnyObject {
     func didSelect(_ day: Frequency)
 }
 
 class DayView: UIView {
     var day: Frequency
-    var isSelected: Bool
-    weak var delegate: DayViewProtocolDelegate?
+    var isSelected: Bool {
+        didSet {
+            setupStyle()
+        }
+    }
+
+    weak var delegate: DayViewDelegate?
 
     lazy var dayLabel: UILabel = {
         let label = UILabel()
         label.text = day.string
-        label.font = .regular17
+        label.font = .bodyRegular
         label.textAlignment = .center
         return label
     }()
@@ -40,7 +45,6 @@ class DayView: UIView {
 
     private func commonInit() {
         addSubviews()
-        layer.cornerRadius = 6
         setupStyle()
         makeConstraints()
     }
@@ -68,6 +72,8 @@ class DayView: UIView {
     }
 
     func setupStyle() {
+        layer.cornerRadius = 8
+        layer.cornerCurve = .continuous
         backgroundColor = isSelected ? Colors.backgroundAccent.color : Colors.backgroundIsland.color
         dayLabel.textColor = isSelected ? Colors.textButton.color : Colors.textPrimary.color
     }

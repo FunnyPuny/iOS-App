@@ -1,6 +1,7 @@
 // GIFs.swift
 // FunnyPuny. Created by Zlata Guseva.
 
+import SwiftyGif
 import UIKit
 
 extension UIImageView {

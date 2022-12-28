@@ -30,4 +30,8 @@ platform :ios do
     )
     upload_to_testflight
   end
+
+  lane :upload do
+    upload_to_testflight
+  end
 end

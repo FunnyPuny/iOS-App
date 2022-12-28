@@ -12,22 +12,13 @@ class ProgressView: UIView {
         return label
     }()
 
-    var progressLayer = CAShapeLayer()
-    var trackLayer = CAShapeLayer()
+    private var progressLayer = CAShapeLayer()
+    private var trackLayer = CAShapeLayer()
 
-    var progressColor = UIColor.white {
-        didSet {
-            progressLayer.strokeColor = progressColor.cgColor
-        }
-    }
+    private var progressColor = Colors.backgroundAccent.color
+    private var trackColor = Colors.backgroundBoarder.color
 
-    var trackColor = UIColor.white {
-        didSet {
-            trackLayer.strokeColor = trackColor.cgColor
-        }
-    }
-
-    var progress: CGFloat = 0 {
+    private var progress: CGFloat = 0 {
         didSet { setNeedsDisplay() }
     }
 
@@ -88,5 +79,12 @@ class ProgressView: UIView {
         progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
 
         statusLabel.fadeIn()
+    }
+}
+
+extension ProgressView {
+    func configure(percentValue: Float) {
+        statusLabel.text = String(Int(percentValue * 100)) + "%"
+        progressAnimation(value: percentValue)
     }
 }

@@ -13,7 +13,8 @@ class MenuButtonView: UIView {
     var categoryLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.textAccent.color
-        label.font = .bold24
+        label.font = .titleLarge
+        label.numberOfLines = 0
         label.text = Texts.allHabits
         return label
     }()

@@ -8,12 +8,12 @@ import UIKit
 
 // MARK: - AnalyticsViewController
 
-enum AnalyticMode {
-    case allHabits
-    case customHabit(name: String)
-}
-
 class AnalyticsViewController: ViewController {
+    enum AnalyticMode {
+        case allHabits
+        case customHabit(name: String)
+    }
+
     private var analyticsView = AnalyticsView()
     private var habitManager = HabitManager()
     private var calendarManager = CalendarManager()
@@ -27,6 +27,7 @@ class AnalyticsViewController: ViewController {
         view = analyticsView
         setupCalendar()
         setupMenuButton()
+        setupTargets()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,10 +35,8 @@ class AnalyticsViewController: ViewController {
         setupData()
     }
 
-    func setupData() {
-        // Refresh database
+    private func setupData() {
         habitManager = HabitManager()
-        // Refresh calendar
         analyticsView.calendarView.monthView.reloadData()
 
         switch analyticMode {
@@ -62,24 +61,37 @@ class AnalyticsViewController: ViewController {
         }
     }
 
-    func setupCalendar() {
+    private func setupCalendar() {
         analyticsView.calendarView.monthView.calendarDelegate = self
         analyticsView.calendarView.monthView.calendarDataSource = self
         analyticsView.calendarView.monthView.scrollToDate(Date(), animateScroll: false)
     }
 
-    func setupMenuButton() {
+    private func setupMenuButton() {
         analyticsView.menuButtonView.delegate = self
     }
 
     @objc
-    func goToNextMonth() {
+    private func goToNextMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate + 1.months)
+        addHapticFeedback()
     }
 
     @objc
-    func goToPreviousMonth() {
+    private func goToPreviousMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate - 1.months)
+        addHapticFeedback()
+    }
+
+    private func setupTargets() {
+        let headerTap = UITapGestureRecognizer(target: self, action: #selector(headerDatePressed))
+        analyticsView.calendarView.monthView.addGestureRecognizer(headerTap)
+    }
+
+    @objc
+    private func headerDatePressed() {
+        analyticsView.calendarView.monthView.scrollToDate(Date())
+        addHapticFeedback()
     }
 }
 
@@ -87,6 +99,7 @@ class AnalyticsViewController: ViewController {
 
 extension AnalyticsViewController: MenuButtonViewDelegate {
     func menuButtonDidPressed(title: String) {
+        addHapticFeedback()
         analyticMode = title == Texts.allHabits ? .allHabits : .customHabit(name: title)
         setupData()
     }

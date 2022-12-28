@@ -18,6 +18,7 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = Colors.iconsActive.color
         tabBar.unselectedItemTintColor = Colors.iconsInactive.color
         tabBar.barTintColor = Colors.backgroundGlobe.color
+        tabBar.tintAdjustmentMode = .normal
     }
 
     private func setupTabBarItems() {
@@ -35,14 +36,7 @@ class TabBarController: UITabBarController {
             tag: 1
         )
 
-        let thirdViewController = ProfileViewController()
-        thirdViewController.tabBarItem = UITabBarItem(
-            title: Texts.profile,
-            image: Images.profile.image,
-            tag: 2
-        )
-
-        viewControllers = [firstViewController, secondViewController, thirdViewController]
+        viewControllers = [firstViewController, secondViewController]
         selectedIndex = 0
     }
 }
