@@ -1,5 +1,7 @@
 ### FunnyPuny
 
+<a href="https://apps.apple.com/us/app/funnypuny/id6444834294?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&amp;releaseDate=1671580800?h=d19c2e04b3683f9cdfac455ce928925e" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
+
 FunnyPuny is an easy-to-use app that helps you to create or maintain your everyday routine and achieve your long-term goals!
 - Create new habits and choose frequency (everyday or custom days)
 - Mark completed habits
@@ -15,8 +17,8 @@ FunnyPuny is an easy-to-use app that helps you to create or maintain your everyd
 ### Road map
 
  - Add ability to edit habit 
- - Delete all habits and its history
- - Support different design styles
+ - Delete all habits and history of their completion 
+ - Different design styles support
  - Add reminder time and notifications
  - Sigh-In with Apple
  - Achievements
@@ -32,11 +34,11 @@ Core:
 -   [SwiftDate](https://github.com/malcommac/SwiftDate)
 
 Others:
--   Swift Package Manager
--   SwiftLint
--   SwiftFormat
--   SwiftGen
--   Periphery
+-   [Swift Package Manager](https://github.com/apple/swift-package-manager)
+-   [SwiftLint](https://github.com/realm/SwiftLint)
+-   [SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
+-   [SwiftGen](https://github.com/SwiftGen/SwiftGen)
+-   [Periphery](https://github.com/peripheryapp/periphery)
 
 ### Requirements
 

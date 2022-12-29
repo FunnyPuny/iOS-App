@@ -74,11 +74,13 @@ class AnalyticsViewController: ViewController {
     @objc
     private func goToNextMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate + 1.months)
+        addHapticFeedback()
     }
 
     @objc
     private func goToPreviousMonth() {
         analyticsView.calendarView.monthView.scrollToDate(rangeStartDate - 1.months)
+        addHapticFeedback()
     }
 
     private func setupTargets() {
@@ -89,6 +91,7 @@ class AnalyticsViewController: ViewController {
     @objc
     private func headerDatePressed() {
         analyticsView.calendarView.monthView.scrollToDate(Date())
+        addHapticFeedback()
     }
 }
 
@@ -96,6 +99,7 @@ class AnalyticsViewController: ViewController {
 
 extension AnalyticsViewController: MenuButtonViewDelegate {
     func menuButtonDidPressed(title: String) {
+        addHapticFeedback()
         analyticMode = title == Texts.allHabits ? .allHabits : .customHabit(name: title)
         setupData()
     }

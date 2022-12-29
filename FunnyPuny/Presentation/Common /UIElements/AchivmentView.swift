@@ -4,20 +4,14 @@
 import UIKit
 
 class AchivmentView: UIView {
-    var progressView: ProgressView = {
-        let progressView = ProgressView(frame: CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0))
-        progressView.trackColor = Asset.Colors.backgroundBoarder.color
-        progressView.progressColor = Colors.backgroundAccent.color
-        return progressView
-    }()
-
-    var completedScore = ScoreView(amount: "", text: Texts.completed)
-    var missedScore = ScoreView(amount: "", text: Texts.missed)
+    var progressView: ProgressView = .init(frame: CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0))
+    var completedScoreView = ScoreView(amount: "", text: Texts.completed)
+    var missedScoreView = ScoreView(amount: "", text: Texts.missed)
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubview(completedScore)
-        stackView.addArrangedSubview(missedScore)
+        stackView.addArrangedSubview(completedScoreView)
+        stackView.addArrangedSubview(missedScoreView)
         stackView.distribution = .fillProportionally
         return stackView
     }()

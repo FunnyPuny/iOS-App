@@ -116,6 +116,7 @@ class HomeViewController: ViewController {
         homeView.calendarView.monthView.reloadData(withAnchor: selectedDate)
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
         setupCurrentHabits()
+        addHapticFeedback(style: .soft)
     }
 
     private func presentAlert() {
@@ -156,6 +157,7 @@ extension HomeViewController: UITableViewDelegate {
             homeView.calendarView.monthView.reloadDates([selectedDate])
             tableView.reloadData()
         }
+        addHapticFeedback(style: .heavy)
     }
 }
 
