@@ -18,6 +18,11 @@
 		CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */; };
 		CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddHabitView.swift */; };
 		CE11DCF7295C4CE700CBE37A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCF6295C4CE700CBE37A /* UIViewController+Extension.swift */; };
+		CE11DCFC296C657400CBE37A /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCFB296C657400CBE37A /* ProfileCell.swift */; };
+		CE11DCFE296C658200CBE37A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCFD296C658100CBE37A /* ProfileView.swift */; };
+		CE11DD00296C658900CBE37A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCFF296C658900CBE37A /* ProfileViewController.swift */; };
+		CE11DD02296C68CB00CBE37A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DD01296C68CB00CBE37A /* ProfileViewModel.swift */; };
+		CE11DD04296C6D7700CBE37A /* profile.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE11DD03296C6D7700CBE37A /* profile.gif */; };
 		CE3429692925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */; };
 		CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C302911927F00ACCF0C /* AnalyticsView.swift */; };
 		CE351C332911929900ACCF0C /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C322911929900ACCF0C /* AnalyticsViewController.swift */; };
@@ -93,6 +98,11 @@
 		CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		CE10453128F7696E006B31D6 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		CE11DCF6295C4CE700CBE37A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CE11DCFB296C657400CBE37A /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		CE11DCFD296C658100CBE37A /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CE11DCFF296C658900CBE37A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CE11DD01296C68CB00CBE37A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		CE11DD03296C6D7700CBE37A /* profile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = profile.gif; sourceTree = "<group>"; };
 		CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticHeaderMonthView.swift; sourceTree = "<group>"; };
 		CE351C302911927F00ACCF0C /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		CE351C322911929900ACCF0C /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +219,7 @@
 			children = (
 				CEBE1AD029392DA800F52C3F /* chillState.gif */,
 				CEBE1ACC2938E80C00F52C3F /* emptyState.gif */,
+				CE11DD03296C6D7700CBE37A /* profile.gif */,
 			);
 			path = GIF;
 			sourceTree = "<group>";
@@ -230,6 +241,17 @@
 				CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */,
 			);
 			path = AddHabit;
+			sourceTree = "<group>";
+		};
+		CE11DCFA296C653500CBE37A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE11DCFB296C657400CBE37A /* ProfileCell.swift */,
+				CE11DCFD296C658100CBE37A /* ProfileView.swift */,
+				CE11DCFF296C658900CBE37A /* ProfileViewController.swift */,
+				CE11DD01296C68CB00CBE37A /* ProfileViewModel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		CE34296729241D580037EE0E /* Models */ = {
@@ -269,6 +291,7 @@
 				CE351C2F2911924200ACCF0C /* Analytics */,
 				CE10452E28F756CD006B31D6 /* AddHabit */,
 				CE6AFF2528F6192A0079FD83 /* Home */,
+				CE11DCFA296C653500CBE37A /* Profile */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -505,6 +528,7 @@
 				CE6B77D52923C3A300996142 /* SF-Pro-Text-Medium.otf in Resources */,
 				CEDAFF3C28E7199E006136B3 /* Assets.xcassets in Resources */,
 				CEB1EA8A2909CB840087ED24 /* SF-Pro-Text-Regular.otf in Resources */,
+				CE11DD04296C6D7700CBE37A /* profile.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,17 +613,21 @@
 				CE944F732901BB940000697A /* CalendarHomeView.swift in Sources */,
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
 				CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */,
+				CE11DCFC296C657400CBE37A /* ProfileCell.swift in Sources */,
 				CE0C56D02915AC710080ED5C /* UIView+Extension.swift in Sources */,
 				CE6B77CC29201DD600996142 /* String+Extension.swift in Sources */,
 				CE6B77D9292406ED00996142 /* Configurable.swift in Sources */,
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CEADCCCF29354EB600BFD545 /* Constants.swift in Sources */,
+				CE11DD02296C68CB00CBE37A /* ProfileViewModel.swift in Sources */,
 				CEC51B10292D5B3200DCC848 /* CalendarManager.swift in Sources */,
 				CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */,
 				CE6B77C0291AD5DE00996142 /* CalendarAnalyticDateCell.swift in Sources */,
+				CE11DCFE296C658200CBE37A /* ProfileView.swift in Sources */,
 				CEA0CAF72900753B00EDCDFD /* CalendarHomeHeaderView.swift in Sources */,
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
 				CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */,
+				CE11DD00296C658900CBE37A /* ProfileViewController.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,
 				CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */,
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,

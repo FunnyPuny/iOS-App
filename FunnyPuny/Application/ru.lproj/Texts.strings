@@ -41,3 +41,11 @@
 "sat" = "Сб";
 "sun" = "Вс";
 "everyday" = "Каждый день";
+
+//MARK: Profile
+
+"profile" = "Профайл";
+"notifications" = "Уведомления";
+"appearance" = "Тема";
+"achievments" = "Достижения";
+"donation" = "Поддержать разработчика";
