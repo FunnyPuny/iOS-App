@@ -6,7 +6,7 @@ import UIKit
 
 class ProfileViewController: ViewController {
     private var profileView = ProfileView()
-    private var profileOptions = [Texts.notifications, Texts.appearance, Texts.achievments, Texts.donation]
+    private var profileCellTypes = ProfileCellType.allCases
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +31,13 @@ extension ProfileViewController: UITableViewDelegate {
 
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        profileOptions.count
+        profileCellTypes.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: ProfileCell.self)
-        let viewModel = ProfileCellViewModel(
-            itemName: profileOptions[indexPath.row]
-        )
-        cell.configure(with: viewModel)
+        let cellType = profileCellTypes[indexPath.row]
+        cell.configure(with: cellType)
         return cell
     }
 }

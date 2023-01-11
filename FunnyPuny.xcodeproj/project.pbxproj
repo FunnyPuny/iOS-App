@@ -21,7 +21,7 @@
 		CE11DCFC296C657400CBE37A /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCFB296C657400CBE37A /* ProfileCell.swift */; };
 		CE11DCFE296C658200CBE37A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCFD296C658100CBE37A /* ProfileView.swift */; };
 		CE11DD00296C658900CBE37A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCFF296C658900CBE37A /* ProfileViewController.swift */; };
-		CE11DD02296C68CB00CBE37A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DD01296C68CB00CBE37A /* ProfileViewModel.swift */; };
+		CE11DD02296C68CB00CBE37A /* ProfileCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DD01296C68CB00CBE37A /* ProfileCellType.swift */; };
 		CE11DD04296C6D7700CBE37A /* profile.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE11DD03296C6D7700CBE37A /* profile.gif */; };
 		CE3429692925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */; };
 		CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C302911927F00ACCF0C /* AnalyticsView.swift */; };
@@ -101,7 +101,7 @@
 		CE11DCFB296C657400CBE37A /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		CE11DCFD296C658100CBE37A /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CE11DCFF296C658900CBE37A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		CE11DD01296C68CB00CBE37A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		CE11DD01296C68CB00CBE37A /* ProfileCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellType.swift; sourceTree = "<group>"; };
 		CE11DD03296C6D7700CBE37A /* profile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = profile.gif; sourceTree = "<group>"; };
 		CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticHeaderMonthView.swift; sourceTree = "<group>"; };
 		CE351C302911927F00ACCF0C /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 				CE11DCFB296C657400CBE37A /* ProfileCell.swift */,
 				CE11DCFD296C658100CBE37A /* ProfileView.swift */,
 				CE11DCFF296C658900CBE37A /* ProfileViewController.swift */,
-				CE11DD01296C68CB00CBE37A /* ProfileViewModel.swift */,
+				CE11DD01296C68CB00CBE37A /* ProfileCellType.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -619,7 +619,7 @@
 				CE6B77D9292406ED00996142 /* Configurable.swift in Sources */,
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CEADCCCF29354EB600BFD545 /* Constants.swift in Sources */,
-				CE11DD02296C68CB00CBE37A /* ProfileViewModel.swift in Sources */,
+				CE11DD02296C68CB00CBE37A /* ProfileCellType.swift in Sources */,
 				CEC51B10292D5B3200DCC848 /* CalendarManager.swift in Sources */,
 				CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */,
 				CE6B77C0291AD5DE00996142 /* CalendarAnalyticDateCell.swift in Sources */,

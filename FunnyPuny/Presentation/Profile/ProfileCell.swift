@@ -70,7 +70,8 @@ class ProfileCell: UITableViewCell {
 }
 
 extension ProfileCell: Configurable {
-    func configure(with viewModel: ProfileCellViewModel) {
-        label.text = viewModel.itemName
+    func configure(with type: ProfileCellType) {
+        label.text = type.name
+        iconImageView.image = Images.right.image
     }
 }
