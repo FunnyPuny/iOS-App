@@ -37,7 +37,8 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: ProfileCell.self)
         let cellType = profileCellTypes[indexPath.row]
-        cell.configure(with: cellType)
+        let profileCellViewModel = ProfileCellViewModel(itemName: cellType.name, isAvailable: cellType.isAvailable)
+        cell.configure(with: profileCellViewModel)
         return cell
     }
 }

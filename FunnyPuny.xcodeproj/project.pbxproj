@@ -47,6 +47,7 @@
 		CE6D4BB72930D25700647D7D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = CE6D4BB62930D25700647D7D /* FirebaseCrashlytics */; };
 		CE6D4BB92930D25700647D7D /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = CE6D4BB82930D25700647D7D /* FirebasePerformance */; };
 		CE6D4BC32930ED0F00647D7D /* Texts.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE6D4BC52930ED0F00647D7D /* Texts.strings */; };
+		CE71E1D929707082003AD465 /* ProfileCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71E1D829707082003AD465 /* ProfileCellViewModel.swift */; };
 		CE7381CE29265EDE00FCAAAC /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7381CD29265EDE00FCAAAC /* AnalyticsViewModel.swift */; };
 		CE7381D029266D7800FCAAAC /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */; };
 		CE7808E528FEF8140016AD41 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7808E428FEF8140016AD41 /* HomeCell.swift */; };
@@ -123,6 +124,7 @@
 		CE6B77DC29240D1100996142 /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
 		CE6D4BB12930D06800647D7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE6D4BC42930ED0F00647D7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Texts.strings; sourceTree = "<group>"; };
+		CE71E1D829707082003AD465 /* ProfileCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellViewModel.swift; sourceTree = "<group>"; };
 		CE7381CD29265EDE00FCAAAC /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		CE7808E428FEF8140016AD41 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				CE11DCFD296C658100CBE37A /* ProfileView.swift */,
 				CE11DCFF296C658900CBE37A /* ProfileViewController.swift */,
 				CE11DD01296C68CB00CBE37A /* ProfileCellType.swift */,
+				CE71E1D829707082003AD465 /* ProfileCellViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				CEA0CAF72900753B00EDCDFD /* CalendarHomeHeaderView.swift in Sources */,
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
 				CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */,
+				CE71E1D929707082003AD465 /* ProfileCellViewModel.swift in Sources */,
 				CE11DD00296C658900CBE37A /* ProfileViewController.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,
 				CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */,

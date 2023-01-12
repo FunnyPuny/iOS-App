@@ -23,6 +23,15 @@ class ProfileCell: UITableViewCell {
         return label
     }()
 
+    private var availabilityLabel: UILabel = {
+        let label = UILabel()
+        label.text = Texts.soon
+        label.font = .bodyRegular
+        label.textColor = Colors.iconsOther.color
+        label.backgroundColor = Colors.backgroundGlobe.color
+        return label
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
@@ -47,6 +56,7 @@ class ProfileCell: UITableViewCell {
     private func addSubviews() {
         contentView.addSubview(iconImageView)
         contentView.addSubview(label)
+        contentView.addSubview(availabilityLabel)
     }
 
     private func makeConstraints() {
@@ -66,12 +76,17 @@ class ProfileCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.width.height.equalTo(24)
         }
+
+        availabilityLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(8)
+            make.centerY.equalToSuperview()
+        }
     }
 }
 
 extension ProfileCell: Configurable {
-    func configure(with type: ProfileCellType) {
-        label.text = type.name
-        iconImageView.image = Images.right.image
+    func configure(with viewModel: ProfileCellViewModel) {
+        label.text = viewModel.itemName
+        availabilityLabel.isHidden = viewModel.isAvailable
     }
 }
