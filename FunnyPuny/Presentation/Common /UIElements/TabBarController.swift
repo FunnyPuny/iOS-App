@@ -36,7 +36,14 @@ class TabBarController: UITabBarController {
             tag: 1
         )
 
-        viewControllers = [firstViewController, secondViewController]
+        let thirdViewController = ProfileViewController()
+        thirdViewController.tabBarItem = UITabBarItem(
+            title: Texts.profile,
+            image: Images.profile.image,
+            tag: 2
+        )
+
+        viewControllers = [firstViewController, secondViewController, thirdViewController]
         selectedIndex = 0
     }
 }
