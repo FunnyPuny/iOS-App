@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "Button.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Theme=Dark, Size=Small, Property 2=Outline, Status=Active.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
