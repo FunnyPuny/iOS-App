@@ -24,7 +24,14 @@ class ProfileViewController: ViewController {
 // MARK: UITableViewDelegate
 
 extension ProfileViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let viewController = NavigationController(rootViewController: NotificationsViewController())
+            viewController.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(viewController, animated: true)
+            present(viewController, animated: true)
+        }
+    }
 }
 
 // MARK: UITableViewDataSource

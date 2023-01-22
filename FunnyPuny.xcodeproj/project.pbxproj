@@ -28,6 +28,7 @@
 		CE351C332911929900ACCF0C /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C322911929900ACCF0C /* AnalyticsViewController.swift */; };
 		CE351C352911BC7400ACCF0C /* AchivmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C342911BC7400ACCF0C /* AchivmentView.swift */; };
 		CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C362911BD8000ACCF0C /* ScoreView.swift */; };
+		CE5D91C0297B0F9600640E85 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D91BF297B0F9600640E85 /* NotificationsViewController.swift */; };
 		CE6B77BC29184F2F00996142 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BB29184F2F00996142 /* HabitManager.swift */; };
 		CE6B77BE2918586200996142 /* Results+Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BD2918586200996142 /* Results+Extension .swift */; };
 		CE6B77C0291AD5DE00996142 /* CalendarAnalyticDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BF291AD5DE00996142 /* CalendarAnalyticDateCell.swift */; };
@@ -109,6 +110,7 @@
 		CE351C322911929900ACCF0C /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		CE351C342911BC7400ACCF0C /* AchivmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivmentView.swift; sourceTree = "<group>"; };
 		CE351C362911BD8000ACCF0C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		CE5D91BF297B0F9600640E85 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		CE6B77BB29184F2F00996142 /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
 		CE6B77BD2918586200996142 /* Results+Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extension .swift"; sourceTree = "<group>"; };
 		CE6B77BF291AD5DE00996142 /* CalendarAnalyticDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticDateCell.swift; sourceTree = "<group>"; };
@@ -287,6 +289,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		CE5D91C1297B0F9D00640E85 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				CE5D91BF297B0F9600640E85 /* NotificationsViewController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		CE6AFF2228F6123E0079FD83 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +304,7 @@
 				CE351C2F2911924200ACCF0C /* Analytics */,
 				CE10452E28F756CD006B31D6 /* AddHabit */,
 				CE6AFF2528F6192A0079FD83 /* Home */,
+				CE5D91C1297B0F9D00640E85 /* Notifications */,
 				CE11DCFA296C653500CBE37A /* Profile */,
 			);
 			path = Presentation;
@@ -612,6 +623,7 @@
 				CE11DCF7295C4CE700CBE37A /* UIViewController+Extension.swift in Sources */,
 				CE6B77C8291C303C00996142 /* JTACMonthView+Extension.swift in Sources */,
 				CEB1EA8E290C170A0087ED24 /* Fonts.swift in Sources */,
+				CE5D91C0297B0F9600640E85 /* NotificationsViewController.swift in Sources */,
 				CEBE1ACB2938E37C00F52C3F /* HomeStateView.swift in Sources */,
 				CE944F732901BB940000697A /* CalendarHomeView.swift in Sources */,
 				CEA71A2428F8A18600D2CE36 /* NavigationController.swift in Sources */,
