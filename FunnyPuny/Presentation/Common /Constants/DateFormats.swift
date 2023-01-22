@@ -21,6 +21,8 @@ extension Date {
         case formatLLLLyyyy = "LLLL yyyy"
         /// 20221018
         case formatyyyyMMdd = "yyyyMMdd"
+        ///11:36
+        case formatHHmm = "HH:mm"
     }
 
     var shortForm: String {
