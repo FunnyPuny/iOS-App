@@ -24,7 +24,7 @@ class HomeViewController: ViewController {
     private var viewState: ViewState = .emptyState
 
     private var homeView = HomeView()
-
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Texts.home
@@ -158,6 +158,18 @@ extension HomeViewController: UITableViewDelegate {
             tableView.reloadData()
         }
         addHapticFeedback(style: .heavy)
+        let notificationType = "HDHBHDDHBD"
+        let alert = UIAlertController(title: "",
+                                      message: "After 5 seconds " + notificationType + " will appear",
+                                      preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { action in
+
+            self.appDelegate?.scheduleNotification(notificationType: notificationType)
+        }
+
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
