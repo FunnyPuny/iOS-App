@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setupRealm() {
+        let config = Realm.Configuration(
+            schemaVersion: 2)
+        Realm.Configuration.defaultConfiguration = config
         do {
             let realm = try Realm()
             print("Realm is located at:", realm.configuration.fileURL!)
