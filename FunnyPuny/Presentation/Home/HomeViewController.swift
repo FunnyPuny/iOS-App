@@ -187,13 +187,13 @@ extension HomeViewController: UITableViewDataSource {
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
     ) -> UISwipeActionsConfiguration? {
-        let currentHabit = currentHabits[indexPath.row].name
+        let currentHabit = currentHabits[indexPath.row]
         let trashAction = UIContextualAction(
             style: .normal,
             title: Texts.edit,
             handler: { (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
                 let editingHabitViewController = NavigationController(
-                    rootViewController: EditingHabitViewController(habitName: currentHabit)
+                    rootViewController: EditingHabitViewController(habit: currentHabit)
                 )
                 if let sheet = editingHabitViewController.sheetPresentationController {
                     sheet.detents = [.large()]

@@ -4,8 +4,8 @@
 import UIKit
 
 class EditingHabitView: UIView {
-    var name: String
-    private lazy var nameInputView = TextFieldView(text: Texts.name, placeholder: name)
+    var habit: Habit
+    private lazy var nameInputView = TextFieldView(text: Texts.name, placeholder: habit.name)
     private var frequencyView = FrequencyView()
 
     private var deleteButton: UIButton = {
@@ -19,8 +19,8 @@ class EditingHabitView: UIView {
         return button
     }()
 
-    required init(name: String) {
-        self.name = name
+    required init(habit: Habit) {
+        self.habit = habit
         super.init(frame: .zero)
         commonInit()
     }
@@ -63,7 +63,7 @@ class EditingHabitView: UIView {
 
     private func setupStyle() {
         nameInputView.textField.attributedPlaceholder = NSAttributedString(
-            string: name,
+            string: habit.name,
             attributes: [.foregroundColor: Colors.textPrimary.color]
         )
     }

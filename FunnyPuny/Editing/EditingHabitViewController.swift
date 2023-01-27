@@ -5,9 +5,9 @@ import RealmSwift
 import UIKit
 
 class EditingHabitViewController: ViewController {
-    var habitName: String
+    var habit: Habit
     private let selectedFrequencies = List<Frequency>()
-    private lazy var editingHabitView = EditingHabitView(name: habitName)
+    private lazy var editingHabitView = EditingHabitView(habit: habit)
     private lazy var habitManager = HabitManager()
 
     override func viewDidLoad() {
@@ -16,8 +16,8 @@ class EditingHabitViewController: ViewController {
         view = editingHabitView
     }
 
-    init(habitName: String) {
-        self.habitName = habitName
+    init(habit: Habit) {
+        self.habit = habit
         super.init(nibName: nil, bundle: nil)
     }
 
