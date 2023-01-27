@@ -118,12 +118,6 @@ class HomeViewController: ViewController {
         setupCurrentHabits()
         addHapticFeedback(style: .soft)
     }
-
-    private func presentAlert() {
-        let alert = UIAlertController(title: Texts.oops, message: Texts.alert, preferredStyle: .alert)
-        alert.addAction(.init(title: Texts.okay, style: .cancel))
-        present(alert, animated: true)
-    }
 }
 
 // MARK: UITableViewDelegate

@@ -48,12 +48,6 @@ class AddHabitViewController: ViewController {
         }
     }
 
-    private func presentAlert(message: String) {
-        let alert = UIAlertController(title: Texts.oops, message: message, preferredStyle: .alert)
-        alert.addAction(.init(title: Texts.okay, style: .cancel))
-        present(alert, animated: true)
-    }
-
     private func saveHabit() {
         habitManager.saveHabit(name: addHabitView.nameInputView.textField.text ?? "", frequency: selectedFrequencies) {
             NotificationCenter.default.post(name: .habitDidAdd, object: nil)
