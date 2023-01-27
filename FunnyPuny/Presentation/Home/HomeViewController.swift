@@ -189,17 +189,26 @@ extension HomeViewController: UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView,
-                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-    {
-        // Write action code for the trash
-        let trashAction = UIContextualAction(style: .normal, title: "Trash", handler: {
-            (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
-            print("Update action ...")
-            success(true)
-        })
-        trashAction.backgroundColor = .red
-
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        let currentHabit = currentHabits[indexPath.row].name
+        let trashAction = UIContextualAction(
+            style: .normal,
+            title: Texts.edit,
+            handler: { (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+                let editingHabitViewController = NavigationController(
+                    rootViewController: EditingHabitViewController(habitName: currentHabit)
+                )
+                if let sheet = editingHabitViewController.sheetPresentationController {
+                    sheet.detents = [.large()]
+                }
+                self.present(editingHabitViewController, animated: true)
+                success(true)
+            }
+        )
+        trashAction.backgroundColor = Colors.backgroundIsland.color
         return UISwipeActionsConfiguration(actions: [trashAction])
     }
 }
