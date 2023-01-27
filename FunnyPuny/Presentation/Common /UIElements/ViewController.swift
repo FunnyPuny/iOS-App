@@ -14,12 +14,6 @@ class ViewController: UIViewController {
         view.backgroundColor = Colors.backgroundGlobe.color
     }
 
-//    private func presentAlert() {
-//        let alert = UIAlertController(title: Texts.oops, message: Texts.alert, preferredStyle: .alert)
-//        alert.addAction(.init(title: Texts.okay, style: .cancel))
-//        present(alert, animated: true)
-//    }
-
     func presentAlert(message: String = Texts.alert) {
         let alert = UIAlertController(title: Texts.oops, message: message, preferredStyle: .alert)
         alert.addAction(.init(title: Texts.okay, style: .cancel))
