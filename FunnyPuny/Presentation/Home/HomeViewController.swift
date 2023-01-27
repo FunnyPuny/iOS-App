@@ -188,6 +188,20 @@ extension HomeViewController: UITableViewDataSource {
         }
         return cell
     }
+
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        // Write action code for the trash
+        let trashAction = UIContextualAction(style: .normal, title: "Trash", handler: {
+            (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+            print("Update action ...")
+            success(true)
+        })
+        trashAction.backgroundColor = .red
+
+        return UISwipeActionsConfiguration(actions: [trashAction])
+    }
 }
 
 // MARK: JTACMonthViewDelegate
