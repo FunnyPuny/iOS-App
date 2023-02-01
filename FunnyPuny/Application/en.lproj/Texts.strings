@@ -18,6 +18,7 @@
 "addName" = "Please, create habit's name";
 "addFrequency" = "Please, choose frequency";
 "addAllItems" = "Please, create habit's name and choose frequency";
+"startDate" = "Start date";
 
 // MARK: TabBar
 
