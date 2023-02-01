@@ -6,7 +6,7 @@ import UIKit
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var frequencyView = FrequencyView()
-    var datePickerView = DatePickerView(text: Texts.name)
+    var datePickerView = DatePickerView(text: Texts.startDate)
 
     var addButton: UIButton = {
         let button = UIButton()

@@ -62,12 +62,13 @@ class HabitManager {
         return Float(countCompletedHabits) / Float(countHabits)
     }
 
-    func saveHabit(name: String, frequency: List<Frequency>, handler: () -> Void) {
+    func saveHabit(name: String, frequency: List<Frequency>, createdDate: Date, handler: () -> Void) {
         do {
             try realm.write {
                 let newHabit = Habit(
                     name: name,
-                    frequency: frequency
+                    frequency: frequency,
+                    createdDate: createdDate
                 )
                 realm.add(newHabit)
                 handler()

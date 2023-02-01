@@ -55,7 +55,11 @@ class AddHabitViewController: ViewController {
     }
 
     private func saveHabit() {
-        habitManager.saveHabit(name: addHabitView.nameInputView.textField.text ?? "", frequency: selectedFrequencies) {
+        habitManager.saveHabit(
+            name: addHabitView.nameInputView.textField.text ?? "",
+            frequency: selectedFrequencies,
+            createdDate: addHabitView.datePickerView.datePicker.date
+        ) {
             NotificationCenter.default.post(name: .habitDidAdd, object: nil)
             dismiss(animated: true)
         }
