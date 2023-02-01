@@ -18,6 +18,7 @@ class DatePickerView: UIView {
         let datePicker = UIDatePicker()
         datePicker.preferredDatePickerStyle = .compact
         datePicker.datePickerMode = .date
+        datePicker.tintColor = Colors.backgroundAccent.color
         return datePicker
     }()
 
