@@ -6,6 +6,7 @@ import UIKit
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var frequencyView = FrequencyView()
+    var datePickerView = DatePickerView(text: Texts.startDate)
 
     var reminderInputView = TextFieldView(text: Texts.reminderNote, placeholder: Texts.note)
     var reminderTimeView = ReminderTimeView()
@@ -42,6 +43,7 @@ class AddHabitView: UIView {
         addSubview(frequencyView)
         addSubview(reminderInputView)
         addSubview(reminderTimeView)
+        addSubview(datePickerView)
         addSubview(addButton)
     }
 
@@ -65,6 +67,11 @@ class AddHabitView: UIView {
         reminderTimeView.snp.makeConstraints { make in
             make.top.equalTo(reminderInputView.snp.bottom).offset(24)
             make.leading.equalToSuperview().inset(16)
+        }
+
+        datePickerView.snp.makeConstraints { make in
+            make.top.equalTo(frequencyView.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
 
         addButton.snp.makeConstraints { make in

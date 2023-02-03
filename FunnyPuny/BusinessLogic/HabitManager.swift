@@ -19,6 +19,23 @@ class HabitManager {
         habits.map(\.name).sorted(by: <)
     }
 
+    var countCompletedHabits: Int {
+        var totalCount = 0
+        for day in days {
+            totalCount += day.habits.count
+        }
+        return totalCount
+    }
+
+    var countMissedHabits: Int {
+        countHabits - countCompletedHabits
+    }
+
+    var countValueAllHabits: Float {
+        guard countHabits != 0 else { return 0.0 }
+        return Float(countCompletedHabits) / Float(countHabits)
+    }
+
     func getSpecificElement<T: Object>(type: T.Type, with primaryKey: String) -> T? {
         realm.object(
             ofType: type,
@@ -45,29 +62,13 @@ class HabitManager {
         countGoalBy(habitName) - countCompletedHabitBy(habitName)
     }
 
-    var countCompletedHabits: Int {
-        var totalCount = 0
-        for day in days {
-            totalCount += day.habits.count
-        }
-        return totalCount
-    }
-
-    var countMissedHabits: Int {
-        countHabits - countCompletedHabits
-    }
-
-    var countValueAllHabits: Float {
-        guard countHabits != 0 else { return 0.0 }
-        return Float(countCompletedHabits) / Float(countHabits)
-    }
-
-    func saveHabit(name: String, frequency: List<Frequency>, handler: () -> Void) {
+    func saveHabit(name: String, frequency: List<Frequency>, createdDate: Date, handler: () -> Void) {
         do {
             try realm.write {
                 let newHabit = Habit(
                     name: name,
-                    frequency: frequency
+                    frequency: frequency,
+                    createdDate: createdDate
                 )
                 realm.add(newHabit)
                 handler()

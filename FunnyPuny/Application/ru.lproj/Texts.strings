@@ -21,6 +21,7 @@
 "note" = "Заметка";
 "reminderNote" = "Введите описание привычки";
 "reminderTime" = "Напоминание";
+"startDate" = "Дата начала";
 
 // MARK: TabBar
 

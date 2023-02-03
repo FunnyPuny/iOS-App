@@ -21,6 +21,7 @@
 "note" = "Note";
 "reminderNote" = "Reminder Note";
 "reminderTime" = "Reminder Time";
+"startDate" = "Start date";
 
 // MARK: TabBar
 
