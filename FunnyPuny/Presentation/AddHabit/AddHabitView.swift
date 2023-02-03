@@ -6,6 +6,7 @@ import UIKit
 class AddHabitView: UIView {
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var frequencyView = FrequencyView()
+    var datePickerView = DatePickerView(text: Texts.startDate)
 
     var addButton: UIButton = {
         let button = UIButton()
@@ -37,6 +38,7 @@ class AddHabitView: UIView {
     private func addSubviews() {
         addSubview(nameInputView)
         addSubview(frequencyView)
+        addSubview(datePickerView)
         addSubview(addButton)
     }
 
@@ -50,6 +52,11 @@ class AddHabitView: UIView {
             make.top.equalTo(nameInputView.snp.bottom).offset(24)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
+        }
+
+        datePickerView.snp.makeConstraints { make in
+            make.top.equalTo(frequencyView.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
 
         addButton.snp.makeConstraints { make in
