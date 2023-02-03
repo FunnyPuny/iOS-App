@@ -5,8 +5,8 @@ import RealmSwift
 import UIKit
 
 class AddHabitViewController: ViewController {
-    private var addHabitView = AddHabitView()
     private let selectedFrequencies = List<Frequency>()
+    private var addHabitView = AddHabitView()
     private var habitManager = HabitManager()
 
     override func viewDidLoad() {

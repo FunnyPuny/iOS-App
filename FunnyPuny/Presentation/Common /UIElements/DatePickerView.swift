@@ -5,15 +5,6 @@ import UIKit
 
 class DatePickerView: UIView {
     var text: String
-
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = text
-        label.textColor = Colors.textPrimary.color
-        label.font = .bodyMedium
-        return label
-    }()
-
     var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.preferredDatePickerStyle = .compact
@@ -21,6 +12,14 @@ class DatePickerView: UIView {
         datePicker.tintColor = Colors.backgroundAccent.color
         return datePicker
     }()
+
+    private var label: UILabel = {
+            let label = UILabel()
+            label.text = text
+            label.textColor = Colors.textPrimary.color
+            label.font = .bodyMedium
+            return label
+        }()
 
     required init(text: String) {
         self.text = text
