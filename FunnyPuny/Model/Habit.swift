@@ -12,9 +12,10 @@ class Habit: Object {
     @Persisted var reminderTime: String?
     @Persisted var reminderNote: String?
 
-    convenience init(name: String, frequency: List<Frequency>) {
+    convenience init(name: String, frequency: List<Frequency>, createdDate: Date) {
         self.init()
         self.name = name
         self.frequency = frequency
+        self.createdDate = createdDate
     }
 }

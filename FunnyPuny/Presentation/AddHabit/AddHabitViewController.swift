@@ -5,8 +5,8 @@ import RealmSwift
 import UIKit
 
 class AddHabitViewController: ViewController {
-    private var addHabitView = AddHabitView()
     private let selectedFrequencies = List<Frequency>()
+    private var addHabitView = AddHabitView()
     private var habitManager = HabitManager()
 
     override func viewDidLoad() {
@@ -55,7 +55,11 @@ class AddHabitViewController: ViewController {
     }
 
     private func saveHabit() {
-        habitManager.saveHabit(name: addHabitView.nameInputView.textField.text ?? "", frequency: selectedFrequencies) {
+        habitManager.saveHabit(
+            name: addHabitView.nameInputView.textField.text ?? "",
+            frequency: selectedFrequencies,
+            createdDate: addHabitView.datePickerView.datePicker.date
+        ) {
             NotificationCenter.default.post(name: .habitDidAdd, object: nil)
             dismiss(animated: true)
         }
