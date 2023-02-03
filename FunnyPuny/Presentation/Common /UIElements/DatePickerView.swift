@@ -3,26 +3,29 @@
 
 import UIKit
 
-class DatePickerView: UIView {
+class PickerView: UIView {
     var text: String
-    var datePicker: UIDatePicker = {
+    var pickerMode: UIDatePicker.Mode
+
+    lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.preferredDatePickerStyle = .compact
-        datePicker.datePickerMode = .date
         datePicker.tintColor = Colors.backgroundAccent.color
+        datePicker.datePickerMode = pickerMode
         return datePicker
     }()
 
-    private var label: UILabel = {
-            let label = UILabel()
-            label.text = text
-            label.textColor = Colors.textPrimary.color
-            label.font = .bodyMedium
-            return label
-        }()
+    private lazy var label: UILabel = {
+        let label = UILabel()
+        label.text = text
+        label.textColor = Colors.textPrimary.color
+        label.font = .bodyMedium
+        return label
+    }()
 
-    required init(text: String) {
+    required init(text: String, pickerMode: UIDatePicker.Mode) {
         self.text = text
+        self.pickerMode = pickerMode
         super.init(frame: .zero)
         commonInit()
     }

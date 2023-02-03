@@ -18,6 +18,7 @@ class HabitManager {
     var allHabitsName: [String] {
         habits.map(\.name).sorted(by: <)
     }
+
     var countCompletedHabits: Int {
         var totalCount = 0
         for day in days {
@@ -84,7 +85,7 @@ class HabitManager {
         return nil
     }
 
-// MARK: Private properties
+    // MARK: Private properties
 
     private var countHabits: Int {
         var totalCount = 0
