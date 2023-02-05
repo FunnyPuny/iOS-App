@@ -13,7 +13,7 @@ class DatePickerView: UIView {
         return datePicker
     }()
 
-    private var label: UILabel = {
+    private lazy var label: UILabel = {
         let label = UILabel()
         label.text = text
         label.textColor = Colors.textPrimary.color

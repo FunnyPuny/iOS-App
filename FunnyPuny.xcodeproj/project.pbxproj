@@ -81,7 +81,7 @@
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
 		CEDAFF3C28E7199E006136B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFF3B28E7199E006136B3 /* Assets.xcassets */; };
 		CEDAFF3F28E7199E006136B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFF3D28E7199E006136B3 /* LaunchScreen.storyboard */; };
-		CEF19E4B298FB93100F0426C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF19E4A298FB93000F0426C /* DatePickerView.swift */; };
+		CEF19E4F298FBD8000F0426C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */; };
 		FDE5930B294767F100F0E593 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5930A294767F100F0E593 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
@@ -154,7 +154,7 @@
 		CEDAFF3B28E7199E006136B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEDAFF3E28E7199E006136B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEDAFF4028E7199E006136B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEF19E4A298FB93000F0426C /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerView.swift; path = "../../../../../../../Downloads/iOS-App-develop/FunnyPuny/Presentation/Common /UIElements/DatePickerView.swift"; sourceTree = "<group>"; };
+		CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		FDE5930A294767F100F0E593 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,7 +184,7 @@
 			children = (
 				CE351C342911BC7400ACCF0C /* AchivmentView.swift */,
 				CE6B77D0292261FA00996142 /* ProgressView.swift */,
-				CEF19E4A298FB93000F0426C /* DatePickerView.swift */,
+				CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */,
 				CE09C15228F9EB1800B7CB45 /* DayView.swift */,
 				CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */,
 				CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */,
@@ -619,7 +619,7 @@
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
 				CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,
-				CEF19E4B298FB93100F0426C /* DatePickerView.swift in Sources */,
+				CEF19E4F298FBD8000F0426C /* DatePickerView.swift in Sources */,
 				CE1B5D7C2983D349004CCC64 /* EditingHabitView.swift in Sources */,
 				CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */,
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,
