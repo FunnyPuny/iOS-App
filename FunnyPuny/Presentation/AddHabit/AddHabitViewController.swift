@@ -5,13 +5,28 @@ import RealmSwift
 import UIKit
 
 class AddHabitViewController: ViewController {
+    enum HabitStateView {
+        case add
+        case edit
+
+        var label: String {
+            switch self {
+            case .add:
+                return "Add Habit"
+            case .edit:
+                return "Edit Habit"
+            }
+        }
+    }
+
+    private var viewState: HabitStateView = .add
     private let selectedFrequencies = List<Frequency>()
     private var addHabitView = AddHabitView()
     private var habitManager = HabitManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Texts.addHabit
+        title = viewState.label
         view = addHabitView
         selectedFrequencies.append(objectsIn: Frequency.allWeek)
         setupTargets()

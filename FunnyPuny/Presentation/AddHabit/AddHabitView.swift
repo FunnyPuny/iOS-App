@@ -4,6 +4,7 @@
 import UIKit
 
 class AddHabitView: UIView {
+    var currentHabit: Habit?
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var frequencyView = FrequencyView()
     var datePickerView = DatePickerView(text: Texts.startDate)
@@ -86,3 +87,14 @@ class AddHabitView: UIView {
             : Colors.textSecondary.color
     }
 }
+
+// extension AddHabitView: Configurable {
+//    func configure(with state: AddHabitViewController.viewState) {
+//        switch state {
+//        case .add:
+//            addButton.button.setTitle(Texts.add, for: .normal)
+//        case .edit:
+//            addButton.button.setTitle(Texts.edit, for: .normal)
+//        }
+//    }
+// }
