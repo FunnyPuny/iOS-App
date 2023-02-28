@@ -104,7 +104,9 @@ class HomeViewController: ViewController {
 
     @objc
     private func addButtonPressed() {
-        let addHabitViewController = NavigationController(rootViewController: AddHabitViewController())
+        let addHabitViewController = NavigationController(
+            rootViewController: AddHabitViewController(habitStateView: .add)
+        )
         if let sheet = addHabitViewController.sheetPresentationController {
             sheet.detents = [.large()]
         }
@@ -193,7 +195,7 @@ extension HomeViewController: UITableViewDataSource {
             title: Texts.edit,
             handler: { (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
                 let editingHabitViewController = NavigationController(
-                    rootViewController: EditingHabitViewController(habit: currentHabit)
+                    rootViewController: AddHabitViewController(habitStateView: .edit(habitName: currentHabit))
                 )
                 if let sheet = editingHabitViewController.sheetPresentationController {
                     sheet.detents = [.large()]

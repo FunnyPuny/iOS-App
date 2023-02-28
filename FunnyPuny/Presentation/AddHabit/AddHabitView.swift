@@ -3,8 +3,23 @@
 
 import UIKit
 
+enum HabitStateView {
+    case add
+    case edit(habitName: Habit)
+
+    var label: String {
+        switch self {
+        case .add:
+            return "Add Habit"
+        case .edit:
+            return "Edit Habit"
+        }
+    }
+}
+
 class AddHabitView: UIView {
-    var currentHabit: Habit?
+    var stateView: HabitStateView
+    // var currentHabit: Habit?
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var frequencyView = FrequencyView()
     var datePickerView = DatePickerView(text: Texts.startDate)
@@ -20,8 +35,9 @@ class AddHabitView: UIView {
         return button
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(stateView: HabitStateView) {
+        self.stateView = stateView
+        super.init(frame: .zero)
         commonInit()
     }
 
@@ -33,6 +49,7 @@ class AddHabitView: UIView {
     private func commonInit() {
         addSubviews()
         makeConstraints()
+        setupStyle()
         setupTargets()
     }
 
@@ -86,15 +103,20 @@ class AddHabitView: UIView {
             ? Colors.textButton.color
             : Colors.textSecondary.color
     }
-}
 
-// extension AddHabitView: Configurable {
-//    func configure(with state: AddHabitViewController.viewState) {
-//        switch state {
-//        case .add:
-//            addButton.button.setTitle(Texts.add, for: .normal)
-//        case .edit:
-//            addButton.button.setTitle(Texts.edit, for: .normal)
-//        }
-//    }
-// }
+    private func setupStyle() {
+        switch stateView {
+        case .add:
+            addButton.setTitle(Texts.add, for: .normal)
+        case let .edit(habitName):
+            addButton.setTitle(Texts.edit, for: .normal)
+            nameInputView.textField.text = habitName.name
+            datePickerView.datePicker.date = habitName.createdDate
+//            frequencyView.selectedFrequencies.removeAll()
+//            currentHabit?.frequency.forEach { frequency in
+//                frequencyView.selectedFrequencies.append(frequency)
+//            }
+//            frequencyView.setup()
+        }
+    }
+}

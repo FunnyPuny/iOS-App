@@ -5,33 +5,30 @@ import RealmSwift
 import UIKit
 
 class AddHabitViewController: ViewController {
-    enum HabitStateView {
-        case add
-        case edit
-
-        var label: String {
-            switch self {
-            case .add:
-                return "Add Habit"
-            case .edit:
-                return "Edit Habit"
-            }
-        }
-    }
-
-    private var viewState: HabitStateView = .add
+    // private var viewState: HabitStateView = .add
     private let selectedFrequencies = List<Frequency>()
-    private var addHabitView = AddHabitView()
+    private lazy var addHabitView = AddHabitView(stateView: habitStateView)
     private var habitManager = HabitManager()
+    private var habitStateView: HabitStateView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = viewState.label
+        title = habitStateView.label
         view = addHabitView
         selectedFrequencies.append(objectsIn: Frequency.allWeek)
         setupTargets()
         setupTextField()
         setupFrequency()
+    }
+
+    init(habitStateView: HabitStateView) {
+        self.habitStateView = habitStateView
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     private func setupTargets() {
