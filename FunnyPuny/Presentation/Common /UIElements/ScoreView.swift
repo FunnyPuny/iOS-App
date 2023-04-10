@@ -7,7 +7,7 @@ class ScoreView: UIView {
     private var amount: String
     private var text: String
 
-    private var amountHabitsLabel: UILabel = {
+    private lazy var amountHabitsLabel: UILabel = {
         let label = UILabel()
         label.text = amount
         label.textAlignment = .center
@@ -16,7 +16,7 @@ class ScoreView: UIView {
         return label
     }()
 
-    private var textLabel: UILabel = {
+    private lazy var textLabel: UILabel = {
         let label = UILabel()
         label.text = text
         label.textAlignment = .center
