@@ -61,6 +61,7 @@ class AddHabitViewController: ViewController {
     }
 
     private func saveHabit() {
+        // TODO: update habit after editing
         habitManager.saveHabit(
             name: addHabitView.nameInputView.textField.text ?? "",
             frequency: selectedFrequencies,

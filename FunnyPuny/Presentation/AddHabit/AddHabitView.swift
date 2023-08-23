@@ -112,11 +112,8 @@ class AddHabitView: UIView {
             addButton.setTitle(Texts.edit, for: .normal)
             nameInputView.textField.text = habitName.name
             datePickerView.datePicker.date = habitName.createdDate
-//            frequencyView.selectedFrequencies.removeAll()
-//            currentHabit?.frequency.forEach { frequency in
-//                frequencyView.selectedFrequencies.append(frequency)
-//            }
-//            frequencyView.setup()
+            frequencyView.setupFrequencyForEditing(habit: habitName)
+            addButton.backgroundColor = Colors.buttonActive.color
         }
     }
 }
