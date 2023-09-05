@@ -18,8 +18,6 @@
 		CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */; };
 		CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddHabitView.swift */; };
 		CE11DCF7295C4CE700CBE37A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCF6295C4CE700CBE37A /* UIViewController+Extension.swift */; };
-		CE1B5D7C2983D349004CCC64 /* EditingHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B5D7B2983D349004CCC64 /* EditingHabitView.swift */; };
-		CE1B5D7F2983D9DF004CCC64 /* EditingHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B5D7E2983D9DF004CCC64 /* EditingHabitViewController.swift */; };
 		CE3429692925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */; };
 		CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C302911927F00ACCF0C /* AnalyticsView.swift */; };
 		CE351C332911929900ACCF0C /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C322911929900ACCF0C /* AnalyticsViewController.swift */; };
@@ -96,8 +94,6 @@
 		CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		CE10453128F7696E006B31D6 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		CE11DCF6295C4CE700CBE37A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		CE1B5D7B2983D349004CCC64 /* EditingHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingHabitView.swift; sourceTree = "<group>"; };
-		CE1B5D7E2983D9DF004CCC64 /* EditingHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingHabitViewController.swift; sourceTree = "<group>"; };
 		CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticHeaderMonthView.swift; sourceTree = "<group>"; };
 		CE351C302911927F00ACCF0C /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		CE351C322911929900ACCF0C /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
@@ -237,15 +233,6 @@
 				CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */,
 			);
 			path = AddHabit;
-			sourceTree = "<group>";
-		};
-		CE1B5D7D2983D351004CCC64 /* Editing */ = {
-			isa = PBXGroup;
-			children = (
-				CE1B5D7B2983D349004CCC64 /* EditingHabitView.swift */,
-				CE1B5D7E2983D9DF004CCC64 /* EditingHabitViewController.swift */,
-			);
-			path = Editing;
 			sourceTree = "<group>";
 		};
 		CE34296729241D580037EE0E /* Models */ = {
@@ -423,7 +410,6 @@
 				CE6AFF2428F6125C0079FD83 /* Application */,
 				CE6AFF2328F6124A0079FD83 /* Model */,
 				CE6AFF2228F6123E0079FD83 /* Presentation */,
-				CE1B5D7D2983D351004CCC64 /* Editing */,
 				CE6B77DA2924070A00996142 /* Helpers */,
 				CE6B77BA29184F1100996142 /* BusinessLogic */,
 			);
@@ -591,7 +577,6 @@
 				CEA71A2828F8AFCA00D2CE36 /* Habit.swift in Sources */,
 				CEA0CAF52900752B00EDCDFD /* CalendarHomeDateCell.swift in Sources */,
 				CE351C352911BC7400ACCF0C /* AchivmentView.swift in Sources */,
-				CE1B5D7F2983D9DF004CCC64 /* EditingHabitViewController.swift in Sources */,
 				CE7381CE29265EDE00FCAAAC /* AnalyticsViewModel.swift in Sources */,
 				CE6B77C2291AD5FA00996142 /* CalendarAnalyticHeaderView.swift in Sources */,
 				CE3429692925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift in Sources */,
@@ -620,7 +605,6 @@
 				CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,
 				CEF19E4F298FBD8000F0426C /* DatePickerView.swift in Sources */,
-				CE1B5D7C2983D349004CCC64 /* EditingHabitView.swift in Sources */,
 				CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */,
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,
 				CE09C15328F9EB1800B7CB45 /* DayView.swift in Sources */,

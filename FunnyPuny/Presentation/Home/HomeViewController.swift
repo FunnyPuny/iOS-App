@@ -36,6 +36,11 @@ class HomeViewController: ViewController {
         setupTargets()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupCurrentHabits()
+    }
+
     @objc private func habitDidAdd() {
         setupCurrentHabits()
     }

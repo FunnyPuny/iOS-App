@@ -61,14 +61,26 @@ class AddHabitViewController: ViewController {
     }
 
     private func saveHabit() {
-        // TODO: update habit after editing
-        habitManager.saveHabit(
-            name: addHabitView.nameInputView.textField.text ?? "",
-            frequency: selectedFrequencies,
-            createdDate: addHabitView.datePickerView.datePicker.date
-        ) {
-            NotificationCenter.default.post(name: .habitDidAdd, object: nil)
-            dismiss(animated: true)
+        switch habitStateView {
+        case .add:
+            habitManager.saveHabit(
+                name: addHabitView.nameInputView.textField.text ?? "",
+                frequency: selectedFrequencies,
+                createdDate: addHabitView.datePickerView.datePicker.date
+            ) {
+                NotificationCenter.default.post(name: .habitDidAdd, object: nil)
+                dismiss(animated: true)
+            }
+        case let .edit(habitName):
+            habitManager.updateHabit(
+                habitID: habitName.id,
+                newName: addHabitView.nameInputView.textField.text ?? "",
+                newFrequency: selectedFrequencies,
+                newCreatedDate: addHabitView.datePickerView.datePicker.date
+            ) {
+                NotificationCenter.default.post(name: .habitDidAdd, object: nil)
+                dismiss(animated: true)
+            }
         }
     }
 }
