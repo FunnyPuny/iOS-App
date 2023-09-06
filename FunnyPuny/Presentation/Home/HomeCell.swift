@@ -91,6 +91,7 @@ class HomeCell: UITableViewCell {
         label.textColor = state.textColor
         contentView.layer.borderColor = state.borderColor
         contentView.layer.borderWidth = state.borderWidth
+        translatesAutoresizingMaskIntoConstraints = true
     }
 
     private func addSubviews() {

@@ -36,6 +36,11 @@ class HomeViewController: ViewController {
         setupTargets()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupCurrentHabits()
+    }
+
     @objc private func habitDidAdd() {
         setupCurrentHabits()
     }
@@ -104,7 +109,9 @@ class HomeViewController: ViewController {
 
     @objc
     private func addButtonPressed() {
-        let addHabitViewController = NavigationController(rootViewController: AddHabitViewController())
+        let addHabitViewController = NavigationController(
+            rootViewController: AddHabitViewController(habitStateView: .add)
+        )
         if let sheet = addHabitViewController.sheetPresentationController {
             sheet.detents = [.large()]
         }
@@ -117,12 +124,6 @@ class HomeViewController: ViewController {
         homeView.calendarView.headerView.dateLabel.text = date.string(dateFormat: .formatLLLLd)
         setupCurrentHabits()
         addHapticFeedback(style: .soft)
-    }
-
-    private func presentAlert() {
-        let alert = UIAlertController(title: Texts.oops, message: Texts.alert, preferredStyle: .alert)
-        alert.addAction(.init(title: Texts.okay, style: .cancel))
-        present(alert, animated: true)
     }
 }
 
@@ -187,6 +188,29 @@ extension HomeViewController: UITableViewDataSource {
             cell.configure(with: viewModel)
         }
         return cell
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        let currentHabit = currentHabits[indexPath.row]
+        let editAction = UIContextualAction(
+            style: .normal,
+            title: Texts.edit,
+            handler: { (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+                let editingHabitViewController = NavigationController(
+                    rootViewController: AddHabitViewController(habitStateView: .edit(habitName: currentHabit))
+                )
+                if let sheet = editingHabitViewController.sheetPresentationController {
+                    sheet.detents = [.large()]
+                }
+                self.present(editingHabitViewController, animated: true)
+                success(true)
+            }
+        )
+        editAction.backgroundColor = Colors.backgroundIsland.color
+        return UISwipeActionsConfiguration(actions: [editAction])
     }
 }
 

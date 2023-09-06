@@ -92,6 +92,23 @@ class FrequencyView: UIView {
             make.height.equalTo(scrollView.snp.height)
         }
     }
+
+    func setupFrequencyForEditing(habit: Habit) {
+        selectedFrequencies.removeAll()
+        habit.frequency.forEach { frequency in
+            selectedFrequencies.append(frequency)
+        }
+        selectedFrequencies.forEach { frequency in
+            if frequency == .everyday {
+                weekdayViews.forEach { $0.isSelected = false }
+            } else {
+                everydayView.isSelected = false
+            }
+            for dayView in dayViews where dayView.day.string == frequency.string {
+                dayView.isSelected = true
+            }
+        }
+    }
 }
 
 extension FrequencyView: DayViewDelegate {

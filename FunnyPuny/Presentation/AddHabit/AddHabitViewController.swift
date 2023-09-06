@@ -5,18 +5,30 @@ import RealmSwift
 import UIKit
 
 class AddHabitViewController: ViewController {
+    // private var viewState: HabitStateView = .add
     private let selectedFrequencies = List<Frequency>()
-    private var addHabitView = AddHabitView()
+    private lazy var addHabitView = AddHabitView(stateView: habitStateView)
     private var habitManager = HabitManager()
+    private var habitStateView: HabitStateView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Texts.addHabit
+        title = habitStateView.label
         view = addHabitView
         selectedFrequencies.append(objectsIn: Frequency.allWeek)
         setupTargets()
         setupTextField()
         setupFrequency()
+    }
+
+    init(habitStateView: HabitStateView) {
+        self.habitStateView = habitStateView
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     private func setupTargets() {
@@ -48,20 +60,27 @@ class AddHabitViewController: ViewController {
         }
     }
 
-    private func presentAlert(message: String) {
-        let alert = UIAlertController(title: Texts.oops, message: message, preferredStyle: .alert)
-        alert.addAction(.init(title: Texts.okay, style: .cancel))
-        present(alert, animated: true)
-    }
-
     private func saveHabit() {
-        habitManager.saveHabit(
-            name: addHabitView.nameInputView.textField.text ?? "",
-            frequency: selectedFrequencies,
-            createdDate: addHabitView.datePickerView.datePicker.date
-        ) {
-            NotificationCenter.default.post(name: .habitDidAdd, object: nil)
-            dismiss(animated: true)
+        switch habitStateView {
+        case .add:
+            habitManager.saveHabit(
+                name: addHabitView.nameInputView.textField.text ?? "",
+                frequency: selectedFrequencies,
+                createdDate: addHabitView.datePickerView.datePicker.date
+            ) {
+                NotificationCenter.default.post(name: .habitDidAdd, object: nil)
+                dismiss(animated: true)
+            }
+        case let .edit(habitName):
+            habitManager.updateHabit(
+                habitID: habitName.id,
+                newName: addHabitView.nameInputView.textField.text ?? "",
+                newFrequency: selectedFrequencies,
+                newCreatedDate: addHabitView.datePickerView.datePicker.date
+            ) {
+                NotificationCenter.default.post(name: .habitDidAdd, object: nil)
+                dismiss(animated: true)
+            }
         }
     }
 }

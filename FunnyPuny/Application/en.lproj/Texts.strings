@@ -19,6 +19,13 @@
 "addFrequency" = "Please, choose frequency";
 "addAllItems" = "Please, create habit's name and choose frequency";
 "startDate" = "Start date";
+"delete" = "Delete";
+
+// MARK: EditHabit
+
+"delete" = "Delete habit";
+"edit" = "Edit";
+"editHabit" = "Edit Habit";
 
 // MARK: TabBar
 

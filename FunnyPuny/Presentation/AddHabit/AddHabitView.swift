@@ -3,7 +3,22 @@
 
 import UIKit
 
+enum HabitStateView {
+    case add
+    case edit(habitName: Habit)
+
+    var label: String {
+        switch self {
+        case .add:
+            return "Add Habit"
+        case .edit:
+            return "Edit Habit"
+        }
+    }
+}
+
 class AddHabitView: UIView {
+    var stateView: HabitStateView
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var frequencyView = FrequencyView()
     var datePickerView = DatePickerView(text: Texts.startDate)
@@ -19,8 +34,9 @@ class AddHabitView: UIView {
         return button
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(stateView: HabitStateView) {
+        self.stateView = stateView
+        super.init(frame: .zero)
         commonInit()
     }
 
@@ -32,6 +48,7 @@ class AddHabitView: UIView {
     private func commonInit() {
         addSubviews()
         makeConstraints()
+        setupStyle()
         setupTargets()
     }
 
@@ -84,5 +101,18 @@ class AddHabitView: UIView {
         addButton.titleLabel?.textColor = nameInputView.textField.isValid && !frequencyView.selectedFrequencies.isEmpty
             ? Colors.textButton.color
             : Colors.textSecondary.color
+    }
+
+    private func setupStyle() {
+        switch stateView {
+        case .add:
+            addButton.setTitle(Texts.add, for: .normal)
+        case let .edit(habitName):
+            addButton.setTitle(Texts.edit, for: .normal)
+            nameInputView.textField.text = habitName.name
+            datePickerView.datePicker.date = habitName.createdDate
+            frequencyView.setupFrequencyForEditing(habit: habitName)
+            addButton.backgroundColor = Colors.buttonActive.color
+        }
     }
 }

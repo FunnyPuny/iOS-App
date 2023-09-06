@@ -18,7 +18,6 @@
 		CE10453028F759B8006B31D6 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */; };
 		CE10453228F7696E006B31D6 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10453128F7696E006B31D6 /* AddHabitView.swift */; };
 		CE11DCF7295C4CE700CBE37A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11DCF6295C4CE700CBE37A /* UIViewController+Extension.swift */; };
-		CE1B5D81298A581E004CCC64 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B5D80298A581E004CCC64 /* DatePickerView.swift */; };
 		CE3429692925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */; };
 		CE351C312911927F00ACCF0C /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C302911927F00ACCF0C /* AnalyticsView.swift */; };
 		CE351C332911929900ACCF0C /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE351C322911929900ACCF0C /* AnalyticsViewController.swift */; };
@@ -80,6 +79,7 @@
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
 		CEDAFF3C28E7199E006136B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFF3B28E7199E006136B3 /* Assets.xcassets */; };
 		CEDAFF3F28E7199E006136B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFF3D28E7199E006136B3 /* LaunchScreen.storyboard */; };
+		CEF19E4F298FBD8000F0426C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */; };
 		FDE5930B294767F100F0E593 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5930A294767F100F0E593 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +94,6 @@
 		CE10452F28F759B8006B31D6 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		CE10453128F7696E006B31D6 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		CE11DCF6295C4CE700CBE37A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		CE1B5D80298A581E004CCC64 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		CE3429682925482B0037EE0E /* CalendarAnalyticHeaderMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyticHeaderMonthView.swift; sourceTree = "<group>"; };
 		CE351C302911927F00ACCF0C /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		CE351C322911929900ACCF0C /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		CEDAFF3B28E7199E006136B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEDAFF3E28E7199E006136B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEDAFF4028E7199E006136B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		FDE5930A294767F100F0E593 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +180,7 @@
 			children = (
 				CE351C342911BC7400ACCF0C /* AchivmentView.swift */,
 				CE6B77D0292261FA00996142 /* ProgressView.swift */,
+				CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */,
 				CE09C15228F9EB1800B7CB45 /* DayView.swift */,
 				CE6B77C9291FBD4800996142 /* DayOfWeekView.swift */,
 				CE09C15428F9FD0000B7CB45 /* FrequencyView.swift */,
@@ -187,7 +188,6 @@
 				CE7381CF29266D7800FCAAAC /* MenuButtonView.swift */,
 				CE351C362911BD8000ACCF0C /* ScoreView.swift */,
 				CEA71A2928F8B75400D2CE36 /* TextFieldView.swift */,
-				CE1B5D80298A581E004CCC64 /* DatePickerView.swift */,
 				CEB1EA8F290D931A0087ED24 /* TextField.swift */,
 				CE10452728F703B6006B31D6 /* TabBarController.swift */,
 				CEA71A2528F8A9D100D2CE36 /* ViewController.swift */,
@@ -604,10 +604,10 @@
 				CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */,
 				CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,
+				CEF19E4F298FBD8000F0426C /* DatePickerView.swift in Sources */,
 				CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */,
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,
 				CE09C15328F9EB1800B7CB45 /* DayView.swift in Sources */,
-				CE1B5D81298A581E004CCC64 /* DatePickerView.swift in Sources */,
 				CE09C14A28F99F1700B7CB45 /* GIFs.swift in Sources */,
 				CEA0BF5328FEB568009B6BFD /* Frequency.swift in Sources */,
 				CE6B77BE2918586200996142 /* Results+Extension .swift in Sources */,

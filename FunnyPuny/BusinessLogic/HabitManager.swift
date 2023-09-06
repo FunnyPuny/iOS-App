@@ -18,6 +18,7 @@ class HabitManager {
     var allHabitsName: [String] {
         habits.map(\.name).sorted(by: <)
     }
+
     var countCompletedHabits: Int {
         var totalCount = 0
         for day in days {
@@ -84,7 +85,23 @@ class HabitManager {
         return nil
     }
 
-// MARK: Private properties
+    func updateHabit(habitID: ObjectId, newName: String, newFrequency: List<Frequency>, newCreatedDate: Date, handler: () -> Void) {
+        guard var habitToUpdate = realm.object(ofType: Habit.self, forPrimaryKey: habitID) else {
+            print("Habit \(habitID) not found")
+            return
+        }
+        // swiftlint:disable force_try
+        try! realm.write {
+            // swiftlint:enable force_try
+            habitToUpdate.name = newName
+            habitToUpdate.frequency = newFrequency
+            habitToUpdate.createdDate = newCreatedDate
+        }
+        habits = realm.objects(Habit.self)
+        handler()
+    }
+
+    // MARK: Private properties
 
     private var countHabits: Int {
         var totalCount = 0
