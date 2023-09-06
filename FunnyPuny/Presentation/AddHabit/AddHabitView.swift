@@ -19,7 +19,6 @@ enum HabitStateView {
 
 class AddHabitView: UIView {
     var stateView: HabitStateView
-    // var currentHabit: Habit?
     var nameInputView = TextFieldView(text: Texts.name, placeholder: Texts.nameHabit)
     var frequencyView = FrequencyView()
     var datePickerView = DatePickerView(text: Texts.startDate)

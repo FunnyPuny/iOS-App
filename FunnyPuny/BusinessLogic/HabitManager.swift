@@ -93,7 +93,6 @@ class HabitManager {
         // swiftlint:disable force_try
         try! realm.write {
             // swiftlint:enable force_try
-
             habitToUpdate.name = newName
             habitToUpdate.frequency = newFrequency
             habitToUpdate.createdDate = newCreatedDate

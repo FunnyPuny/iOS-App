@@ -195,7 +195,7 @@ extension HomeViewController: UITableViewDataSource {
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
     ) -> UISwipeActionsConfiguration? {
         let currentHabit = currentHabits[indexPath.row]
-        let trashAction = UIContextualAction(
+        let editAction = UIContextualAction(
             style: .normal,
             title: Texts.edit,
             handler: { (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
@@ -209,8 +209,8 @@ extension HomeViewController: UITableViewDataSource {
                 success(true)
             }
         )
-        trashAction.backgroundColor = Colors.backgroundIsland.color
-        return UISwipeActionsConfiguration(actions: [trashAction])
+        editAction.backgroundColor = Colors.backgroundIsland.color
+        return UISwipeActionsConfiguration(actions: [editAction])
     }
 }
 
