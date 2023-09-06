@@ -5,7 +5,6 @@ import RealmSwift
 import UIKit
 
 class AddHabitViewController: ViewController {
-    // private var viewState: HabitStateView = .add
     private let selectedFrequencies = List<Frequency>()
     private lazy var addHabitView = AddHabitView(stateView: habitStateView)
     private var habitManager = HabitManager()
@@ -19,6 +18,11 @@ class AddHabitViewController: ViewController {
         setupTargets()
         setupTextField()
         setupFrequency()
+        leftItemBarSetup()
+        rightItemBarSetup()
+        if habitStateView != .add {
+            rightItemBarSetup()
+        }
     }
 
     init(habitStateView: HabitStateView) {
@@ -82,6 +86,28 @@ class AddHabitViewController: ViewController {
                 dismiss(animated: true)
             }
         }
+    }
+
+    private func rightItemBarSetup() {
+        let rightItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .done, target: self, action: #selector(menuTapped))
+        rightItem.tintColor = Colors.iconsInactive.color
+        navigationItem.rightBarButtonItems = [rightItem]
+    }
+
+    private func leftItemBarSetup() {
+        let leftItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(closeTapped))
+        leftItem.tintColor = Colors.iconsInactive.color
+        navigationItem.leftBarButtonItems = [leftItem]
+    }
+
+    @objc
+    func closeTapped() {
+        dismiss(animated: true)
+    }
+
+    @objc
+    func menuTapped() {
+        // Add your code here
     }
 }
 

@@ -24,6 +24,7 @@
 // MARK: EditHabit
 
 "delete" = "Delete habit";
+"save" = "Save";
 "edit" = "Edit";
 "editHabit" = "Edit Habit";
 
