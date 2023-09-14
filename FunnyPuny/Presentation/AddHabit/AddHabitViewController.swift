@@ -5,10 +5,43 @@ import RealmSwift
 import UIKit
 
 class AddHabitViewController: ViewController {
+    enum EditMenuStyle {
+        case delete
+        case reset
+
+        var title: String {
+            switch self {
+            case .delete:
+                return Texts.deleteHabit
+            case .reset:
+                return Texts.resetProgress
+            }
+        }
+
+        var descriptionMessage: String {
+            switch self {
+            case .delete:
+                return Texts.askToDelete
+            case .reset:
+                return Texts.askToReset
+            }
+        }
+
+        var actionTitle: String {
+            switch self {
+            case .delete:
+                return Texts.delete
+            case .reset:
+                return Texts.reset
+            }
+        }
+    }
+
     private let selectedFrequencies = List<Frequency>()
     private lazy var addHabitView = AddHabitView(stateView: habitStateView)
     private var habitManager = HabitManager()
     private var habitStateView: HabitStateView
+    private var topMenu = UIMenu()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +52,6 @@ class AddHabitViewController: ViewController {
         setupTextField()
         setupFrequency()
         leftItemBarSetup()
-        rightItemBarSetup()
         if habitStateView != .add {
             rightItemBarSetup()
         }
@@ -72,8 +104,7 @@ class AddHabitViewController: ViewController {
                 frequency: selectedFrequencies,
                 createdDate: addHabitView.datePickerView.datePicker.date
             ) {
-                NotificationCenter.default.post(name: .habitDidAdd, object: nil)
-                dismiss(animated: true)
+                dismissWithNotification()
             }
         case let .edit(habitName):
             habitManager.updateHabit(
@@ -82,20 +113,35 @@ class AddHabitViewController: ViewController {
                 newFrequency: selectedFrequencies,
                 newCreatedDate: addHabitView.datePickerView.datePicker.date
             ) {
-                NotificationCenter.default.post(name: .habitDidAdd, object: nil)
-                dismiss(animated: true)
+                dismissWithNotification()
             }
         }
     }
 
+    private func dismissWithNotification() {
+        NotificationCenter.default.post(name: .habitDidAdd, object: nil)
+        dismiss(animated: true)
+    }
+
+    private func dismissAfterReset() {
+        NotificationCenter.default.post(name: .progressDidReset, object: nil)
+        dismiss(animated: true)
+    }
+
     private func rightItemBarSetup() {
-        let rightItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .done, target: self, action: #selector(menuTapped))
+        setupTopMenu()
+        let rightItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), menu: topMenu)
         rightItem.tintColor = Colors.iconsInactive.color
         navigationItem.rightBarButtonItems = [rightItem]
     }
 
     private func leftItemBarSetup() {
-        let leftItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(closeTapped))
+        let leftItem = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .done,
+            target: self,
+            action: #selector(closeTapped)
+        )
         leftItem.tintColor = Colors.iconsInactive.color
         navigationItem.leftBarButtonItems = [leftItem]
     }
@@ -105,9 +151,36 @@ class AddHabitViewController: ViewController {
         dismiss(animated: true)
     }
 
-    @objc
-    func menuTapped() {
-        // Add your code here
+    private func setupTopMenu() {
+        let deleteAction = UIAction(title: "Delete Habit") { [weak self] _ in
+            self?.presentAlertInMenu(style: .delete)
+        }
+
+        let resetProgressAction = UIAction(title: "Reset progress") { [weak self] _ in
+            self?.presentAlertInMenu(style: .reset)
+        }
+        topMenu = UIMenu(children: [deleteAction, resetProgressAction])
+    }
+
+    private func presentAlertInMenu(style: EditMenuStyle) {
+        let story = UIAlertAction(title: style.actionTitle, style: .default) { [weak self] _ in
+            switch self?.habitStateView {
+            case let .edit(habitName):
+                switch style {
+                case .delete:
+                    self?.habitManager.deleteHabitBy(habitName.id)
+                case .reset:
+                    self?.habitManager.resetProgressBy(habitName.id)
+                }
+                self?.dismissAfterReset()
+            case .add, .none:
+                break
+            }
+        }
+        let alert = UIAlertController(title: style.title, message: style.descriptionMessage, preferredStyle: .alert)
+        alert.addAction(.init(title: "Cancel", style: .cancel))
+        alert.addAction(story)
+        present(alert, animated: true)
     }
 }
 

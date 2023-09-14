@@ -6,4 +6,5 @@ import Foundation
 extension Notification.Name {
     /// Add habit
     static let habitDidAdd = Notification.Name(rawValue: "habitDidAdd")
+    static let progressDidReset = Notification.Name(rawValue: "progressDidReset")
 }

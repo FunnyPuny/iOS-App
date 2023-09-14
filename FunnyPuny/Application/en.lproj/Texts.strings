@@ -23,10 +23,15 @@
 
 // MARK: EditHabit
 
-"delete" = "Delete habit";
+"delete" = "Delete";
+"deleteHabit" = "Delete habit";
 "save" = "Save";
 "edit" = "Edit";
 "editHabit" = "Edit Habit";
+"resetProgress" = "Reset Progress";
+"askToDelete" = "Do you want to delete this habit and all progress?";
+"askToReset" = "Do you want to reset progress for this habit?";
+"reset" = "Reset";
 
 // MARK: TabBar
 
