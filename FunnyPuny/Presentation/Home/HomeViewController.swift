@@ -209,7 +209,7 @@ extension HomeViewController: UITableViewDataSource {
         let editAction = UIContextualAction(
             style: .normal,
             title: Texts.edit,
-            handler: { (_: UIContextualAction, _: UIView, success: (Bool) -> Void) in
+            handler: { _, _, success in
                 let editingHabitViewController = NavigationController(
                     rootViewController: AddHabitViewController(habitStateView: .edit(habitName: currentHabit))
                 )
