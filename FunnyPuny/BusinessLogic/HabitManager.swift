@@ -85,20 +85,57 @@ class HabitManager {
         return nil
     }
 
-    func updateHabit(habitID: ObjectId, newName: String, newFrequency: List<Frequency>, newCreatedDate: Date, handler: () -> Void) {
-        guard var habitToUpdate = realm.object(ofType: Habit.self, forPrimaryKey: habitID) else {
+    func updateHabit(
+        habitID: ObjectId,
+        newName: String,
+        newFrequency: List<Frequency>,
+        newCreatedDate: Date,
+        handler: () -> Void
+    ) {
+        guard let habitToUpdate = realm.object(ofType: Habit.self, forPrimaryKey: habitID) else {
             print("Habit \(habitID) not found")
             return
         }
-        // swiftlint:disable force_try
-        try! realm.write {
-            // swiftlint:enable force_try
-            habitToUpdate.name = newName
-            habitToUpdate.frequency = newFrequency
-            habitToUpdate.createdDate = newCreatedDate
+        do {
+            try realm.write {
+                habitToUpdate.name = newName
+                habitToUpdate.frequency = newFrequency
+                habitToUpdate.createdDate = newCreatedDate
+            }
+            habits = realm.objects(Habit.self)
+            handler()
+        } catch let error as NSError {
+            print("Can not create habit, error: \(error)")
         }
-        habits = realm.objects(Habit.self)
-        handler()
+    }
+
+    func resetProgressBy(_ habitId: ObjectId) {
+        do {
+            try realm.write {
+                for (index, day) in days.enumerated() {
+                    if let idIndex = day.habits.firstIndex(of: habitId) {
+                        days[index].habits.remove(at: idIndex)
+                    }
+                }
+            }
+        } catch let error as NSError {
+            print("Can not create habit, error: \(error)")
+        }
+    }
+
+    func deleteHabitBy(_ habitId: ObjectId) {
+        guard let habit = realm.object(ofType: Habit.self, forPrimaryKey: habitId) else {
+            print("Habit \(habitId) not found")
+            return
+        }
+        do {
+            try realm.write {
+                realm.delete(habit)
+            }
+            resetProgressBy(habitId)
+        } catch let error as NSError {
+            print("Can not create habit, error: \(error)")
+        }
     }
 
     // MARK: Private properties

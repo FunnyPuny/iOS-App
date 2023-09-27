@@ -45,6 +45,11 @@ class HomeViewController: ViewController {
         setupCurrentHabits()
     }
 
+    @objc private func progressDidReset() {
+        setupCurrentHabits()
+        homeView.calendarView.monthView.reloadData(withAnchor: selectedDate)
+    }
+
     private func setupHomeStyle() {
         if habitManager.habits.isEmpty {
             viewState = .emptyState
@@ -93,6 +98,12 @@ class HomeViewController: ViewController {
             self,
             selector: #selector(habitDidAdd),
             name: .habitDidAdd,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(progressDidReset),
+            name: .progressDidReset,
             object: nil
         )
     }
@@ -198,7 +209,7 @@ extension HomeViewController: UITableViewDataSource {
         let editAction = UIContextualAction(
             style: .normal,
             title: Texts.edit,
-            handler: { (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+            handler: { _, _, success in
                 let editingHabitViewController = NavigationController(
                     rootViewController: AddHabitViewController(habitStateView: .edit(habitName: currentHabit))
                 )

@@ -3,7 +3,7 @@
 
 import UIKit
 
-enum HabitStateView {
+enum HabitStateView: Equatable {
     case add
     case edit(habitName: Habit)
 
@@ -108,7 +108,7 @@ class AddHabitView: UIView {
         case .add:
             addButton.setTitle(Texts.add, for: .normal)
         case let .edit(habitName):
-            addButton.setTitle(Texts.edit, for: .normal)
+            addButton.setTitle(Texts.save, for: .normal)
             nameInputView.textField.text = habitName.name
             datePickerView.datePicker.date = habitName.createdDate
             frequencyView.setupFrequencyForEditing(habit: habitName)

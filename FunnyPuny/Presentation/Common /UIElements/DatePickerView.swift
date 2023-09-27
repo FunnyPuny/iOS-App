@@ -5,7 +5,7 @@ import UIKit
 
 class DatePickerView: UIView {
     var text: String
-    
+
     var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.preferredDatePickerStyle = .compact
