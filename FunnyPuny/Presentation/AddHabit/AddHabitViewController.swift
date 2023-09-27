@@ -152,11 +152,11 @@ class AddHabitViewController: ViewController {
     }
 
     private func setupTopMenu() {
-        let deleteAction = UIAction(title: "Delete Habit") { [weak self] _ in
+        let deleteAction = UIAction(title: Texts.deleteHabit) { [weak self] _ in
             self?.presentAlertInMenu(style: .delete)
         }
 
-        let resetProgressAction = UIAction(title: "Reset progress") { [weak self] _ in
+        let resetProgressAction = UIAction(title: Texts.resetProgress) { [weak self] _ in
             self?.presentAlertInMenu(style: .reset)
         }
         topMenu = UIMenu(children: [deleteAction, resetProgressAction])
@@ -178,7 +178,7 @@ class AddHabitViewController: ViewController {
             }
         }
         let alert = UIAlertController(title: style.title, message: style.descriptionMessage, preferredStyle: .alert)
-        alert.addAction(.init(title: "Cancel", style: .cancel))
+        alert.addAction(.init(title: Texts.cancel, style: .cancel))
         alert.addAction(story)
         present(alert, animated: true)
     }
