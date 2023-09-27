@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/patchthecode/JTAppleCalendar",
       "state" : {
-        "revision" : "89bc6f1c0426b3bd2856409ec600333a7d087e1b",
-        "version" : "8.0.4"
+        "revision" : "718f0ab68ba0fcd2bc134f6e9d30edc1b9b038e1",
+        "version" : "8.0.5"
       }
     },
     {
