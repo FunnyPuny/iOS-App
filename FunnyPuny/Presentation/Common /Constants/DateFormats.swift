@@ -24,7 +24,11 @@ extension Date {
     }
 
     var shortForm: String {
-        string(dateFormat: .formatyyyyMMdd)
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormat.formatyyyyMMdd.rawValue
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale.current
+        return formatter.string(from: self)
     }
 
     var localDate: Date {
@@ -37,6 +41,6 @@ extension Date {
     /// - Parameter locale: Локаль. По умолчанию используется системная
     /// - Returns: Строка из даты
     func string(dateFormat: DateFormat, timeZone: TimeZone = .current, locale: Locale = .current) -> String {
-        toFormat(dateFormat.rawValue)
+        toFormat(dateFormat.rawValue, locale: locale)
     }
 }
