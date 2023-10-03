@@ -79,9 +79,39 @@
 		CEDAFF3728E7199C006136B3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFF3628E7199C006136B3 /* HomeViewController.swift */; };
 		CEDAFF3C28E7199E006136B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFF3B28E7199E006136B3 /* Assets.xcassets */; };
 		CEDAFF3F28E7199E006136B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFF3D28E7199E006136B3 /* LaunchScreen.storyboard */; };
+		CEDEC0182ACC605300638907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDEC0172ACC605300638907 /* WidgetKit.framework */; };
+		CEDEC01A2ACC605300638907 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDEC0192ACC605300638907 /* SwiftUI.framework */; };
+		CEDEC01D2ACC605300638907 /* FunnyPunyWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEC01C2ACC605300638907 /* FunnyPunyWidgetsBundle.swift */; };
+		CEDEC01F2ACC605300638907 /* FunnyPunyWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEC01E2ACC605300638907 /* FunnyPunyWidgets.swift */; };
+		CEDEC0212ACC605900638907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDEC0202ACC605900638907 /* Assets.xcassets */; };
+		CEDEC0252ACC605900638907 /* FunnyPunyWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CEDEC0152ACC605300638907 /* FunnyPunyWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CEF19E4F298FBD8000F0426C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */; };
 		FDE5930B294767F100F0E593 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5930A294767F100F0E593 /* Assets.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEDEC0232ACC605900638907 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEDAFF2728E7199C006136B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEDEC0142ACC605300638907;
+			remoteInfo = FunnyPunyWidgetsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CEDEC0262ACC605900638907 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CEDEC0252ACC605900638907 /* FunnyPunyWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CE09C14928F99F1700B7CB45 /* GIFs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFs.swift; sourceTree = "<group>"; };
@@ -150,6 +180,13 @@
 		CEDAFF3B28E7199E006136B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEDAFF3E28E7199E006136B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEDAFF4028E7199E006136B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEDEC0152ACC605300638907 /* FunnyPunyWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyPunyWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDEC0172ACC605300638907 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		CEDEC0192ACC605300638907 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CEDEC01C2ACC605300638907 /* FunnyPunyWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyPunyWidgetsBundle.swift; sourceTree = "<group>"; };
+		CEDEC01E2ACC605300638907 /* FunnyPunyWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyPunyWidgets.swift; sourceTree = "<group>"; };
+		CEDEC0202ACC605900638907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEDEC0222ACC605900638907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		FDE5930A294767F100F0E593 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +206,15 @@
 				CE6D4BB72930D25700647D7D /* FirebaseCrashlytics in Frameworks */,
 				CED733E928F5A36300B2B0D6 /* SnapKit in Frameworks */,
 				CE10452328F6F871006B31D6 /* SwiftyGif in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEDEC0122ACC605300638907 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDEC01A2ACC605300638907 /* SwiftUI.framework in Frameworks */,
+				CEDEC0182ACC605300638907 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				CEDAFF3128E7199C006136B3 /* FunnyPuny */,
+				CEDEC01B2ACC605300638907 /* FunnyPunyWidgets */,
+				CEDEC0162ACC605300638907 /* Frameworks */,
 				CEDAFF3028E7199C006136B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -397,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */,
+				CEDEC0152ACC605300638907 /* FunnyPunyWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -416,6 +465,26 @@
 			path = FunnyPuny;
 			sourceTree = "<group>";
 		};
+		CEDEC0162ACC605300638907 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEDEC0172ACC605300638907 /* WidgetKit.framework */,
+				CEDEC0192ACC605300638907 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEDEC01B2ACC605300638907 /* FunnyPunyWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				CEDEC01C2ACC605300638907 /* FunnyPunyWidgetsBundle.swift */,
+				CEDEC01E2ACC605300638907 /* FunnyPunyWidgets.swift */,
+				CEDEC0202ACC605900638907 /* Assets.xcassets */,
+				CEDEC0222ACC605900638907 /* Info.plist */,
+			);
+			path = FunnyPunyWidgets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,10 +497,12 @@
 				CEDAFF2D28E7199C006136B3 /* Resources */,
 				CEE6112F28F8434A003CF0AB /* SwiftFormat */,
 				CE09C14F28F9A6D000B7CB45 /* SwiftLint */,
+				CEDEC0262ACC605900638907 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CEDEC0242ACC605900638907 /* PBXTargetDependency */,
 			);
 			name = FunnyPuny;
 			packageProductDependencies = (
@@ -450,6 +521,23 @@
 			productReference = CEDAFF2F28E7199C006136B3 /* FunnyPuny.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CEDEC0142ACC605300638907 /* FunnyPunyWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEDEC0292ACC605900638907 /* Build configuration list for PBXNativeTarget "FunnyPunyWidgetsExtension" */;
+			buildPhases = (
+				CEDEC0112ACC605300638907 /* Sources */,
+				CEDEC0122ACC605300638907 /* Frameworks */,
+				CEDEC0132ACC605300638907 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FunnyPunyWidgetsExtension;
+			productName = FunnyPunyWidgetsExtension;
+			productReference = CEDEC0152ACC605300638907 /* FunnyPunyWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -457,11 +545,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					CEDAFF2E28E7199C006136B3 = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					CEDEC0142ACC605300638907 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
@@ -489,6 +580,7 @@
 			projectRoot = "";
 			targets = (
 				CEDAFF2E28E7199C006136B3 /* FunnyPuny */,
+				CEDEC0142ACC605300638907 /* FunnyPunyWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -508,6 +600,14 @@
 				CE6B77D52923C3A300996142 /* SF-Pro-Text-Medium.otf in Resources */,
 				CEDAFF3C28E7199E006136B3 /* Assets.xcassets in Resources */,
 				CEB1EA8A2909CB840087ED24 /* SF-Pro-Text-Regular.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEDEC0132ACC605300638907 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDEC0212ACC605900638907 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +716,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEDEC0112ACC605300638907 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDEC01F2ACC605300638907 /* FunnyPunyWidgets.swift in Sources */,
+				CEDEC01D2ACC605300638907 /* FunnyPunyWidgetsBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEDEC0242ACC605900638907 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEDEC0142ACC605300638907 /* FunnyPunyWidgetsExtension */;
+			targetProxy = CEDEC0232ACC605900638907 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CE6D4BC52930ED0F00647D7D /* Texts.strings */ = {
@@ -758,6 +875,7 @@
 		CEDAFF4428E7199E006136B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -796,6 +914,7 @@
 		CEDAFF4528E7199E006136B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -830,6 +949,75 @@
 			};
 			name = Release;
 		};
+		CEDEC0272ACC605900638907 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FunnyPunyWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FunnyPunyWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zlataguseva.funny-puny.FunnyPunyWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEDEC0282ACC605900638907 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FunnyPunyWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FunnyPunyWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zlataguseva.funny-puny.FunnyPunyWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -847,6 +1035,15 @@
 			buildConfigurations = (
 				CEDAFF4428E7199E006136B3 /* Debug */,
 				CEDAFF4528E7199E006136B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEDEC0292ACC605900638907 /* Build configuration list for PBXNativeTarget "FunnyPunyWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDEC0272ACC605900638907 /* Debug */,
+				CEDEC0282ACC605900638907 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
