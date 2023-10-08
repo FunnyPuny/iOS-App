@@ -1,12 +1,8 @@
-//
-//  FunnyPunyWidgetsBundle.swift
-//  FunnyPunyWidgets
-//
-//  Created by Злата Гусева on 03.10.2023.
-//
+// FunnyPunyWidgetsBundle.swift
+// FunnyPuny. Created by Zlata Guseva.
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 @main
 struct FunnyPunyWidgetsBundle: WidgetBundle {

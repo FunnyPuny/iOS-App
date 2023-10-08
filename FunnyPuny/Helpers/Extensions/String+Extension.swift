@@ -38,6 +38,6 @@ extension String {
             return true
         }
         // Trim and check empty string
-        return (trimmingCharacters(in: .whitespaces) == "")
+        return trimmingCharacters(in: .whitespaces) == ""
     }
 }

@@ -86,6 +86,10 @@
 		CEDEC0212ACC605900638907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDEC0202ACC605900638907 /* Assets.xcassets */; };
 		CEDEC0252ACC605900638907 /* FunnyPunyWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CEDEC0152ACC605300638907 /* FunnyPunyWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CEF19E4F298FBD8000F0426C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */; };
+		F189CBA92AD2BFE1006A11F6 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189CBA82AD2BFE1006A11F6 /* WidgetModel.swift */; };
+		F189CBAA2AD2BFE1006A11F6 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189CBA82AD2BFE1006A11F6 /* WidgetModel.swift */; };
+		F189CBAC2AD2D179006A11F6 /* ToggleStateIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189CBAB2AD2D179006A11F6 /* ToggleStateIntent.swift */; };
+		F189CBAD2AD2D179006A11F6 /* ToggleStateIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189CBAB2AD2D179006A11F6 /* ToggleStateIntent.swift */; };
 		FDE5930B294767F100F0E593 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5930A294767F100F0E593 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +192,8 @@
 		CEDEC0202ACC605900638907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEDEC0222ACC605900638907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF19E4E298FBD7F00F0426C /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		F189CBA82AD2BFE1006A11F6 /* WidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModel.swift; sourceTree = "<group>"; };
+		F189CBAB2AD2D179006A11F6 /* ToggleStateIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStateIntent.swift; sourceTree = "<group>"; };
 		FDE5930A294767F100F0E593 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -479,6 +485,8 @@
 			children = (
 				CEDEC01C2ACC605300638907 /* FunnyPunyWidgetsBundle.swift */,
 				CEDEC01E2ACC605300638907 /* FunnyPunyWidgets.swift */,
+				F189CBA82AD2BFE1006A11F6 /* WidgetModel.swift */,
+				F189CBAB2AD2D179006A11F6 /* ToggleStateIntent.swift */,
 				CEDEC0202ACC605900638907 /* Assets.xcassets */,
 				CEDEC0222ACC605900638907 /* Info.plist */,
 			);
@@ -695,6 +703,7 @@
 				CE0C56D02915AC710080ED5C /* UIView+Extension.swift in Sources */,
 				CE6B77CC29201DD600996142 /* String+Extension.swift in Sources */,
 				CE6B77D9292406ED00996142 /* Configurable.swift in Sources */,
+				F189CBA92AD2BFE1006A11F6 /* WidgetModel.swift in Sources */,
 				CEB1EA90290D931A0087ED24 /* TextField.swift in Sources */,
 				CEADCCCF29354EB600BFD545 /* Constants.swift in Sources */,
 				CEC51B10292D5B3200DCC848 /* CalendarManager.swift in Sources */,
@@ -705,6 +714,7 @@
 				CE6B77D1292261FA00996142 /* ProgressView.swift in Sources */,
 				CEA0BF5528FEBA7A009B6BFD /* DateFormats.swift in Sources */,
 				CEF19E4F298FBD8000F0426C /* DatePickerView.swift in Sources */,
+				F189CBAC2AD2D179006A11F6 /* ToggleStateIntent.swift in Sources */,
 				CE351C372911BD8000ACCF0C /* ScoreView.swift in Sources */,
 				CE7808E728FF10CE0016AD41 /* UITableView+Extension.swift in Sources */,
 				CE09C15328F9EB1800B7CB45 /* DayView.swift in Sources */,
@@ -721,7 +731,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDEC01F2ACC605300638907 /* FunnyPunyWidgets.swift in Sources */,
+				F189CBAA2AD2BFE1006A11F6 /* WidgetModel.swift in Sources */,
 				CEDEC01D2ACC605300638907 /* FunnyPunyWidgetsBundle.swift in Sources */,
+				F189CBAD2AD2D179006A11F6 /* ToggleStateIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
