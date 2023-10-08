@@ -1,6 +1,7 @@
 // FunnyPunyWidgets.swift
 // FunnyPuny. Created by Zlata Guseva.
 
+import AVFoundation
 import SwiftUI
 import WidgetKit
 
@@ -50,8 +51,8 @@ struct FunnyPunyWidgetsEntryView: View {
                     }) { task in
                         HStack(spacing: 6) {
                             Button(intent: ToggleStateIntent(id: task.id)) {
-                                Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(.blue)
+                                Image(systemName: task.isCompleted ? "checkmark.circle" : "circle")
+                                    .foregroundColor(Color(UIColor(named: "backgroundAccent") ?? .blue))
                             }
                             .buttonStyle(.plain)
 
@@ -61,7 +62,7 @@ struct FunnyPunyWidgetsEntryView: View {
                                     .lineLimit(1)
                                     .strikethrough(task.isCompleted, pattern: .solid, color: .primary)
 
-                                Divider()
+                                // Divider()
                             }
                         }
 
