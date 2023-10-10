@@ -33,47 +33,50 @@ struct FunnyPunyWidgetsEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Tasks")
-                .fontWeight(.semibold)
-                .padding(.bottom, 10)
+        HStack {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Tasks")
+                    .fontWeight(.semibold)
+                    .padding(.bottom, 10)
 
-            VStack(alignment: .leading, spacing: 6) {
-                if entry.lastThreeTasks.isEmpty {
-                    Text("No tasks for today")
-                        .font(.caption)
-                        .foregroundStyle(.gray)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else {
-                    /// sorting completed to last
-                    ForEach(entry.lastThreeTasks.sorted {
-                        !$0.isCompleted && $1.isCompleted
-                    }) { task in
-                        HStack(spacing: 6) {
-                            Button(intent: ToggleStateIntent(id: task.id)) {
-                                Image(systemName: task.isCompleted ? "checkmark.circle" : "circle")
-                                    .foregroundColor(Color(UIColor(named: "backgroundAccent") ?? .blue))
+                VStack(alignment: .leading, spacing: 6) {
+                    if entry.lastThreeTasks.isEmpty {
+                        Text("No tasks for today")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    } else {
+                        /// sorting completed to last
+                        ForEach(entry.lastThreeTasks.sorted {
+                            !$0.isCompleted && $1.isCompleted
+                        }) { task in
+                            HStack(spacing: 6) {
+                                Button(intent: ToggleStateIntent(id: task.id)) {
+                                    Image(systemName: task.isCompleted ? "checkmark.circle" : "circle")
+                                        .foregroundColor(Color(UIColor(named: "backgroundAccent") ?? .blue))
+                                }
+                                .buttonStyle(.plain)
+
+                                VStack(alignment: .leading, spacing: 0) {
+                                    Text(task.taskTitle)
+                                        .textScale(.secondary)
+                                        .lineLimit(1)
+                                        .strikethrough(task.isCompleted, pattern: .solid, color: .primary)
+
+                                    // Divider()
+                                }
                             }
-                            .buttonStyle(.plain)
 
-                            VStack(alignment: .leading, spacing: 0) {
-                                Text(task.taskTitle)
-                                    .textScale(.secondary)
-                                    .lineLimit(1)
-                                    .strikethrough(task.isCompleted, pattern: .solid, color: .primary)
-
-                                // Divider()
+                            if task.id != entry.lastThreeTasks.last?.id {
+                                Spacer(minLength: 0)
                             }
-                        }
-
-                        if task.id != entry.lastThreeTasks.last?.id {
-                            Spacer(minLength: 0)
                         }
                     }
                 }
             }
+            .containerBackground(.fill.tertiary, for: .widget)
+            Spacer()
         }
-        .containerBackground(.fill.tertiary, for: .widget)
     }
 }
 
@@ -97,6 +100,12 @@ struct FunnyPunyWidgets: Widget {
 }
 
 #Preview(as: .systemSmall) {
+    FunnyPunyWidgets()
+} timeline: {
+    FPEntry(lastThreeTasks: TaskDataModel.shared.tasks)
+}
+
+#Preview(as: .systemMedium) {
     FunnyPunyWidgets()
 } timeline: {
     FPEntry(lastThreeTasks: TaskDataModel.shared.tasks)

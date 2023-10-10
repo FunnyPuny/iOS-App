@@ -90,6 +90,9 @@
 		F189CBAA2AD2BFE1006A11F6 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189CBA82AD2BFE1006A11F6 /* WidgetModel.swift */; };
 		F189CBAC2AD2D179006A11F6 /* ToggleStateIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189CBAB2AD2D179006A11F6 /* ToggleStateIntent.swift */; };
 		F189CBAD2AD2D179006A11F6 /* ToggleStateIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189CBAB2AD2D179006A11F6 /* ToggleStateIntent.swift */; };
+		F189CBAE2AD58F53006A11F6 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA71A2728F8AFCA00D2CE36 /* Habit.swift */; };
+		F189CBAF2AD58F66006A11F6 /* Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4BD22290851CF006F6D1D /* Days.swift */; };
+		F189CBB02AD58FA4006A11F6 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B77BB29184F2F00996142 /* HabitManager.swift */; };
 		FDE5930B294767F100F0E593 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5930A294767F100F0E593 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
@@ -730,9 +733,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F189CBB02AD58FA4006A11F6 /* HabitManager.swift in Sources */,
 				CEDEC01F2ACC605300638907 /* FunnyPunyWidgets.swift in Sources */,
+				F189CBAE2AD58F53006A11F6 /* Habit.swift in Sources */,
 				F189CBAA2AD2BFE1006A11F6 /* WidgetModel.swift in Sources */,
 				CEDEC01D2ACC605300638907 /* FunnyPunyWidgetsBundle.swift in Sources */,
+				F189CBAF2AD58F66006A11F6 /* Days.swift in Sources */,
 				F189CBAD2AD2D179006A11F6 /* ToggleStateIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
