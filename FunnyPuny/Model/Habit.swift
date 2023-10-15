@@ -9,6 +9,8 @@ class Habit: Object {
     @Persisted var name: String = ""
     @Persisted var frequency: List<Frequency>
     @Persisted var createdDate = Date()
+    @Persisted var reminderTime: String?
+    @Persisted var reminderNote: String?
 
     convenience init(name: String, frequency: List<Frequency>, createdDate: Date) {
         self.init()
