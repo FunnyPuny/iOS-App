@@ -56,3 +56,12 @@
 "sat" = "Sat";
 "sun" = "Sun";
 "everyday" = "Everyday";
+
+//MARK: Profile
+
+"profile" = "Profile";
+"notifications" = "Notifications";
+"appearance" = "Appearance";
+"achievments" = "Achievments";
+"donation" = "Donation";
+"soon" = "soon";
